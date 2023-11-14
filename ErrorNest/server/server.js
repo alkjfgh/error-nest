@@ -40,7 +40,6 @@ app.use(bodyParser.json());
 app.use('/user', user);
 
 app.get('/document/:seq', async (req, res) => {
-    console.log(req);
     res.json({seq : req.params.seq});
 });
 
