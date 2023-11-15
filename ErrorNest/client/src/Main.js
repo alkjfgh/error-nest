@@ -6,11 +6,9 @@ const Main = (props) => {
         <>
             <h3>안녕하세요. 메인페이지 입니다.</h3>
             <ul>
-                <Link to="/product/1"><li>1번상품</li></Link>
-                <Link to="/product/2"><li>2번상품</li></Link>
-                <Link to="/document/1"><li>1</li></Link>
-                <Link to="/document/2"><li>2</li></Link>
-                <Link to="/document/3"><li>3</li></Link>
+                <Link to="/document/1"><li>document 1</li></Link>
+                <Link to="/document/2"><li>document 2</li></Link>
+                <Link to="/document/3"><li>document 3</li></Link>
             </ul>
         </>
     );
