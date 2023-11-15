@@ -6,7 +6,6 @@ import NotFound from './NotFound';
 import Document from "./Document";
 
 const App = () => {
-    const number = 123;
 
     return (
         <Router>
@@ -14,7 +13,7 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<Main />} />
                 <Route path='/document/*' element={<Document />} />
-                <Route path='*' element={<NotFound />} />
+                <Route path='*' element={<NotFound />} /> {/*404 error*/}
             </Routes>
         </Router>
     );
