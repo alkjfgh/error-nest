@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Header';
 import Main from './Main';
 import NotFound from './NotFound';
-import Document from "./Document";
+import Document from './Document';
+import User from './User';
 
 const App = () => {
 
@@ -13,6 +14,7 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<Main />} />
                 <Route path='/document/*' element={<Document />} />
+                <Route path='/user/*' element={<User />} />
                 <Route path='*' element={<NotFound />} /> {/*404 error*/}
             </Routes>
         </Router>

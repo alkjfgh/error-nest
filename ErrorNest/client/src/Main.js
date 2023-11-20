@@ -9,6 +9,7 @@ const Main = (props) => {
                 <Link to="/document/1"><li>document 1</li></Link>
                 <Link to="/document/2"><li>document 2</li></Link>
                 <Link to="/document/3"><li>document 3</li></Link>
+                <Link to="/user"><li>user</li></Link>
             </ul>
         </>
     );
