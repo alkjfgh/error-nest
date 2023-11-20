@@ -1,7 +1,14 @@
 const mongoose= require('mongoose');
-const dbUrl = require('./db_config.json')
+const path = require('path');
+const dotenv = require('dotenv');
+
+dotenv.config({
+    path : path.join(__dirname, './.env')
+});
+const {DB_URI} = process.env;
+
 const connect = () => {
-    mongoose.connect(dbUrl.url)
+    mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('MongoDB connection successful');
     }).catch((error) => {
