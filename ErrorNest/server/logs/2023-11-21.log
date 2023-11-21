@@ -1,0 +1,135 @@
+2023-11-21 18:47:25 [Error-Nest] info: express is running on 8000
+2023-11-21 18:47:25 [Error-Nest] info: MongoDB connection successful
+2023-11-21 18:47:37 [Error-Nest] info: ::1 - - [21/Nov/2023:09:47:37 +0000] "GET /user HTTP/1.1" 304 - "http://localhost:3000/user" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 18:47:39 [Error-Nest] info: ::1 - - [21/Nov/2023:09:47:39 +0000] "GET /user HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:17:16 [Error-Nest] info: express is running on 8000
+2023-11-21 19:17:17 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:18:13 [Error-Nest] info: ::1 - - [21/Nov/2023:10:18:13 +0000] "GET /test HTTP/1.1" 200 12 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:18:13 [Error-Nest] info: ::1 - - [21/Nov/2023:10:18:13 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:19:44 [Error-Nest] info: ::1 - - [21/Nov/2023:10:19:44 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:19:52 [Error-Nest] info: ::1 - - [21/Nov/2023:10:19:52 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:20:02 [Error-Nest] info: ::1 - - [21/Nov/2023:10:20:02 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:20:36 [Error-Nest] info: ::1 - - [21/Nov/2023:10:20:36 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:20:50 [Error-Nest] info: ::1 - - [21/Nov/2023:10:20:50 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:27:13 [Error-Nest] info: ::1 - - [21/Nov/2023:10:27:13 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:27:14 [Error-Nest] info: ::1 - - [21/Nov/2023:10:27:14 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:28:21 [Error-Nest] info: express is running on 8000
+2023-11-21 19:28:21 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:28:31 [Error-Nest] info: express is running on 8000
+2023-11-21 19:28:32 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:30:10 [Error-Nest] info: express is running on 8000
+2023-11-21 19:30:11 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:30:12 [Error-Nest] info: express is running on 8000
+2023-11-21 19:30:12 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:30:47 [Error-Nest] info: express is running on 8000
+2023-11-21 19:30:48 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:30:51 [Error-Nest] info: ::1 - - [21/Nov/2023:10:30:51 +0000] "GET /test HTTP/1.1" 200 12 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:30:59 [Error-Nest] info: ::1 - - [21/Nov/2023:10:30:59 +0000] "POST /test/insert HTTP/1.1" 200 17 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:30:59 [Error-Nest] error: Test validation failed: password: Path `password` is required., id: Path `id` is required.
+2023-11-21 19:32:06 [Error-Nest] info: express is running on 8000
+2023-11-21 19:32:07 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:32:11 [Error-Nest] info: ::1 - - [21/Nov/2023:10:32:11 +0000] "GET /main.a1ac342ba824189533c1.hot-update.json HTTP/1.1" 404 180 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:32:11 [Error-Nest] info: ::1 - - [21/Nov/2023:10:32:11 +0000] "GET /test HTTP/1.1" 200 12 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:32:34 [Error-Nest] info: ::1 - - [21/Nov/2023:10:32:34 +0000] "POST /test/insert HTTP/1.1" 200 17 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:32:34 [Error-Nest] error: Test validation failed: password: Path `password` is required., id: Path `id` is required.
+2023-11-21 19:33:23 [Error-Nest] info: express is running on 8000
+2023-11-21 19:33:23 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:33:30 [Error-Nest] info: ::1 - - [21/Nov/2023:10:33:30 +0000] "GET /test HTTP/1.1" 200 12 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:33:33 [Error-Nest] info: ::1 - - [21/Nov/2023:10:33:33 +0000] "POST /test/insert HTTP/1.1" 200 16 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:33:33 [Error-Nest] info: ::1 - - [21/Nov/2023:10:33:33 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:34:17 [Error-Nest] info: ::1 - - [21/Nov/2023:10:34:17 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:34:18 [Error-Nest] info: ::1 - - [21/Nov/2023:10:34:18 +0000] "POST /test/insert HTTP/1.1" 200 16 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:34:19 [Error-Nest] info: ::1 - - [21/Nov/2023:10:34:19 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:35:23 [Error-Nest] info: ::1 - - [21/Nov/2023:10:35:23 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:35:23 [Error-Nest] info: ::1 - - [21/Nov/2023:10:35:23 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:36:28 [Error-Nest] info: ::1 - - [21/Nov/2023:10:36:28 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:36:31 [Error-Nest] info: ::1 - - [21/Nov/2023:10:36:31 +0000] "GET /test HTTP/1.1" 200 12 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:36:49 [Error-Nest] info: ::1 - - [21/Nov/2023:10:36:49 +0000] "POST /test/insert HTTP/1.1" 200 16 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:36:49 [Error-Nest] info: ::1 - - [21/Nov/2023:10:36:49 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:36:53 [Error-Nest] info: ::1 - - [21/Nov/2023:10:36:53 +0000] "POST /test/insert HTTP/1.1" 200 16 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:36:53 [Error-Nest] info: ::1 - - [21/Nov/2023:10:36:53 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:37:00 [Error-Nest] info: ::1 - - [21/Nov/2023:10:37:00 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:37:03 [Error-Nest] info: ::1 - - [21/Nov/2023:10:37:03 +0000] "POST /test/insert HTTP/1.1" 200 16 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:37:03 [Error-Nest] info: ::1 - - [21/Nov/2023:10:37:03 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:37:13 [Error-Nest] info: express is running on 8000
+2023-11-21 19:37:17 [Error-Nest] info: ::1 - - [21/Nov/2023:10:37:17 +0000] "POST /test/insert HTTP/1.1" 200 17 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:37:17 [Error-Nest] error: Test validation failed: password: Path `password` is required.
+2023-11-21 19:37:18 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:40:25 [Error-Nest] info: express is running on 8000
+2023-11-21 19:40:25 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:40:31 [Error-Nest] info: ::1 - - [21/Nov/2023:10:40:31 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:40:33 [Error-Nest] info: ::1 - - [21/Nov/2023:10:40:33 +0000] "POST /test/insert HTTP/1.1" 200 16 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:40:33 [Error-Nest] info: ::1 - - [21/Nov/2023:10:40:33 +0000] "GET /test HTTP/1.1" 200 111 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:41:40 [Error-Nest] info: ::1 - - [21/Nov/2023:10:41:40 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:41:45 [Error-Nest] info: ::1 - - [21/Nov/2023:10:41:45 +0000] "GET /test HTTP/1.1" 200 111 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:41:54 [Error-Nest] info: ::1 - - [21/Nov/2023:10:41:54 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:42:19 [Error-Nest] info: express is running on 8000
+2023-11-21 19:42:19 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:42:21 [Error-Nest] info: ::1 - - [21/Nov/2023:10:42:21 +0000] "GET /test HTTP/1.1" 200 111 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:42:30 [Error-Nest] info: express is running on 8000
+2023-11-21 19:42:31 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:42:54 [Error-Nest] info: ::1 - - [21/Nov/2023:10:42:54 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:42:55 [Error-Nest] info: ::1 - - [21/Nov/2023:10:42:55 +0000] "GET /test HTTP/1.1" 200 111 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:42:57 [Error-Nest] info: ::1 - - [21/Nov/2023:10:42:57 +0000] "GET /test HTTP/1.1" 200 111 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:43:01 [Error-Nest] info: ::1 - - [21/Nov/2023:10:43:01 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:43:02 [Error-Nest] info: ::1 - - [21/Nov/2023:10:43:02 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:43:03 [Error-Nest] info: ::1 - - [21/Nov/2023:10:43:03 +0000] "GET /test HTTP/1.1" 304 - "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:43:30 [Error-Nest] info: express is running on 8000
+2023-11-21 19:43:30 [Error-Nest] info: MongoDB connection successful
+2023-11-21 19:43:31 [Error-Nest] info: ::1 - - [21/Nov/2023:10:43:31 +0000] "GET /test HTTP/1.1" 200 111 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:43:36 [Error-Nest] info: ::1 - - [21/Nov/2023:10:43:36 +0000] "POST /test/insert HTTP/1.1" 200 16 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:43:36 [Error-Nest] info: ::1 - - [21/Nov/2023:10:43:36 +0000] "GET /test HTTP/1.1" 200 211 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:43:38 [Error-Nest] info: ::1 - - [21/Nov/2023:10:43:38 +0000] "POST /test/insert HTTP/1.1" 200 16 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-21 19:43:39 [Error-Nest] info: ::1 - - [21/Nov/2023:10:43:39 +0000] "GET /test HTTP/1.1" 200 311 "http://localhost:3000/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+

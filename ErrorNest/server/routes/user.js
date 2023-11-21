@@ -1,16 +1,10 @@
 const express = require('express');
 const User = require('../db/schema/user');
+const userController = require('../controller/userController');
 const router = express.Router();
 
-router.get('/', async (req, res, next) => {
-    try {
-        const users = await User.find({}); // 몽고디비의 db.users.find({}) 쿼리와 같음
-        res.json({ users });
-    } catch (err) {
-        console.error(err);
-        next(err);
-    }
-});
+/** GET /user controller로 분리 */
+router.get('/', (req, res, next) => userController.userFindAll(req, res, next));
 
 router.get('/insert', async (req, res, next) => {
     try {

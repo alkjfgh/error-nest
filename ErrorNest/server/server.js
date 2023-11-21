@@ -8,12 +8,14 @@ const logger = require("./log/logger");
 const morganMiddleware = require('./log/morganMiddleware');
 const connect = require('./db/connect');
 const user = require('./routes/user');
+const test = require('./routes/test');
 
 //morgan 으로 http 요청 응답 log 출력
 app.use(morganMiddleware)
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/user', user);
+app.use('/test', test);
 
 app.get('/', (req, res) => {
     // logger.info('GET /');
