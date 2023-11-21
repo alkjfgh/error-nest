@@ -1,4 +1,5 @@
 const Test = require("../db/schema/test");
+const logger = require("../log/logger");
 
 /** Test Select All */
 const testFindAll = async (req, res, next) => {
@@ -6,7 +7,7 @@ const testFindAll = async (req, res, next) => {
         const tests = await Test.find({}); // 몽고디비의 db.users.find({}) 쿼리와 같음
         res.json({tests});
     } catch (err) {
-        console.error(err);
+        logger.error(err);
         next(err);
     }
 }
@@ -21,7 +22,7 @@ const testInsert = async (req, res, next) => {
         const result = await Test.create(test);
         res.json({success: true});
     } catch (err) {
-        console.error(err);
+        logger.error(err);
         next(err);
         res.json({success: false});
     }

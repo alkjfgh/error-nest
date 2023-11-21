@@ -13,21 +13,17 @@ const {DB_URI} = process.env;
 const connect = () => {
     mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        logger.info('MongoDB connection successful')
-        // console.log('MongoDB connection successful');
+        logger.info('MongoDB connection successful');
     }).catch((error) => {
-        logger.error('MongoDB connection error: ' +  error.message)
-        // console.log('MongoDB connection error', error);
+        logger.error('MongoDB connection error: ' +  error.message);
     });
 };
 
 mongoose.connection.on('error', (error) => {
-    logger.error('MongoDB connection error: ' +  error.message)
-    // console.error('MongoDB connection error', error);
+    logger.error('MongoDB connection error: ' +  error.message);
 });
 mongoose.connection.on('disconnected', () => {
-    logger.warn('MongoDB connection was lost. Lets try connecting again.')
-    // console.error('MongoDB connection was lost. Lets try connecting again.');
+    logger.warn('MongoDB connection was lost. Lets try connecting again.');
     connect();
 });
 
