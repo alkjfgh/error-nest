@@ -2,11 +2,13 @@ const mongoose= require('mongoose');
 const path = require('path');
 const dotenv = require('dotenv');
 
+/** 현재 폴더에 있는 .env 설멍 파일 가져오기 */
 dotenv.config({
     path : path.join(__dirname, './.env')
 });
 const {DB_URI} = process.env;
 
+/** 몽고디비 연결 */
 const connect = () => {
     mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {

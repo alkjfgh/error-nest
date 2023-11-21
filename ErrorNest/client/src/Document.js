@@ -4,13 +4,17 @@ import axios from "axios";
 
 function Document(props) {
     const [seq, setSeq] = useState()
+    const [operator, setOperator] = useState();
+    const location = useLocation();
+
     const urlDatatest = async(this_url) => {
-        const response = await axios('http://localhost:8000'+this_url);
+        console.log(this_url)
+        console.log(this_url.replace(0))
+        const response = await axios(this_url);
         const seq = response.data.seq;
         setSeq(seq);
     };
 
-    const location = useLocation();
     useEffect(() => {
         // express로 url 보내서 처리
         const this_url = location.pathname;

@@ -12,15 +12,16 @@ function User(props) {
         }
     },[]);
 
+    /** 유저 목록 조회 */
     const getUsers = async () => {
-        const response = await axios.get('http://localhost:8000/user');
+        const response = await axios.get('/user');
         console.log("====getUsers=====");
         setUsers(response.data.users);
     };
 
     const insertTest = async () => {
         // 데이터 직접 node.js에서 바꿔야 해서 일단 막음.
-        // const response= await axios.get('http://localhost:8000/user/insert')
+        // const response= await axios.get('/user/insert')
         // console.log('success: ' + response.data.success)
         // if(response.data.success) getUsers().then(r => {});
     };
