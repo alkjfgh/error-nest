@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\.2c1dd5aa177a1ccd3390a2eb65d01ccf2b35b87f-audit.json",
+    "files": [
+        {
+            "date": 1700527877711,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\2023-11-21.error.log",
+            "hash": "48b9fb1d4307ac6e8d7f2d7817215ff813a1e79138c87bee2ef330eb0c1b9845"
+        }
+    ],
+    "hashType": "sha256"
+}

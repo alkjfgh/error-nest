@@ -1,6 +1,7 @@
 const mongoose= require('mongoose');
 const path = require('path');
 const dotenv = require('dotenv');
+const logger = require("../log/logger");
 
 /** 현재 폴더에 있는 .env 설멍 파일 가져오기 */
 dotenv.config({
@@ -12,17 +13,21 @@ const {DB_URI} = process.env;
 const connect = () => {
     mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        console.log('MongoDB connection successful');
+        logger.info('MongoDB connection successful')
+        // console.log('MongoDB connection successful');
     }).catch((error) => {
-        console.log('MongoDB connection error', error);
+        logger.error('MongoDB connection error: ' +  error.message)
+        // console.log('MongoDB connection error', error);
     });
 };
 
 mongoose.connection.on('error', (error) => {
-    console.error('MongoDB connection error', error);
+    logger.error('MongoDB connection error: ' +  error.message)
+    // console.error('MongoDB connection error', error);
 });
 mongoose.connection.on('disconnected', () => {
-    console.error('MongoDB connection was lost. Lets try connecting again.');
+    logger.warn('MongoDB connection was lost. Lets try connecting again.')
+    // console.error('MongoDB connection was lost. Lets try connecting again.');
     connect();
 });
 

@@ -4,22 +4,31 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const asyncWrap = require('./error/async-wrap');
+const logger = require("./log/logger");
+const morganMiddleware = require('./log/morganMiddleware');
 const connect = require('./db/connect');
 const user = require('./routes/user');
 
+//morgan 으로 http 요청 응답 log 출력
+app.use(morganMiddleware)
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/user', user);
+
 app.get('/', (req, res) => {
+    // logger.info('GET /');
     res.send("Hello World !!!");
 })
 
 app.get('/document/:seq', async (req, res) => {
-    res.json({seq : req.params.seq});
+    const seq = req.params.seq;
+    // logger.info(`GET /document/${seq}`);
+    res.json({seq : seq});
 })
 
 /** express 기본적인 error 핸들링 */
 app.use((err, req, res, next) => {
+    logger.error(err.message);
     if (err.message === 'someError') {
         res.status(400).json({ message: "someQuery notfound." });
         return;
@@ -38,6 +47,6 @@ app.use((err, req, res, next) => {
 }));*/
 
 app.listen(port, () => {
-    console.log(`express is running on ${port}`);
+    logger.info(`express is running on ${port}`);
     connect();
 })
