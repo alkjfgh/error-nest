@@ -10,4 +10,20 @@ const userFindAll = async (req, res, next) => {
     }
 }
 
+const userInsert = async (req, res, next) => {
+    try {
+        const user = {
+            name: "유명재",
+            age: 25,
+            married: true,
+            comment: "유명재 입니다."
+        }
+        const result = await User.create(user);
+        res.json({success: true});
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+}
+
 module.exports = {userFindAll};

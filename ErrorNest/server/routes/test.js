@@ -1,15 +1,11 @@
 const express = require('express');
-const Test = require('../db/schema/test');
 const testController = require('../controller/testController');
 const router = express.Router();
 
-/** GET /test controller로 분리 */
-router.get('/', (req, res, next) =>
-    testController.testFindAll(req, res, next)
-);
+/** GET /test */
+router.get('/', testController.testFindAll);
 
-router.post('/insert',(req, res, next) =>
-    testController.testInsert(req, res, next)
-);
+/** POST /test/insert  */
+router.post('/insert', testController.testInsert);
 
 module.exports = router;

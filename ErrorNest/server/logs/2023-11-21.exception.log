@@ -30,3 +30,31 @@ SyntaxError: missing ) after argument list
     at require (node:internal/modules/cjs/helpers:121:18)
     at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:11:14)
     at Module._compile (node:internal/modules/cjs/loader:1256:14)
+2023-11-21 19:48:54 [Error-Nest] error: uncaughtException: Unexpected token ')'
+C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\test.js:5
+router.get('/', testController.testInsert));
+                                          ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1178:20)
+    at Module._compile (node:internal/modules/cjs/loader:1220:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:11:14)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+2023-11-21 19:49:25 [Error-Nest] error: uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.setHeader (node:_http_outgoing:648:11)
+    at ServerResponse.header (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\response.js:278:15)
+    at testInsert (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\controller\testController.js:24:13)
+    at Layer.handle [as handle_request] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\layer.js:95:5)

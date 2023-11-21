@@ -1,5 +1,6 @@
 const Test = require("../db/schema/test");
 
+/** Test Select All */
 const testFindAll = async (req, res, next) => {
     try {
         const tests = await Test.find({}); // 몽고디비의 db.users.find({}) 쿼리와 같음
@@ -10,6 +11,7 @@ const testFindAll = async (req, res, next) => {
     }
 }
 
+/** Test Insert */
 const testInsert = async (req, res, next) => {
     try {
         const test = {
