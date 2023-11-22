@@ -53,6 +53,7 @@ function replaceMVC(schema_name){
         .replace(/schemaname/gi, schema_name)
     MVCS.defaultRoute.path = MVCS.defaultRoute.path
         .replace(/default/gi, schema_name)
+    MVCS.defaultRoute.path = MVCS.defaultRoute.path.replace("Route", "");
 }
 
 function writeMcs() {
@@ -71,7 +72,7 @@ function main(schema_name){
 
 const schema_name = process.argv[2].toString();
 
-console.log(schema_name + " is right? (y / n) : ");
+process.stdout.write(schema_name + " is right? (y / n) : ");
 let choice = '';
 rl.on("line", (line) => {
     choice = line;
