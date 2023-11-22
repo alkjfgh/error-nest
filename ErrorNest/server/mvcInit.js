@@ -1,4 +1,9 @@
 const fs = require('fs');
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
 
 const MVCS = {
     defaultController: {
@@ -64,5 +69,14 @@ function main(schema_name){
     writeMcs();
 }
 
-const schema_name = "board";
-main(schema_name);
+const schema_name = process.argv[2].toString();
+
+console.log(schema_name + " is right? (y / n) : ");
+let choice = '';
+rl.on("line", (line) => {
+    choice = line;
+    rl.close();
+});
+rl.on('close', () => {
+    if(choice === 'y') main(schema_name);
+})
