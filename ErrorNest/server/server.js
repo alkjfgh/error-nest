@@ -8,7 +8,6 @@ app.use('/test', test);
 app.get('/', (req, res) => {
     // logger.info('GET /');
     res.send("Hello World !!!");
-
 })
 
 app.get('/document/:seq', async (req, res) => {
