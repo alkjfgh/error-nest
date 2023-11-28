@@ -5,6 +5,8 @@ const test = require('./routes/test');
 app.use('/user', user);
 app.use('/test', test);
 
+
+
 app.get('/', (req, res) => {
     // logger.info('GET /');
     res.send("Hello World !!!");
