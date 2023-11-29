@@ -1,0 +1,116 @@
+2023-11-29 09:13:55 [Error-Nest] info: express is running on 8000
+2023-11-29 09:13:55 [Error-Nest] info: MongoDB connection successful
+2023-11-29 09:14:18 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:18 +0000] "GET /document/1 HTTP/1.1" 200 11 "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:18 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:18 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:20 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:20 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:20 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:20 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:21 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:21 +0000] "GET /user HTTP/1.1" 200 328 "http://localhost:3000/user" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:24 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:24 +0000] "GET /user HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:25 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:25 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:26 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:26 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:42 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:42 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:42 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:42 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:53 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:53 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:56 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:56 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:57 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:57 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:57 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:57 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:58 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:58 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:58 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:58 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:14:59 [Error-Nest] info: ::1 - - [29/Nov/2023:00:14:59 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:34:44 [Error-Nest] info: ::1 - - [29/Nov/2023:00:34:44 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:34:44 [Error-Nest] info: ::1 - - [29/Nov/2023:00:34:44 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:34:47 [Error-Nest] info: ::1 - - [29/Nov/2023:00:34:47 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:34:47 [Error-Nest] info: ::1 - - [29/Nov/2023:00:34:47 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:38:52 [Error-Nest] info: express is running on 8000
+2023-11-29 09:38:52 [Error-Nest] info: MongoDB connection successful
+2023-11-29 09:41:05 [Error-Nest] info: express is running on 8000
+2023-11-29 09:41:05 [Error-Nest] info: MongoDB connection successful
+2023-11-29 09:43:24 [Error-Nest] info: express is running on 8000
+2023-11-29 09:43:24 [Error-Nest] info: MongoDB connection successful
+2023-11-29 09:47:44 [Error-Nest] info: express is running on 8000
+2023-11-29 09:47:44 [Error-Nest] info: MongoDB connection successful
+2023-11-29 09:47:53 [Error-Nest] info: ::1 - - [29/Nov/2023:00:47:53 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:47:53 [Error-Nest] info: ::1 - - [29/Nov/2023:00:47:53 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:47:55 [Error-Nest] info: ::1 - - [29/Nov/2023:00:47:55 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:47:55 [Error-Nest] info: ::1 - - [29/Nov/2023:00:47:55 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 09:57:05 [Error-Nest] info: ::1 - - [29/Nov/2023:00:57:05 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:01:32 [Error-Nest] info: ::1 - - [29/Nov/2023:01:01:32 +0000] "GET /document/1 HTTP/1.1" 200 11 "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:01:32 [Error-Nest] info: ::1 - - [29/Nov/2023:01:01:32 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:01:34 [Error-Nest] info: ::1 - - [29/Nov/2023:01:01:34 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:16:41 [Error-Nest] info: ::1 - - [29/Nov/2023:01:16:41 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:16:42 [Error-Nest] info: ::1 - - [29/Nov/2023:01:16:42 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:16:58 [Error-Nest] info: ::1 - - [29/Nov/2023:01:16:58 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:18:12 [Error-Nest] info: ::1 - - [29/Nov/2023:01:18:12 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:18:31 [Error-Nest] info: ::1 - - [29/Nov/2023:01:18:31 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:18:50 [Error-Nest] info: ::1 - - [29/Nov/2023:01:18:50 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:19:05 [Error-Nest] info: ::1 - - [29/Nov/2023:01:19:05 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:19:19 [Error-Nest] info: ::1 - - [29/Nov/2023:01:19:19 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:19:23 [Error-Nest] info: ::1 - - [29/Nov/2023:01:19:23 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:19:26 [Error-Nest] info: ::1 - - [29/Nov/2023:01:19:26 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:19:58 [Error-Nest] info: ::1 - - [29/Nov/2023:01:19:58 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:20:11 [Error-Nest] info: ::1 - - [29/Nov/2023:01:20:11 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:20:12 [Error-Nest] info: ::1 - - [29/Nov/2023:01:20:12 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:20:14 [Error-Nest] info: ::1 - - [29/Nov/2023:01:20:14 +0000] "GET /document/1 HTTP/1.1" 200 11 "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:20:14 [Error-Nest] info: ::1 - - [29/Nov/2023:01:20:14 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:20:52 [Error-Nest] info: ::1 - - [29/Nov/2023:01:20:52 +0000] "GET /document/1 HTTP/1.1" 200 11 "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:20:52 [Error-Nest] info: ::1 - - [29/Nov/2023:01:20:52 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:20:53 [Error-Nest] info: ::1 - - [29/Nov/2023:01:20:53 +0000] "GET /document/1 HTTP/1.1" 200 11 "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:20:53 [Error-Nest] info: ::1 - - [29/Nov/2023:01:20:53 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:21:23 [Error-Nest] info: ::1 - - [29/Nov/2023:01:21:23 +0000] "GET /document/1 HTTP/1.1" 200 11 "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:21:23 [Error-Nest] info: ::1 - - [29/Nov/2023:01:21:23 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:21:41 [Error-Nest] info: ::1 - - [29/Nov/2023:01:21:41 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:22:50 [Error-Nest] info: ::1 - - [29/Nov/2023:01:22:50 +0000] "GET /document/1 HTTP/1.1" 200 11 "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-29 10:22:51 [Error-Nest] info: ::1 - - [29/Nov/2023:01:22:51 +0000] "GET /document/1 HTTP/1.1" 304 - "http://localhost:3000/document/1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+

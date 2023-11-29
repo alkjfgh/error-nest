@@ -1,22 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from "axios";
+import axios from 'axios';
+
+import './css/document.scss'
 
 function Document(props) {
     const [seq, setSeq] = useState()
-    const [operator, setOperator] = useState();
     const location = useLocation();
 
     const urlDatatest = async(this_url) => {
-        console.log(this_url)
-        console.log(this_url.replace(0))
-        const response = await axios(this_url);
+        const response = await axios.get(this_url);
         const seq = response.data.seq;
         setSeq(seq);
     };
 
     useEffect(() => {
-        // express로 url 보내서 처리
         const this_url = location.pathname;
 
         urlDatatest(this_url).then(r => {
@@ -27,6 +25,31 @@ function Document(props) {
     return (
         <>
             <h1>{seq}</h1>
+            <div className="container">
+                <article>
+                    <div></div>
+                    <h2><a href="#">1.</a><span>개요</span></h2>
+                    <div>
+                        <div>
+                            일본의 4컷 만화. 작가는 하마지 아키[2][3]. 망가타임 키라라 MAX에서 2018년 2월호부터 4월호까지 게스트 연재 후, 같은 해 5월호부터 정식연재 중이다. 현지 팬들에게는 약칭인 '보자로(ぼざろ)'[4][5]로 흔히 불린다.
+
+                            2019년 제5회 차세대 만화대상 만화 부문 8위에 입상했는데, 키라라 작품들 중 본 대상 첫 입상작이라는 의의가 있다.[6]
+                        </div>
+                    </div>
+                    <h2><a href="#">2.</a><span>줄거리</span></h2>
+                    <div>
+                        <blockquote>
+                            <div>
+                                "혼자라면 ROCK을 해라!!!!"
+
+                                '봇치' 고토 히토리는 대인관계가 극도로 서투른 소녀. 무대에서 빛나는 밴드 활동을 동경해 기타 연주를 시작했지만, 친구가 없다. 그렇게 혼자서 기타를 연주하며 실력을 키우던 그녀는 자신의 연주 영상을 인터넷 사이트에 투고한다. 그러던 어느 날, '결속 밴드'에서 드럼을 치는 이지치 니지카가 먼저 그녀에게 말을 걸고. 그것을 계기로 그녀의 일상이 조금씩 바뀌기 시작하는데...?!
+                            </div>
+                        </blockquote>
+                    </div>
+                </article>
+                <aside>
+                </aside>
+            </div>
         </>
     );
 }

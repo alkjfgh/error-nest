@@ -1,0 +1,33 @@
+.container {
+  max-width: 1330px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.container article {
+  flex: 1;
+  background-color: #61dafb;
+  margin-right: 1rem;
+  min-height: 35rem;
+  min-width: 0;
+  overflow: visible;
+  padding: 1.5rem;
+  word-break: break-all;
+}
+.container article h2 {
+  border-bottom: 1px solid #ccc;
+}
+.container article div {
+  width: 100%;
+}
+.container aside {
+  width: 300px;
+  background-color: red;
+}
+@media screen and (max-width: 1000px) {
+  .container aside {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=document.css.map */

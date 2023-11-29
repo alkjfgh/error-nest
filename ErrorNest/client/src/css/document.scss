@@ -1,0 +1,37 @@
+.container {
+  max-width: 1330px;
+  margin: 0 auto; // 화면 가운데 정렬
+
+  display: flex; // article과 aside를 가로로 배치
+  justify-content: space-between; // article과 aside 사이에 공간을 넣음
+
+  article {
+    flex: 1; // 남는 공간을 모두 사용하도록 설정
+    // 여기에 article 스타일을 추가하세요
+    background-color: #61dafb;
+    margin-right: 1rem;
+    min-height: 35rem;
+    min-width: 0;
+    overflow: visible;
+    padding: 1.5rem;
+    word-break: break-all;
+    h2{
+      border-bottom: 1px solid #ccc;
+    }
+    div{
+      width: 100%;
+    }
+  }
+
+  aside {
+    width: 300px;
+    // 여기에 aside 스타일을 추가하세요
+    background-color: red;
+  }
+
+  @media screen and (max-width: 1000px) { // 브라우저 너비가 1000px 이하일 때
+    aside {
+      display: none; // aside를 숨김
+    }
+  }
+}
