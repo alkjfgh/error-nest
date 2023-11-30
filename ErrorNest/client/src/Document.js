@@ -62,7 +62,7 @@ function Document(props) {
             if (levels.length === depth) {
                 result.push(
                     <span key={index.aText}>
-                        <a href={"#s-"+index.aText.substring(0,index.aText.length)}>{index.aText}</a>
+                        <a href={"#s-"+index.aText.substring(0,index.aText.length-1)}>{index.aText}</a>
                         {' ' + index.spanText}
                     </span>
                 );

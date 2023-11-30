@@ -6211,3 +6211,76 @@
 
 2023-11-30 18:40:41 [Error-Nest] info: ::1 - - [30/Nov/2023:09:40:41 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
 
+2023-11-30 18:51:18 [Error-Nest] info: express is running on 8000
+2023-11-30 18:51:18 [Error-Nest] info: MongoDB connection successful
+2023-11-30 18:56:45 [Error-Nest] info: express is running on 8000
+2023-11-30 18:56:45 [Error-Nest] info: MongoDB connection successful
+2023-11-30 18:57:12 [Error-Nest] info: express is running on 8000
+2023-11-30 18:57:12 [Error-Nest] info: MongoDB connection successful
+2023-11-30 18:57:18 [Error-Nest] info: express is running on 8000
+2023-11-30 18:57:18 [Error-Nest] info: MongoDB connection successful
+2023-11-30 18:57:22 [Error-Nest] info: express is running on 8000
+2023-11-30 18:57:22 [Error-Nest] info: MongoDB connection successful
+2023-11-30 18:57:37 [Error-Nest] info: express is running on 8000
+2023-11-30 18:57:37 [Error-Nest] info: MongoDB connection successful
+2023-11-30 18:58:39 [Error-Nest] info: express is running on 8000
+2023-11-30 18:58:39 [Error-Nest] info: MongoDB connection successful
+2023-11-30 18:59:01 [Error-Nest] info: express is running on 8000
+2023-11-30 18:59:02 [Error-Nest] info: MongoDB connection successful
+2023-11-30 18:59:14 [Error-Nest] info: express is running on 8000
+2023-11-30 18:59:14 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:00:14 [Error-Nest] info: express is running on 8000
+2023-11-30 19:00:14 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:00:31 [Error-Nest] info: express is running on 8000
+2023-11-30 19:00:31 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:00:47 [Error-Nest] info: ::1 - - [30/Nov/2023:10:00:47 +0000] "GET /documnet/test HTTP/1.1" 404 152 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:00:54 [Error-Nest] error: Cannot read properties of null (reading 'content')
+2023-11-30 19:00:54 [Error-Nest] info: ::1 - - [30/Nov/2023:10:00:54 +0000] "GET /document/test HTTP/1.1" 500 430 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:01:50 [Error-Nest] info: express is running on 8000
+2023-11-30 19:01:51 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:02:08 [Error-Nest] info: ::1 - - [30/Nov/2023:10:02:08 +0000] "GET /document/test HTTP/1.1" 200 172 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:02:09 [Error-Nest] info: ::1 - - [30/Nov/2023:10:02:09 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8000/document/test" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:02:37 [Error-Nest] info: express is running on 8000
+2023-11-30 19:02:37 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:02:38 [Error-Nest] error: E11000 duplicate key error collection: error-nest.documents index: title_1 dup key: { title: "123" }
+2023-11-30 19:02:38 [Error-Nest] info: ::1 - - [30/Nov/2023:10:02:38 +0000] "GET /document/test HTTP/1.1" 500 691 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:02:59 [Error-Nest] info: express is running on 8000
+2023-11-30 19:02:59 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:03:04 [Error-Nest] info: ::1 - - [30/Nov/2023:10:03:04 +0000] "GET /main.3296137c6425a6309cfe.hot-update.json HTTP/1.1" 404 180 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:03:04 [Error-Nest] info: ::1 - - [30/Nov/2023:10:03:04 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 404 191 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:03:19 [Error-Nest] error: E11000 duplicate key error collection: error-nest.documents index: title_1 dup key: { title: "123" }
+2023-11-30 19:03:19 [Error-Nest] info: ::1 - - [30/Nov/2023:10:03:19 +0000] "GET /document/test HTTP/1.1" 500 691 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:03:50 [Error-Nest] info: ::1 - - [30/Nov/2023:10:03:50 +0000] "GET /document/test HTTP/1.1" 200 172 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:04:21 [Error-Nest] info: ::1 - - [30/Nov/2023:10:04:21 +0000] "GET /document/test HTTP/1.1" 200 172 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:04:39 [Error-Nest] info: express is running on 8000
+2023-11-30 19:04:40 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:04:43 [Error-Nest] info: ::1 - - [30/Nov/2023:10:04:43 +0000] "GET /document/test HTTP/1.1" 200 172 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:05:15 [Error-Nest] info: express is running on 8000
+2023-11-30 19:05:15 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:05:22 [Error-Nest] info: express is running on 8000
+2023-11-30 19:05:22 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:05:34 [Error-Nest] info: express is running on 8000
+2023-11-30 19:05:34 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:05:52 [Error-Nest] info: express is running on 8000
+2023-11-30 19:05:52 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:06:28 [Error-Nest] info: express is running on 8000
+2023-11-30 19:06:28 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:06:38 [Error-Nest] info: express is running on 8000
+2023-11-30 19:06:38 [Error-Nest] info: MongoDB connection successful
+2023-11-30 19:06:48 [Error-Nest] info: ::1 - - [30/Nov/2023:10:06:48 +0000] "GET /document/test HTTP/1.1" 200 2669 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:06:59 [Error-Nest] info: ::1 - - [30/Nov/2023:10:06:59 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 404 191 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 19:07:02 [Error-Nest] info: ::1 - - [30/Nov/2023:10:07:02 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 404 191 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+

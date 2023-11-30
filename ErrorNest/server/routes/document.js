@@ -5,5 +5,6 @@ const router = express.Router();
 
 /** GET /document */
 router.get('/:title', documentController.documentSelect);
+// router.get('/test', documentController.documentInsert);
 
 module.exports = router;
