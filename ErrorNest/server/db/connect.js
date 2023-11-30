@@ -7,11 +7,11 @@ const logger = require("../log/logger");
 dotenv.config({
     path : path.join(__dirname, './.env')
 });
-const {DB_URI} = process.env;
+const {URI, DB, OPTIONS} = process.env;
 
 /** 몽고디비 연결 */
 const connect = () => {
-    mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    mongoose.connect(URI + DB + OPTIONS, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         logger.info('MongoDB connection successful');
     }).catch((error) => {

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { useLocation } from 'react-router-dom'
+import { Link } from 'react-scroll'
 import axios from 'axios'
 
 import './css/document.scss'
@@ -40,17 +41,13 @@ function Document(props) {
     }
 
     function initIndexHtml() {
-        let html = '<div class="index-list">'
-        indexList.forEach((index) => {
-            const aText = index.aText
-            const spanText = index.spanText
-            html += '<span>'
-            html += '<a>' + aText +'</a>'
-            html += spanText
-            html += '</span>'
-        })
-        html += '</div>'
-        return html
+        console.log("s-"+indexList[0].aText.substring(0,1))
+        return indexList.map((index, i) => (
+            <span key={i}>
+                <Link to={"s-"+index.aText.substring(0,1)} spy={true} smooth={true} offset={-70} duration={500}>{index.aText}</Link>
+                {index.spanText}
+            </span>
+        ));
     }
 
     const urlDatatest = async(this_url) => {
@@ -59,12 +56,15 @@ function Document(props) {
         const content = res.data.content
         const renderedContents = extractElements(content) // JSX 로 변환하여 렌더링
 
+        renderedContents.map((content) => {
+            console.log(content)
+        })
+
         const indexHtml = initIndexHtml()
-        const renderedIndex = extractElements(indexHtml) // JSX 로 변환하여 렌더링
 
         setTitle(res.data.title)
         setRenderedContents(renderedContents)
-        setRenderedIndex(renderedIndex)
+        setRenderedIndex(indexHtml)
     }
 
     useEffect(() => {
@@ -82,8 +82,7 @@ function Document(props) {
             <div className="container">
                 <article>
                     <h2>{title}</h2>
-                    {renderedIndex}
-                    {/*<div></div>*/}
+                    <div className="index-list">{renderedIndex}</div>
                     {renderedContents}
                 </article>
                 <aside>
