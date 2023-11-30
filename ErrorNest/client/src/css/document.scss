@@ -18,6 +18,7 @@
   article {
     flex: 1; // 남는 공간을 모두 사용하도록 설정
     // 여기에 article 스타일을 추가하세요
+    position: relative;
     background-color: #61dafb;
     margin-right: 1rem;
     min-height: 35rem;
@@ -25,6 +26,37 @@
     overflow: visible;
     padding: 1.5rem;
     word-break: break-all;
+
+    h1{
+      font-size: 2.2rem;
+      margin-top: 0;
+    }
+
+    .document-navi {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: inline-block;
+      text-align: right;
+
+      a{
+        border: .0625rem solid #ccc;
+        cursor: pointer;
+        display: inline-block;
+        font-size: .9rem;
+        font-weight: 400;
+        line-height: 1.5;
+        padding: .3rem .8rem;
+        text-align: center;
+        touch-action: manipulation;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        vertical-align: middle;
+        white-space: nowrap;
+      }
+    }
 
     .index-list{
       span{

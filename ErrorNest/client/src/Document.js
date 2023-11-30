@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { useLocation } from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import axios from 'axios'
 
 import './css/document.scss'
@@ -27,6 +27,7 @@ function Document(props) {
                     const aText = node.querySelector('a') ? node.querySelector('a').textContent : null;
                     const spanText = node.querySelector('span') ? node.querySelector('span').textContent : null;
                     indexList.push({ aText: aText, spanText: spanText });
+                    // setIndexList(prev => [...prev, { aText: aText, spanText: spanText }])  // indexList 상태 업데이트
                 }
                 const props = { key: index, className: classList[0]}
                 if (node.id && node.id.startsWith('s-')) {
@@ -43,15 +44,6 @@ function Document(props) {
         const element = document.getElementById(id);
         if (element) element.scrollIntoView({ behavior: 'smooth' });
     }
-
-    // function initIndexHtml() {
-    //     return indexList.map((index, i) => (
-    //             <span key={i}>
-    //                 <a href={"#s-"+index.aText.substring(0,index.aText.length)}>{index.aText}</a>
-    //                 {index.spanText}
-    //             </span>
-    //     ));
-    // }
 
     function drawIndex(indexList, depth = 1) {
         let result = [];
@@ -107,13 +99,15 @@ function Document(props) {
             if(hash) scrollToElement(hash.substring(1, hash.length))
         })
 
-    }, [ location ])
+    }, [ location.pathname, location.hash ])
 
     return (
         <>
             <div className="container">
                 <article>
-                    <h2>{title}</h2>
+                    <h1>{title}</h1>
+                    <div className={"document-navi"}><Link to={"/edit/" + title}>편집</Link><Link to={"/history/" + title}>역사</Link></div>
+                    <div className={"documet-update"}></div>
                     <div className="index-list" id="top">{renderedIndex}</div>
                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                     {renderedContents}
