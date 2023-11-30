@@ -1,8 +1,0 @@
-2023-11-30 14:26:42 [Error-Nest] error: uncaughtException: DB_URI is not defined
-ReferenceError: DB_URI is not defined
-    at connect (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\db\connect.js:14:22)
-    at Server.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\serverInit.js:18:5)
-    at Object.onceWrapper (node:events:628:28)
-    at Server.emit (node:events:514:28)
-    at emitListeningNT (node:net:1785:10)
-    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)

@@ -44,11 +44,15 @@ ul {
 }
 .container aside {
   width: 300px;
+  height: 600px;
   background-color: red;
 }
 @media screen and (max-width: 1000px) {
   .container aside {
     display: none;
+  }
+  .container article {
+    margin-right: 0;
   }
 }
 
