@@ -8,7 +8,7 @@ const documentSelect = async (req, res, next) => {
     try {
         const options = { title: title}
         if(version) options.version = version
-        const document = await Document.findOne(options) // 몽고디비의 db.users.find({}) 쿼리와 같음
+        const document = await Document.findOne(options).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
         const data = {title: title, content: document.content}
         if(version) data.recent = false
         res.json(data)
