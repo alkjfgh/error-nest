@@ -7,17 +7,39 @@ const Search = () => {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const query = searchParams.get('q');
-    const [document, setDocument] = useState({});
+    const [resultQuery, setResultQuery] = useState("");
 
     console.log(`location >> ${location}`);
     console.log(`location.search >> ${location.search}`);
 
-    return (
-        <div>
-            <h2>Search Page Success !!!</h2>
-            <p>Search Result >> {query}</p>
-        </div>
-    )
+    const getData = async (thisURL) => {
+        console.log(thisURL);
+        const res = await axios.get(`${thisURL}?title=${query}`);
+
+        setResultQuery(res.data.searchTitle);
+
+    };
+
+    useEffect(() => {
+        const thisURL = location.pathname;
+        getData(thisURL);
+    }, [query]);
+
+    if (query === resultQuery) {
+        return (
+            <div>
+                <h2>Search Page Success !!!</h2>
+                <p>Search Result >> {query}</p>
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                <h2>Search Page Failed...</h2>
+            </div>
+        )
+    }
+
 }
 
 export default Search;

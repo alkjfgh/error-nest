@@ -6628,3 +6628,107 @@
 
 2023-11-30 21:45:07 [Error-Nest] info: express is running on 8000
 2023-11-30 21:45:07 [Error-Nest] info: MongoDB connection successful
+2023-11-30 22:41:49 [Error-Nest] info: express is running on 8000
+2023-11-30 22:41:49 [Error-Nest] info: MongoDB connection successful
+2023-11-30 22:41:51 [Error-Nest] info: express is running on 8000
+2023-11-30 22:41:51 [Error-Nest] info: MongoDB connection successful
+2023-11-30 22:42:17 [Error-Nest] info: ::1 - - [30/Nov/2023:13:42:17 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 2532 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 22:42:19 [Error-Nest] info: ::1 - - [30/Nov/2023:13:42:19 +0000] "GET /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 2582 "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 22:42:32 [Error-Nest] info: ::1 - - [30/Nov/2023:13:42:32 +0000] "POST /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 16 "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 22:42:32 [Error-Nest] info: ::1 - - [30/Nov/2023:13:42:32 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 2535 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 22:56:01 [Error-Nest] info: ::1 - - [30/Nov/2023:13:56:01 +0000] "GET /search?q=%EC%A1%B0%EB%B3%91%EC%A4%80 HTTP/1.1" 404 145 "http://localhost:3000/search?q=%EC%A1%B0%EB%B3%91%EC%A4%80" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 22:56:08 [Error-Nest] info: ::1 - - [30/Nov/2023:13:56:08 +0000] "GET /search?q=%EC%A1%B0%EB%B3%91%EC%A4%80 HTTP/1.1" 404 145 "http://localhost:3000/search?q=%EC%A1%B0%EB%B3%91%EC%A4%80" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 22:59:55 [Error-Nest] info: express is running on 8000
+2023-11-30 22:59:55 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:00:03 [Error-Nest] info: express is running on 8000
+2023-11-30 23:00:03 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:02:06 [Error-Nest] info: express is running on 8000
+2023-11-30 23:02:07 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:03:35 [Error-Nest] info: express is running on 8000
+2023-11-30 23:03:36 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:03:58 [Error-Nest] info: express is running on 8000
+2023-11-30 23:03:59 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:04:20 [Error-Nest] info: express is running on 8000
+2023-11-30 23:04:21 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:04:42 [Error-Nest] info: ::1 - - [30/Nov/2023:14:04:42 +0000] "GET /search?query=%EC%A1%B0%EB%B3%91%EC%A4%80 HTTP/1.1" 404 145 "http://localhost:3000/search?q=%EC%A1%B0%EB%B3%91%EC%A4%80" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:07:01 [Error-Nest] info: ::1 - - [30/Nov/2023:14:07:01 +0000] "GET /search?query=%EC%A1%B0%EB%B3%91%EC%A4%80 HTTP/1.1" 404 145 "http://localhost:3000/search?q=%EC%A1%B0%EB%B3%91%EC%A4%80" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:08:57 [Error-Nest] info: express is running on 8000
+2023-11-30 23:08:58 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:08:59 [Error-Nest] error: Cannot read properties of null (reading 'content')
+2023-11-30 23:08:59 [Error-Nest] info: ::1 - - [30/Nov/2023:14:08:59 +0000] "GET /search?title=%EC%A1%B0%EB%B3%91%EC%A4%80 HTTP/1.1" 500 442 "http://localhost:3000/search?q=%EC%A1%B0%EB%B3%91%EC%A4%80" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:09:18 [Error-Nest] info: ::1 - - [30/Nov/2023:14:09:18 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 2235 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:09:23 [Error-Nest] error: Cannot read properties of null (reading 'content')
+2023-11-30 23:09:23 [Error-Nest] info: ::1 - - [30/Nov/2023:14:09:23 +0000] "GET /search?title=%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 500 442 "http://localhost:3000/search?q=%EB%B4%87%EC%B9%98+%EB%8D%94+%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:11:35 [Error-Nest] info: express is running on 8000
+2023-11-30 23:11:35 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:11:58 [Error-Nest] info: express is running on 8000
+2023-11-30 23:11:58 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:12:31 [Error-Nest] info: express is running on 8000
+2023-11-30 23:12:31 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:12:35 [Error-Nest] error: Cannot read properties of null (reading 'content')
+2023-11-30 23:12:35 [Error-Nest] info: ::1 - - [30/Nov/2023:14:12:35 +0000] "GET /search?title=%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 500 442 "http://localhost:3000/search?q=%EB%B4%87%EC%B9%98+%EB%8D%94+%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:14:11 [Error-Nest] info: express is running on 8000
+2023-11-30 23:14:12 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:15:54 [Error-Nest] info: express is running on 8000
+2023-11-30 23:15:54 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:18:04 [Error-Nest] info: express is running on 8000
+2023-11-30 23:18:05 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:18:57 [Error-Nest] info: ::1 - - [30/Nov/2023:14:18:57 +0000] "GET /search?title=%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 2405 "http://localhost:3000/search?q=%EB%B4%87%EC%B9%98+%EB%8D%94+%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:19:00 [Error-Nest] info: ::1 - - [30/Nov/2023:14:19:00 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:19:17 [Error-Nest] info: ::1 - - [30/Nov/2023:14:19:17 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:19:37 [Error-Nest] info: ::1 - - [30/Nov/2023:14:19:37 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:20:01 [Error-Nest] error: Cannot read properties of null (reading 'content')
+2023-11-30 23:20:01 [Error-Nest] info: ::1 - - [30/Nov/2023:14:20:01 +0000] "GET /search?title=%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D HTTP/1.1" 500 442 "http://localhost:3000/search?q=%EB%B4%87%EC%B9%98+%EB%8D%94+%EB%A1%9D" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:20:07 [Error-Nest] info: ::1 - - [30/Nov/2023:14:20:07 +0000] "GET /search?title=%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/search?q=%EB%B4%87%EC%B9%98+%EB%8D%94+%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:21:05 [Error-Nest] info: ::1 - - [30/Nov/2023:14:21:05 +0000] "GET /search?title=%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/search?q=%EB%B4%87%EC%B9%98+%EB%8D%94+%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:21:07 [Error-Nest] info: ::1 - - [30/Nov/2023:14:21:07 +0000] "GET /search?title=%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/search?q=%EB%B4%87%EC%B9%98+%EB%8D%94+%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:21:29 [Error-Nest] info: ::1 - - [30/Nov/2023:14:21:29 +0000] "GET /search?title=%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/search?q=%EB%B4%87%EC%B9%98+%EB%8D%94+%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:23:24 [Error-Nest] info: express is running on 8000
+2023-11-30 23:23:24 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:23:33 [Error-Nest] info: express is running on 8000
+2023-11-30 23:23:34 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:23:42 [Error-Nest] info: ::1 - - [30/Nov/2023:14:23:42 +0000] "GET /search?title=%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 59 "http://localhost:3000/search?q=%EB%B4%87%EC%B9%98+%EB%8D%94+%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:27:28 [Error-Nest] info: ::1 - - [30/Nov/2023:14:27:28 +0000] "GET /search?title=%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/search?q=%EB%B4%87%EC%B9%98+%EB%8D%94+%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:27:38 [Error-Nest] info: ::1 - - [30/Nov/2023:14:27:38 +0000] "GET /search?title=%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/search?q=%EB%B4%87%EC%B9%98+%EB%8D%94+%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:27:41 [Error-Nest] info: ::1 - - [30/Nov/2023:14:27:41 +0000] "GET /search?title=%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/search?q=%EB%B4%87%EC%B9%98+%EB%8D%94+%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:27:51 [Error-Nest] error: Cannot read properties of null (reading 'title')
+2023-11-30 23:27:51 [Error-Nest] info: ::1 - - [30/Nov/2023:14:27:51 +0000] "GET /search?title=%EC%A1%B0%EB%B3%91%EC%A4%80 HTTP/1.1" 500 440 "http://localhost:3000/search?q=%EC%A1%B0%EB%B3%91%EC%A4%80" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:28:52 [Error-Nest] error: Cannot read properties of null (reading 'title')
+2023-11-30 23:28:52 [Error-Nest] info: ::1 - - [30/Nov/2023:14:28:52 +0000] "GET /search?title=%EC%A1%B0%EB%B3%91%EC%A4%80 HTTP/1.1" 500 440 "http://localhost:3000/search?q=%EC%A1%B0%EB%B3%91%EC%A4%80" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:29:52 [Error-Nest] info: express is running on 8000
+2023-11-30 23:29:53 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:30:04 [Error-Nest] info: express is running on 8000
+2023-11-30 23:30:04 [Error-Nest] info: MongoDB connection successful
+2023-11-30 23:30:06 [Error-Nest] error: Cannot read properties of null (reading 'title')
+2023-11-30 23:30:06 [Error-Nest] info: ::1 - - [30/Nov/2023:14:30:06 +0000] "GET /search?title=%EC%A1%B0%EB%B3%91%EC%A4%80 HTTP/1.1" 200 38 "http://localhost:3000/search?q=%EC%A1%B0%EB%B3%91%EC%A4%80" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 23:30:13 [Error-Nest] error: Cannot read properties of null (reading 'title')
+2023-11-30 23:30:13 [Error-Nest] info: ::1 - - [30/Nov/2023:14:30:13 +0000] "GET /search?title=%EB%B4%87%20%EC%B9%98%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 44 "http://localhost:3000/search?q=%EB%B4%87+%EC%B9%98%EB%8D%94+%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
