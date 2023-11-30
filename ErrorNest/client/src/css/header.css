@@ -10,4 +10,53 @@ ul {
   list-style: none;
 }
 
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+  background-color: yellow;
+  margin-bottom: 1rem;
+}
+.navigation .logo-img-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+.navigation .logo-img-link .logo-image {
+  width: 4rem;
+  height: auto;
+  margin-right: 1rem;
+}
+.navigation .navi-element-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+.navigation .navi-element-list .navi-element {
+  margin-right: 10px;
+}
+.navigation .navi-element-list .navi-element:last-child {
+  margin-right: 0;
+}
+.navigation .navi-element-list .navi-element a {
+  text-decoration: none;
+  color: #000;
+}
+.navigation .navi-button-div {
+  display: flex;
+  align-items: center;
+}
+.navigation .navi-button-div .navi-input-bar {
+  margin-right: 10px;
+  padding: 5px;
+}
+.navigation .navi-button-div .navi-button {
+  padding: 5px;
+  background-color: #ccc;
+  border: none;
+  color: #fff;
+}
+
 /*# sourceMappingURL=header.css.map */
