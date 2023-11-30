@@ -14,8 +14,8 @@ const Edit = () => {
     const [updateAT, setUpdateAt] = useState('')
     const [content, setContent] = useState('')
 
-    async function getDocument(this_url) {
-        const res = await axios.get(this_url)
+    async function getDocument(this_url, versionURI) {
+        const res = await axios.get(this_url+versionURI)
 
         setTitle(res.data.title)
         setVersion(res.data.version)
@@ -26,7 +26,7 @@ const Edit = () => {
     useEffect( () => {
         const this_url = location.pathname
 
-        getDocument(this_url).then(r => {})
+        getDocument(this_url, location.search).then(r => {})
     }, [location.pathname])
 
 

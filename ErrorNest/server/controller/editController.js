@@ -5,7 +5,10 @@ const logger = require("../log/logger");
 const documentSelect = async (req, res, next) => {
     try {
         const title = req.params.title
-        const document = await Document.findOne({ title: title }).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
+        let version = parseInt(req.query.version) // 페이지 번호
+        const options = { title: title }
+        if(version) options.version = version
+        const document = await Document.findOne(options).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
         res.json({title: document.title, version: document.version, updateAt: document.updateAt, content: document.content});
     } catch (err) {
         logger.error(err);
