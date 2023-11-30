@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from "react";
 
@@ -12,11 +12,24 @@ import logoImg from './img/errorNestLogo.png'
  * */
 const Header = (props) => {
     const [inputText, setInputText] = useState("");
+    const [encodedInputText, setEncodedInputText] = useState("");
+
+    const handleInputText = (e) => {
+        setInputText(e.target.value);
+    };
+
+    useEffect(() => {
+        // 문자열 띄어쓰기 %20에서 인코딩
+        setEncodedInputText(encodeURIComponent(inputText).replace(/%20/g, '+'));
+        // console.log(encodedInputText);
+    }, [inputText])
+
+    console.log(`encodedInputText >> ${encodedInputText}`);
 
     return (
         <nav className="navigation">
             {/** 로고 이미지 */}
-            <Link to="/search" className="logo-img-link">
+            <Link to="/" className="logo-img-link">
                 <img src={logoImg} alt="로고 이미지" className="logo-image" />
             </Link>
 
@@ -35,8 +48,10 @@ const Header = (props) => {
 
             {/** 검색 바 */}
             <div className="navi-button-div">
-                <input className="navi-input-bar" type="text" placeholder="검색" onChange={e => e.target.value}/>
-                <button className="navi-button">검색</button>
+                <input className="navi-input-bar" type="text" placeholder="검색" value={inputText} onChange={handleInputText}/>
+                <Link to={`/search?q=${encodedInputText}`}>
+                    <button className="navi-button">검색</button>
+                </Link>
             </div>
         </nav>
     );
