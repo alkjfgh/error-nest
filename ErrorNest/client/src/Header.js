@@ -16,7 +16,7 @@ const Header = (props) => {
     return (
         <nav className="navigation">
             {/** 로고 이미지 */}
-            <Link to="/" className="logo-img-link">
+            <Link to="/search" className="logo-img-link">
                 <img src={logoImg} alt="로고 이미지" className="logo-image" />
             </Link>
 
