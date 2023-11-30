@@ -84,7 +84,6 @@ function Document(props) {
         return drawIndex(indexList);
     }
 
-
     const urlDatatest = async(this_url) => {
         const res = await axios.get(this_url)
 
