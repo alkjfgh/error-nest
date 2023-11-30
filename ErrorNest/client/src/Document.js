@@ -53,40 +53,6 @@ function Document(props) {
     //     ));
     // }
 
-    // function initIndexHtml() {
-    //     let lastLevel = 0;
-    //     let outputHtml = [];
-    //     let parentDiv = null;
-    //
-    //     indexList.forEach((index, i) => {
-    //         const level = (index.aText.match(/\./g) || []).length;
-    //         const element = (
-    //             <span key={i}>
-    //             <a href={"#s-"+index.aText.substring(0,index.aText.length)}>{index.aText}</a>
-    //                 {index.spanText}
-    //         </span>
-    //         );
-    //
-    //         if (level === lastLevel) {
-    //             if (!parentDiv) {
-    //                 outputHtml.push(element);
-    //             } else {
-    //                 parentDiv.props.children.push(element);
-    //             }
-    //         } else if (level > lastLevel) {
-    //             parentDiv = <div>{[element]}</div>;
-    //             outputHtml.push(parentDiv);
-    //         } else {
-    //             parentDiv = null;
-    //             outputHtml.push(element);
-    //         }
-    //
-    //         lastLevel = level;
-    //     });
-    //
-    //     return outputHtml;
-    // }
-
     function drawIndex(indexList, depth = 1) {
         let result = [];
         while (indexList.length > 0) {
