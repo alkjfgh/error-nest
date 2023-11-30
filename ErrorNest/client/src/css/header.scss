@@ -8,6 +8,19 @@
   background-color: yellow;
   margin-bottom: 1rem;
 
+  .logo-img-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+
+    .logo-image {
+      width: 4rem;
+      height: auto;
+      margin-right: 1rem;
+    }
+  }
+
   .navi-element-list {
     display: flex;
     align-items: center;
