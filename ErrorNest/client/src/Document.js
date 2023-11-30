@@ -9,7 +9,8 @@ function Document(props) {
     const location = useLocation()
 
     const [title, setTitle] = useState('')
-    const [version, setVersion] = useState('')
+    const [versionURI, setVersionURI] = useState('')
+    const [version, setVersion] = useState(null)
     const [renderedContents, setRenderedContents] = useState([])
     const [renderedIndex, setRenderedIndex] = useState([])
     const [indexList, setIndexList] = useState([])
@@ -77,8 +78,8 @@ function Document(props) {
         return drawIndex(indexList);
     }
 
-    const getDocument = async(this_url, version) => {
-        const res = await axios.get(this_url + version)
+    const getDocument = async(this_url, versionURI) => {
+        const res = await axios.get(this_url + versionURI)
 
         const content = res.data.content
         const recent = res.data.recent
@@ -89,17 +90,19 @@ function Document(props) {
         setTitle(res.data.title)
         setRenderedContents(renderedContents)
         setRenderedIndex(indexHtml)
-        if(!recent) setVersion("(Version " + res.data.version + ")")
+        const params = new URLSearchParams(location.search)
+        setVersion(parseInt(params.get('version')) || null)
+        if(!recent) setVersionURI("(Version " + version + ")")
     }
 
     useEffect(() => {
         const this_url = location.pathname
         const hash = location.hash ? location.hash : undefined
-        const version = location.search
+        const versionURI = location.search
 
         setIndexList([])
 
-        getDocument(this_url, version).then(r => {
+        getDocument(this_url, versionURI).then(r => {
             if(hash) scrollToElement(hash.substring(1, hash.length))
         })
 
@@ -109,8 +112,8 @@ function Document(props) {
         <>
             <div className="container">
                 <article>
-                    <h1>{title} {}</h1>
-                    <div className={"document-navi"}><Link to={"/edit/" + title}>편집</Link><Link to={"/history/" + title}>역사</Link></div>
+                    <h1>{title} {version}</h1>
+                    <div className={"document-navi"}><Link to={"/edit/" + title + "?version="+version}>편집</Link><Link to={"/history/" + title}>역사</Link></div>
                     {/*<div className={"documet-update"}></div>*/}
                     <div className="index-list" id="top">{renderedIndex}</div>
                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
