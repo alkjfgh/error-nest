@@ -6177,3 +6177,37 @@
 
 2023-11-30 18:13:17 [Error-Nest] info: ::1 - - [30/Nov/2023:09:13:17 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 2583 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
 
+2023-11-30 18:24:17 [Error-Nest] info: express is running on 8000
+2023-11-30 18:24:17 [Error-Nest] info: MongoDB connection successful
+2023-11-30 18:24:53 [Error-Nest] info: ::1 - - [30/Nov/2023:09:24:53 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 2583 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:24:58 [Error-Nest] info: ::1 - - [30/Nov/2023:09:24:58 +0000] "GET /user HTTP/1.1" 200 328 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:01 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:01 +0000] "GET /test HTTP/1.1" 200 829 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:04 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:04 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:14 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:14 +0000] "GET /user HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:16 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:16 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:23 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:23 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:44 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:44 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:48 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:48 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:49 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:49 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:51 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:51 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:52 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:52 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:54 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:54 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:56 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:56 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:25:59 [Error-Nest] info: ::1 - - [30/Nov/2023:09:25:59 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-11-30 18:40:41 [Error-Nest] info: ::1 - - [30/Nov/2023:09:40:41 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
