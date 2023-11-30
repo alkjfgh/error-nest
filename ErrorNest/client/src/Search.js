@@ -1,13 +1,14 @@
 
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Search = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const searchParams = new URLSearchParams(location.search);
     const query = searchParams.get('q');
-    const [resultQuery, setResultQuery] = useState("");
+    const [message, setMessage] = useState("");
 
     console.log(`location >> ${location}`);
     console.log(`location.search >> ${location.search}`);
@@ -15,30 +16,24 @@ const Search = () => {
     const getData = async (thisURL) => {
         console.log(thisURL);
         const res = await axios.get(`${thisURL}?title=${query}`);
+        console.log(`resultQuery <> >> ${res.data.searchTitle}`);
+        setMessage("searching..");
 
-        setResultQuery(res.data.searchTitle);
-
+        if (query === res.data.searchTitle && res.data.searchTitle !== "")
+            navigate(`/document/${query}`);
+        else
+            setMessage('Search Page Failed...');
     };
 
     useEffect(() => {
         const thisURL = location.pathname;
-        getData(thisURL);
+        getData(thisURL)
     }, [query]);
 
-    if (query === resultQuery) {
-        return (
-            <div>
-                <h2>Search Page Success !!!</h2>
-                <p>Search Result >> {query}</p>
-            </div>
-        )
-    } else {
-        return (
-            <div>
-                <h2>Search Page Failed...</h2>
-            </div>
-        )
-    }
+
+    return (
+        <h2>{message}</h2>
+    )
 
 }
 
