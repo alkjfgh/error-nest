@@ -6578,3 +6578,15 @@
 
 2023-11-30 20:46:32 [Error-Nest] info: ::1 - - [30/Nov/2023:11:46:32 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
 
+2023-11-30 20:55:40 [Error-Nest] info: express is running on 8000
+2023-11-30 20:55:41 [Error-Nest] info: MongoDB connection successful
+2023-11-30 20:55:46 [Error-Nest] info: express is running on 8000
+2023-11-30 20:55:47 [Error-Nest] info: MongoDB connection successful
+2023-11-30 20:55:49 [Error-Nest] info: express is running on 8000
+2023-11-30 20:55:49 [Error-Nest] info: MongoDB connection successful
+2023-11-30 20:55:55 [Error-Nest] info: express is running on 8000
+2023-11-30 20:55:56 [Error-Nest] info: MongoDB connection successful
+2023-11-30 20:56:29 [Error-Nest] info: express is running on 8000
+2023-11-30 20:56:29 [Error-Nest] info: MongoDB connection successful
+2023-11-30 20:56:37 [Error-Nest] info: express is running on 8000
+2023-11-30 20:56:37 [Error-Nest] info: MongoDB connection successful

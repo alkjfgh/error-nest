@@ -46,3 +46,63 @@ SyntaxError: Unexpected token ','
     at require (node:internal/modules/cjs/helpers:121:18)
     at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\document.js:2:28)
     at Module._compile (node:internal/modules/cjs/loader:1256:14)
+2023-11-30 20:55:40 [Error-Nest] error: uncaughtException: Cannot find module './routes/edit'
+Require stack:
+- C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js
+Error: Cannot find module './routes/edit'
+Require stack:
+- C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1077:15)
+    at Module._load (node:internal/modules/cjs/loader:922:27)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:5:14)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+2023-11-30 20:55:46 [Error-Nest] error: uncaughtException: Cannot find module './routes/history'
+Require stack:
+- C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js
+Error: Cannot find module './routes/history'
+Require stack:
+- C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1077:15)
+    at Module._load (node:internal/modules/cjs/loader:922:27)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+2023-11-30 20:55:49 [Error-Nest] error: uncaughtException: Router.use() requires a middleware function but got a Object
+TypeError: Router.use() requires a middleware function but got a Object
+    at Function.use (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\index.js:469:13)
+    at Function.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\application.js:227:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\application.js:224:7)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:11:5)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+2023-11-30 20:56:29 [Error-Nest] error: uncaughtException: Cannot find module './routes/history'
+Require stack:
+- C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js
+Error: Cannot find module './routes/history'
+Require stack:
+- C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1077:15)
+    at Module._load (node:internal/modules/cjs/loader:922:27)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
