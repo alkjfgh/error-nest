@@ -6,7 +6,7 @@ const documentSelect = async (req, res, next) => {
     const title = req.params.title
     const version = parseInt(req.query.version) || false
     try {
-        const options = { title: title}
+        const options = { title: title }
         if(version) options.version = version
         const document = await Document.findOne(options).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
         const data = {title: title, content: document.content}
