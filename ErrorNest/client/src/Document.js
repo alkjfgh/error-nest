@@ -63,7 +63,7 @@ function Document(props) {
                 result.push(
                     <span key={index.aText}>
                         <a href={"#s-"+index.aText.substring(0,index.aText.length)}>{index.aText}</a>
-                        {index.spanText}
+                        {' ' + index.spanText}
                     </span>
                 );
                 indexList.shift();
@@ -72,7 +72,7 @@ function Document(props) {
                 while (indexList.length > 0 && indexList[0].aText.split('.').filter(Boolean).length > depth) {
                     childIndexes.push(indexList.shift());
                 }
-                result.push(<div key={'div'+depth}>{drawIndex(childIndexes, depth + 1)}</div>);
+                result.push(<div className={"index-space"} key={'div'+depth}>{drawIndex(childIndexes, depth + 1)}</div>);
             } else {
                 break;
             }

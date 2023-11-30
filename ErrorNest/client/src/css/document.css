@@ -36,6 +36,9 @@ ul {
   width: 100%;
   display: block;
 }
+.container article .index-list .index-space {
+  margin-left: 16px;
+}
 .container article h2 {
   border-bottom: 1px solid #ccc;
 }
