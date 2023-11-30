@@ -7,7 +7,7 @@ import './css/edit.scss'
 
 const Edit = () => {
     const location = useLocation()
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const [title, setTitle] = useState('')
     const [version, setVersion] = useState('')
