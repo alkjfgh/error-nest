@@ -1,12 +1,16 @@
-// const History = require("../db/schema/history"); // Get history schema
+const Document = require("../db/schema/document"); // Get history schema
 const logger = require("../log/logger");
 
 /** history CRUD */
-const historyCRUD = async (req, res, next) => {
+const historySelect = async (req, res, next) => {
     try {
-        //sample code
-        // const historys = await History.find({}); // 몽고디비의 db.users.find({}) 쿼리와 같음
-        // res.json({historys});
+        const title = req.params.title
+        const page = parseInt(req.query.page) || 1; // 페이지 번호
+        const limit = 10; // 페이지당 결과 개수
+        const skip = (page - 1) * limit; // 건너뛸 결과 개수
+
+        const histories = await Document.find({title: title}).limit(limit).skip(skip).sort('-version'); // 몽고디비의 db.users.find({}) 쿼리와 같음
+        res.json({title, histories});
     } catch (err) {
         logger.error(err);
         next(err);
@@ -14,4 +18,4 @@ const historyCRUD = async (req, res, next) => {
 }
 
 /** Exports CRUD functions */
-module.exports = {historyCRUD};
+module.exports = {historySelect};

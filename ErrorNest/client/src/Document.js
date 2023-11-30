@@ -9,6 +9,7 @@ function Document(props) {
     const location = useLocation()
 
     const [title, setTitle] = useState('')
+    const [version, setVersion] = useState('')
     const [renderedContents, setRenderedContents] = useState([])
     const [renderedIndex, setRenderedIndex] = useState([])
     const [indexList, setIndexList] = useState([])
@@ -76,10 +77,11 @@ function Document(props) {
         return drawIndex(indexList);
     }
 
-    const urlDatatest = async(this_url) => {
-        const res = await axios.get(this_url)
+    const getDocument = async(this_url, version) => {
+        const res = await axios.get(this_url + version)
 
         const content = res.data.content
+        const recent = res.data.recent
         const renderedContents = extractElements(content) // JSX 로 변환하여 렌더링
 
         const indexHtml = initIndexHtml(indexList)
@@ -87,15 +89,17 @@ function Document(props) {
         setTitle(res.data.title)
         setRenderedContents(renderedContents)
         setRenderedIndex(indexHtml)
+        if(!recent) setVersion("(Version " + res.data.version + ")")
     }
 
     useEffect(() => {
         const this_url = location.pathname
         const hash = location.hash ? location.hash : undefined
+        const version = location.search
 
         setIndexList([])
 
-        urlDatatest(this_url).then(r => {
+        getDocument(this_url, version).then(r => {
             if(hash) scrollToElement(hash.substring(1, hash.length))
         })
 
@@ -105,7 +109,7 @@ function Document(props) {
         <>
             <div className="container">
                 <article>
-                    <h1>{title}</h1>
+                    <h1>{title} {}</h1>
                     <div className={"document-navi"}><Link to={"/edit/" + title}>편집</Link><Link to={"/history/" + title}>역사</Link></div>
                     {/*<div className={"documet-update"}></div>*/}
                     <div className="index-list" id="top">{renderedIndex}</div>
