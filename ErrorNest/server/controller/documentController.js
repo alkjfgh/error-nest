@@ -4,10 +4,14 @@ const logger = require("../log/logger")
 /** document select all */
 const documentSelect = async (req, res, next) => {
     const title = req.params.title
+    const version = parseInt(req.query.version) || false
     try {
-        const document = await Document.findOne({ title: title}) // 몽고디비의 db.users.find({}) 쿼리와 같음
-        // console.log(document)
-        res.json({title: title, content: document.content})
+        const options = { title: title}
+        if(version) options.version = version
+        const document = await Document.findOne(options) // 몽고디비의 db.users.find({}) 쿼리와 같음
+        const data = {title: title, content: document.content}
+        if(version) data.recent = false
+        res.json(data)
     } catch (err) {
         logger.error(err)
         next(err)

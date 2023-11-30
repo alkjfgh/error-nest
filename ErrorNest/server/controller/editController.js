@@ -16,7 +16,13 @@ const documentSelect = async (req, res, next) => {
 const documentUpdate = async (req, res, next) => {
     try {
         const {title, version, content} = req.body
-        const result = await Document.findOneAndUpdate({title: title, version: version}, {$set:{content: content, updateAt: Date.now()}}, {new: true})
+        // const result = await Document.findOneAndUpdate({title: title, version: version}, {$set:{content: content, updateAt: Date.now()}}, {new: true})
+
+        const document = {
+            title: title,
+            content: content,
+        }
+        const result = await Document.create(document)
         res.json({success: true});
     } catch (err) {
         logger.error(err);
