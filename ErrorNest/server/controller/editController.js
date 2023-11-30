@@ -1,17 +1,29 @@
-// const Edit = require("../db/schema/edit"); // Get edit schema
+const Document = require("../db/schema/document"); // Get edit schema
 const logger = require("../log/logger");
 
 /** edit CRUD */
-const editCRUD = async (req, res, next) => {
-    // try {
-    //     //sample code
-    //     const edits = await Edit.find({}); // 몽고디비의 db.users.find({}) 쿼리와 같음
-    //     res.json({edits});
-    // } catch (err) {
-    //     logger.error(err);
-    //     next(err);
-    // }
+const documentSelect = async (req, res, next) => {
+    try {
+        const title = req.params.title
+        const document = await Document.findOne({ title: title }).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
+        res.json({title: document.title, version: document.version, updateAt: document.updateAt, content: document.content});
+    } catch (err) {
+        logger.error(err);
+        next(err);
+    }
+}
+
+const documentUpdate = async (req, res, next) => {
+    try {
+        const {title, version, content} = req.body
+        const result = await Document.findOneAndUpdate({title: title, version: version}, {$set:{content: content, updateAt: Date.now()}}, {new: true})
+        res.json({success: true});
+    } catch (err) {
+        logger.error(err);
+        next(err);
+        res.json({success: false});
+    }
 }
 
 /** Exports CRUD functions */
-module.exports = {editCRUD};
+module.exports = {documentSelect, documentUpdate};

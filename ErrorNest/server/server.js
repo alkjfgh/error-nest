@@ -16,9 +16,3 @@ app.get('/', (req, res) => {
     // logger.info('GET /')
     res.send("Hello World !!!")
 })
-
-// app.get('/document/:seq', async (req, res) => {
-//     const seq = req.params.seq
-//     // logger.info(`GET /document/${seq}`)
-//     res.json({seq : seq})
-// })
