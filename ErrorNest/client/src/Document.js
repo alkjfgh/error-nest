@@ -53,24 +53,69 @@ function Document(props) {
     //     ));
     // }
 
-    function renderIndexItem(index) {
-        return (
-            <span>
-      <a href={"#s-" + index.aText.substring(0, index.aText.length)}>{index.aText}</a>
-                {index.spanText && (
-                    <div>
-                        <span>{index.spanText}</span>
-                        {index.subIndex && renderIndexItem(index.subIndex)}
-                    </div>
-                )}
-    </span>
-        );
+    // function initIndexHtml() {
+    //     let lastLevel = 0;
+    //     let outputHtml = [];
+    //     let parentDiv = null;
+    //
+    //     indexList.forEach((index, i) => {
+    //         const level = (index.aText.match(/\./g) || []).length;
+    //         const element = (
+    //             <span key={i}>
+    //             <a href={"#s-"+index.aText.substring(0,index.aText.length)}>{index.aText}</a>
+    //                 {index.spanText}
+    //         </span>
+    //         );
+    //
+    //         if (level === lastLevel) {
+    //             if (!parentDiv) {
+    //                 outputHtml.push(element);
+    //             } else {
+    //                 parentDiv.props.children.push(element);
+    //             }
+    //         } else if (level > lastLevel) {
+    //             parentDiv = <div>{[element]}</div>;
+    //             outputHtml.push(parentDiv);
+    //         } else {
+    //             parentDiv = null;
+    //             outputHtml.push(element);
+    //         }
+    //
+    //         lastLevel = level;
+    //     });
+    //
+    //     return outputHtml;
+    // }
+
+    function drawIndex(indexList, depth = 1) {
+        let result = [];
+        while (indexList.length > 0) {
+            let index = indexList[0];
+            let levels = index.aText.split('.').filter(Boolean);  // "2.1.1." => ["2", "1", "1"]
+
+            if (levels.length === depth) {
+                result.push(
+                    <span key={index.aText}>
+                        <a href={"#s-"+index.aText.substring(0,index.aText.length)}>{index.aText}</a>
+                        {index.spanText}
+                    </span>
+                );
+                indexList.shift();
+            } else if (levels.length > depth) {
+                let childIndexes = [];
+                while (indexList.length > 0 && indexList[0].aText.split('.').filter(Boolean).length > depth) {
+                    childIndexes.push(indexList.shift());
+                }
+                result.push(<div key={'div'+depth}>{drawIndex(childIndexes, depth + 1)}</div>);
+            } else {
+                break;
+            }
+        }
+        return result;
     }
 
     function initIndexHtml() {
-        return indexList.map((index, i) => (
-            <div key={i}>{renderIndexItem(index)}</div>
-        ));
+        return drawIndex(indexList);
     }
 
     const urlDatatest = async(this_url) => {
@@ -79,7 +124,7 @@ function Document(props) {
         const content = res.data.content
         const renderedContents = extractElements(content) // JSX 로 변환하여 렌더링
 
-        const indexHtml = initIndexHtml()
+        const indexHtml = initIndexHtml(indexList)
 
         setTitle(res.data.title)
         setRenderedContents(renderedContents)
