@@ -1,108 +1,56 @@
-2023-11-30 18:57:12 [Error-Nest] error: uncaughtException: Unexpected identifier
-C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\db\schema\document.js:23
-    updateAt: {
-    ^^^^^^^^
+2023-11-30 21:46:26 [Error-Nest] error: uncaughtException: Unexpected token ')'
+C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\edit.js:6
+router.get('/:title', editController.);
+                                     ^
 
-SyntaxError: Unexpected identifier
+SyntaxError: Unexpected token ')'
     at internalCompileFunction (node:internal/vm:73:18)
     at wrapSafe (node:internal/modules/cjs/loader:1178:20)
     at Module._compile (node:internal/modules/cjs/loader:1220:27)
     at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
     at Module.load (node:internal/modules/cjs/loader:1119:32)
     at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Module.require (node:internal/modules/cjs/loader:1143:19)
-    at require (node:internal/modules/cjs/helpers:121:18)
-    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\controller\documentController.js:1:18)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-2023-11-30 18:58:39 [Error-Nest] error: uncaughtException: Identifier 'documentSelect' has already been declared
-C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\controller\documentController.js:18
-const documentSelect = async (req, res, next) => {
-      ^
-
-SyntaxError: Identifier 'documentSelect' has already been declared
-    at internalCompileFunction (node:internal/vm:73:18)
-    at wrapSafe (node:internal/modules/cjs/loader:1178:20)
-    at Module._compile (node:internal/modules/cjs/loader:1220:27)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
-    at Module.load (node:internal/modules/cjs/loader:1119:32)
-    at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Module.require (node:internal/modules/cjs/loader:1143:19)
-    at require (node:internal/modules/cjs/helpers:121:18)
-    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\document.js:2:28)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-2023-11-30 19:00:14 [Error-Nest] error: uncaughtException: Unexpected token ','
-C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\controller\documentController.js:21
-            title: ,
-                   ^
-
-SyntaxError: Unexpected token ','
-    at internalCompileFunction (node:internal/vm:73:18)
-    at wrapSafe (node:internal/modules/cjs/loader:1178:20)
-    at Module._compile (node:internal/modules/cjs/loader:1220:27)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
-    at Module.load (node:internal/modules/cjs/loader:1119:32)
-    at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Module.require (node:internal/modules/cjs/loader:1143:19)
-    at require (node:internal/modules/cjs/helpers:121:18)
-    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\document.js:2:28)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-2023-11-30 20:55:40 [Error-Nest] error: uncaughtException: Cannot find module './routes/edit'
-Require stack:
-- C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js
-Error: Cannot find module './routes/edit'
-Require stack:
-- C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1077:15)
-    at Module._load (node:internal/modules/cjs/loader:922:27)
     at Module.require (node:internal/modules/cjs/loader:1143:19)
     at require (node:internal/modules/cjs/helpers:121:18)
     at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:5:14)
     at Module._compile (node:internal/modules/cjs/loader:1256:14)
+2023-11-30 21:46:33 [Error-Nest] error: uncaughtException: Unexpected token ')'
+C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\edit.js:6
+router.get('/:title', editController.);
+                                     ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1178:20)
+    at Module._compile (node:internal/modules/cjs/loader:1220:27)
     at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
     at Module.load (node:internal/modules/cjs/loader:1119:32)
     at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-2023-11-30 20:55:46 [Error-Nest] error: uncaughtException: Cannot find module './routes/history'
-Require stack:
-- C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js
-Error: Cannot find module './routes/history'
-Require stack:
-- C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1077:15)
-    at Module._load (node:internal/modules/cjs/loader:922:27)
     at Module.require (node:internal/modules/cjs/loader:1143:19)
     at require (node:internal/modules/cjs/helpers:121:18)
-    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:6:17)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:5:14)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+2023-11-30 22:12:29 [Error-Nest] error: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\route.js:211:15)
+    at proto.<computed> [as post] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\index.js:521:19)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\edit.js:7:8)
     at Module._compile (node:internal/modules/cjs/loader:1256:14)
     at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
     at Module.load (node:internal/modules/cjs/loader:1119:32)
     at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-2023-11-30 20:55:49 [Error-Nest] error: uncaughtException: Router.use() requires a middleware function but got a Object
-TypeError: Router.use() requires a middleware function but got a Object
-    at Function.use (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\index.js:469:13)
-    at Function.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\application.js:227:21)
-    at Array.forEach (<anonymous>)
-    at Function.use (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\application.js:224:7)
-    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:11:5)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
-    at Module.load (node:internal/modules/cjs/loader:1119:32)
-    at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-2023-11-30 20:56:29 [Error-Nest] error: uncaughtException: Cannot find module './routes/history'
-Require stack:
-- C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js
-Error: Cannot find module './routes/history'
-Require stack:
-- C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1077:15)
-    at Module._load (node:internal/modules/cjs/loader:922:27)
     at Module.require (node:internal/modules/cjs/loader:1143:19)
     at require (node:internal/modules/cjs/helpers:121:18)
-    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:6:17)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:5:14)
+2023-11-30 22:12:33 [Error-Nest] error: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\route.js:211:15)
+    at proto.<computed> [as post] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\index.js:521:19)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\edit.js:8:8)
     at Module._compile (node:internal/modules/cjs/loader:1256:14)
     at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
     at Module.load (node:internal/modules/cjs/loader:1119:32)
     at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:5:14)

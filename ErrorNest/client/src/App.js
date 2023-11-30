@@ -7,6 +7,8 @@ import Document from './Document';
 import User from './User';
 import Test from './Test';
 import Search from "./Search";
+import History from "./History";
+import Edit from "./Edit";
 
 const App = () => {
 
@@ -19,6 +21,8 @@ const App = () => {
                 <Route path='/user/*' element={<User />} />
                 <Route path='/test/*' element={<Test />} />
                 <Route path='/search/*' element={<Search />}/>
+                <Route path='/edit/*' element={<Edit />}/>
+                <Route path='/history/*' element={<History />}/>
                 <Route path='*' element={<NotFound />} /> {/*404 error*/}
             </Routes>
         </Router>

@@ -3,6 +3,7 @@ import {Link, useLocation} from 'react-router-dom'
 import axios from 'axios'
 
 import './css/document.scss'
+import Aside from "./Aside";
 
 function Document(props) {
     const location = useLocation()
@@ -27,7 +28,6 @@ function Document(props) {
                     const aText = node.querySelector('a') ? node.querySelector('a').textContent : null;
                     const spanText = node.querySelector('span') ? node.querySelector('span').textContent : null;
                     indexList.push({ aText: aText, spanText: spanText });
-                    // setIndexList(prev => [...prev, { aText: aText, spanText: spanText }])  // indexList 상태 업데이트
                 }
                 const props = { key: index, className: classList[0]}
                 if (node.id && node.id.startsWith('s-')) {
@@ -107,13 +107,12 @@ function Document(props) {
                 <article>
                     <h1>{title}</h1>
                     <div className={"document-navi"}><Link to={"/edit/" + title}>편집</Link><Link to={"/history/" + title}>역사</Link></div>
-                    <div className={"documet-update"}></div>
+                    {/*<div className={"documet-update"}></div>*/}
                     <div className="index-list" id="top">{renderedIndex}</div>
                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                     {renderedContents}
                 </article>
-                <aside>
-                </aside>
+                <Aside></Aside>
             </div>
         </>
     )
