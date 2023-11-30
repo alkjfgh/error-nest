@@ -7,7 +7,7 @@ import './css/edit.scss'
 
 const Edit = () => {
     const location = useLocation()
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const [title, setTitle] = useState('')
     const [version, setVersion] = useState('')
@@ -46,7 +46,7 @@ const Edit = () => {
             <div className="container">
                 <article>
                     <h1>{title} - {"(Version "+version+")"}</h1>
-                    <div className={"document-navi"}><Link to={"/edit/" + title}>편집</Link><Link to={"/history/" + title}>역사</Link></div>
+                    <div className={"document-navi"}><Link to={"/document/" + title}>돌아가기</Link><Link to={"/history/" + title}>역사</Link></div>
                     <textarea value={content} onChange={contentChange}></textarea>
                     <button onClick={editSubmit}>편집 완료</button>
                 </article>
