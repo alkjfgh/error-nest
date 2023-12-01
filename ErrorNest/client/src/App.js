@@ -9,6 +9,7 @@ import Test from './Test';
 import Search from "./Search";
 import History from "./History";
 import Edit from "./Edit";
+import Report from "./Report";
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
                 <Route path='/search/*' element={<Search />}/>
                 <Route path='/edit/*' element={<Edit />}/>
                 <Route path='/history/*' element={<History />}/>
+                <Route path='/report/*' element={<Report />}/>
                 <Route path='*' element={<NotFound />} /> {/*404 error*/}
             </Routes>
         </Router>

@@ -34,17 +34,17 @@ const Header = (props) => {
             </Link>
 
             {/** 네비게이션 요소 */}
-            {/*<ul className="navi-element-list">*/}
-            {/*    <li className="navi-element">*/}
-            {/*        <Link to="/">홈</Link>*/}
-            {/*    </li>*/}
-            {/*    <li className="navi-element">*/}
-            {/*        <Link to="/about">소개</Link>*/}
-            {/*    </li>*/}
-            {/*    <li className="navi-element">*/}
-            {/*        <Link to="/contact">문의</Link>*/}
-            {/*    </li>*/}
-            {/*</ul>*/}
+            <ul className="navi-element-list">
+                <li className="navi-element">
+                    <Link to="/report">신고</Link>
+                </li>
+                {/*<li className="navi-element">*/}
+                {/*    <Link to="/about">소개</Link>*/}
+                {/*</li>*/}
+                {/*<li className="navi-element">*/}
+                {/*    <Link to="/contact">문의</Link>*/}
+                {/*</li>*/}
+            </ul>
 
             {/** 검색 바 */}
             <div className="navi-button-div">
