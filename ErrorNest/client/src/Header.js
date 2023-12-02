@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import { useState } from "react";
 import algoliasearch from "algoliasearch"
 
@@ -12,6 +12,8 @@ import logoImg from './img/errorNestLogo.png'
  * 검색 바 - 버튼 눌러서 해당 버튼에 해당하는 Search.js로 이동 (/Search)
  * */
 const Header = (props) => {
+    const location = useLocation()
+
     const [inputText, setInputText] = useState("");
     const [encodedInputText, setEncodedInputText] = useState("");
     const [hits, setHits] = useState([])
@@ -23,23 +25,24 @@ const Header = (props) => {
         const searchText = e.target.value;
         setInputText(searchText);
 
-        index
-            .search(searchText)
-            .then(({ hits }) => {
-                setHits(hits)
-            })
-            .catch(err => {
-                console.error(err);
-            });
+        if(searchText === "") setHits([])
+        else {
+            index
+                .search(searchText)
+                .then(({ hits }) => {
+                    setHits(hits)
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        }
     };
 
     useEffect(() => {
         // 문자열 띄어쓰기 %20에서 인코딩
         setEncodedInputText(encodeURIComponent(inputText).replace(/%20/g, '+'));
-        // console.log(encodedInputText);
-    }, [inputText])
-
-    console.log(`encodedInputText >> ${encodedInputText}`);
+        setHits([])
+    }, [inputText, location.pathname])
 
     return (
         <nav className="navigation">
@@ -63,12 +66,23 @@ const Header = (props) => {
 
             {/** 검색 바 */}
             <div className="navi-button-div">
-                <input className="navi-input-bar" type="text" placeholder="검색" value={inputText} onChange={handleInputText}/>
+                <div>
+                    <input className="navi-input-bar" type="text" placeholder="검색" value={inputText} onChange={handleInputText}/>
+
+                    {/* TODO 검색 결과 실시간으로 보여주기*/}
+                    <div className="search-results">
+                        {hits.slice(0, 10).map((hit, index) => (
+                            <Link key={index} to={`/search?q=${encodeURIComponent(hit.title).replace(/%20/g, '+')}`} className="search-result-item">
+                                {hit.title} {/* hit 객체의 필드에 따라 변경 */}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+
                 <Link to={`/search?q=${encodedInputText}`}>
                     <button className="navi-button">검색</button>
                 </Link>
             </div>
-            {/* TODO 검색 결과 실시간으로 보여주기*/}
         </nav>
     );
 }
