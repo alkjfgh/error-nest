@@ -53,7 +53,7 @@ const Header = (props) => {
             setInputText("")
             // Enter 키를 누르면 선택된 검색 결과로 이동
             if(selectedIndex === -1 || selectedIndex === hits.length) navigate(`/search?q=${encodedInputText}`)
-            else navigate(`/search?q=${encodeURIComponent(hits[selectedIndex].title).replace(/%20/g, '+')}`)
+            else navigate(`/document/${hits[selectedIndex].title}`)
         }
     };
 
@@ -61,6 +61,7 @@ const Header = (props) => {
         // 문자열 띄어쓰기 %20에서 인코딩
         setEncodedInputText(encodeURIComponent(inputText).replace(/%20/g, '+'));
         setHits([])
+        setSelectedIndex(-1)
     }, [inputText, location.pathname])
 
     return (
@@ -83,6 +84,8 @@ const Header = (props) => {
             {/*    </li>*/}
             {/*</ul>*/}
 
+            <Link to={"/upload"}>파일 업로드</Link>
+
             {/** 검색 바 */}
             <div className="navi-button-div">
                 <div>
@@ -92,7 +95,7 @@ const Header = (props) => {
                         {hits.slice(0, 10).map((hit, index) => (
                             <Link
                                 key={index}
-                                to={`/search?q=${encodeURIComponent(hit.title).replace(/%20/g, '+')}`}
+                                to={`/document/${hit.title}`}
                                 className={`search-result-item ${index === selectedIndex ? 'selected' : ''}`}
                             >
                                 {hit.title}

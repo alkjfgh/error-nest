@@ -112,6 +112,7 @@ function Document(props) {
         const versionURI = location.search
 
         setIndexList([])
+        setRenderedIndex([])
 
         getDocument(this_url, versionURI).then(r => {
             if(hash) scrollToElement(hash.substring(1, hash.length))
@@ -121,16 +122,10 @@ function Document(props) {
 
     return (
         <>
-            <div className="container">
-                <article>
-                    <h1>{title} {version}</h1>
-                    <div className={"document-navi"}><Link to={"/edit/" + title + "?version="+version}>편집</Link><Link to={"/history/" + title}>역사</Link></div>
-                    {/*<div className={"documet-update"}></div>*/}
-                    <div className="index-list" id="top">{renderedIndex}</div>
-                    {renderedContents}
-                </article>
-                <Aside></Aside>
-            </div>
+            <h1>{title} {version}</h1>
+            <div className={"document-navi"}><Link to={"/edit/" + title + "?version="+version}>편집</Link><Link to={"/history/" + title}>역사</Link></div>
+            <div className="index-list" id="top">{renderedIndex}</div>
+            {renderedContents}
         </>
     )
 }

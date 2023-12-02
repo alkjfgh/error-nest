@@ -51,21 +51,16 @@ const Search = () => {
 
     return (
         <>
-            <div className="container">
-                <article>
-                    <div>찾는 문서가 없나요?<span onClick={directDocument}>'{searchText}'문서로 가기</span></div>
-                    {hits.length > 0 ? (
-                        hits.map((hit, index) => (
-                            <Link key={index} to={`/search?q=${encodeURIComponent(hit.title).replace(/%20/g, '+')}`} className="search-result-item">
-                                {hit.title} {/* hit 객체의 필드에 따라 변경 */}
-                            </Link>
-                        ))
-                    ) : (
-                        <div className="no-results">{message}</div>
-                    )}
-                </article>
-                <Aside></Aside>
-            </div>
+            <div>찾는 문서가 없나요?<span onClick={directDocument}>'{searchText}'문서로 가기</span></div>
+            {hits.length > 0 ? (
+                hits.map((hit, index) => (
+                    <Link key={index} to={`/search?q=${encodeURIComponent(hit.title).replace(/%20/g, '+')}`} className="search-result-item">
+                        {hit.title} {/* hit 객체의 필드에 따라 변경 */}
+                    </Link>
+                ))
+            ) : (
+                <div className="no-results">{message}</div>
+            )}
         </>
     )
 

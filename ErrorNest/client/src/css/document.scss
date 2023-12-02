@@ -79,7 +79,7 @@
 
   aside {
     width: 300px;
-    height: 600px;
+    height: 600px; //내부 크기만큼 height 하도록 바꿔야함
     // 여기에 aside 스타일을 추가하세요
     background-color: red;
   }
