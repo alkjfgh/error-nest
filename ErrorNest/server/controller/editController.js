@@ -22,6 +22,7 @@ const documentSelect = async (req, res, next) => {
 
 const documentUpdate = async (req, res, next) => {
     try {
+        // TODO uploads/title 폴더도 생성되도록.
         const {title, content} = req.body
 
         const document = {

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {Link, useLocation, useNavigate } from 'react-router-dom'
 import axios from "axios";
-import Aside from "./Aside";
 import algoliasearch from "algoliasearch"
 
 import './css/edit.scss'

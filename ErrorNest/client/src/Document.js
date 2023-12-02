@@ -3,7 +3,6 @@ import {Link, useLocation} from 'react-router-dom'
 import axios from 'axios'
 
 import './css/document.scss'
-import Aside from "./Aside"
 
 function Document(props) {
     const location = useLocation()

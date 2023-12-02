@@ -5,6 +5,7 @@ const document = require('./routes/document')
 const edit = require('./routes/edit')
 const history = require('./routes/history')
 const search = require('./routes/search')
+const upload = require('./routes/upload')
 
 app.use('/user', user)
 app.use('/test', test)
@@ -12,7 +13,7 @@ app.use('/document', document)
 app.use('/edit', edit)
 app.use('/history', history)
 app.use('/search', search)
-
+app.use('/upload', upload)
 
 app.get('/', (req, res) => {
     // logger.info('GET /')

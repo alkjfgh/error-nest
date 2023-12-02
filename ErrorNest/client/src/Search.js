@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import axios from "axios"
 import algoliasearch from "algoliasearch"
-import Aside from "./Aside";
 
 const Search = () => {
     const location = useLocation()
