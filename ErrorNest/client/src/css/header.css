@@ -76,7 +76,7 @@ ul {
   color: black;
   background-color: #f1f1f1;
 }
-.navigation .navi-button-div .search-result-item:hover {
+.navigation .navi-button-div .search-result-item:hover, .navigation .navi-button-div .selected {
   background-color: grey;
 }
 

@@ -24,6 +24,7 @@ const Search = () => {
         const res = await axios.get(`${thisURL}?title=${query}`)
         console.log(`resultQuery <> >> ${res.data.searchTitle}`)
         setMessage("searching..")
+        setHits([])
 
         if (query === res.data.searchTitle && res.data.searchTitle !== "") navigate(`/document/${query}`)
     }
@@ -31,12 +32,11 @@ const Search = () => {
     useEffect(() => {
         const thisURL = location.pathname
         searchDocument(thisURL).then(r => {
-            // setMessage('Search Page Failed...')
-
             index
                 .search(query)
                 .then(({ hits }) => {
                     setHits(hits)
+                    setMessage("검색 결과가 없습니다")
                 })
                 .catch(err => {
                     console.error(err);
@@ -47,11 +47,15 @@ const Search = () => {
 
     return (
         <>
-            {hits.map((hit, index) => (
-                <Link key={index} to={`/search?q=${encodeURIComponent(hit.title).replace(/%20/g, '+')}`} className="search-result-item">
-                    {hit.title} {/* hit 객체의 필드에 따라 변경 */}
-                </Link>
-            ))}
+            {hits.length > 0 ? (
+                hits.map((hit, index) => (
+                    <Link key={index} to={`/search?q=${encodeURIComponent(hit.title).replace(/%20/g, '+')}`} className="search-result-item">
+                        {hit.title} {/* hit 객체의 필드에 따라 변경 */}
+                    </Link>
+                ))
+            ) : (
+                <div className="no-results">{message}</div>
+            )}
         </>
     )
 
