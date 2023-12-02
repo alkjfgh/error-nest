@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import { useState } from "react";
 import algoliasearch from "algoliasearch"
 
@@ -13,6 +13,7 @@ import logoImg from './img/errorNestLogo.png'
  * */
 const Header = (props) => {
     const location = useLocation()
+    const navigate = useNavigate()
 
     const [inputText, setInputText] = useState("");
     const [encodedInputText, setEncodedInputText] = useState("");
@@ -50,9 +51,8 @@ const Header = (props) => {
             e.preventDefault();  // 기본 동작 막기
         } else if (e.key === 'Enter') {
             // Enter 키를 누르면 선택된 검색 결과로 이동
-            if (selectedIndex > -1 && selectedIndex < hits.length) {
-                window.location.href = `/search?q=${encodeURIComponent(hits[selectedIndex].title).replace(/%20/g, '+')}`;
-            }
+            if(selectedIndex === -1 || selectedIndex === hits.length) navigate(`/search?q=${encodedInputText}`)
+            else navigate(`/search?q=${encodeURIComponent(hits[selectedIndex].title).replace(/%20/g, '+')}`)
         }
     };
 
@@ -87,7 +87,6 @@ const Header = (props) => {
                 <div>
                     <input className="navi-input-bar" type="text" placeholder="검색" value={inputText} onChange={handleInputText} onKeyDown={handleKeyPress}/>
 
-                    {/* TODO 검색 결과 실시간으로 보여주기*/}
                     <div className="search-results">
                         {hits.slice(0, 10).map((hit, index) => (
                             <Link

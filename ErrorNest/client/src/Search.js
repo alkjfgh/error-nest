@@ -56,6 +56,10 @@ const Search = () => {
             ) : (
                 <div className="no-results">{message}</div>
             )}
+            {/*
+                TODO 찾는 문서 없으면 새문서 만드는 로직
+                TODO 새문서 만들어 질 때 알고리아서치에도 올라가야함  
+            */}
         </>
     )
 
