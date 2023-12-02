@@ -50,6 +50,7 @@ const Header = (props) => {
             setSelectedIndex((prevIndex) => Math.max(prevIndex - 1, -1));
             e.preventDefault();  // 기본 동작 막기
         } else if (e.key === 'Enter') {
+            setInputText("")
             // Enter 키를 누르면 선택된 검색 결과로 이동
             if(selectedIndex === -1 || selectedIndex === hits.length) navigate(`/search?q=${encodedInputText}`)
             else navigate(`/search?q=${encodeURIComponent(hits[selectedIndex].title).replace(/%20/g, '+')}`)

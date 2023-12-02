@@ -31,7 +31,6 @@ const Search = () => {
     }
 
     const directDocument = () => {
-        console.log("!!!!!")
         navigate(`/document/${searchText}`)
     }
 
