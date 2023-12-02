@@ -3,15 +3,20 @@ const logger = require("../log/logger")
 
 /** document select all */
 const documentSelect = async (req, res, next) => {
-    const title = req.params.title
+    const title = req.params[0]
     const version = parseInt(req.query.version) || false
     try {
         const options = { title: title }
         if(version) options.version = version
         const document = await Document.findOne(options).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
-        const data = {title: title, content: document.content}
-        if(version) data.recent = false
-        res.json(data)
+        if(document){
+            const data = {title: title, content: document.content, hasDocument: true}
+            if(version) data.recent = false
+            res.json(data)
+        }else{
+            const data = {title: title, hasDocument: false}
+            res.json(data)
+        }
     } catch (err) {
         logger.error(err)
         next(err)

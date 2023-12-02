@@ -81,18 +81,23 @@ function Document(props) {
     const getDocument = async(this_url, versionURI) => {
         const res = await axios.get(this_url + versionURI)
 
-        const content = res.data.content
-        const recent = res.data.recent
-        const renderedContents = extractElements(content) // JSX 로 변환하여 렌더링
-
-        const indexHtml = initIndexHtml(indexList)
-
         setTitle(res.data.title)
-        setRenderedContents(renderedContents)
-        setRenderedIndex(indexHtml)
-        const params = new URLSearchParams(location.search)
-        setVersion(parseInt(params.get('version')) || null)
-        if(!recent) setVersionURI("(Version " + version + ")")
+
+        if(res.data.hasDocument){
+            const content = res.data.content
+            const recent = res.data.recent
+            const renderedContents = extractElements(content) // JSX 로 변환하여 렌더링
+            const indexHtml = initIndexHtml(indexList)
+            const params = new URLSearchParams(location.search)
+
+            setRenderedContents(renderedContents)
+            setRenderedIndex(indexHtml)
+            setVersion(parseInt(params.get('version')) || null)
+            if(!recent) setVersionURI("(Version " + version + ")")
+        }else{
+            const data = [<div key={`No Document`}>해당 문서를 찾을 수 없습니다.</div>, <Link key={`No Document Link`} to={`/edit/${res.data.title}`}>[새 문서 만들기]</Link>]
+            setRenderedContents(data)
+        }
     }
 
     useEffect(() => {
@@ -116,7 +121,6 @@ function Document(props) {
                     <div className={"document-navi"}><Link to={"/edit/" + title + "?version="+version}>편집</Link><Link to={"/history/" + title}>역사</Link></div>
                     {/*<div className={"documet-update"}></div>*/}
                     <div className="index-list" id="top">{renderedIndex}</div>
-                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                     {renderedContents}
                 </article>
                 <Aside></Aside>

@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import axios from "axios"
 import algoliasearch from "algoliasearch"
+import Aside from "./Aside";
 
 const Search = () => {
     const location = useLocation()
     const navigate = useNavigate()
 
     const searchParams = new URLSearchParams(location.search)
-    const query = searchParams.get('q')
+    const searchText = searchParams.get('q')
 
     const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d')
     const index = client.initIndex('document-title');
@@ -16,24 +17,29 @@ const Search = () => {
     const [message, setMessage] = useState("")
     const [hits, setHits] = useState([])
 
-    console.log(`location >> ${location}`)
-    console.log(`location.search >> ${location.search}`)
+    // console.log(`location >> ${location}`)
+    // console.log(`location.search >> ${location.search}`)
 
     const searchDocument = async (thisURL) => {
-        console.log(thisURL)
-        const res = await axios.get(`${thisURL}?title=${query}`)
-        console.log(`resultQuery <> >> ${res.data.searchTitle}`)
+        // console.log(thisURL)
+        const res = await axios.get(`${thisURL}?title=${searchText}`)
+        // console.log(`resultQuery <> >> ${res.data.searchTitle}`)
         setMessage("searching..")
         setHits([])
 
-        if (query === res.data.searchTitle && res.data.searchTitle !== "") navigate(`/document/${query}`)
+        if (searchText === res.data.searchTitle && res.data.searchTitle !== "") navigate(`/document/${searchText}`)
+    }
+
+    const directDocument = () => {
+        console.log("!!!!!")
+        navigate(`/document/${searchText}`)
     }
 
     useEffect(() => {
         const thisURL = location.pathname
         searchDocument(thisURL).then(r => {
             index
-                .search(query)
+                .search(searchText)
                 .then(({ hits }) => {
                     setHits(hits)
                     setMessage("검색 결과가 없습니다")
@@ -42,24 +48,25 @@ const Search = () => {
                     console.error(err);
                 });
         })
-    }, [query])
-
+    }, [searchText])
 
     return (
         <>
-            {hits.length > 0 ? (
-                hits.map((hit, index) => (
-                    <Link key={index} to={`/search?q=${encodeURIComponent(hit.title).replace(/%20/g, '+')}`} className="search-result-item">
-                        {hit.title} {/* hit 객체의 필드에 따라 변경 */}
-                    </Link>
-                ))
-            ) : (
-                <div className="no-results">{message}</div>
-            )}
-            {/*
-                TODO 찾는 문서 없으면 새문서 만드는 로직
-                TODO 새문서 만들어 질 때 알고리아서치에도 올라가야함  
-            */}
+            <div className="container">
+                <article>
+                    <div>찾는 문서가 없나요?<span onClick={directDocument}>'{searchText}'문서로 가기</span></div>
+                    {hits.length > 0 ? (
+                        hits.map((hit, index) => (
+                            <Link key={index} to={`/search?q=${encodeURIComponent(hit.title).replace(/%20/g, '+')}`} className="search-result-item">
+                                {hit.title} {/* hit 객체의 필드에 따라 변경 */}
+                            </Link>
+                        ))
+                    ) : (
+                        <div className="no-results">{message}</div>
+                    )}
+                </article>
+                <Aside></Aside>
+            </div>
         </>
     )
 

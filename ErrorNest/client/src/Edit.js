@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import {Link, useLocation, useNavigate } from 'react-router-dom'
 import axios from "axios";
 import Aside from "./Aside";
+import algoliasearch from "algoliasearch"
 
 import './css/edit.scss'
 
@@ -13,6 +14,9 @@ const Edit = () => {
     const [version, setVersion] = useState('')
     const [updateAT, setUpdateAt] = useState('')
     const [content, setContent] = useState('')
+
+    const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d')
+    const index = client.initIndex('document-title')
 
     async function getDocument(this_url, versionURI) {
         const res = await axios.get(this_url+versionURI)
@@ -33,7 +37,26 @@ const Edit = () => {
     const editSubmit = async (e) => {
         const this_url = location.pathname
         const res = await axios.post(this_url,{title,content,version})
-        if(res.data.success) navigate('/document/' + title)
+        if(res.data.success){
+            const addClient  = algoliasearch('71RW9A7WPG', '0bb48fee2961ce2138ef237912abd0df')
+            const addIndex = addClient.initIndex('document-title')
+            const document = [
+                {
+                    objectID: title,
+                    title: title
+                }
+            ];
+
+            addIndex
+                .saveObjects(document)
+                .then(() => {
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+
+            navigate('/document/' + title)
+        }
         else alert("failed update")
     }
 
