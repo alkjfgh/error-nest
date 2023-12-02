@@ -1,0 +1,28 @@
+2023-12-01 00:10:24 [Error-Nest] error: uncaughtException: Package subpath './dist/src/defaults' is not defined by "exports" in C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\concurrently\package.json
+Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './dist/src/defaults' is not defined by "exports" in C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\concurrently\package.json
+    at new NodeError (node:internal/errors:405:5)
+    at exportsNotFound (node:internal/modules/esm/resolve:359:10)
+    at packageExportsResolve (node:internal/modules/esm/resolve:695:9)
+    at resolveExports (node:internal/modules/cjs/loader:567:36)
+    at Module._findPath (node:internal/modules/cjs/loader:636:31)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1063:27)
+    at Module._load (node:internal/modules/cjs/loader:922:27)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\controller\documentController.js:3:19)
+2023-12-01 00:50:07 [Error-Nest] error: uncaughtException: Unexpected token ')'
+C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\controller\historyController.js:14
+        if((page - 1) * 10 > count)) page -= limit
+                                   ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1178:20)
+    at Module._compile (node:internal/modules/cjs/loader:1220:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\history.js:2:27)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)

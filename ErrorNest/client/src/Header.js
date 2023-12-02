@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from "react";
+import algoliasearch from "algoliasearch"
 
 /** css & img */
 import './css/header.scss'
@@ -13,9 +14,23 @@ import logoImg from './img/errorNestLogo.png'
 const Header = (props) => {
     const [inputText, setInputText] = useState("");
     const [encodedInputText, setEncodedInputText] = useState("");
+    const [hits, setHits] = useState([])
+
+    const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d')
+    const index = client.initIndex('document-title');
 
     const handleInputText = (e) => {
-        setInputText(e.target.value);
+        const searchText = e.target.value;
+        setInputText(searchText);
+
+        index
+            .search(searchText)
+            .then(({ hits }) => {
+                setHits(hits)
+            })
+            .catch(err => {
+                console.error(err);
+            });
     };
 
     useEffect(() => {
@@ -53,6 +68,7 @@ const Header = (props) => {
                     <button className="navi-button">검색</button>
                 </Link>
             </div>
+            {/* TODO 검색 결과 실시간으로 보여주기*/}
         </nav>
     );
 }
