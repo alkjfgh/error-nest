@@ -21,6 +21,14 @@ const documentSelect = async (req, res, next) => {
             isFile : true
         }
         res.json(data)
+    }else if(title.startsWith("분류:")){
+        if(title.startsWith("분류:파일/")){
+            const options = {
+                category: title.split('/')[1]
+            }
+            const categories = await File.find(options)
+            res.json({title: title, categories: categories, isCategory: true})
+        }
     }
     else{
         try {

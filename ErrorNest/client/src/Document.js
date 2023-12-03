@@ -92,10 +92,14 @@ function Document(props) {
             const file = res.data
             const imageUrl = `/upload/${file.category}/${file.fileName}`
             const renderedContents = []
-            renderedContents.push(<div key={Math.random()}>분류:<Link to={`/document/파일/${file.category}`}>파일/{file.category}</Link></div>)
+            renderedContents.push(<div key={Math.random()}>분류:<Link to={`/document/분류:파일/${file.category}`}>파일/{file.category}</Link></div>)
             renderedContents.push(<img key={Math.random()} src={imageUrl} alt={file.fileDes} />)
             renderedContents.push(<div key={Math.random()}>{file.fileDes}</div>)
             setRenderedContents(renderedContents);
+        }
+        else if(res.data.isCategory){
+            const files = res.data.files
+            console.log(files)
         }
         else if(res.data.hasDocument){
             const content = res.data.content
