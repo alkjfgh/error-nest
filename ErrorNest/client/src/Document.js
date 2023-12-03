@@ -88,7 +88,16 @@ function Document(props) {
 
         setTitle(res.data.title)
 
-        if(res.data.hasDocument){
+        if(res.data.isFile){
+            const file = res.data
+            const imageUrl = `/upload/${file.category}/${file.fileName}`
+            const renderedContents = []
+            renderedContents.push(<div key={Math.random()}>분류:<Link to={`/document/파일/${file.category}`}>파일/{file.category}</Link></div>)
+            renderedContents.push(<img key={Math.random()} src={imageUrl} alt={file.fileDes} />)
+            renderedContents.push(<div key={Math.random()}>{file.fileDes}</div>)
+            setRenderedContents(renderedContents);
+        }
+        else if(res.data.hasDocument){
             const content = res.data.content
             const recent = res.data.recent
             const renderedContents = extractElements(content) // JSX 로 변환하여 렌더링

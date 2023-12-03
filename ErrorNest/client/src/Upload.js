@@ -1,7 +1,11 @@
-import React, { useRef, useState } from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import axios from "axios"
+import algoliasearch from "algoliasearch"
+import {Link, useNavigate} from "react-router-dom"
 
 const Upload = () => {
+    const navigate = useNavigate()
+
     const fileInputRef = useRef(null)
     const [fileName, setFileName] = useState('') // 선택된 파일명을 저장할 상태
     const [inputs, setInputs] = useState({ // 사용자가 입력한 파일 이름, 설명, 분류를 저장할 상태
@@ -9,6 +13,12 @@ const Upload = () => {
         fileDes: '',
         category: ''
     })
+    const [hits, setHits] = useState([])
+    const [showResults, setShowResults] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState("")
+
+    const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d')
+    const index = client.initIndex('document-title');
 
     const handleButtonClick = () => {
         fileInputRef.current.click()
@@ -26,6 +36,21 @@ const Upload = () => {
             ...inputs,
             [name]: value
         })
+
+        if(name === "category" && value !== ""){
+            index
+                .search(value)
+                .then(({ hits }) => {
+                    const filteredHits = hits.filter(hit => !hit.title.startsWith("파일:"))
+                    setHits(filteredHits)
+                    setShowResults(true)
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        } else {
+            setShowResults(false)
+        }
     }
 
     const fileUploadSubmit = async (e) => {
@@ -35,12 +60,7 @@ const Upload = () => {
         formData.append('file', fileInputRef.current.files[0]) // 파일 데이터 추가
         formData.append('fileName', inputs.inputFileName + '.' + fileName.split('.')[1]) // 그 외의 입력 데이터 추가
         formData.append('fileDes', inputs.fileDes)
-        formData.append('category', inputs.category)
-
-        console.log(formData.get('file'))
-        console.log(formData.get('fileName'))
-        console.log(formData.get('fileDes'))
-        console.log(formData.get('category'))
+        formData.append('category', selectedCategory)
 
         // 서버에 데이터 전송
         await axios.post("/upload", formData, {
@@ -52,12 +72,54 @@ const Upload = () => {
                 fileName: inputs.inputFileName + '.' + fileName.split('.')[1],
                 fileDes: inputs.fileDes,
             }
-        }).then((res) => {
-            console.log(res)
-            //TODO algoria에도 올라가도록
+        }).then(async (res) => {
+            if (res.data.success) {
+                const addClient = algoliasearch('71RW9A7WPG', '0bb48fee2961ce2138ef237912abd0df')
+                const addIndex = addClient.initIndex('document-title')
+
+                const fileName = "파일:" + res.data.fileName
+                const existingObject = await addIndex.getObject(fileName).catch(() => null);
+
+                if (existingObject === null) {  // 존재하지 않는 title인 경우에만 저장
+                    const document = [
+                        {
+                            objectID: fileName,
+                            title: fileName
+                        }
+                    ];
+
+                    addIndex
+                        .saveObjects(document)
+                        .then(() => {
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
+                }
+
+                navigate('/document/' + fileName)
+            }
         })
     }
 
+    const handleCategoryClick = (title) => {
+        setInputs({
+            ...inputs,
+            category: title
+        })
+        setSelectedCategory(title)
+        setShowResults(false)
+    }
+
+    const handleBlur = () => {
+        setShowResults(false)
+        if(!selectedCategory){
+            setInputs({
+                ...inputs,
+                category: ''
+            })
+        }
+    }
 
     return (
         <>
@@ -90,7 +152,24 @@ const Upload = () => {
                     </div>
                     <div>
                         <label htmlFor="category">분류</label><br/>
-                        <input type="text" name={"category"} value={inputs.category} onChange={handleChange} required={true}/>
+                        <input
+                            type="text"
+                            name={"category"}
+                            value={inputs.category}
+                            placeholder={selectedCategory || '분류'}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            required={true}
+                        />
+                        {showResults && (
+                            <ul className="search-results">
+                                {hits.map((hit, index) => (
+                                    <button key={index} className={`search-result-item`} onMouseDown={() => handleCategoryClick(hit.title)}>
+                                        {hit.title}
+                                    </button>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                     <button type="submit">업로드</button>
                 </div>

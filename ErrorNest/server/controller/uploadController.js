@@ -13,8 +13,9 @@ const fileUpload = async (req, res, next) => {
             fileDes: req.body.fileDes,
             category: req.body.category
         }
+        console.log(file)
         const result = await File.create(file);
-        res.json({success: true});
+        res.json({success: true, fileName: file.fileName});
     } catch (err) {
         logger.error(err);
         next(err);

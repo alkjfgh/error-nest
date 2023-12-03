@@ -59,7 +59,8 @@ ul {
   border: none;
   color: #fff;
 }
-.navigation .navi-button-div .search-results {
+
+.search-results {
   position: absolute;
   width: 100%;
   max-height: 300px;
@@ -69,14 +70,16 @@ ul {
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
-.navigation .navi-button-div .search-result-item {
+
+.search-result-item {
   display: block;
   padding: 10px;
   text-decoration: none;
   color: black;
   background-color: #f1f1f1;
 }
-.navigation .navi-button-div .search-result-item:hover, .navigation .navi-button-div .selected {
+
+.search-result-item:hover, .selected {
   background-color: grey;
 }
 
