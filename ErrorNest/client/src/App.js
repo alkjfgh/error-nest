@@ -9,26 +9,27 @@ import Test from './Test';
 import Search from "./Search";
 import History from "./History";
 import Edit from "./Edit";
-import Report from "./Report";
+import Upload from "./Upload";
+import Layout from "./Layout";
 
 const App = () => {
-
     return (
         <Router>
             <Header />
             <Routes>
-                <Route path='/' element={<Main />} />
-                <Route path='/document/*' element={<Document />} />
-                <Route path='/user/*' element={<User />} />
-                <Route path='/test/*' element={<Test />} />
-                <Route path='/search/*' element={<Search />}/>
-                <Route path='/edit/*' element={<Edit />}/>
-                <Route path='/history/*' element={<History />}/>
-                <Route path='/report/*' element={<Report />}/>
-                <Route path='*' element={<NotFound />} /> {/*404 error*/}
+                <Route path='/' element={<Layout><Main /></Layout>} />
+                <Route path='/user/*' element={<Layout><User /></Layout>} />
+                <Route path='/test/*' element={<Layout><Test /></Layout>} />
+                <Route path='/document/*' element={<Layout><Document /></Layout>} />
+                <Route path='/search/*' element={<Layout><Search /></Layout>}/>
+                <Route path='/edit/*' element={<Layout><Edit /></Layout>}/>
+                <Route path='/history/*' element={<Layout><History /></Layout>}/>
+                <Route path='/Upload' element={<Layout><Upload /></Layout>}/>
+                <Route path='*' element={<Layout><NotFound /></Layout>} />
             </Routes>
         </Router>
     );
 };
+
 
 export default App;

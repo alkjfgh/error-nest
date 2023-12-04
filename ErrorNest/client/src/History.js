@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {Link, useLocation, useNavigate } from 'react-router-dom'
 import axios from "axios";
-import Aside from "./Aside";
-
 
 const History = () => {
     const location = useLocation()
@@ -35,11 +33,9 @@ const History = () => {
 
     return (
         <>
-            <div className="container">
-                <article>
-                    <h1>{title} 역사</h1>
-                    <div className={"document-navi"}><Link to={"/document/" + title}>돌아가기</Link><Link to={"/edit/" + title}>편집</Link></div>
-                    <div>
+            <h1>{title} 역사</h1>
+            <div className={"document-navi"}><Link to={"/document/" + title}>돌아가기</Link><Link to={"/edit/" + title}>편집</Link></div>
+            <div>
                         <span>
                             {page - 1 > 0 ? (
                                 <Link to={"/history/" + title + "?page=" + (page - 1)}>{"<"}Prev</Link>
@@ -47,27 +43,24 @@ const History = () => {
                                 "<Prev"
                             )}
                         </span>
-                        <span>
+                <span>
                             {page + 1 <= maxPage ? (
                                 <Link to={"/history/" + title + "?page=" + (page + 1)}>Next{">"}</Link>
                             ) : (
                                 "Next>"
                             )}
                         </span>
-                    </div>
-                    <ul>
-                        {histories.map((history, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
-                            <li key={index}>
-                                <Link to={"/document/" + title + "?version="+history.version}>
-                                    <span>{history.updateAt}</span>`
-                                    <span>{history.version}</span>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </article>
-                <Aside></Aside>
             </div>
+            <ul>
+                {histories.map((history, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
+                    <li key={index}>
+                        <Link to={"/document/" + title + "?version="+history.version}>
+                            <span>{history.updateAt}</span>`
+                            <span>{history.version}</span>
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </>
     )
 }

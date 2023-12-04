@@ -37,6 +37,9 @@ ul {
   font-size: 2.2rem;
   margin-top: 0;
 }
+.container article img {
+  width: 100%;
+}
 .container article .document-navi {
   position: absolute;
   top: 0;

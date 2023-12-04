@@ -12,6 +12,7 @@ const connect = require('./db/connect');
 app.use(morganMiddleware)
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/upload', express.static('uploads'))
 
 app.listen(port, () => {
     logger.info(`express is running on ${port}`);

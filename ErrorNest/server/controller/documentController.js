@@ -1,20 +1,52 @@
 const Document = require("../db/schema/document") // Get document schema
+const File = require("../db/schema/file")
 const logger = require("../log/logger")
 
 /** document select all */
 const documentSelect = async (req, res, next) => {
-    const title = req.params.title
+    //TODO 파일: 으로 시작하는 문서 처리.
+    const title = req.params[0]
     const version = parseInt(req.query.version) || false
-    try {
-        const options = { title: title }
-        if(version) options.version = version
-        const document = await Document.findOne(options).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
-        const data = {title: title, content: document.content}
-        if(version) data.recent = false
+
+    // title이 "파일:"으로 시작하는지 확인
+    if (title.startsWith("파일:")) {
+        const options = { fileName: title.substring(3) }
+        const file = await File.findOne(options)// 몽고디비의 db.users.find({}) 쿼리와 같음
+        const data = {
+            title: title,
+            fileName: options.fileName,
+            filePath: file.path,
+            fileDes: file.fileDes,
+            category: file.category,
+            isFile : true
+        }
         res.json(data)
-    } catch (err) {
-        logger.error(err)
-        next(err)
+    }else if(title.startsWith("분류:")){
+        if(title.startsWith("분류:파일/")){
+            const options = {
+                category: title.split('/')[1]
+            }
+            const categories = await File.find(options)
+            res.json({title: title, categories: categories, isCategory: true})
+        }
+    }
+    else{
+        try {
+            const options = { title: title }
+            if(version) options.version = version
+            const document = await Document.findOne(options).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
+            if(document){
+                const data = {title: title, content: document.content, hasDocument: true}
+                if(version) data.recent = false
+                res.json(data)
+            }else{
+                const data = {title: title, hasDocument: false}
+                res.json(data)
+            }
+        } catch (err) {
+            logger.error(err)
+            next(err)
+        }
     }
 }
 
