@@ -20,6 +20,9 @@ const documentSchema = new Schema({
         type: Date,
         default: Date.now,
     },
+    category: {
+        type: Array
+    },
     updateAt: {
         type: Date,
         default: Date.now,

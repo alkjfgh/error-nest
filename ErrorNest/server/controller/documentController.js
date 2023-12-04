@@ -91,3 +91,5 @@ const documentInsert = async (req, res, next) => {
 
 /** Exports CRUD functions */
 module.exports = {documentSelect, documentInsert}
+
+//TODO 카테고리 스키마 구현해야함

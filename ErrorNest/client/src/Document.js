@@ -13,6 +13,7 @@ function Document(props) {
     const [renderedContents, setRenderedContents] = useState([])
     const [renderedIndex, setRenderedIndex] = useState([])
     const [indexList, setIndexList] = useState([])
+    const [isFile, setIsFile] = useState(false)
 
     const extractElements = (htmlString) => { // 문자열에서 HTML 요소 추출 및 재귀적 처리
         const wrapper = document.createElement('div')
@@ -89,6 +90,7 @@ function Document(props) {
         setTitle(res.data.title)
 
         if(res.data.isFile){
+            setIsFile(res.data.isFile)
             const file = res.data
             const imageUrl = `/upload/${file.category}/${file.fileName}`
             const renderedContents = []
@@ -135,7 +137,10 @@ function Document(props) {
     return (
         <>
             <h1>{title} {version}</h1>
-            <div className={"document-navi"}><Link to={"/edit/" + title + "?version="+version}>편집</Link><Link to={"/history/" + title}>역사</Link></div>
+            <div className={"document-navi"}>
+                {!isFile && <Link to={"/edit/" + title + "?version="+version}>편집</Link>}
+                {!isFile && <Link to={"/history/" + title}>역사</Link>}
+            </div>
             <div className="index-list" id="top">{renderedIndex}</div>
             {renderedContents}
         </>
