@@ -3,13 +3,13 @@ import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
 
 const Logout = () => {
-    const [cookies, removeCookie] = useCookies(['myCookie']);
+    const [cookies, setCookie, removeCookie] = useCookies(['myCookie']);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        removeCookie('myCookie');
+    useEffect(async () => {
+        await removeCookie('myCookie');
         alert("로그아웃 되었습니다.");
-        navigate('/document');
+        await navigate('/document');
     }, []);
 }
 
