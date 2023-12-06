@@ -23,6 +23,10 @@ const documentSchema = new Schema({
     category: {
         type: Array
     },
+    writer: {
+        type: String,
+        require: true
+    },
     updateAt: {
         type: Date,
         default: Date.now,

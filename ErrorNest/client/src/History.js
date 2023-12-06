@@ -34,7 +34,7 @@ const History = () => {
     return (
         <>
             <h1>{title} 역사</h1>
-            <div className={"document-navi"}><Link to={"/document/" + title}>돌아가기</Link><Link to={"/edit/" + title}>편집</Link></div>
+            <div className={"document-navi"}><Link to={"/document/" + title}>돌아가기</Link></div>
             <div>
                         <span>
                             {page - 1 > 0 ? (
@@ -55,8 +55,9 @@ const History = () => {
                 {histories.map((history, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
                     <li key={index}>
                         <Link to={"/document/" + title + "?version="+history.version}>
-                            <span>{history.updateAt}</span>`
-                            <span>{history.version}</span>
+                            <span>업데이트: {history.updateAt}</span>`
+                            <span>, 버전: {history.version}</span>
+                            <span>, 작성자: {history.writer}</span>
                         </Link>
                     </li>
                 ))}

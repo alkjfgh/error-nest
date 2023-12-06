@@ -10,7 +10,7 @@ const documentSelect = async (req, res, next) => {
             const options = { title: title }
             if(version) options.version = version
             const document = await Document.findOne(options).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
-            res.json({title: document.title, version: document.version, updateAt: document.updateAt, content: document.content});
+            res.json({title: document.title, version: document.version, updateAt: document.updateAt, content: document.content, category: document.category});
         }else{
             res.json({title: title, version: 1, content: ""});
         }
@@ -22,12 +22,12 @@ const documentSelect = async (req, res, next) => {
 
 const documentUpdate = async (req, res, next) => {
     try {
-        // TODO uploads/title 폴더도 생성되도록.
-        const {title, content} = req.body
-
+        const {title, content, category, writer} = req.body
         const document = {
             title: title,
             content: content,
+            category: category,
+            writer: writer
         }
         const result = await Document.create(document)
         res.json({success: true});
