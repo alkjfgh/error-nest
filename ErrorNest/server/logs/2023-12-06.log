@@ -588,3 +588,29 @@
 2023-12-06 20:22:27 [Error-Nest] info: MongoDB connection successful
 2023-12-06 20:22:37 [Error-Nest] info: express is running on 8000
 2023-12-06 20:22:37 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:30:12 [Error-Nest] info: express is running on 8000
+2023-12-06 19:30:12 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:30:31 [Error-Nest] info: ::1 - - [06/Dec/2023:10:30:31 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:30:31 [Error-Nest] info: ::1 - - [06/Dec/2023:10:30:31 +0000] "GET /upload/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!.webp HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 20:21:34 [Error-Nest] info: express is running on 8000
+2023-12-06 20:21:35 [Error-Nest] info: MongoDB connection successful
+2023-12-06 20:22:26 [Error-Nest] info: express is running on 8000
+2023-12-06 20:22:27 [Error-Nest] info: MongoDB connection successful
+2023-12-06 20:22:37 [Error-Nest] info: express is running on 8000
+2023-12-06 20:22:37 [Error-Nest] info: MongoDB connection successful
+2023-12-06 20:48:22 [Error-Nest] info: express is running on 8000
+2023-12-06 20:48:22 [Error-Nest] info: MongoDB connection successful
+2023-12-06 20:48:42 [Error-Nest] info: express is running on 8000
+2023-12-06 20:48:42 [Error-Nest] info: MongoDB connection successful
+2023-12-06 20:50:29 [Error-Nest] info: ::1 - - [06/Dec/2023:11:50:29 +0000] "GET /main.0f523d3129254ab875c5.hot-update.json HTTP/1.1" 404 180 "http://localhost:3000/document" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 20:50:30 [Error-Nest] info: ::1 - - [06/Dec/2023:11:50:30 +0000] "GET /document HTTP/1.1" 200 32 "http://localhost:3000/document" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 20:50:33 [Error-Nest] info: ::1 - - [06/Dec/2023:11:50:33 +0000] "GET /document HTTP/1.1" 304 - "http://localhost:3000/document" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 20:50:51 [Error-Nest] info: ::1 - - [06/Dec/2023:11:50:51 +0000] "GET /document HTTP/1.1" 304 - "http://localhost:3000/document" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 20:50:54 [Error-Nest] info: ::1 - - [06/Dec/2023:11:50:54 +0000] "GET /document HTTP/1.1" 200 32 "http://localhost:3000/document" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
