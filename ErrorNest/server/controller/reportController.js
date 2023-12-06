@@ -32,12 +32,13 @@ const reportInsert = async (req, res, next) => {
         console.log(report);
 
         const result = await Report.create(report);
+        console.log(`result >> ${result}`);
 
-        res.json({message: "신고 완료 !!"});
+        res.json({success: true, message: "신고 완료 !!"});
     } catch (err) {
         logger.error(err);
         next(err);
-        res.json({success: false});
+        res.json({success: false, message: "신고 오류 !!"});
     }
 }
 

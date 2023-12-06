@@ -24,7 +24,7 @@ const reportSchema = new Schema({
         default: 0
     },
     comment: {
-        type: String,
+        type: String
     },
     createAt: {
         type: Date,
@@ -34,7 +34,7 @@ const reportSchema = new Schema({
         type: String,
         required: true
     }
-});
+}, { versionKey: false, _id: true});
 
 /** report schema */
 module.exports = mongoose.model('report', reportSchema);

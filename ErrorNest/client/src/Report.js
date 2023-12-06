@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 
 const Report = () => {
-
     const location = useLocation();
-
+    const navigate = useNavigate();
     const [title, setTitle] = useState("");
-    const [writer, setWriter] = useState("조병준");
+    const [writer, setWriter] = useState("최은희");
     const [version, setVersion] = useState(1);
     const [comment, setComment] = useState("");
 
@@ -44,7 +43,12 @@ const Report = () => {
         const thisUrl = location.pathname;
         const res = await axios.post(thisUrl,{title, comment, version, writer});
 
-        alert(`${res.data.message}`);
+        console.log(res.data);
+
+        if (res.data.success) {
+            alert(`${res.data.message}`);
+            navigate(`/document/${title}`);
+        }
     }
 
     const reportChange = (e) => {

@@ -66,3 +66,19 @@ TypeError: Cannot read properties of undefined (reading 'length')
     at Module.load (node:internal/modules/cjs/loader:1119:32)
     at Module._load (node:internal/modules/cjs/loader:960:12)
     at Module.require (node:internal/modules/cjs/loader:1143:19)
+2023-12-06 17:11:49 [Error-Nest] error: uncaughtException: Unexpected token ')'
+D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\db\schema\report.js:37
+}, { versionKey: false, _id: { auto: true });
+                                           ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1178:20)
+    at Module._compile (node:internal/modules/cjs/loader:1220:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\controller\reportController.js:1:16)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
