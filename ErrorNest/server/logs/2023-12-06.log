@@ -349,3 +349,195 @@
 
 2023-12-06 16:16:14 [Error-Nest] info: ::1 - - [06/Dec/2023:07:16:14 +0000] "GET /member/admin HTTP/1.1" 200 342 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
 
+2023-12-06 18:34:15 [Error-Nest] info: express is running on 8000
+2023-12-06 18:34:15 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:35:31 [Error-Nest] info: express is running on 8000
+2023-12-06 18:35:31 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:39:22 [Error-Nest] info: express is running on 8000
+2023-12-06 18:39:22 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:40:08 [Error-Nest] info: express is running on 8000
+2023-12-06 18:40:08 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:41:34 [Error-Nest] info: express is running on 8000
+2023-12-06 18:41:34 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:42:04 [Error-Nest] info: ::1 - - [06/Dec/2023:09:42:04 +0000] "POST /token HTTP/1.1" 404 145 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:44:59 [Error-Nest] info: ::1 - - [06/Dec/2023:09:44:59 +0000] "POST /token HTTP/1.1" 404 145 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:45:08 [Error-Nest] info: ::1 - - [06/Dec/2023:09:45:08 +0000] "POST /token HTTP/1.1" 404 145 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:47:07 [Error-Nest] info: ::1 - - [06/Dec/2023:09:47:07 +0000] "POST /token HTTP/1.1" 404 145 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:49:52 [Error-Nest] info: ::1 - - [06/Dec/2023:09:49:52 +0000] "POST /token HTTP/1.1" 404 145 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:51:05 [Error-Nest] info: ::1 - - [06/Dec/2023:09:51:05 +0000] "POST /token HTTP/1.1" 404 145 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:51:25 [Error-Nest] info: ::1 - - [06/Dec/2023:09:51:25 +0000] "POST /token HTTP/1.1" 404 145 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:51:50 [Error-Nest] info: ::1 - - [06/Dec/2023:09:51:50 +0000] "POST /token HTTP/1.1" 404 145 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:51:58 [Error-Nest] info: ::1 - - [06/Dec/2023:09:51:58 +0000] "POST /token HTTP/1.1" 404 145 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:52:45 [Error-Nest] info: express is running on 8000
+2023-12-06 18:52:45 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:53:07 [Error-Nest] info: ::1 - - [06/Dec/2023:09:53:07 +0000] "POST /token/db HTTP/1.1" 404 148 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:53:29 [Error-Nest] info: express is running on 8000
+2023-12-06 18:53:29 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:53:38 [Error-Nest] info: ::1 - - [06/Dec/2023:09:53:38 +0000] "POST /token/db HTTP/1.1" 404 148 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:53:51 [Error-Nest] info: express is running on 8000
+2023-12-06 18:53:51 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:53:58 [Error-Nest] info: ::1 - - [06/Dec/2023:09:53:58 +0000] "GET /main.1fef52094ac7e5f2761e.hot-update.json HTTP/1.1" 404 180 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:53:58 [Error-Nest] info: ::1 - - [06/Dec/2023:09:53:58 +0000] "GET /main.1fef52094ac7e5f2761e.hot-update.json HTTP/1.1" 404 180 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:54:11 [Error-Nest] info: express is running on 8000
+2023-12-06 18:54:11 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:54:14 [Error-Nest] info: express is running on 8000
+2023-12-06 18:54:15 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:54:28 [Error-Nest] info: express is running on 8000
+2023-12-06 18:54:28 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:54:36 [Error-Nest] info: ::1 - - [06/Dec/2023:09:54:36 +0000] "POST /token/db HTTP/1.1" 404 148 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:55:07 [Error-Nest] info: ::1 - - [06/Dec/2023:09:55:07 +0000] "POST /token/db HTTP/1.1" 404 148 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:55:48 [Error-Nest] info: express is running on 8000
+2023-12-06 18:55:49 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:56:26 [Error-Nest] info: ::1 - - [06/Dec/2023:09:56:26 +0000] "GET /token HTTP/1.1" 404 144 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 18:57:21 [Error-Nest] info: express is running on 8000
+2023-12-06 18:57:22 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:58:43 [Error-Nest] info: express is running on 8000
+2023-12-06 18:58:43 [Error-Nest] info: MongoDB connection successful
+2023-12-06 18:58:52 [Error-Nest] info: express is running on 8000
+2023-12-06 18:58:53 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:00:19 [Error-Nest] info: express is running on 8000
+2023-12-06 19:00:19 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:01:15 [Error-Nest] info: express is running on 8000
+2023-12-06 19:01:15 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:01:37 [Error-Nest] info: ::1 - - [06/Dec/2023:10:01:37 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:03:37 [Error-Nest] info: express is running on 8000
+2023-12-06 19:03:38 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:10:32 [Error-Nest] error: E11000 duplicate key error collection: error-nest.tokens index: id_1 dup key: { id: "asdf" }
+2023-12-06 19:10:32 [Error-Nest] info: ::1 - - [06/Dec/2023:10:10:32 +0000] "POST /token HTTP/1.1" 200 17 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:12:38 [Error-Nest] info: express is running on 8000
+2023-12-06 19:12:38 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:12:46 [Error-Nest] info: express is running on 8000
+2023-12-06 19:12:46 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:12:52 [Error-Nest] error: E11000 duplicate key error collection: error-nest.tokens index: id_1 dup key: { id: "asdf" }
+2023-12-06 19:12:52 [Error-Nest] info: ::1 - - [06/Dec/2023:10:12:52 +0000] "POST /token HTTP/1.1" 500 727 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:13:17 [Error-Nest] info: express is running on 8000
+2023-12-06 19:13:17 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:13:20 [Error-Nest] info: ::1 - - [06/Dec/2023:10:13:20 +0000] "GET /main.82928c37d1f6e55e9cb3.hot-update.json HTTP/1.1" 404 180 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:13:20 [Error-Nest] info: ::1 - - [06/Dec/2023:10:13:20 +0000] "GET /main.82928c37d1f6e55e9cb3.hot-update.json HTTP/1.1" 404 180 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:13:21 [Error-Nest] info: ::1 - - [06/Dec/2023:10:13:21 +0000] "GET /main.82928c37d1f6e55e9cb3.hot-update.json HTTP/1.1" 404 180 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:13:30 [Error-Nest] error: E11000 duplicate key error collection: error-nest.tokens index: id_1 dup key: { id: "asdf" }
+2023-12-06 19:13:30 [Error-Nest] info: ::1 - - [06/Dec/2023:10:13:30 +0000] "POST /token HTTP/1.1" 500 727 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:15:17 [Error-Nest] info: express is running on 8000
+2023-12-06 19:15:17 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:15:24 [Error-Nest] info: ::1 - - [06/Dec/2023:10:15:24 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:15:30 [Error-Nest] info: express is running on 8000
+2023-12-06 19:15:30 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:16:14 [Error-Nest] info: express is running on 8000
+2023-12-06 19:16:14 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:16:50 [Error-Nest] error: E11000 duplicate key error collection: error-nest.tokens index: id_1 dup key: { id: "sadf" }
+2023-12-06 19:16:50 [Error-Nest] info: ::1 - - [06/Dec/2023:10:16:50 +0000] "POST /token HTTP/1.1" 500 727 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:18:07 [Error-Nest] info: express is running on 8000
+2023-12-06 19:18:08 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:18:14 [Error-Nest] error: E11000 duplicate key error collection: error-nest.tokens index: id_1 dup key: { id: "asdf" }
+2023-12-06 19:18:14 [Error-Nest] info: ::1 - - [06/Dec/2023:10:18:14 +0000] "POST /token HTTP/1.1" 500 727 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:19:38 [Error-Nest] info: express is running on 8000
+2023-12-06 19:19:38 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:19:47 [Error-Nest] info: ::1 - - [06/Dec/2023:10:19:47 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:20:32 [Error-Nest] info: express is running on 8000
+2023-12-06 19:20:32 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:21:00 [Error-Nest] info: ::1 - - [06/Dec/2023:10:21:00 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:22:40 [Error-Nest] info: express is running on 8000
+2023-12-06 19:22:41 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:23:32 [Error-Nest] info: ::1 - - [06/Dec/2023:10:23:32 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:24:10 [Error-Nest] info: express is running on 8000
+2023-12-06 19:24:10 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:25:44 [Error-Nest] info: express is running on 8000
+2023-12-06 19:25:45 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:26:55 [Error-Nest] info: ::1 - - [06/Dec/2023:10:26:55 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:27:19 [Error-Nest] info: ::1 - - [06/Dec/2023:10:27:19 +0000] "POST /token/check HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:28:33 [Error-Nest] info: ::1 - - [06/Dec/2023:10:28:33 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:28:42 [Error-Nest] info: ::1 - - [06/Dec/2023:10:28:42 +0000] "POST /token/check HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:29:09 [Error-Nest] info: ::1 - - [06/Dec/2023:10:29:09 +0000] "POST /token/check HTTP/1.1" 200 15 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:37:25 [Error-Nest] info: ::1 - - [06/Dec/2023:10:37:25 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:38:01 [Error-Nest] info: ::1 - - [06/Dec/2023:10:38:01 +0000] "POST /token/check HTTP/1.1" 200 15 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:38:05 [Error-Nest] info: ::1 - - [06/Dec/2023:10:38:05 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:40:08 [Error-Nest] info: ::1 - - [06/Dec/2023:10:40:08 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:40:54 [Error-Nest] info: ::1 - - [06/Dec/2023:10:40:54 +0000] "POST /token/check HTTP/1.1" 200 15 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:40:56 [Error-Nest] error: E11000 duplicate key error collection: error-nest.members index: id_1 dup key: { id: "asdf" }
+2023-12-06 19:40:56 [Error-Nest] info: ::1 - - [06/Dec/2023:10:40:56 +0000] "POST /member/insert HTTP/1.1" 500 728 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:45:09 [Error-Nest] info: express is running on 8000
+2023-12-06 19:45:09 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:45:30 [Error-Nest] info: ::1 - - [06/Dec/2023:10:45:30 +0000] "POST /token HTTP/1.1" 200 84 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:46:25 [Error-Nest] info: express is running on 8000
+2023-12-06 19:46:25 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:46:29 [Error-Nest] info: ::1 - - [06/Dec/2023:10:46:29 +0000] "GET /main.3700e95091b3bf511615.hot-update.json HTTP/1.1" 404 180 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:46:52 [Error-Nest] info: ::1 - - [06/Dec/2023:10:46:52 +0000] "POST /token HTTP/1.1" 200 84 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:47:01 [Error-Nest] info: ::1 - - [06/Dec/2023:10:47:01 +0000] "POST /token/check HTTP/1.1" 200 15 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:47:04 [Error-Nest] info: ::1 - - [06/Dec/2023:10:47:04 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:47:57 [Error-Nest] info: ::1 - - [06/Dec/2023:10:47:57 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:48:12 [Error-Nest] info: ::1 - - [06/Dec/2023:10:48:12 +0000] "POST /token/check HTTP/1.1" 200 15 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:48:14 [Error-Nest] info: ::1 - - [06/Dec/2023:10:48:14 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:49:47 [Error-Nest] info: ::1 - - [06/Dec/2023:10:49:47 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:51:03 [Error-Nest] info: ::1 - - [06/Dec/2023:10:51:03 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:51:38 [Error-Nest] info: express is running on 8000
+2023-12-06 19:51:38 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:51:42 [Error-Nest] info: ::1 - - [06/Dec/2023:10:51:42 +0000] "GET /main.a277f15db301ded3cd90.hot-update.json HTTP/1.1" 404 180 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:52:02 [Error-Nest] info: ::1 - - [06/Dec/2023:10:52:02 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:53:12 [Error-Nest] info: ::1 - - [06/Dec/2023:10:53:12 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:54:31 [Error-Nest] info: ::1 - - [06/Dec/2023:10:54:31 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:55:39 [Error-Nest] info: ::1 - - [06/Dec/2023:10:55:39 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:56:40 [Error-Nest] info: ::1 - - [06/Dec/2023:10:56:40 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:59:01 [Error-Nest] info: ::1 - - [06/Dec/2023:10:59:01 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:59:21 [Error-Nest] info: express is running on 8000
+2023-12-06 19:59:21 [Error-Nest] info: MongoDB connection successful
+2023-12-06 19:59:24 [Error-Nest] info: ::1 - - [06/Dec/2023:10:59:24 +0000] "GET /main.22f5335d8b2ef18baf13.hot-update.json HTTP/1.1" 404 180 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:59:39 [Error-Nest] info: ::1 - - [06/Dec/2023:10:59:39 +0000] "POST /token HTTP/1.1" 200 82 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+

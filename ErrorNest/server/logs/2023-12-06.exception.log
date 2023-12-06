@@ -88,3 +88,48 @@ Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the cli
     at ServerResponse.json (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:278:15)
     at memberInsert (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\controller\memberController.js:49:13)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-12-06 19:12:52 [Error-Nest] error: uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:406:5)
+    at ServerResponse.setHeader (node:_http_outgoing:652:11)
+    at ServerResponse.header (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:278:15)
+    at tokenCRUD (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\controller\tokenController.js:15:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-12-06 19:13:30 [Error-Nest] error: uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:406:5)
+    at ServerResponse.setHeader (node:_http_outgoing:652:11)
+    at ServerResponse.header (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:278:15)
+    at tokenCRUD (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\controller\tokenController.js:15:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-12-06 19:16:50 [Error-Nest] error: uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:406:5)
+    at ServerResponse.setHeader (node:_http_outgoing:652:11)
+    at ServerResponse.header (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:278:15)
+    at tokenCRUD (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\controller\tokenController.js:15:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-12-06 19:18:14 [Error-Nest] error: uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:406:5)
+    at ServerResponse.setHeader (node:_http_outgoing:652:11)
+    at ServerResponse.header (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:278:15)
+    at tokenCRUD (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\controller\tokenController.js:15:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-12-06 19:40:56 [Error-Nest] error: uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:406:5)
+    at ServerResponse.setHeader (node:_http_outgoing:652:11)
+    at ServerResponse.header (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\node_modules\express\lib\response.js:278:15)
+    at memberInsert (D:\서울호서전문학교\1학년 2학기\전공실무\error-nest\ErrorNest\server\controller\memberController.js:49:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)

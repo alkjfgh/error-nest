@@ -7,3 +7,9 @@
 2023-12-06 15:21:44 [Error-Nest] error: Parameter "filter" to deleteOne() must be an object, got "heo" (type string)
 2023-12-06 16:12:42 [Error-Nest] error: member validation failed: pw: Path `pw` (`11`) is shorter than the minimum allowed length (8).
 2023-12-06 16:14:05 [Error-Nest] error: member validation failed: pw: Path `pw` (`123`) is shorter than the minimum allowed length (8).
+2023-12-06 19:10:32 [Error-Nest] error: E11000 duplicate key error collection: error-nest.tokens index: id_1 dup key: { id: "asdf" }
+2023-12-06 19:12:52 [Error-Nest] error: E11000 duplicate key error collection: error-nest.tokens index: id_1 dup key: { id: "asdf" }
+2023-12-06 19:13:30 [Error-Nest] error: E11000 duplicate key error collection: error-nest.tokens index: id_1 dup key: { id: "asdf" }
+2023-12-06 19:16:50 [Error-Nest] error: E11000 duplicate key error collection: error-nest.tokens index: id_1 dup key: { id: "sadf" }
+2023-12-06 19:18:14 [Error-Nest] error: E11000 duplicate key error collection: error-nest.tokens index: id_1 dup key: { id: "asdf" }
+2023-12-06 19:40:56 [Error-Nest] error: E11000 duplicate key error collection: error-nest.members index: id_1 dup key: { id: "asdf" }
