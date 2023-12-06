@@ -6,6 +6,7 @@ const search = require('./routes/search')
 const upload = require('./routes/upload')
 const member = require('./routes/member')
 const report = require('./routes/report')
+// const token = require('./routes/t');
 
 app.use('/document', document)
 app.use('/edit', edit)
