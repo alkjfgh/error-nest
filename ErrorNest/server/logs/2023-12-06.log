@@ -1,0 +1,31 @@
+2023-12-06 13:08:13 [Error-Nest] info: express is running on 8000
+2023-12-06 13:08:13 [Error-Nest] info: MongoDB connection successful
+2023-12-06 13:11:09 [Error-Nest] info: ::1 - - [06/Dec/2023:04:11:09 +0000] "GET /member HTTP/1.1" 200 425 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:11:33 [Error-Nest] error: E11000 duplicate key error collection: error-nest.members index: id_1 dup key: { id: "asdf" }
+2023-12-06 13:11:33 [Error-Nest] info: ::1 - - [06/Dec/2023:04:11:33 +0000] "POST /member/insert HTTP/1.1" 200 17 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:11:39 [Error-Nest] info: ::1 - - [06/Dec/2023:04:11:39 +0000] "GET /member HTTP/1.1" 200 425 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:11:47 [Error-Nest] info: ::1 - - [06/Dec/2023:04:11:47 +0000] "GET /member HTTP/1.1" 200 425 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:11:55 [Error-Nest] error: E11000 duplicate key error collection: error-nest.members index: id_1 dup key: { id: "asdf" }
+2023-12-06 13:11:55 [Error-Nest] info: ::1 - - [06/Dec/2023:04:11:55 +0000] "POST /member/insert HTTP/1.1" 200 17 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:14:10 [Error-Nest] info: express is running on 8000
+2023-12-06 13:14:10 [Error-Nest] info: MongoDB connection successful
+2023-12-06 13:14:15 [Error-Nest] info: ::1 - - [06/Dec/2023:04:14:15 +0000] "GET /member HTTP/1.1" 200 14 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:14:25 [Error-Nest] error: No write concern mode named 'majority ;명재님 링크' found in replica set configuration
+2023-12-06 13:14:25 [Error-Nest] info: ::1 - - [06/Dec/2023:04:14:25 +0000] "POST /member/insert HTTP/1.1" 200 17 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:14:29 [Error-Nest] info: ::1 - - [06/Dec/2023:04:14:29 +0000] "GET /member HTTP/1.1" 200 160 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:15:48 [Error-Nest] info: express is running on 8000
+2023-12-06 13:15:48 [Error-Nest] info: MongoDB connection successful
+2023-12-06 13:15:52 [Error-Nest] info: ::1 - - [06/Dec/2023:04:15:52 +0000] "GET /member HTTP/1.1" 200 425 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:16:39 [Error-Nest] info: ::1 - - [06/Dec/2023:04:16:39 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:16:39 [Error-Nest] info: ::1 - - [06/Dec/2023:04:16:39 +0000] "GET /member HTTP/1.1" 200 573 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+

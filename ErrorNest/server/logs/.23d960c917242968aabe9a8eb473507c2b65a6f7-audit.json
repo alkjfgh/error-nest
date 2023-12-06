@@ -1,0 +1,30 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "D:\\서울호서전문학교\\1학년 2학기\\전공실무\\error-nest\\ErrorNest\\server\\logs\\.23d960c917242968aabe9a8eb473507c2b65a6f7-audit.json",
+    "files": [
+        {
+            "date": 1701261420832,
+            "name": "D:\\서울호서전문학교\\1학년 2학기\\전공실무\\error-nest\\ErrorNest\\server\\logs\\2023-11-29.log",
+            "hash": "2e068ee5c115693cbb0598890da8977d4b7039e20bbe31b7c33608c12d156d78"
+        },
+        {
+            "date": 1701322016101,
+            "name": "D:\\서울호서전문학교\\1학년 2학기\\전공실무\\error-nest\\ErrorNest\\server\\logs\\2023-11-30.log",
+            "hash": "49c10e48965c741c3af6cb8eff90523061ac7199c3b89acb345299ee1a54f13d"
+        },
+        {
+            "date": 1701434889434,
+            "name": "D:\\서울호서전문학교\\1학년 2학기\\전공실무\\error-nest\\ErrorNest\\server\\logs\\2023-12-01.log",
+            "hash": "d048c40c5816358ddc5a7af8186474bb4f09f89509e0ce3f6ba0d0034b02c282"
+        },
+        {
+            "date": 1701835693019,
+            "name": "D:\\서울호서전문학교\\1학년 2학기\\전공실무\\error-nest\\ErrorNest\\server\\logs\\2023-12-06.log",
+            "hash": "4dbfbf49a3ee4afee5bd15d6331be8194a501a53388b08350d0a8d20e6ef274e"
+        }
+    ],
+    "hashType": "sha256"
+}
