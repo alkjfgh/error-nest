@@ -138,10 +138,10 @@ function Document(props) {
         <>
             <h1>{title} {version}</h1>
             <div className={"document-navi"}>
-                {!isFile && <Link to={"/edit/" + title + "?version="+version}>편집</Link>}
+                {!isFile && <Link to={"/edit/" + title + "?version=" + version}>편집</Link>}
                 {!isFile && <Link to={"/history/" + title}>역사</Link>}
-            </div>
-            <div className="index-list" id="top">{renderedIndex}</div>
+                {!isFile && <Link to={"/report/" + title + "?version=" + version}>신고</Link>}
+                <div className="index-list" id="top">{renderedIndex}</div>
             {renderedContents}
         </>
     )
