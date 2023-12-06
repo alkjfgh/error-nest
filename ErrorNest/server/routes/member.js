@@ -3,7 +3,7 @@ const memberController = require('../controller/memberController');
 const router = express.Router();
 
 /** GET /member */
-router.get('/', memberController.memberCRUD);
+router.post('/', memberController.memberCRUD);
 
 /** POST /test/insert  */
 router.post('/insert', memberController.memberInsert);
