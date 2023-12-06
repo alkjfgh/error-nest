@@ -15,6 +15,7 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 import Admin from "./Admin";
 import Report from "./Report";
+import Logout from "./Logout";
 
 const App = () => {
     return (
@@ -22,6 +23,7 @@ const App = () => {
             <Header />
             <Routes>
                 <Route path='/' element={<Layout><Main /></Layout>} />
+                <Route path='/logout' element={<Layout><Logout /></Layout>} />
                 <Route path='/user/*' element={<Layout><User /></Layout>} />
                 <Route path='/test/*' element={<Layout><Test /></Layout>} />
                 <Route path='/document/*' element={<Layout><Document /></Layout>} />

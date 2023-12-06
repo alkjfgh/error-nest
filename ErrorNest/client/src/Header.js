@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import { useState } from "react";
-import algoliasearch from "algoliasearch"
+import { useCookies } from "react-cookie";
+import algoliasearch from "algoliasearch";
 
 /** css & img */
 import './css/header.scss'
@@ -15,12 +16,17 @@ const Header = (props) => {
     const location = useLocation()
     const navigate = useNavigate()
 
+    /** 쿠키 값 가져오기 */
+    const [cookies, setCookies] = useCookies(["myCookie"]);
+    
+    /** useState 요소들 */
     const [inputText, setInputText] = useState("");
     const [encodedInputText, setEncodedInputText] = useState("");
-    const [hits, setHits] = useState([])
+    const [hits, setHits] = useState([]);
     const [selectedIndex, setSelectedIndex] = useState(-1);
+    const [isCookies, setIsCookies] = useState(false);
 
-    const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d')
+    const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d');
     const index = client.initIndex('document-title');
 
     const handleInputText = (e) => {
@@ -64,6 +70,14 @@ const Header = (props) => {
         setSelectedIndex(-1)
     }, [inputText, location.pathname])
 
+    useEffect(() => {
+        const myCookieValue = cookies.myCookie;
+
+        if (myCookieValue) setIsCookies(true);
+
+        console.log(myCookieValue);
+    }, []);
+
     return (
         <nav className="navigation">
             {/** 로고 이미지 */}
@@ -73,9 +87,21 @@ const Header = (props) => {
 
             {/** 네비게이션 요소 */}
             <ul className="navi-element-list">
-                {/*<li className="navi-element">*/}
-                {/*    <Link to="/report">신고 게시판</Link>*/}
-                {/*</li>*/}
+                {!cookies.myCookie && (
+                    <>
+                        <li className="navi-element">
+                            <Link to="/login">로그인</Link>
+                        </li>
+                        <li className="navi-element">
+                            <Link to="/signup">회원가입</Link>
+                        </li>
+                    </>
+                )}
+                {cookies.myCookie && (
+                    <li className="navi-element">
+                        <Link to="/logout">로그아웃</Link>
+                    </li>
+                )}
                 {/*<li className="navi-element">*/}
                 {/*    <Link to="/about">소개</Link>*/}
                 {/*</li>*/}

@@ -550,3 +550,27 @@
 
 2023-12-06 18:52:47 [Error-Nest] info: ::1 - - [06/Dec/2023:09:52:47 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 2020 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
 
+2023-12-06 18:54:53 [Error-Nest] info: ::1 - - [06/Dec/2023:09:54:53 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 2020 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:04:56 [Error-Nest] info: ::1 - - [06/Dec/2023:10:04:56 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 2020 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:14:36 [Error-Nest] info: ::1 - - [06/Dec/2023:10:14:36 +0000] "GET /document HTTP/1.1" 200 32 "http://localhost:3000/document" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:15:09 [Error-Nest] info: ::1 - - [06/Dec/2023:10:15:09 +0000] "POST /member HTTP/1.1" 200 16 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:15:16 [Error-Nest] info: ::1 - - [06/Dec/2023:10:15:16 +0000] "POST /member HTTP/1.1" 200 16 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:15:45 [Error-Nest] info: ::1 - - [06/Dec/2023:10:15:45 +0000] "POST /member HTTP/1.1" 200 30 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:17:40 [Error-Nest] info: ::1 - - [06/Dec/2023:10:17:40 +0000] "GET /document HTTP/1.1" 304 - "http://localhost:3000/document" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:17:47 [Error-Nest] info: ::1 - - [06/Dec/2023:10:17:47 +0000] "POST /member HTTP/1.1" 200 16 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:17:54 [Error-Nest] info: ::1 - - [06/Dec/2023:10:17:54 +0000] "POST /member HTTP/1.1" 200 31 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:17:57 [Error-Nest] info: ::1 - - [06/Dec/2023:10:17:57 +0000] "GET /document HTTP/1.1" 304 - "http://localhost:3000/document" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:18:04 [Error-Nest] info: ::1 - - [06/Dec/2023:10:18:04 +0000] "POST /member HTTP/1.1" 200 31 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 19:18:08 [Error-Nest] info: ::1 - - [06/Dec/2023:10:18:08 +0000] "GET /document HTTP/1.1" 304 - "http://localhost:3000/document" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
