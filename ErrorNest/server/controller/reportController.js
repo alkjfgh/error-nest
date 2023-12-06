@@ -1,17 +1,34 @@
 const Report = require("../db/schema/report"); // Get report schema
 const logger = require("../log/logger");
+const Document = require("../db/schema/document");
 
 /** report CRUD */
-const reportCRUD = async (req, res, next) => {
+const documentSelect = async (req, res, next) => {
     try {
-        //sample code
-        const reports = await Report.find({}); // 몽고디비의 db.users.find({}) 쿼리와 같음
-        res.json({reports});
+        const title = req.params[0]
+        if (req.query.version) {
+            let version = parseInt(req.query.version) // 페이지 번호
+            const options = {title: title}
+            if (version) options.version = version
+            const document = await Document.findOne(options).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
+            res.json({
+                title: document.title,
+                version: document.version,
+                updateAt: document.updateAt,
+                content: document.content
+            });
+        } else {
+            res.json({title: title, version: 1, content: ""});
+        }
     } catch (err) {
         logger.error(err);
         next(err);
     }
 }
 
+const reportInsert = async (req, res, next) => {
+
+}
+
 /** Exports CRUD functions */
-module.exports = {reportCRUD};
+module.exports = {documentSelect, reportInsert};

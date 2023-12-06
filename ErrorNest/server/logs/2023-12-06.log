@@ -29,3 +29,183 @@
 
 2023-12-06 13:16:39 [Error-Nest] info: ::1 - - [06/Dec/2023:04:16:39 +0000] "GET /member HTTP/1.1" 200 573 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
 
+2023-12-06 14:41:27 [Error-Nest] info: express is running on 8000
+2023-12-06 14:41:27 [Error-Nest] info: MongoDB connection successful
+2023-12-06 14:43:01 [Error-Nest] info: ::1 - - [06/Dec/2023:05:43:01 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:44:20 [Error-Nest] info: ::1 - - [06/Dec/2023:05:44:20 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:50:23 [Error-Nest] info: ::1 - - [06/Dec/2023:05:50:23 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:00:27 [Error-Nest] info: ::1 - - [06/Dec/2023:06:00:27 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:00:35 [Error-Nest] info: ::1 - - [06/Dec/2023:06:00:35 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:00:35 [Error-Nest] info: ::1 - - [06/Dec/2023:06:00:35 +0000] "GET /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 200 2553 "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:00:42 [Error-Nest] info: ::1 - - [06/Dec/2023:06:00:42 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:01:00 [Error-Nest] info: ::1 - - [06/Dec/2023:06:01:00 +0000] "GET /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:01:06 [Error-Nest] info: ::1 - - [06/Dec/2023:06:01:06 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:02:43 [Error-Nest] info: ::1 - - [06/Dec/2023:06:02:43 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:14:50 [Error-Nest] info: ::1 - - [06/Dec/2023:06:14:50 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:16:45 [Error-Nest] info: ::1 - - [06/Dec/2023:06:16:45 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:17:06 [Error-Nest] info: ::1 - - [06/Dec/2023:06:17:06 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:18:45 [Error-Nest] info: ::1 - - [06/Dec/2023:06:18:45 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:20:17 [Error-Nest] info: ::1 - - [06/Dec/2023:06:20:17 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:20:25 [Error-Nest] info: ::1 - - [06/Dec/2023:06:20:25 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:20:42 [Error-Nest] info: ::1 - - [06/Dec/2023:06:20:42 +0000] "GET /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 200 2553 "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:20:45 [Error-Nest] info: ::1 - - [06/Dec/2023:06:20:45 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:23:36 [Error-Nest] info: ::1 - - [06/Dec/2023:06:23:36 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:23:42 [Error-Nest] info: ::1 - - [06/Dec/2023:06:23:42 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:28:47 [Error-Nest] info: ::1 - - [06/Dec/2023:06:28:47 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 200 2521 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:29:52 [Error-Nest] info: ::1 - - [06/Dec/2023:06:29:52 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:30:08 [Error-Nest] info: ::1 - - [06/Dec/2023:06:30:08 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:30:13 [Error-Nest] info: ::1 - - [06/Dec/2023:06:30:13 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:30:48 [Error-Nest] info: ::1 - - [06/Dec/2023:06:30:48 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:31:56 [Error-Nest] info: express is running on 8000
+2023-12-06 15:31:56 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:32:07 [Error-Nest] info: express is running on 8000
+2023-12-06 15:32:07 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:32:10 [Error-Nest] info: express is running on 8000
+2023-12-06 15:32:11 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:34:43 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:43 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:35:02 [Error-Nest] info: ::1 - - [06/Dec/2023:06:35:02 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:37:07 [Error-Nest] info: express is running on 8000
+2023-12-06 15:37:07 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:37:18 [Error-Nest] info: express is running on 8000
+2023-12-06 15:37:18 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:37:20 [Error-Nest] info: ::1 - - [06/Dec/2023:06:37:20 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:38:17 [Error-Nest] info: express is running on 8000
+2023-12-06 15:38:17 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:38:22 [Error-Nest] info: ::1 - - [06/Dec/2023:06:38:22 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:39:40 [Error-Nest] info: ::1 - - [06/Dec/2023:06:39:40 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:40:46 [Error-Nest] info: ::1 - - [06/Dec/2023:06:40:46 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:40:50 [Error-Nest] info: ::1 - - [06/Dec/2023:06:40:50 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:41:04 [Error-Nest] info: ::1 - - [06/Dec/2023:06:41:04 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:41:08 [Error-Nest] info: ::1 - - [06/Dec/2023:06:41:08 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:41:11 [Error-Nest] info: ::1 - - [06/Dec/2023:06:41:11 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:41:15 [Error-Nest] info: ::1 - - [06/Dec/2023:06:41:15 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:41:24 [Error-Nest] info: ::1 - - [06/Dec/2023:06:41:24 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:43:13 [Error-Nest] info: ::1 - - [06/Dec/2023:06:43:13 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 404 189 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:45:13 [Error-Nest] info: express is running on 8000
+2023-12-06 15:45:13 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:45:46 [Error-Nest] info: ::1 - - [06/Dec/2023:06:45:46 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 200 2521 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:46:20 [Error-Nest] info: ::1 - - [06/Dec/2023:06:46:20 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:46:23 [Error-Nest] info: ::1 - - [06/Dec/2023:06:46:23 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 200 2521 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:47:22 [Error-Nest] info: ::1 - - [06/Dec/2023:06:47:22 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 200 2521 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:48:10 [Error-Nest] info: ::1 - - [06/Dec/2023:06:48:10 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:48:25 [Error-Nest] info: ::1 - - [06/Dec/2023:06:48:25 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:48:29 [Error-Nest] info: ::1 - - [06/Dec/2023:06:48:29 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:48:34 [Error-Nest] info: ::1 - - [06/Dec/2023:06:48:34 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:55:44 [Error-Nest] info: ::1 - - [06/Dec/2023:06:55:44 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:57:33 [Error-Nest] info: express is running on 8000
+2023-12-06 15:57:33 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:59:46 [Error-Nest] info: ::1 - - [06/Dec/2023:06:59:46 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:01:01 [Error-Nest] info: express is running on 8000
+2023-12-06 16:01:01 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:01:21 [Error-Nest] info: express is running on 8000
+2023-12-06 16:01:21 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:01:24 [Error-Nest] info: express is running on 8000
+2023-12-06 16:01:24 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:01:46 [Error-Nest] info: express is running on 8000
+2023-12-06 16:01:46 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:01:55 [Error-Nest] info: express is running on 8000
+2023-12-06 16:01:55 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:02:01 [Error-Nest] info: ::1 - - [06/Dec/2023:07:02:01 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 2521 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:02:06 [Error-Nest] info: ::1 - - [06/Dec/2023:07:02:06 +0000] "GET /report HTTP/1.1" 200 37 "http://localhost:3000/report" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:02:11 [Error-Nest] info: ::1 - - [06/Dec/2023:07:02:11 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:02:12 [Error-Nest] info: ::1 - - [06/Dec/2023:07:02:12 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 200 2553 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:03:30 [Error-Nest] info: ::1 - - [06/Dec/2023:07:03:30 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:03:40 [Error-Nest] info: ::1 - - [06/Dec/2023:07:03:40 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:03:53 [Error-Nest] info: ::1 - - [06/Dec/2023:07:03:53 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:06:56 [Error-Nest] info: ::1 - - [06/Dec/2023:07:06:56 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 200 2553 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:07:24 [Error-Nest] info: express is running on 8000
+2023-12-06 16:07:25 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:07:31 [Error-Nest] info: express is running on 8000
+2023-12-06 16:07:31 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:07:48 [Error-Nest] info: express is running on 8000
+2023-12-06 16:07:48 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:08:28 [Error-Nest] info: express is running on 8000
+2023-12-06 16:08:28 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:09:11 [Error-Nest] info: express is running on 8000
+2023-12-06 16:09:11 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:09:23 [Error-Nest] info: express is running on 8000
+2023-12-06 16:09:23 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:11:41 [Error-Nest] info: express is running on 8000
+2023-12-06 16:11:41 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:13:14 [Error-Nest] info: ::1 - - [06/Dec/2023:07:13:14 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:14:50 [Error-Nest] info: ::1 - - [06/Dec/2023:07:14:50 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:15:12 [Error-Nest] info: ::1 - - [06/Dec/2023:07:15:12 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:15:33 [Error-Nest] info: ::1 - - [06/Dec/2023:07:15:33 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:15:36 [Error-Nest] info: ::1 - - [06/Dec/2023:07:15:36 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:15:38 [Error-Nest] info: ::1 - - [06/Dec/2023:07:15:38 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:16:49 [Error-Nest] info: ::1 - - [06/Dec/2023:07:16:49 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:17:05 [Error-Nest] info: ::1 - - [06/Dec/2023:07:17:05 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:17:25 [Error-Nest] info: ::1 - - [06/Dec/2023:07:17:25 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:17:38 [Error-Nest] info: ::1 - - [06/Dec/2023:07:17:38 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:17:57 [Error-Nest] info: ::1 - - [06/Dec/2023:07:17:57 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:18:08 [Error-Nest] info: ::1 - - [06/Dec/2023:07:18:08 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:19:41 [Error-Nest] info: express is running on 8000
+2023-12-06 16:19:42 [Error-Nest] info: MongoDB connection successful

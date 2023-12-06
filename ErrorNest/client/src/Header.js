@@ -73,9 +73,9 @@ const Header = (props) => {
 
             {/** 네비게이션 요소 */}
             <ul className="navi-element-list">
-                <li className="navi-element">
-                    <Link to="/report">신고 게시판</Link>
-                </li>
+                {/*<li className="navi-element">*/}
+                {/*    <Link to="/report">신고 게시판</Link>*/}
+                {/*</li>*/}
                 {/*<li className="navi-element">*/}
                 {/*    <Link to="/about">소개</Link>*/}
                 {/*</li>*/}
