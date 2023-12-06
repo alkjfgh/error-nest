@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
+import {useCookies} from "react-cookie";
 
 const Report = () => {
     const location = useLocation();
@@ -9,6 +10,7 @@ const Report = () => {
     const [writer, setWriter] = useState("");
     const [version, setVersion] = useState(1);
     const [comment, setComment] = useState("");
+    const [cookies, setCookies, removeCookies] = useCookies();
 
     const getDocument = async (thisUri, versionURI) => {
         console.log(`axios(get) >> ${thisUri + versionURI}`);
@@ -18,14 +20,15 @@ const Report = () => {
 
         setTitle(res.data.title);
         setVersion(res.data.version);
-        setWriter(await getIp());
+        setWriter(await getWriter());
 
         console.log(`title >> ${title}`);
         console.log(`version >> ${version}`);
         console.log(`writer >> ${writer}`);
     }
 
-    const getIp = async () => {
+    const getWriter = async () => {
+        if(cookies.userid) return cookies.userid
         const response = await fetch("https://api64.ipify.org?format=json")
         const data = await response.json()
         return data.ip
