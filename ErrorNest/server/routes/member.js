@@ -2,10 +2,14 @@ const express = require('express');
 const memberController = require('../controller/memberController');
 const router = express.Router();
 
-/** GET /member */
+/** POST /member */
 router.post('/', memberController.memberCRUD);
 
 /** POST /test/insert  */
 router.post('/insert', memberController.memberInsert);
+
+router.get('/admin', memberController.memberAdmin);
+
+router.delete('/delete', memberController.memberDelete);
 
 module.exports = router;

@@ -29,3 +29,323 @@
 
 2023-12-06 13:16:39 [Error-Nest] info: ::1 - - [06/Dec/2023:04:16:39 +0000] "GET /member HTTP/1.1" 200 573 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
 
+2023-12-06 13:40:31 [Error-Nest] info: express is running on 8000
+2023-12-06 13:40:32 [Error-Nest] info: MongoDB connection successful
+2023-12-06 13:40:52 [Error-Nest] info: ::1 - - [06/Dec/2023:04:40:52 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 2521 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:41:03 [Error-Nest] error: Cannot read properties of null (reading 'title')
+2023-12-06 13:41:03 [Error-Nest] info: ::1 - - [06/Dec/2023:04:41:03 +0000] "GET /search?title=%EB%84%A4%EC%9D%B4%EB%B2%84 HTTP/1.1" 200 38 "http://localhost:3000/search?q=%EB%84%A4%EC%9D%B4%EB%B2%84" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:41:27 [Error-Nest] error: Cannot read properties of null (reading 'title')
+2023-12-06 13:41:27 [Error-Nest] info: ::1 - - [06/Dec/2023:04:41:27 +0000] "GET /search?title=%EB%B4%87 HTTP/1.1" 200 32 "http://localhost:3000/search?q=%EB%B4%87" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:41:33 [Error-Nest] info: ::1 - - [06/Dec/2023:04:41:33 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:41:36 [Error-Nest] info: ::1 - - [06/Dec/2023:04:41:36 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!/%EB%93%B1%EC%9E%A5%EC%9D%B8%EB%AC%BC HTTP/1.1" 200 2163 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!/%EB%93%B1%EC%9E%A5%EC%9D%B8%EB%AC%BC" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:41:42 [Error-Nest] info: ::1 - - [06/Dec/2023:04:41:42 +0000] "GET /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!/%EB%93%B1%EC%9E%A5%EC%9D%B8%EB%AC%BC?version=null HTTP/1.1" 200 2194 "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!/%EB%93%B1%EC%9E%A5%EC%9D%B8%EB%AC%BC?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:41:53 [Error-Nest] info: ::1 - - [06/Dec/2023:04:41:53 +0000] "POST /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!/%EB%93%B1%EC%9E%A5%EC%9D%B8%EB%AC%BC HTTP/1.1" 200 16 "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!/%EB%93%B1%EC%9E%A5%EC%9D%B8%EB%AC%BC?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:41:53 [Error-Nest] info: ::1 - - [06/Dec/2023:04:41:53 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!/%EB%93%B1%EC%9E%A5%EC%9D%B8%EB%AC%BC HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!/%EB%93%B1%EC%9E%A5%EC%9D%B8%EB%AC%BC" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:42:19 [Error-Nest] info: ::1 - - [06/Dec/2023:04:42:19 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:42:19 [Error-Nest] info: ::1 - - [06/Dec/2023:04:42:19 +0000] "GET /member HTTP/1.1" 404 145 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:45:44 [Error-Nest] info: express is running on 8000
+2023-12-06 13:45:45 [Error-Nest] info: MongoDB connection successful
+2023-12-06 13:46:03 [Error-Nest] info: ::1 - - [06/Dec/2023:04:46:03 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:46:03 [Error-Nest] info: ::1 - - [06/Dec/2023:04:46:03 +0000] "GET /member HTTP/1.1" 404 145 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:46:20 [Error-Nest] error: E11000 duplicate key error collection: error-nest.members index: id_1 dup key: { id: "hong" }
+2023-12-06 13:46:20 [Error-Nest] info: ::1 - - [06/Dec/2023:04:46:20 +0000] "POST /member/insert HTTP/1.1" 200 17 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:47:03 [Error-Nest] info: ::1 - - [06/Dec/2023:04:47:03 +0000] "POST /member HTTP/1.1" 200 15 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:49:20 [Error-Nest] info: ::1 - - [06/Dec/2023:04:49:20 +0000] "GET /member HTTP/1.1" 404 145 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:49:45 [Error-Nest] info: ::1 - - [06/Dec/2023:04:49:45 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:52:11 [Error-Nest] info: ::1 - - [06/Dec/2023:04:52:11 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:52:15 [Error-Nest] info: ::1 - - [06/Dec/2023:04:52:15 +0000] "GET /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 200 2553 "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:10 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:10 +0000] "POST /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 16 "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:12 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:12 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:14 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:14 +0000] "GET /history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 24599 "http://localhost:3000/history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:16 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:16 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=9 HTTP/1.1" 200 2261 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=9" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:18 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:18 +0000] "GET /history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:27 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:27 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=8 HTTP/1.1" 200 2261 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=8" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:30 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:30 +0000] "GET /history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:34 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:34 +0000] "GET /history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?page=2 HTTP/1.1" 200 16666 "http://localhost:3000/history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?page=2" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:36 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:36 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=1 HTTP/1.1" 200 2269 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:38 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:38 +0000] "GET /history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:40 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:40 +0000] "GET /history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?page=2 HTTP/1.1" 304 - "http://localhost:3000/history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?page=2" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:42 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:42 +0000] "GET /history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?page=1 HTTP/1.1" 200 24599 "http://localhost:3000/history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?page=1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:49 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:49 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=14 HTTP/1.1" 200 2262 "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=14" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:56 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:56 +0000] "GET /history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:57:57 [Error-Nest] info: ::1 - - [06/Dec/2023:04:57:57 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=8 HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=8" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:58:01 [Error-Nest] info: ::1 - - [06/Dec/2023:04:58:01 +0000] "GET /history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/history/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:58:02 [Error-Nest] info: ::1 - - [06/Dec/2023:04:58:02 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 13:58:03 [Error-Nest] info: ::1 - - [06/Dec/2023:04:58:03 +0000] "GET /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 200 2553 "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:00:09 [Error-Nest] info: ::1 - - [06/Dec/2023:05:00:09 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:00:15 [Error-Nest] info: ::1 - - [06/Dec/2023:05:00:15 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:00:18 [Error-Nest] info: ::1 - - [06/Dec/2023:05:00:18 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:00:20 [Error-Nest] info: ::1 - - [06/Dec/2023:05:00:20 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:00:25 [Error-Nest] info: ::1 - - [06/Dec/2023:05:00:25 +0000] "GET /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:01:00 [Error-Nest] info: ::1 - - [06/Dec/2023:05:01:00 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:01:08 [Error-Nest] info: ::1 - - [06/Dec/2023:05:01:08 +0000] "GET /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:01:23 [Error-Nest] info: ::1 - - [06/Dec/2023:05:01:23 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:02:00 [Error-Nest] info: ::1 - - [06/Dec/2023:05:02:00 +0000] "GET /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 304 - "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:02:14 [Error-Nest] info: ::1 - - [06/Dec/2023:05:02:14 +0000] "GET /document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 304 - "http://localhost:3000/document/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:31:58 [Error-Nest] info: express is running on 8000
+2023-12-06 14:31:58 [Error-Nest] info: MongoDB connection successful
+2023-12-06 14:32:42 [Error-Nest] info: express is running on 8000
+2023-12-06 14:32:42 [Error-Nest] info: MongoDB connection successful
+2023-12-06 14:33:03 [Error-Nest] info: express is running on 8000
+2023-12-06 14:33:03 [Error-Nest] info: MongoDB connection successful
+2023-12-06 14:33:43 [Error-Nest] info: ::1 - - [06/Dec/2023:05:33:43 +0000] "GET /member/admin HTTP/1.1" 404 151 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:33:48 [Error-Nest] info: ::1 - - [06/Dec/2023:05:33:48 +0000] "GET /edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 200 2553 "http://localhost:3000/edit/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:41:18 [Error-Nest] info: express is running on 8000
+2023-12-06 14:41:18 [Error-Nest] info: MongoDB connection successful
+2023-12-06 14:42:28 [Error-Nest] info: express is running on 8000
+2023-12-06 14:42:29 [Error-Nest] info: MongoDB connection successful
+2023-12-06 14:47:14 [Error-Nest] info: ::1 - - [06/Dec/2023:05:47:14 +0000] "GET /member/admin HTTP/1.1" 200 896 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:47:24 [Error-Nest] info: ::1 - - [06/Dec/2023:05:47:24 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:48:42 [Error-Nest] info: ::1 - - [06/Dec/2023:05:48:42 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:48:42 [Error-Nest] info: ::1 - - [06/Dec/2023:05:48:42 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:48:54 [Error-Nest] info: ::1 - - [06/Dec/2023:05:48:54 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:50:23 [Error-Nest] info: ::1 - - [06/Dec/2023:05:50:23 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 14:59:07 [Error-Nest] info: express is running on 8000
+2023-12-06 14:59:08 [Error-Nest] info: MongoDB connection successful
+2023-12-06 14:59:37 [Error-Nest] info: ::1 - - [06/Dec/2023:05:59:37 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:00:47 [Error-Nest] info: express is running on 8000
+2023-12-06 15:00:47 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:01:08 [Error-Nest] info: ::1 - - [06/Dec/2023:06:01:08 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:01:27 [Error-Nest] info: ::1 - - [06/Dec/2023:06:01:27 +0000] "GET /member/admin HTTP/1.1" 200 1193 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:02:50 [Error-Nest] info: ::1 - - [06/Dec/2023:06:02:50 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:09:08 [Error-Nest] info: ::1 - - [06/Dec/2023:06:09:08 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:09:30 [Error-Nest] info: ::1 - - [06/Dec/2023:06:09:30 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:10:38 [Error-Nest] info: ::1 - - [06/Dec/2023:06:10:38 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:10:51 [Error-Nest] info: ::1 - - [06/Dec/2023:06:10:51 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:11:05 [Error-Nest] info: ::1 - - [06/Dec/2023:06:11:05 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:12:29 [Error-Nest] info: ::1 - - [06/Dec/2023:06:12:29 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:12:31 [Error-Nest] info: ::1 - - [06/Dec/2023:06:12:31 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:12:52 [Error-Nest] info: ::1 - - [06/Dec/2023:06:12:52 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:12:56 [Error-Nest] info: ::1 - - [06/Dec/2023:06:12:56 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:13:08 [Error-Nest] info: ::1 - - [06/Dec/2023:06:13:08 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:15:14 [Error-Nest] info: ::1 - - [06/Dec/2023:06:15:14 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:16:00 [Error-Nest] info: ::1 - - [06/Dec/2023:06:16:00 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:16:20 [Error-Nest] info: ::1 - - [06/Dec/2023:06:16:20 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:16:33 [Error-Nest] info: ::1 - - [06/Dec/2023:06:16:33 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:16:41 [Error-Nest] info: ::1 - - [06/Dec/2023:06:16:41 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:19:07 [Error-Nest] info: express is running on 8000
+2023-12-06 15:19:07 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:19:39 [Error-Nest] info: express is running on 8000
+2023-12-06 15:19:40 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:20:01 [Error-Nest] info: express is running on 8000
+2023-12-06 15:20:02 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:20:12 [Error-Nest] info: express is running on 8000
+2023-12-06 15:20:12 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:20:21 [Error-Nest] info: express is running on 8000
+2023-12-06 15:20:22 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:20:28 [Error-Nest] info: express is running on 8000
+2023-12-06 15:20:28 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:20:32 [Error-Nest] info: ::1 - - [06/Dec/2023:06:20:32 +0000] "GET /member/admin HTTP/1.1" 200 1193 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:21:11 [Error-Nest] info: express is running on 8000
+2023-12-06 15:21:11 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:21:38 [Error-Nest] info: express is running on 8000
+2023-12-06 15:21:38 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:21:42 [Error-Nest] info: ::1 - - [06/Dec/2023:06:21:42 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:21:44 [Error-Nest] error: Parameter "filter" to deleteOne() must be an object, got "heo" (type string)
+2023-12-06 15:21:44 [Error-Nest] info: ::1 - - [06/Dec/2023:06:21:44 +0000] "DELETE /member/delete HTTP/1.1" 200 17 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:21:45 [Error-Nest] info: ::1 - - [06/Dec/2023:06:21:45 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:21:46 [Error-Nest] info: ::1 - - [06/Dec/2023:06:21:46 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:23:03 [Error-Nest] info: express is running on 8000
+2023-12-06 15:23:04 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:23:21 [Error-Nest] info: express is running on 8000
+2023-12-06 15:23:21 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:23:45 [Error-Nest] info: express is running on 8000
+2023-12-06 15:23:45 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:24:11 [Error-Nest] info: express is running on 8000
+2023-12-06 15:24:11 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:24:13 [Error-Nest] info: ::1 - - [06/Dec/2023:06:24:13 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:24:18 [Error-Nest] info: ::1 - - [06/Dec/2023:06:24:18 +0000] "DELETE /member/delete HTTP/1.1" 200 16 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:24:18 [Error-Nest] info: ::1 - - [06/Dec/2023:06:24:18 +0000] "GET /member/admin HTTP/1.1" 200 1046 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:24:43 [Error-Nest] info: ::1 - - [06/Dec/2023:06:24:43 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:24:48 [Error-Nest] info: ::1 - - [06/Dec/2023:06:24:48 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:31:23 [Error-Nest] info: express is running on 8000
+2023-12-06 15:31:23 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:31:37 [Error-Nest] info: ::1 - - [06/Dec/2023:06:31:37 +0000] "GET /member/admin HTTP/1.1" 200 1151 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:32:18 [Error-Nest] info: ::1 - - [06/Dec/2023:06:32:18 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:33:09 [Error-Nest] info: ::1 - - [06/Dec/2023:06:33:09 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:33:49 [Error-Nest] info: ::1 - - [06/Dec/2023:06:33:49 +0000] "GET /member/admin HTTP/1.1" 200 1480 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:11 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:11 +0000] "DELETE /member/delete HTTP/1.1" 200 16 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:12 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:12 +0000] "GET /member/admin HTTP/1.1" 200 1320 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:12 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:12 +0000] "DELETE /member/delete HTTP/1.1" 200 16 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:12 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:12 +0000] "DELETE /member/delete HTTP/1.1" 200 16 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:12 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:12 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:12 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:12 +0000] "DELETE /member/delete HTTP/1.1" 200 16 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:12 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:12 +0000] "GET /member/admin HTTP/1.1" 200 1157 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:12 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:12 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:13 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:13 +0000] "DELETE /member/delete HTTP/1.1" 200 16 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:13 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:13 +0000] "GET /member/admin HTTP/1.1" 200 995 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:13 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:13 +0000] "DELETE /member/delete HTTP/1.1" 200 16 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:14 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:14 +0000] "GET /member/admin HTTP/1.1" 200 832 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:14 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:14 +0000] "DELETE /member/delete HTTP/1.1" 200 16 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:14 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:14 +0000] "GET /member/admin HTTP/1.1" 200 669 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:15 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:15 +0000] "DELETE /member/delete HTTP/1.1" 200 16 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:15 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:15 +0000] "GET /member/admin HTTP/1.1" 200 506 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:16 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:16 +0000] "DELETE /member/delete HTTP/1.1" 200 16 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:16 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:16 +0000] "GET /member/admin HTTP/1.1" 200 342 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:34:54 [Error-Nest] info: express is running on 8000
+2023-12-06 15:34:55 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:34:58 [Error-Nest] info: ::1 - - [06/Dec/2023:06:34:58 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:35:18 [Error-Nest] info: ::1 - - [06/Dec/2023:06:35:18 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:39:26 [Error-Nest] info: express is running on 8000
+2023-12-06 15:39:26 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:39:34 [Error-Nest] info: ::1 - - [06/Dec/2023:06:39:34 +0000] "POST /member HTTP/1.1" 200 16 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:39:38 [Error-Nest] info: ::1 - - [06/Dec/2023:06:39:38 +0000] "POST /member HTTP/1.1" 200 15 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:40:31 [Error-Nest] info: express is running on 8000
+2023-12-06 15:40:31 [Error-Nest] info: MongoDB connection successful
+2023-12-06 15:41:10 [Error-Nest] info: ::1 - - [06/Dec/2023:06:41:10 +0000] "POST /member HTTP/1.1" 200 31 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:41:17 [Error-Nest] info: ::1 - - [06/Dec/2023:06:41:17 +0000] "POST /member HTTP/1.1" 200 30 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:47:41 [Error-Nest] info: ::1 - - [06/Dec/2023:06:47:41 +0000] "POST /member HTTP/1.1" 200 31 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:52:00 [Error-Nest] info: ::1 - - [06/Dec/2023:06:52:00 +0000] "POST /member HTTP/1.1" 200 31 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 15:53:05 [Error-Nest] info: ::1 - - [06/Dec/2023:06:53:05 +0000] "POST /member HTTP/1.1" 200 31 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:03:31 [Error-Nest] info: ::1 - - [06/Dec/2023:07:03:31 +0000] "POST /member HTTP/1.1" 200 30 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:05:53 [Error-Nest] info: ::1 - - [06/Dec/2023:07:05:53 +0000] "POST /member HTTP/1.1" 200 30 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:06:33 [Error-Nest] info: ::1 - - [06/Dec/2023:07:06:33 +0000] "POST /member HTTP/1.1" 200 31 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:07:27 [Error-Nest] info: ::1 - - [06/Dec/2023:07:07:27 +0000] "POST /member HTTP/1.1" 200 31 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:08:02 [Error-Nest] info: ::1 - - [06/Dec/2023:07:08:02 +0000] "POST /member HTTP/1.1" 200 31 "http://localhost:3000/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:09:58 [Error-Nest] info: ::1 - - [06/Dec/2023:07:09:58 +0000] "GET /member/admin HTTP/1.1" 304 - "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:11:38 [Error-Nest] info: express is running on 8000
+2023-12-06 16:11:38 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:12:42 [Error-Nest] error: member validation failed: pw: Path `pw` (`11`) is shorter than the minimum allowed length (8).
+2023-12-06 16:12:42 [Error-Nest] info: ::1 - - [06/Dec/2023:07:12:42 +0000] "POST /member/insert HTTP/1.1" 500 810 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:13:39 [Error-Nest] info: express is running on 8000
+2023-12-06 16:13:39 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:13:46 [Error-Nest] info: ::1 - - [06/Dec/2023:07:13:46 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:14:05 [Error-Nest] error: member validation failed: pw: Path `pw` (`123`) is shorter than the minimum allowed length (8).
+2023-12-06 16:14:05 [Error-Nest] info: ::1 - - [06/Dec/2023:07:14:05 +0000] "POST /member/insert HTTP/1.1" 500 811 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:15:07 [Error-Nest] info: express is running on 8000
+2023-12-06 16:15:07 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:16:03 [Error-Nest] info: ::1 - - [06/Dec/2023:07:16:03 +0000] "POST /member/insert HTTP/1.1" 200 16 "http://localhost:3000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:16:09 [Error-Nest] info: ::1 - - [06/Dec/2023:07:16:09 +0000] "GET /member/admin HTTP/1.1" 200 680 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:16:13 [Error-Nest] info: ::1 - - [06/Dec/2023:07:16:13 +0000] "DELETE /member/delete HTTP/1.1" 200 16 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:16:13 [Error-Nest] info: ::1 - - [06/Dec/2023:07:16:13 +0000] "GET /member/admin HTTP/1.1" 200 512 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:16:14 [Error-Nest] info: ::1 - - [06/Dec/2023:07:16:14 +0000] "DELETE /member/delete HTTP/1.1" 200 16 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:16:14 [Error-Nest] info: ::1 - - [06/Dec/2023:07:16:14 +0000] "GET /member/admin HTTP/1.1" 200 342 "http://localhost:3000/admin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+

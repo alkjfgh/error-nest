@@ -1,3 +1,9 @@
 2023-12-06 13:11:33 [Error-Nest] error: E11000 duplicate key error collection: error-nest.members index: id_1 dup key: { id: "asdf" }
 2023-12-06 13:11:55 [Error-Nest] error: E11000 duplicate key error collection: error-nest.members index: id_1 dup key: { id: "asdf" }
 2023-12-06 13:14:25 [Error-Nest] error: No write concern mode named 'majority ;명재님 링크' found in replica set configuration
+2023-12-06 13:41:03 [Error-Nest] error: Cannot read properties of null (reading 'title')
+2023-12-06 13:41:27 [Error-Nest] error: Cannot read properties of null (reading 'title')
+2023-12-06 13:46:20 [Error-Nest] error: E11000 duplicate key error collection: error-nest.members index: id_1 dup key: { id: "hong" }
+2023-12-06 15:21:44 [Error-Nest] error: Parameter "filter" to deleteOne() must be an object, got "heo" (type string)
+2023-12-06 16:12:42 [Error-Nest] error: member validation failed: pw: Path `pw` (`11`) is shorter than the minimum allowed length (8).
+2023-12-06 16:14:05 [Error-Nest] error: member validation failed: pw: Path `pw` (`123`) is shorter than the minimum allowed length (8).
