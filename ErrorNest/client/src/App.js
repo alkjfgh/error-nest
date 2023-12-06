@@ -14,6 +14,7 @@ import Layout from "./Layout";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import Admin from "./Admin";
+import Report from "./Report";
 
 const App = () => {
     return (
@@ -31,7 +32,8 @@ const App = () => {
                 <Route path='/signup' element={<Layout><SignUp /></Layout>}/>
                 <Route path='/login' element={<Layout><Login /></Layout>}/>
                 <Route path='/admin' element={<Layout><Admin /></Layout>}/>
-                <Route path='*' element={<Layout><NotFound /></Layout>} />
+                <Route path='/report/*' element={<Layout><Report /></Layout>}/>
+                <Route path='*' element={<Layout><NotFound /></Layout>}/>
             </Routes>
         </Router>
     );

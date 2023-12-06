@@ -6,7 +6,7 @@ const Report = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
-    const [writer, setWriter] = useState("최은희");
+    const [writer, setWriter] = useState("");
     const [version, setVersion] = useState(1);
     const [comment, setComment] = useState("");
 
@@ -16,11 +16,19 @@ const Report = () => {
         const res = await axios.get(thisUri + versionURI);
         console.log(res.data);
 
-        console.log(`title >> ${res.data.title}`);
-        console.log(`version >> ${res.data.version}`);
-
         setTitle(res.data.title);
         setVersion(res.data.version);
+        setWriter(await getIp());
+
+        console.log(`title >> ${title}`);
+        console.log(`version >> ${version}`);
+        console.log(`writer >> ${writer}`);
+    }
+
+    const getIp = async () => {
+        const response = await fetch("https://api64.ipify.org?format=json")
+        const data = await response.json()
+        return data.ip
     }
 
     useEffect(() => {
