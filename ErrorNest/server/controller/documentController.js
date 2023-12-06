@@ -36,7 +36,7 @@ const documentSelect = async (req, res, next) => {
             if(version) options.version = version
             const document = await Document.findOne(options).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
             if(document){
-                const data = {title: title, content: document.content, hasDocument: true}
+                const data = {title: title, content: document.content, category: document.category, writer: document.writer, hasDocument: true}
                 if(version) data.recent = false
                 res.json(data)
             }else{
@@ -89,7 +89,11 @@ const documentInsert = async (req, res, next) => {
     }
 }
 
+const documentUpdateTest = async (req, res, next) => {
+    await Document.updateMany({}, {$set:{writer:"127.0.0.1"}})
+    console.log("!!!!!!!!!!!!!!!")
+}
 /** Exports CRUD functions */
-module.exports = {documentSelect, documentInsert}
+module.exports = {documentSelect}
 
 //TODO 카테고리 스키마 구현해야함

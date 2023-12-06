@@ -8,6 +8,8 @@ function Document(props) {
     const location = useLocation()
 
     const [title, setTitle] = useState('')
+    const [category, setCategory] = useState([])
+    const [writer, setWriter] = useState('')
     const [versionURI, setVersionURI] = useState('')
     const [version, setVersion] = useState(null)
     const [renderedContents, setRenderedContents] = useState([])
@@ -84,6 +86,53 @@ function Document(props) {
         return drawIndex(indexList)
     }
 
+    function transHtml(content) {
+        let contentArr = content.split('\n')
+        let htmlText = ""
+        let subTitle = [0,]
+        let bq = true
+
+        console.log(contentArr)
+
+        const transLink = (line) => {
+            let regex = /<<([^>>]+)>>/g;
+
+            return line.replace(regex, function (match) {
+                // match는 찾은 문자열을 가리킵니다. 예: '<<some text>>'
+                let extracted = match.slice(2, -2);  // 꺾쇠괄호를 제거합니다.
+                let [href, text] = extracted.split(',')
+                return `<a href="${href}">${text}</a>`;  // 변환된 문자열을 다시 꺾쇠괄호로 둘러싸서 반환합니다.
+            })
+        }
+
+        contentArr.map((line) => {
+            if(line.startsWith("==")){
+                const ctr = (line.split('=').length - 1) / 2 - 2
+                const title = line.replaceAll('=','')
+                let id = ''
+
+                if(subTitle[ctr] === undefined) subTitle[ctr] = 1
+                else subTitle[ctr]++
+
+                for(let i=0;i<=ctr;i++) id += subTitle[i] + '.'
+                // id = id.slice(0,-1)
+
+                htmlText += `<h2><a id="s-${id}" href="#top" class="content-link">${id}</a><span>${title}</span></h2>`
+            }else if(line.startsWith("$$")){
+                if(bq) htmlText += `<div><blockquote>`
+                else htmlText += `</blockquote></div>`
+                bq = !bq
+            }else{
+                if(bq) htmlText += `<div><div>`
+                htmlText += transLink(line)
+                if(bq) htmlText += `</div></div>`
+            }
+            //TODO image 문법 추가
+        })
+
+        return htmlText;
+    }
+
     const getDocument = async(this_url, versionURI) => {
         const res = await axios.get(this_url + versionURI)
 
@@ -104,15 +153,20 @@ function Document(props) {
             console.log(files)
         }
         else if(res.data.hasDocument){
+            const category = res.data.category
+            const writer = res.data.writer
             const content = res.data.content
             const recent = res.data.recent
-            const renderedContents = extractElements(content) // JSX 로 변환하여 렌더링
+            const transContent = transHtml(content)
+            const renderedContents = extractElements(transContent) // JSX 로 변환하여 렌더링
             const indexHtml = initIndexHtml(indexList)
             const params = new URLSearchParams(location.search)
 
             setRenderedContents(renderedContents)
             setRenderedIndex(indexHtml)
             setVersion(parseInt(params.get('version')) || null)
+            setCategory(category)
+            setWriter(writer)
             if(!recent) setVersionURI("(Version " + version + ")")
         }else{
             const data = [<div key={`No Document`}>해당 문서를 찾을 수 없습니다.</div>, <Link key={`No Document Link`} to={`/edit/${res.data.title}`}>[새 문서 만들기]</Link>]
@@ -127,6 +181,7 @@ function Document(props) {
 
         setIndexList([])
         setRenderedIndex([])
+        setCategory([])
 
         getDocument(this_url, versionURI).then(r => {
             if(hash) scrollToElement(hash.substring(1, hash.length))
@@ -136,12 +191,20 @@ function Document(props) {
 
     return (
         <>
-            <h1>{title} {version}</h1>
+            <div>
+                분류:
+                {category.map((cg, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
+                    <Link to={"/document/" + cg}>{cg}</Link>
+                ))}
+                {writer && "작성자 : " + writer}
+            </div>
+            <h1>{title} {version ? "Version: " + version : null}</h1>
             <div className={"document-navi"}>
                 {!isFile && <Link to={"/edit/" + title + "?version=" + version}>편집</Link>}
                 {!isFile && <Link to={"/history/" + title}>역사</Link>}
                 {!isFile && <Link to={"/report/" + title + "?version=" + version}>신고</Link>}
-                <div className="index-list" id="top">{renderedIndex}</div>
+            </div>
+            <div className="index-list" id="top">{renderedIndex}</div>
             {renderedContents}
         </>
     )
