@@ -574,3 +574,5 @@
 
 2023-12-06 19:18:08 [Error-Nest] info: ::1 - - [06/Dec/2023:10:18:08 +0000] "GET /document HTTP/1.1" 304 - "http://localhost:3000/document" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
 
+2023-12-06 19:24:04 [Error-Nest] info: express is running on 8000
+2023-12-06 19:24:04 [Error-Nest] info: MongoDB connection successful
