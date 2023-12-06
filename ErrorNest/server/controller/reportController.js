@@ -27,7 +27,18 @@ const documentSelect = async (req, res, next) => {
 }
 
 const reportInsert = async (req, res, next) => {
+    try {
+        const report = req.body;
+        console.log(report);
 
+        const result = await Report.create(report);
+
+        res.json({message: "신고 완료 !!"});
+    } catch (err) {
+        logger.error(err);
+        next(err);
+        res.json({success: false});
+    }
 }
 
 /** Exports CRUD functions */

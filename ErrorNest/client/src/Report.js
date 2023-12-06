@@ -6,9 +6,8 @@ const Report = () => {
 
     const location = useLocation();
 
-    const [url, setUrl] = useState("조병준_url");
-    const [title, setTitle] = useState("조병준_title");
-    const [writer, setWriter] = useState("조병준_writer");
+    const [title, setTitle] = useState("");
+    const [writer, setWriter] = useState("조병준");
     const [version, setVersion] = useState(1);
     const [comment, setComment] = useState("");
 
@@ -28,7 +27,6 @@ const Report = () => {
     useEffect(() => {
         const thisUri= location.pathname;
         console.log(`this_url >> ${thisUri}`);
-        // setUrl(thisUri);
 
         const params = new URLSearchParams(location.search);
         console.log(`params >> ${params}`);
@@ -37,14 +35,16 @@ const Report = () => {
         console.log(`versionURI >> ${versionURI}`);
 
         setVersion(parseInt(params.get('version')) || 5)
-        setUrl(thisUri);
 
         getDocument(thisUri, versionURI);
 
     }, []);
 
-    const reportSubmit = () => {
-        alert(`신고 구현 시작!!`);
+    const reportSubmit = async () => {
+        const thisUrl = location.pathname;
+        const res = await axios.post(thisUrl,{title, comment, version, writer});
+
+        alert(`${res.data.message}`);
     }
 
     const reportChange = (e) => {
