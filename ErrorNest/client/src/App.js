@@ -11,6 +11,8 @@ import History from "./History";
 import Edit from "./Edit";
 import Upload from "./Upload";
 import Layout from "./Layout";
+import SignUp from "./SignUp";
+import Login from "./Login";
 
 const App = () => {
     return (
@@ -25,6 +27,8 @@ const App = () => {
                 <Route path='/edit/*' element={<Layout><Edit /></Layout>}/>
                 <Route path='/history/*' element={<Layout><History /></Layout>}/>
                 <Route path='/Upload' element={<Layout><Upload /></Layout>}/>
+                <Route path='/signup' element={<Layout><SignUp /></Layout>}/>
+                <Route path='/login' element={<Layout><Login /></Layout>}/>
                 <Route path='*' element={<Layout><NotFound /></Layout>} />
             </Routes>
         </Router>
