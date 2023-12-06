@@ -6,6 +6,7 @@ import NotFound from './NotFound';
 import Document from './Document';
 import User from './User';
 import Test from './Test';
+import SignUp from "./SignUp";
 
 const App = () => {
 
@@ -17,6 +18,7 @@ const App = () => {
                 <Route path='/document/*' element={<Document />} />
                 <Route path='/user/*' element={<User />} />
                 <Route path='/test/*' element={<Test />} />
+                <Route path='/signup/*' element={<SignUp />} />
                 <Route path='*' element={<NotFound />} /> {/*404 error*/}
             </Routes>
         </Router>
