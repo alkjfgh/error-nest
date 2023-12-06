@@ -72,11 +72,10 @@ const Upload = () => {
                 fileName: inputs.inputFileName + '.' + fileName.split('.')[1],
                 fileDes: inputs.fileDes,
             }
-            if (res.data.success) {
-            const addClient = algoliasearch('71RW9A7WPG', '0bb48fee2961ce2138ef237912abd0df')
-            const addIndex = addClient.initIndex('document-title')
         }).then(async (res) => {
-
+            if (res.data.success) {
+                const addClient = algoliasearch('71RW9A7WPG', '0bb48fee2961ce2138ef237912abd0df')
+                const addIndex = addClient.initIndex('document-title')
                 const fileName = "파일:" + res.data.fileName
                 const existingObject = await addIndex.getObject(fileName).catch(() => null);
 

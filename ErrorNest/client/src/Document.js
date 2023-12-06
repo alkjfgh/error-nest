@@ -141,7 +141,8 @@ function Document(props) {
                 {!isFile && <Link to={"/edit/" + title + "?version=" + version}>편집</Link>}
                 {!isFile && <Link to={"/history/" + title}>역사</Link>}
                 {!isFile && <Link to={"/report/" + title + "?version=" + version}>신고</Link>}
-                <div className="index-list" id="top">{renderedIndex}</div>
+            </div>
+            <div className="index-list" id="top">{renderedIndex}</div>
             {renderedContents}
         </>
     )
