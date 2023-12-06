@@ -1,0 +1,3 @@
+2023-12-06 13:11:33 [Error-Nest] error: E11000 duplicate key error collection: error-nest.members index: id_1 dup key: { id: "asdf" }
+2023-12-06 13:11:55 [Error-Nest] error: E11000 duplicate key error collection: error-nest.members index: id_1 dup key: { id: "asdf" }
+2023-12-06 13:14:25 [Error-Nest] error: No write concern mode named 'majority ;명재님 링크' found in replica set configuration
