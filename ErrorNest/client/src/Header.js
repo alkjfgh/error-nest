@@ -17,14 +17,13 @@ const Header = (props) => {
     const navigate = useNavigate()
 
     /** 쿠키 값 가져오기 */
-    const [cookies, setCookies] = useCookies(["myCookie"]);
+    const [cookies, setCookies, removeCookies] = useCookies();
     
     /** useState 요소들 */
     const [inputText, setInputText] = useState("");
     const [encodedInputText, setEncodedInputText] = useState("");
     const [hits, setHits] = useState([]);
     const [selectedIndex, setSelectedIndex] = useState(-1);
-    const [isCoookie, setIscookie] = useState(false);
 
     const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d');
     const index = client.initIndex('document-title');
@@ -70,14 +69,6 @@ const Header = (props) => {
         setSelectedIndex(-1)
     }, [inputText, location.pathname])
 
-    useEffect(() => {
-        if (cookies.myCookie) {
-            setIscookie(true);
-        }
-
-        console.log(isCookie);
-    }, []);
-
     return (
         <nav className="navigation">
             {/** 로고 이미지 */}
@@ -87,7 +78,7 @@ const Header = (props) => {
 
             {/** 네비게이션 요소 */}
             <ul className="navi-element-list">
-                {cookies.myCookie === "undefined" && (
+                {cookies.userid === undefined && (
                     <>
                         <li className="navi-element">
                             <Link to="/login">로그인</Link>
@@ -97,7 +88,7 @@ const Header = (props) => {
                         </li>
                     </>
                 )}
-                {!(cookies.myCookie === "undefined") && (
+                {!(cookies.userid === undefined) && (
                     <li className="navi-element">
                         <Link to="/logout">로그아웃</Link>
                     </li>
