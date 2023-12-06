@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import {Link, useLocation, useNavigate } from 'react-router-dom'
+import { useCookies } from "react-cookie";
 import { parse } from 'node-html-parser';
 import axios from "axios"
 import algoliasearch from "algoliasearch"
@@ -9,6 +10,7 @@ import './css/edit.scss'
 const Edit = () => {
     const location = useLocation()
     const navigate = useNavigate()
+    const [cookies, setCookies, removeCookies] = useCookies();
 
     const [title, setTitle] = useState('')
     const [version, setVersion] = useState('')
@@ -31,7 +33,8 @@ const Edit = () => {
         return text
     }
 
-    const getIp = async () => {
+    const getWriter = async () => {
+        if(cookies.userid) return cookies.userid
         const response = await fetch("https://api64.ipify.org?format=json")
         const data = await response.json()
         return data.ip
@@ -45,7 +48,7 @@ const Edit = () => {
         setUpdateAt(res.data.updateAt)
         setContent(res.data.content)
         setCategory(res.data.category)
-        setWriter(await getIp())
+        setWriter(await getWriter())
         setCategoryText(arrToText(res.data.category))
     }
 
