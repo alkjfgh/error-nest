@@ -1,11 +1,16 @@
 import {useState} from "react";
 import axios from "axios";
+import {useCookies, Cookies} from "react-cookie";
+import {useNavigate} from "react-router-dom";
+
 function Login(){
     const [user, setUser] = useState({
         id: "",
         pw: ""
     });
-
+    const [cookies, setCookies] = useCookies(["myCookie"]);
+    const navigate = useNavigate(); // navigation 주는거임
+    
     const handleForm = (e) => {
 
         setUser({
@@ -18,9 +23,13 @@ function Login(){
     const handleLogin = async () => {
         try {
             const response = await axios.post('/member', user);
-            console.log(response.data);
+            // console.log(response.data);
             if(response.data.answer){
                 alert("로그인 성공 되셨습니다.")
+                // 쿠키 설정
+                const userData = {level: response.data.level};
+                setCookies("myCookie", userData, {path: "/"});
+                navigate("/");
             }
             else {
                 alert("아이디 또는 비밀번호를 틀리셨습니다.")

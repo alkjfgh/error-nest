@@ -24,7 +24,12 @@ const memberSchema = new Schema({
     },
     date: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        get: (date) => date.toISOString().split('T')[0]
+    },
+    level: {
+        type: String,
+        default: "user"
     }
 });
 

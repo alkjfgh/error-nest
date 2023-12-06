@@ -13,7 +13,7 @@ import Upload from "./Upload";
 import Layout from "./Layout";
 import SignUp from "./SignUp";
 import Login from "./Login";
-import Report from "./Report";
+import Admin from "./Admin";
 
 const App = () => {
     return (
@@ -30,7 +30,7 @@ const App = () => {
                 <Route path='/Upload' element={<Layout><Upload /></Layout>}/>
                 <Route path='/signup' element={<Layout><SignUp /></Layout>}/>
                 <Route path='/login' element={<Layout><Login /></Layout>}/>
-                <Route path='/report/*' element={<Layout><Report /></Layout>}/>
+                <Route path='/admin' element={<Layout><Admin /></Layout>}/>
                 <Route path='*' element={<Layout><NotFound /></Layout>} />
             </Routes>
         </Router>
