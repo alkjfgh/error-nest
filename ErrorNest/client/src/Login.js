@@ -8,7 +8,7 @@ function Login(){
         id: "",
         pw: ""
     });
-    const [cookies, setCookies] = useCookies(["myCookie"]);
+    const [cookies, setCookies] = useCookies();
     const navigate = useNavigate(); // navigation 주는거임
     
     const handleForm = (e) => {
@@ -22,13 +22,12 @@ function Login(){
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('/member', user);
-            // console.log(response.data);
+            const response = await axios.post('/member', user)
             if(response.data.answer){
                 alert("로그인 성공 되셨습니다.")
-                // 쿠키 설정
-                const userData = {level: response.data.level};
-                setCookies("myCookie", userData, {path: "/"});
+                // 쿠키 설정\
+                setCookies("userid", response.data.userid, {path: "/"});
+                setCookies("level", response.data.level, {path: "/"})
                 navigate("/");
             }
             else {

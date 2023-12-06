@@ -17,14 +17,12 @@ const memberAdmin = async (req, res, next) => {
 const memberCRUD = async (req, res, next) => {
     const { id, pw } = req.body;
     try {
-        //sample code
         const members = await Member.findOne({ id, pw }); // 몽고디비의 db.users.find({}) 쿼리와 같음
-        // console.log(members);
         if(!members){
             res.json({answer: false});
         }
         else{
-            res.json({answer: true, level: members.level});
+            res.json({answer: true, level: members.level, userid: members.id});
         }
 
     } catch (err) {
