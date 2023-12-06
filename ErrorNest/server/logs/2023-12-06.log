@@ -259,3 +259,9 @@
 2023-12-06 16:33:21 [Error-Nest] info: MongoDB connection successful
 2023-12-06 16:33:24 [Error-Nest] info: express is running on 8000
 2023-12-06 16:33:24 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:33:50 [Error-Nest] info: express is running on 8000
+2023-12-06 16:33:50 [Error-Nest] info: MongoDB connection successful
+2023-12-06 16:33:54 [Error-Nest] info: ::1 - - [06/Dec/2023:07:33:54 +0000] "GET /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null HTTP/1.1" 200 1919 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
+2023-12-06 16:34:25 [Error-Nest] info: ::1 - - [06/Dec/2023:07:34:25 +0000] "POST /report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D! HTTP/1.1" 200 30 "http://localhost:3000/report/%EB%B4%87%EC%B9%98%20%EB%8D%94%20%EB%A1%9D!?version=null" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+
