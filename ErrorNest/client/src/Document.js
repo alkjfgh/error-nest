@@ -59,7 +59,6 @@ function Document(props) {
                         let styles = styleString.split(';');
 
                         for (let style of styles) {
-                            console.log(style)
                             // 각 스타일을 속성과 값으로 분리합니다.
                             let [property, value] = style.split(':');
 
