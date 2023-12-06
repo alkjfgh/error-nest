@@ -13,5 +13,6 @@ const tokenSchema = new Schema({
     }
 });
 
+
 /** token schema */
 module.exports = mongoose.model('token', tokenSchema);

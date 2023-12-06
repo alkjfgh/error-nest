@@ -34,5 +34,6 @@ const tokenCheck = async (req, res, next) => {
     }
 }
 
+
 /** Exports CRUD functions */
 module.exports = {tokenCRUD, tokenCheck};
