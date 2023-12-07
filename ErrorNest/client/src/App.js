@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {useCookies, Cookies} from "react-cookie";
 import Header from './Header';
 import Main from './Main';
 import NotFound from './NotFound';
@@ -15,8 +16,26 @@ import Admin from "./Admin";
 import Report from "./Report";
 import Logout from "./Logout";
 import ReportHistory from "./ReportHistory";
+import axios from "axios";
 
 const App = () => {
+    const [cookies] = useCookies();
+    // console.log("cookies" + cookies.userid)
+    const [level, setLevel] = useState("");
+    const levelCheck = async () => {
+        console.log("levelCheck들어옴");
+        const res = await axios.post('/member/levelCheck', {id: cookies.userid});
+        // console.log("res " + res.data.level);
+        setLevel(res.data.level);
+        console.log("level" + level);
+    };
+
+    useEffect(() => {
+        // console.log("cookies확인" + cookies.userid);
+        if(cookies.userid !== undefined)
+            levelCheck();
+    }, []);
+
     return (
         <Router>
             <Header />
@@ -30,7 +49,7 @@ const App = () => {
                 <Route path='/Upload' element={<Layout><Upload /></Layout>}/>
                 <Route path='/signup' element={<Layout><SignUp /></Layout>}/>
                 <Route path='/login' element={<Layout><Login /></Layout>}/>
-                <Route path='/admin' element={<Layout><Admin /></Layout>}/>
+                {level === "admin" && <Route path='/admin' element={<Layout><Admin /></Layout>}/>}
                 <Route path='/report/*' element={<Layout><Report /></Layout>}/>
                 <Route path='/reportHistory' element={<Layout><ReportHistory /></Layout>}/>
                 <Route path='*' element={<Layout><NotFound /></Layout>}/>
