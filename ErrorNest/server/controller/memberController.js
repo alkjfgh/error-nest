@@ -1,5 +1,10 @@
 const Member = require("../db/schema/member"); // Get member schema
 const logger = require("../log/logger");
+const CryptoJS = require('crypto-js');
+
+function encryptCookie(value, key) {
+    return CryptoJS.AES.encrypt(value, key).toString();
+}
 
 const memberAdmin = async (req, res, next) => {
     // console.log("admin 들어옴");
@@ -14,7 +19,7 @@ const memberAdmin = async (req, res, next) => {
 }
 
 /** member CRUD */
-const memberCRUD = async (req, res, next) => {
+const memberSelect = async (req, res, next) => {
     const { id, pw } = req.body;
     try {
         const members = await Member.findOne({ id, pw }); // 몽고디비의 db.users.find({}) 쿼리와 같음
@@ -22,7 +27,7 @@ const memberCRUD = async (req, res, next) => {
             res.json({answer: false});
         }
         else{
-            res.json({answer: true, level: members.level, userid: members.id, username: members.name});
+            res.json({answer: true, level: members.level, userid: encryptCookie(members.id, members.name), name: members.name});
         }
 
     } catch (err) {
@@ -62,4 +67,4 @@ const memberDelete = async (req, res, next) => {
 }
 
 /** Exports CRUD functions */
-module.exports = {memberCRUD, memberInsert, memberAdmin, memberDelete};
+module.exports = {memberSelect, memberInsert, memberAdmin, memberDelete};
