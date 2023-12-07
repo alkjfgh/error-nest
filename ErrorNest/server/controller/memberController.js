@@ -1,5 +1,15 @@
 const Member = require("../db/schema/member"); // Get member schema
 const logger = require("../log/logger");
+const CryptoJS = require('crypto-js');
+
+function encryptCookie(value, key) {
+    return CryptoJS.AES.encrypt(value, key).toString();
+}
+
+function decryptCookie(cipherText, key) {
+    const bytes  = CryptoJS.AES.decrypt(cipherText, key);
+    return bytes.toString(CryptoJS.enc.Utf8);
+}
 
 const memberAdmin = async (req, res, next) => {
     // console.log("admin 들어옴");
@@ -14,7 +24,7 @@ const memberAdmin = async (req, res, next) => {
 }
 
 /** member CRUD */
-const memberCRUD = async (req, res, next) => {
+const memberSelect = async (req, res, next) => {
     const { id, pw } = req.body;
     try {
         const members = await Member.findOne({ id, pw }); // 몽고디비의 db.users.find({}) 쿼리와 같음
@@ -22,7 +32,7 @@ const memberCRUD = async (req, res, next) => {
             res.json({answer: false});
         }
         else{
-            res.json({answer: true, level: members.level, userid: members.id});
+            res.json({answer: true, level: members.level, userid: encryptCookie(members.id, members.name), name: members.name});
         }
 
     } catch (err) {
@@ -64,7 +74,8 @@ const memberDelete = async (req, res, next) => {
 const levelCheck = async (req, res, next) => {
     // console.log("연결됨");
     try{
-        const result = await Member.findOne(req.body);
+        const userid = decryptCookie(req.body.userid, req.body.username)
+        const result = await Member.findOne({id:userid});
         res.json({success: true, level: result.level});
     } catch (err) {
         logger.error(err);
@@ -93,4 +104,4 @@ const checkId = async (req, res, next) => {
 }
 
 /** Exports CRUD functions */
-module.exports = {memberCRUD, memberInsert, memberAdmin, memberDelete, levelCheck, checkId};
+module.exports = {memberSelect, memberInsert, memberAdmin, memberDelete, levelCheck, checkId};

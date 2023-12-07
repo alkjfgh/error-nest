@@ -16,16 +16,27 @@ import Admin from "./Admin";
 import Report from "./Report";
 import Logout from "./Logout";
 import ReportHistory from "./ReportHistory";
+import algoliasearch from "algoliasearch";
 import axios from "axios";
 
 const App = () => {
+    const ALGOLIA_APP_ID = process.env.REACT_APP_ALGOLIA_APP_ID
+    const ALGOLIA_SEARCH_API_KEY = process.env.REACT_APP_ALGOLIA_SEARCH_API_KEY
+    const ALGOLIA_INSERT_API_KEY = process.env.REACT_APP_ALGOLIA_INSERT_API_KEY
+    const ALGOLIA_INDEX_NAME = process.env.REACT_APP_ALGOLIA_INDEX_NAME
+
+    const client  = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_API_KEY)
+    const index = client.initIndex(ALGOLIA_INDEX_NAME);
+    const addClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_INSERT_API_KEY)
+    const addIndex = addClient.initIndex(ALGOLIA_INDEX_NAME);
+    const algolia = {index, addIndex}
+
     const [cookies] = useCookies();
     // console.log("cookies" + cookies.userid)
     const [level, setLevel] = useState("");
     const levelCheck = async () => {
         console.log("levelCheck들어옴");
-        const res = await axios.post('/member/levelCheck', {id: cookies.userid});
-        // console.log("res " + res.data.level);
+        const res = await axios.post('/member/levelCheck', {userid: cookies.userid,username: cookies.username});
         setLevel(res.data.level);
         console.log("level" + level);
     };
@@ -33,20 +44,20 @@ const App = () => {
     useEffect(() => {
         // console.log("cookies확인" + cookies.userid);
         if(cookies.userid !== undefined)
-            levelCheck();
+            levelCheck().then(r => {});
     }, []);
 
     return (
         <Router>
-            <Header />
+            <Header algolia={algolia}/>
             <Routes>
                 <Route path='/' element={<Layout><Main /></Layout>} />
                 <Route path='/logout' element={<Layout><Logout /></Layout>} />
                 <Route path='/document/*' element={<Layout><Document /></Layout>} />
-                <Route path='/search/*' element={<Layout><Search /></Layout>}/>
-                <Route path='/edit/*' element={<Layout><Edit /></Layout>}/>
+                <Route path='/search/*' element={<Layout><Search algolia={algolia} /></Layout>}/>
+                <Route path='/edit/*' element={<Layout><Edit algolia={algolia} /></Layout>}/>
                 <Route path='/history/*' element={<Layout><History /></Layout>}/>
-                <Route path='/Upload' element={<Layout><Upload /></Layout>}/>
+                <Route path='/Upload' element={<Layout><Upload algolia={algolia} /></Layout>}/>
                 <Route path='/signup' element={<Layout><SignUp /></Layout>}/>
                 <Route path='/login' element={<Layout><Login /></Layout>}/>
                 {level === "admin" && <Route path='/admin' element={<Layout><Admin /></Layout>}/>}

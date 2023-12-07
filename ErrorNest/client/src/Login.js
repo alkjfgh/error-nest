@@ -25,9 +25,14 @@ function Login(){
             const response = await axios.post('/member', user)
             if(response.data.answer){
                 alert("로그인 성공 되셨습니다.")
-                // 쿠키 설정\
-                setCookies("userid", response.data.userid, {path: "/"});
-                // setCookies("level", response.data.level, {path: "/"})
+
+                // 쿠키 만료 시간 설정
+                const expires = new Date();
+                expires.setDate(expires.getDate() + 30); // 7일 후에 만료
+
+                // 쿠키 설정
+                setCookies("userid", response.data.userid, {path: "/", expires: expires})
+                setCookies("username", response.data.name, {path: "/", expires: expires})
                 if(response.data.level === "admin")
                     navigate("/admin");
                 else
