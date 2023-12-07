@@ -3,4 +3,26 @@
     width: 100%;
     height: 600px;
   }
+
+  .editBtns-con{
+    display: flex;
+    background-color: green;
+
+    div:not(div:last-of-type){
+      //padding-bottom: 10px;
+    }
+
+    .edit-btn {
+      display: inline-block;
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+    }
+
+    .edit-btn:hover{
+      background-color: darkgreen;
+      cursor: pointer;
+    }
+  }
 }

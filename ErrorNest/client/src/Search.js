@@ -3,15 +3,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 import axios from "axios"
 import algoliasearch from "algoliasearch"
 
-const Search = () => {
+const Search = (props) => {
     const location = useLocation()
     const navigate = useNavigate()
 
     const searchParams = new URLSearchParams(location.search)
     const searchText = searchParams.get('q')
 
-    const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d')
-    const index = client.initIndex('document-title');
+    const index = props.algolia.index
 
     const [message, setMessage] = useState("")
     const [hits, setHits] = useState([])

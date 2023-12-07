@@ -3,7 +3,7 @@ import axios from "axios"
 import algoliasearch from "algoliasearch"
 import {Link, useNavigate} from "react-router-dom"
 
-const Upload = () => {
+const Upload = (props) => {
     const navigate = useNavigate()
 
     const fileInputRef = useRef(null)
@@ -17,8 +17,7 @@ const Upload = () => {
     const [showResults, setShowResults] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState("")
 
-    const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d')
-    const index = client.initIndex('document-title');
+    const index = props.algolia.index
 
     const handleButtonClick = () => {
         fileInputRef.current.click()
@@ -74,8 +73,7 @@ const Upload = () => {
             }
         }).then(async (res) => {
             if (res.data.success) {
-                const addClient = algoliasearch('71RW9A7WPG', '0bb48fee2961ce2138ef237912abd0df')
-                const addIndex = addClient.initIndex('document-title')
+                const addIndex = props.algolia.addIndex
                 const fileName = "파일:" + res.data.fileName
                 const existingObject = await addIndex.getObject(fileName).catch(() => null);
 

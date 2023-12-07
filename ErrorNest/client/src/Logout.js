@@ -8,7 +8,7 @@ const Logout = () => {
 
     const logout = async () => {
         removeCookie('userid');
-        removeCookie('level');
+        removeCookie('username');
         alert("로그아웃 되었습니다.");
         navigate('/document');
     }
