@@ -47,7 +47,11 @@
 
     .navi-input-bar {
       margin-right: 10px;
+      width: 250px;
+      height: 20px;
       padding: 5px;
+      font-size: 18px;
+      line-height: 18px;
     }
 
     .navi-button {
@@ -76,6 +80,7 @@
   text-decoration: none;
   color: black;
   background-color: #f1f1f1;
+  text-align: left;
 }
 
 .search-result-item:hover, .selected {
