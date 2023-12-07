@@ -3,7 +3,7 @@ const logger = require("../log/logger");
 
 /** reportHistory CRUD */
 
-const memberSelect = async (req, res, ext) => {
+const memberSelect = async (req, res, next) => {
     console.log(`memberSelect controller 입장 성공 !!`);
 
     try {
