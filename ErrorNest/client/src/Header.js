@@ -115,15 +115,16 @@ const Header = (props) => {
                         <Link to="/logout">로그아웃</Link>
                     </li>
                 )}
-                {/*<li className="navi-element">*/}
-                {/*    <Link to="/about">소개</Link>*/}
-                {/*</li>*/}
+                <li className="navi-element">
+                    <Link to="/reportHistory">신고목록</Link>
+                </li>
+                <li className="navi-element">
+                    <Link to="/reportHistory">파일 업로드</Link>
+                </li>
                 {/*<li className="navi-element">*/}
                 {/*    <Link to="/contact">문의</Link>*/}
                 {/*</li>*/}
             </ul>
-
-            <Link to={"/upload"}>파일 업로드</Link>
         </nav>
     );
 }
