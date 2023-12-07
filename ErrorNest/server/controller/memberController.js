@@ -1,10 +1,5 @@
 const Member = require("../db/schema/member"); // Get member schema
 const logger = require("../log/logger");
-const CryptoJS = require('crypto-js');
-
-function encryptCookie(value, key) {
-    return CryptoJS.AES.encrypt(value, key).toString();
-}
 
 const memberAdmin = async (req, res, next) => {
     // console.log("admin 들어옴");
@@ -19,7 +14,7 @@ const memberAdmin = async (req, res, next) => {
 }
 
 /** member CRUD */
-const memberSelect = async (req, res, next) => {
+const memberCRUD = async (req, res, next) => {
     const { id, pw } = req.body;
     try {
         const members = await Member.findOne({ id, pw }); // 몽고디비의 db.users.find({}) 쿼리와 같음
@@ -27,7 +22,7 @@ const memberSelect = async (req, res, next) => {
             res.json({answer: false});
         }
         else{
-            res.json({answer: true, level: members.level, userid: encryptCookie(members.id, members.name), name: members.name});
+            res.json({answer: true, level: members.level, userid: members.id});
         }
 
     } catch (err) {
@@ -66,5 +61,36 @@ const memberDelete = async (req, res, next) => {
     }
 }
 
+const levelCheck = async (req, res, next) => {
+    // console.log("연결됨");
+    try{
+        const result = await Member.findOne(req.body);
+        res.json({success: true, level: result.level});
+    } catch (err) {
+        logger.error(err);
+        next(err);
+        res.json({success: false});
+    }
+}
+
+const checkId = async (req, res, next) => {
+    console.log(req.body);
+    try {
+        const members = await Member.findOne(req.body); // 몽고디비의 db.users.find({}) 쿼리와 같음
+        // console.log(members);
+        if(!members){
+            res.json({answer: true});
+        }
+        else{
+            // console.log(members);
+            res.json({answer: false});
+        }
+    } catch (err) {
+        logger.error(err);
+        next(err);
+        res.json({success: false});
+    }
+}
+
 /** Exports CRUD functions */
-module.exports = {memberSelect, memberInsert, memberAdmin, memberDelete};
+module.exports = {memberCRUD, memberInsert, memberAdmin, memberDelete, levelCheck, checkId};

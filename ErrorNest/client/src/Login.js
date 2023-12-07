@@ -25,15 +25,13 @@ function Login(){
             const response = await axios.post('/member', user)
             if(response.data.answer){
                 alert("로그인 성공 되셨습니다.")
-
-                // 쿠키 만료 시간 설정
-                const expires = new Date();
-                expires.setDate(expires.getDate() + 30); // 7일 후에 만료
-
-                // 쿠키 설정
-                setCookies("userid", response.data.userid, {path: "/", expires: expires})
-                setCookies("username", response.data.name, {path: "/", expires: expires})
-                navigate("/");
+                // 쿠키 설정\
+                setCookies("userid", response.data.userid, {path: "/"});
+                // setCookies("level", response.data.level, {path: "/"})
+                if(response.data.level === "admin")
+                    navigate("/admin");
+                else
+                    navigate("/");
             }
             else {
                 alert("아이디 또는 비밀번호를 틀리셨습니다.")
@@ -46,8 +44,8 @@ function Login(){
 
     return(
         <div>
-            <input type="text" name="id" id="" onChange={handleForm}/><br/>
-            <input type="text" name="pw" id=""  onChange={handleForm}/>
+            id: <input type="text" name="id" id="" onChange={handleForm}/><br/>
+            pw: <input type="password" name="pw" id=""  onChange={handleForm}/>
             <input type="button" value="login"  onClick={handleLogin}/>
         </div>
     )

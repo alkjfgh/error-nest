@@ -4,18 +4,19 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
 function SignUp(props) {
-    const [members, setMembers] = useState([{}]);
-    const [isAuth, setIsAuth] = useState("none");
+    const [isAuth, setIsAuth] = useState(false);
     const [isEmailSent, setIsEmailSent] = useState(false);
     const [authCheck, setAuthCheck] = useState("");
     const [inputs, setInputs] = useState({
         id: '',
         pw: '',
         email: '',
-        name: ''
+        name: '',
+        pwCheck: ''
     });
 
     const navigate = useNavigate(); // navigation 주는거임
+    const [canSignup, setCanSignup] = useState();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -55,7 +56,13 @@ function SignUp(props) {
         };
         console.log(data);
         const myRe = "^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,20}$";
-        if(inputs.pw.match(myRe)){
+        // await checkId();
+        const checkId = await axios.post('/member/checkId', {id: inputs.id});
+        setCanSignup(checkId.data.answer);
+        // console.log("checkId " + checkId.data.answer);
+        // checkId.data.answer === true
+        if(inputs.pw.match(myRe) && inputs.pw === inputs.pwCheck && checkId.data.answer === true){
+            // setCanSignup(true);
             emailjs
                 .send(
                     'Error-Nest', // 서비스 ID
@@ -73,12 +80,25 @@ function SignUp(props) {
                     // 이메일 전송 실패 처리 로직 추가
                 });
             await axios.post('/token', {data:{id: inputs.id, token: AuthCode}});
+            setIsAuth(true)
+        }
+        else if(inputs.pw !== inputs.pwCheck){
+            alert("비밀번호가 일치하지 않습니다.");
+        }
+        else if(checkId.data.answer === false){
+            alert("아이디가 중복됩니다.");
         }
         else{
             alert("비밀번호를 영어 소문자, 숫자, 특수문자가 각각 1개 이상 포함되도록 8~20자를 적어주세요.");
         }
         // console.log("들어옴");
     }
+
+    // const checkId = async () => {
+    //     const result = await axios.post('/member/checkId', {id: inputs.id});
+    //     console.log("result" + result.data);
+    //     await sendAuthCode();
+    // }
 
     let flag = 0;
 
@@ -99,16 +119,15 @@ function SignUp(props) {
                 name: <input type="test" name="name" onChange={handleChange} required/><br/>
                 id: <input type="text" name="id" onChange={handleChange} required/><br/>
                 pw: <input type="password" name="pw" onChange={handleChange} required/><br/>
+                pw 확인: <input type="password" name="pwCheck" onChange={handleChange} required/><br/>
                 email: <input type="email" name="email" onChange={handleChange} required/>
                 <button type="button" onClick={() => {
                         const myRe = "^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,20}$";
-                        if(inputs.pw.match(myRe))
-                            setIsAuth("block")
                         sendAuthCode();
                     }
                 }>인증</button><br/>
-                {isAuth === "block" && (
-                    <div style={{display: isAuth}}>
+                {isAuth && (
+                    <div>
                         인증: <input type="text" onChange={(e) => setAuthCheck(e.target.value)}/>
                         <button type="button" onClick={checkAuth}>확인</button><br/>
                     </div>
