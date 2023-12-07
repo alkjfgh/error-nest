@@ -54,23 +54,29 @@ function SignUp(props) {
             to_name: inputs.name
         };
         console.log(data);
-        emailjs
-            .send(
-                'Error-Nest', // 서비스 ID
-                'Error-Nest-Template', // 템플릿 ID
-                data,
-                'J6nfhXFXy8JaKsOwj', // public-key
-            )
-            .then((response) => {
-                console.log('이메일이 성공적으로 보내졌습니다:', response);
-                setIsEmailSent(true);
-                // 이메일 전송 성공 처리 로직 추가
-            })
-            .catch((error) => {
-                console.error('이메일 보내기 실패:', error);
-                // 이메일 전송 실패 처리 로직 추가
-            });
-        await axios.post('/token', {data:{id: inputs.id, token: AuthCode}});
+        const myRe = "^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,20}$";
+        if(inputs.pw.match(myRe)){
+            emailjs
+                .send(
+                    'Error-Nest', // 서비스 ID
+                    'Error-Nest-Template', // 템플릿 ID
+                    data,
+                    'J6nfhXFXy8JaKsOwj', // public-key
+                )
+                .then((response) => {
+                    console.log('이메일이 성공적으로 보내졌습니다:', response);
+                    setIsEmailSent(true);
+                    // 이메일 전송 성공 처리 로직 추가
+                })
+                .catch((error) => {
+                    console.error('이메일 보내기 실패:', error);
+                    // 이메일 전송 실패 처리 로직 추가
+                });
+            await axios.post('/token', {data:{id: inputs.id, token: AuthCode}});
+        }
+        else{
+            alert("비밀번호를 영어 소문자, 숫자, 특수문자가 각각 1개 이상 포함되도록 8~20자를 적어주세요.");
+        }
         // console.log("들어옴");
     }
 
@@ -92,10 +98,12 @@ function SignUp(props) {
             <form onSubmit={handleSubmit}>
                 name: <input type="test" name="name" onChange={handleChange} required/><br/>
                 id: <input type="text" name="id" onChange={handleChange} required/><br/>
-                pw: <input type="password" name="pw" onChange={handleChange} required maxLength="20" minLength="8"/><br/>
+                pw: <input type="password" name="pw" onChange={handleChange} required/><br/>
                 email: <input type="email" name="email" onChange={handleChange} required/>
                 <button type="button" onClick={() => {
-                        setIsAuth("block")
+                        const myRe = "^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,20}$";
+                        if(inputs.pw.match(myRe))
+                            setIsAuth("block")
                         sendAuthCode();
                     }
                 }>인증</button><br/>
