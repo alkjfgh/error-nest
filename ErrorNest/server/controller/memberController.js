@@ -76,6 +76,8 @@ const levelCheck = async (req, res, next) => {
     try{
         const userid = decryptCookie(req.body.userid, req.body.username)
         const result = await Member.findOne({id:userid});
+        console.log("result: ");
+        console.log(result);
         res.json({success: true, level: result.level});
     } catch (err) {
         logger.error(err);

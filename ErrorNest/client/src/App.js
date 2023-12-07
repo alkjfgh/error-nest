@@ -60,7 +60,8 @@ const App = () => {
                 <Route path='/Upload' element={<Layout><Upload algolia={algolia} /></Layout>}/>
                 <Route path='/signup' element={<Layout><SignUp /></Layout>}/>
                 <Route path='/login' element={<Layout><Login /></Layout>}/>
-                {level === "admin" && <Route path='/admin' element={<Layout><Admin /></Layout>}/>}
+                {/*{level !== "user" && level !== "" && <Route path='/admin' element={<Layout><Admin /></Layout>}/>}*/}
+                <Route path='/admin' element={<Layout><Admin /></Layout>}/>
                 <Route path='/report/*' element={<Layout><Report /></Layout>}/>
                 <Route path='/reportHistory' element={<Layout><ReportHistory /></Layout>}/>
                 <Route path='*' element={<Layout><NotFound /></Layout>}/>

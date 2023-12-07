@@ -1,15 +1,33 @@
 import React, {useEffect, useState} from 'react';
+import {useCookies} from "react-cookie";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 function Admin(props) {
     const [members, setMembers] = useState([{}]);
+    const [cookies] = useCookies();
+    const [level, setLevel] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         // return () => {
         //     getMembers().then(r => {});
         // }
-        getMembers();
+        levelCheck().then((level) => {
+            if(level === "admin") getMembers();
+            else navigate("/");
+            });
     },[]);
+
+    const levelCheck = async () => {
+        console.log("levelCheck들어옴");
+        if(cookies.userid) {
+            const res = await axios.post('/member/levelCheck', {userid: cookies.userid,username: cookies.username});
+            return res.data.level
+        }
+        else return "";
+        // console.log("level" + level);
+    };
 
     /** 유저 목록 조회 */
     const getMembers = async () => {

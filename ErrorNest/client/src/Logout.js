@@ -10,7 +10,7 @@ const Logout = () => {
         removeCookie('userid');
         removeCookie('username');
         alert("로그아웃 되었습니다.");
-        navigate('/document');
+        navigate('/');
     }
 
     useEffect(() => {
