@@ -13,11 +13,6 @@ import logoImg from './img/errorNestLogo.png'
  * 검색 바 - 버튼 눌러서 해당 버튼에 해당하는 Search.js로 이동 (/Search)
  * */
 const Header = (props) => {
-    const ALGOLIA_APP_ID = process.env.REACT_APP_ALGOLIA_APP_ID
-    const ALGOLIA_SEARCH_API_KEY = process.env.REACT_APP_ALGOLIA_SEARCH_API_KEY
-    const ALGOLIA_INSERT_API_KEY = process.env.REACT_APP_ALGOLIA_INSERT_API_KEY
-    const ALGOLIA_INDEX_NAME = process.env.REACT_APP_ALGOLIA_INDEX_NAME
-
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -30,8 +25,7 @@ const Header = (props) => {
     const [hits, setHits] = useState([]);
     const [selectedIndex, setSelectedIndex] = useState(-1);
 
-    const client  = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_API_KEY)
-    const index = client.initIndex(ALGOLIA_INDEX_NAME);
+    const index = props.algolia.index
 
     const handleInputText = (e) => {
         const searchText = e.target.value;

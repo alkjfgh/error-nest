@@ -7,12 +7,7 @@ import algoliasearch from "algoliasearch"
 
 import './css/edit.scss'
 
-const Edit = () => {
-    const ALGOLIA_APP_ID = process.env.REACT_APP_ALGOLIA_APP_ID
-    const ALGOLIA_SEARCH_API_KEY = process.env.REACT_APP_ALGOLIA_SEARCH_API_KEY
-    const ALGOLIA_INSERT_API_KEY = process.env.REACT_APP_ALGOLIA_INSERT_API_KEY
-    const ALGOLIA_INDEX_NAME = process.env.REACT_APP_ALGOLIA_INDEX_NAME
-
+const Edit = (props) => {
     const location = useLocation()
     const navigate = useNavigate()
     const [cookies, setCookies, removeCookies] = useCookies()
@@ -26,8 +21,7 @@ const Edit = () => {
     const [category, setCategory] = useState([])
     const [categoryText, setCategoryText] = useState('')
 
-    const client  = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_API_KEY)
-    const index = client.initIndex('document-title')
+    const index = props.algolia.index
 
     function arrToText(category) {
         let text = ""
@@ -40,7 +34,7 @@ const Edit = () => {
     }
 
     const getWriter = async () => {
-        if(cookies.userid) return cookies.userid
+        if(cookies.username) return cookies.username
         const response = await fetch("https://api64.ipify.org?format=json")
         const data = await response.json()
         return data.ip
@@ -69,10 +63,9 @@ const Edit = () => {
 
     const editSubmit = async (e) => {
         const this_url = location.pathname
-        const res = await axios.post(this_url,{title, content, category, version, writer})
+        const res = await axios.post(this_url,{title, content, category, version, writer, userid:cookies.userid})
         if(res.data.success){
-            const addClient  = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_INSERT_API_KEY)
-            const addIndex = client.initIndex(ALGOLIA_INDEX_NAME);
+            const addIndex = props.algolia.addIndex
 
             // 이미 존재하는 title인지 확인
             const existingObject = await addIndex.getObject(title).catch(() => null)
