@@ -6,5 +6,4 @@ router.post('/', tokenController.tokenCRUD);
 
 router.post('/check', tokenController.tokenCheck);
 
-
 module.exports = router;

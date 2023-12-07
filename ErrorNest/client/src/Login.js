@@ -33,7 +33,10 @@ function Login(){
                 // 쿠키 설정
                 setCookies("userid", response.data.userid, {path: "/", expires: expires})
                 setCookies("username", response.data.name, {path: "/", expires: expires})
-                navigate("/");
+                if(response.data.level === "admin")
+                    navigate("/admin");
+                else
+                    navigate("/");
             }
             else {
                 alert("아이디 또는 비밀번호를 틀리셨습니다.")
@@ -46,8 +49,8 @@ function Login(){
 
     return(
         <div>
-            <input type="text" name="id" id="" onChange={handleForm}/><br/>
-            <input type="text" name="pw" id=""  onChange={handleForm}/>
+            id: <input type="text" name="id" id="" onChange={handleForm}/><br/>
+            pw: <input type="password" name="pw" id=""  onChange={handleForm}/>
             <input type="button" value="login"  onClick={handleLogin}/>
         </div>
     )

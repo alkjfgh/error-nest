@@ -6,6 +6,11 @@ function encryptCookie(value, key) {
     return CryptoJS.AES.encrypt(value, key).toString();
 }
 
+function decryptCookie(cipherText, key) {
+    const bytes  = CryptoJS.AES.decrypt(cipherText, key);
+    return bytes.toString(CryptoJS.enc.Utf8);
+}
+
 const memberAdmin = async (req, res, next) => {
     // console.log("admin 들어옴");
     try {
@@ -66,5 +71,37 @@ const memberDelete = async (req, res, next) => {
     }
 }
 
+const levelCheck = async (req, res, next) => {
+    // console.log("연결됨");
+    try{
+        const userid = decryptCookie(req.body.userid, req.body.username)
+        const result = await Member.findOne({id:userid});
+        res.json({success: true, level: result.level});
+    } catch (err) {
+        logger.error(err);
+        next(err);
+        res.json({success: false});
+    }
+}
+
+const checkId = async (req, res, next) => {
+    console.log(req.body);
+    try {
+        const members = await Member.findOne(req.body); // 몽고디비의 db.users.find({}) 쿼리와 같음
+        // console.log(members);
+        if(!members){
+            res.json({answer: true});
+        }
+        else{
+            // console.log(members);
+            res.json({answer: false});
+        }
+    } catch (err) {
+        logger.error(err);
+        next(err);
+        res.json({success: false});
+    }
+}
+
 /** Exports CRUD functions */
-module.exports = {memberSelect, memberInsert, memberAdmin, memberDelete};
+module.exports = {memberSelect, memberInsert, memberAdmin, memberDelete, levelCheck, checkId};

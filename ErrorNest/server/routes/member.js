@@ -12,4 +12,8 @@ router.get('/admin', memberController.memberAdmin);
 
 router.delete('/delete', memberController.memberDelete);
 
+router.post('/levelCheck', memberController.levelCheck);
+
+router.post('/checkId', memberController.checkId);
+
 module.exports = router;
