@@ -25,8 +25,7 @@ const Header = (props) => {
     const [hits, setHits] = useState([]);
     const [selectedIndex, setSelectedIndex] = useState(-1);
 
-    const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d');
-    const index = client.initIndex('document-title');
+    const index = props.algolia.index
 
     const handleInputText = (e) => {
         const searchText = e.target.value;
@@ -119,7 +118,7 @@ const Header = (props) => {
                     <Link to="/reportHistory">신고목록</Link>
                 </li>
                 <li className="navi-element">
-                    <Link to="/reportHistory">파일 업로드</Link>
+                    <Link to="/upload">파일 업로드</Link>
                 </li>
                 {/*<li className="navi-element">*/}
                 {/*    <Link to="/contact">문의</Link>*/}

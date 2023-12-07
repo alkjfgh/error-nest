@@ -1,5 +1,11 @@
 const Document = require("../db/schema/document"); // Get edit schema
 const logger = require("../log/logger");
+const CryptoJS = require('crypto-js');
+
+function decryptCookie(cipherText, key) {
+    const bytes  = CryptoJS.AES.decrypt(cipherText, key);
+    return bytes.toString(CryptoJS.enc.Utf8);
+}
 
 /** edit CRUD */
 const documentSelect = async (req, res, next) => {
@@ -22,12 +28,12 @@ const documentSelect = async (req, res, next) => {
 
 const documentUpdate = async (req, res, next) => {
     try {
-        const {title, content, category, writer} = req.body
+        const {title, content, category, writer, userid} = req.body
         const document = {
             title: title,
             content: content,
             category: category,
-            writer: writer
+            writer: userid ? decryptCookie(userid, writer) : writer
         }
         const result = await Document.create(document)
         res.json({success: true});

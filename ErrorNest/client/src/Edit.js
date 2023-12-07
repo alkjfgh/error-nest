@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import {Link, useLocation, useNavigate } from 'react-router-dom'
-import { useCookies } from "react-cookie";
-import { parse } from 'node-html-parser';
+import { useCookies } from "react-cookie"
+import { parse } from 'node-html-parser'
 import axios from "axios"
 import algoliasearch from "algoliasearch"
 
 import './css/edit.scss'
 
-const Edit = () => {
+const Edit = (props) => {
     const location = useLocation()
     const navigate = useNavigate()
-    const [cookies, setCookies, removeCookies] = useCookies();
+    const [cookies, setCookies, removeCookies] = useCookies()
+    const textRef = useRef()
 
     const [title, setTitle] = useState('')
     const [version, setVersion] = useState('')
@@ -20,8 +21,7 @@ const Edit = () => {
     const [category, setCategory] = useState([])
     const [categoryText, setCategoryText] = useState('')
 
-    const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d')
-    const index = client.initIndex('document-title')
+    const index = props.algolia.index
 
     function arrToText(category) {
         let text = ""
@@ -34,7 +34,7 @@ const Edit = () => {
     }
 
     const getWriter = async () => {
-        if(cookies.userid) return cookies.userid
+        if(cookies.username) return cookies.username
         const response = await fetch("https://api64.ipify.org?format=json")
         const data = await response.json()
         return data.ip
@@ -63,10 +63,9 @@ const Edit = () => {
 
     const editSubmit = async (e) => {
         const this_url = location.pathname
-        const res = await axios.post(this_url,{title, content, category, version, writer})
+        const res = await axios.post(this_url,{title, content, category, version, writer, userid:cookies.userid})
         if(res.data.success){
-            const addClient  = algoliasearch('71RW9A7WPG', '0bb48fee2961ce2138ef237912abd0df')
-            const addIndex = addClient.initIndex('document-title')
+            const addIndex = props.algolia.addIndex
 
             // 이미 존재하는 title인지 확인
             const existingObject = await addIndex.getObject(title).catch(() => null)
@@ -97,8 +96,26 @@ const Edit = () => {
         setContent(e.target.value)
     }
 
-    function categoryTextChange(e) {
+    const categoryTextChange = (e) => {
         setCategoryText(e.target.value)
+    }
+
+    /** 에디트 내용 자동 추가 버튼 핸들링 */
+    const editBtnClick = (e) => {
+        const type = e.target.innerHTML
+        let addText = ""
+        switch (type){
+            case "문단 제목": addText = "==문단 제목=="; break
+            case "블럭쿼터": addText = "$$내용$$"; break
+            case "링크": addText = "<<링크 제목, 표시할 내용>>"; break
+            case "이미지": addText = "[[분류/이미지 이름, 가로, 세로]]"; break
+        }
+        // 커서 위치에 문자열 삽입
+        const cursorPosition = textRef.current["selectionStart"]
+        const textBeforeCursor = content.slice(0, cursorPosition)
+        const textAfterCursor = content.slice(cursorPosition)
+        const newText = textBeforeCursor + addText + textAfterCursor
+        setContent(newText);
     }
 
     return (
@@ -107,8 +124,16 @@ const Edit = () => {
             <div className={"document-navi"}><Link to={"/document/" + title}>돌아가기</Link><Link to={"/history/" + title}>역사</Link></div>
             <input type="text" value={writer} readOnly/>
             <input type="text" value={categoryText} onChange={categoryTextChange}/>
-            <textarea value={content} onChange={contentChange}></textarea>
+            {/*에디트 내용 자동 추가 버튼*/}
+            <div className={"editBtns-con"}>
+                <div><span className={"edit-btn"} onClick={editBtnClick}>문단 제목</span></div>
+                <div><span className={"edit-btn"} onClick={editBtnClick}>블럭쿼터</span></div>
+                <div><span className={"edit-btn"} onClick={editBtnClick}>링크</span></div>
+                <div><span className={"edit-btn"} onClick={editBtnClick}>이미지</span></div>
+            </div>
+            <textarea ref={textRef} value={content} onChange={contentChange}></textarea>
             <button onClick={editSubmit}>편집 완료</button>
+
         </>
     )
 }
