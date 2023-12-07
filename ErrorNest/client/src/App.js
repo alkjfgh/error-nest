@@ -14,6 +14,7 @@ import Login from "./Login";
 import Admin from "./Admin";
 import Report from "./Report";
 import Logout from "./Logout";
+import ReportHistory from "./ReportHistory";
 
 const App = () => {
     return (
@@ -31,6 +32,7 @@ const App = () => {
                 <Route path='/login' element={<Layout><Login /></Layout>}/>
                 <Route path='/admin' element={<Layout><Admin /></Layout>}/>
                 <Route path='/report/*' element={<Layout><Report /></Layout>}/>
+                <Route path='/reportHistory' element={<Layout><ReportHistory /></Layout>}/>
                 <Route path='*' element={<Layout><NotFound /></Layout>}/>
             </Routes>
         </Router>
