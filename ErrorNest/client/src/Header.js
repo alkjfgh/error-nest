@@ -76,6 +76,28 @@ const Header = (props) => {
                 <img src={logoImg} alt="로고 이미지" className="logo-image" />
             </Link>
 
+            {/** 검색 바 */}
+            <div className="navi-button-div">
+                <div>
+                    <input className="navi-input-bar" type="text" placeholder="검색" value={inputText} onChange={handleInputText} onKeyDown={handleKeyPress}/>
+
+                    <div className="search-results">
+                        {hits.slice(0, 10).map((hit, index) => (
+                            <Link
+                                key={index}
+                                to={`/document/${hit.title}`}
+                                className={`search-result-item ${index === selectedIndex ? 'selected' : ''}`}
+                            >
+                                {hit.title}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+
+                <Link to={`/search?q=${encodedInputText}`}>
+                    <button className="navi-button">검색</button>
+                </Link>
+            </div>
             {/** 네비게이션 요소 */}
             <ul className="navi-element-list">
                 {cookies.userid === undefined && (
@@ -102,29 +124,6 @@ const Header = (props) => {
             </ul>
 
             <Link to={"/upload"}>파일 업로드</Link>
-
-            {/** 검색 바 */}
-            <div className="navi-button-div">
-                <div>
-                    <input className="navi-input-bar" type="text" placeholder="검색" value={inputText} onChange={handleInputText} onKeyDown={handleKeyPress}/>
-
-                    <div className="search-results">
-                        {hits.slice(0, 10).map((hit, index) => (
-                            <Link
-                                key={index}
-                                to={`/document/${hit.title}`}
-                                className={`search-result-item ${index === selectedIndex ? 'selected' : ''}`}
-                            >
-                                {hit.title}
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-
-                <Link to={`/search?q=${encodedInputText}`}>
-                    <button className="navi-button">검색</button>
-                </Link>
-            </div>
         </nav>
     );
 }
