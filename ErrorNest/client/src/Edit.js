@@ -8,6 +8,11 @@ import algoliasearch from "algoliasearch"
 import './css/edit.scss'
 
 const Edit = () => {
+    const ALGOLIA_APP_ID = process.env.REACT_APP_ALGOLIA_APP_ID
+    const ALGOLIA_SEARCH_API_KEY = process.env.REACT_APP_ALGOLIA_SEARCH_API_KEY
+    const ALGOLIA_INSERT_API_KEY = process.env.REACT_APP_ALGOLIA_INSERT_API_KEY
+    const ALGOLIA_INDEX_NAME = process.env.REACT_APP_ALGOLIA_INDEX_NAME
+
     const location = useLocation()
     const navigate = useNavigate()
     const [cookies, setCookies, removeCookies] = useCookies()
@@ -21,7 +26,7 @@ const Edit = () => {
     const [category, setCategory] = useState([])
     const [categoryText, setCategoryText] = useState('')
 
-    const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d')
+    const client  = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_API_KEY)
     const index = client.initIndex('document-title')
 
     function arrToText(category) {
@@ -66,8 +71,8 @@ const Edit = () => {
         const this_url = location.pathname
         const res = await axios.post(this_url,{title, content, category, version, writer})
         if(res.data.success){
-            const addClient  = algoliasearch('71RW9A7WPG', '0bb48fee2961ce2138ef237912abd0df')
-            const addIndex = addClient.initIndex('document-title')
+            const addClient  = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_INSERT_API_KEY)
+            const addIndex = client.initIndex(ALGOLIA_INDEX_NAME);
 
             // 이미 존재하는 title인지 확인
             const existingObject = await addIndex.getObject(title).catch(() => null)

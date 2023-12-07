@@ -4,6 +4,11 @@ import algoliasearch from "algoliasearch"
 import {Link, useNavigate} from "react-router-dom"
 
 const Upload = () => {
+    const ALGOLIA_APP_ID = process.env.REACT_APP_ALGOLIA_APP_ID
+    const ALGOLIA_SEARCH_API_KEY = process.env.REACT_APP_ALGOLIA_SEARCH_API_KEY
+    const ALGOLIA_INSERT_API_KEY = process.env.REACT_APP_ALGOLIA_INSERT_API_KEY
+    const ALGOLIA_INDEX_NAME = process.env.REACT_APP_ALGOLIA_INDEX_NAME
+
     const navigate = useNavigate()
 
     const fileInputRef = useRef(null)
@@ -17,8 +22,8 @@ const Upload = () => {
     const [showResults, setShowResults] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState("")
 
-    const client  = algoliasearch('71RW9A7WPG', '00ceb7dfa83484290df56b46cdecde1d')
-    const index = client.initIndex('document-title');
+    const client  = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_API_KEY)
+    const index = client.initIndex(ALGOLIA_INDEX_NAME);
 
     const handleButtonClick = () => {
         fileInputRef.current.click()
@@ -74,8 +79,8 @@ const Upload = () => {
             }
         }).then(async (res) => {
             if (res.data.success) {
-                const addClient = algoliasearch('71RW9A7WPG', '0bb48fee2961ce2138ef237912abd0df')
-                const addIndex = addClient.initIndex('document-title')
+                const addClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_INSERT_API_KEY)
+                const addIndex = client.initIndex(ALGOLIA_INDEX_NAME);
                 const fileName = "파일:" + res.data.fileName
                 const existingObject = await addIndex.getObject(fileName).catch(() => null);
 
