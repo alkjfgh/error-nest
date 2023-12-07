@@ -37,6 +37,7 @@ const Report = () => {
         if(cookies.userid) return cookies.userid
         const response = await fetch("https://api64.ipify.org?format=json")
         const data = await response.json()
+        console.log(`data.ip >> ${data.ip}`);
         return data.ip
     }
 
