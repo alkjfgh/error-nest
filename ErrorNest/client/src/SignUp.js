@@ -51,7 +51,7 @@ function SignUp(props) {
         const data = {
             to_email: inputs.email,// 수신 이메일 ex) test@test.gmail.com,
             message: AuthCode,
-            email_id: "heo1356@gmail.com",
+            email_id: props.email.REACT_APP_EMAIL,
             to_name: inputs.name
         };
         console.log(data);
@@ -65,10 +65,10 @@ function SignUp(props) {
             // setCanSignup(true);
             emailjs
                 .send(
-                    'Error-Nest', // 서비스 ID
-                    'Error-Nest-Template', // 템플릿 ID
+                    props.email.REACT_APP_SERVICEID, // 서비스 ID
+                    props.email.REACT_APP_TEMPLATEID, // 템플릿 ID
                     data,
-                    'J6nfhXFXy8JaKsOwj', // public-key
+                    props.email.REACT_APP_USERID, // public-key
                 )
                 .then((response) => {
                     console.log('이메일이 성공적으로 보내졌습니다:', response);
