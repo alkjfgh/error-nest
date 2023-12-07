@@ -22,7 +22,7 @@ const memberCRUD = async (req, res, next) => {
             res.json({answer: false});
         }
         else{
-            res.json({answer: true, level: members.level, userid: members.id});
+            res.json({answer: true, level: members.level, userid: members.id, username: members.name});
         }
 
     } catch (err) {

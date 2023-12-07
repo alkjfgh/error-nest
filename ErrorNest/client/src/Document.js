@@ -48,36 +48,34 @@ function Document(props) {
                 if(tagName === 'img'){
                     props.src = node.getAttribute('src')
                     // HTML의 style 속성을 가져옵니다.
-                    let styleString = node.getAttribute('style');
-                    console.log(styleString)
+                    let styleString = node.getAttribute('style')
 
                     // style 속성이 있다면,
                     if (styleString) {
-                        let styleObject = {};
+                        let styleObject = {}
 
                         // 스타일 속성을 분리합니다.
-                        let styles = styleString.split(';');
+                        let styles = styleString.split('')
 
                         for (let style of styles) {
                             // 각 스타일을 속성과 값으로 분리합니다.
-                            let [property, value] = style.split(':');
+                            let [property, value] = style.split(':')
 
                             // 속성이나 값이 없는 경우 건너뜁니다.
-                            if (!property || !value) continue;
+                            if (!property || !value) continue
 
                             // 속성 이름을 camelCase로 변환합니다. (예: 'background-color' -> 'backgroundColor')
-                            let propertyName = property.trim().replace(/-([a-z])/g, (match, letter) => letter.toUpperCase());
+                            let propertyName = property.trim().replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())
 
-                            console.log(property,value)
                             // 속성 값을 정리합니다.
-                            let propertyValue = value.trim();
+                            let propertyValue = value.trim()
 
                             // 스타일 객체에 속성을 추가합니다.
-                            styleObject[propertyName] = propertyValue;
+                            styleObject[propertyName] = propertyValue
                         }
 
                         // props에 스타일 객체를 추가합니다.
-                        props.style = styleObject;
+                        props.style = styleObject
                     }
                 }
                 return React.createElement(element, props, content)
@@ -128,25 +126,23 @@ function Document(props) {
         let subTitle = [0,]
         let bq = true
 
-        console.log(contentArr)
-
         const transLinkImage = (line) => {
-            let regex = /<<([^>>]+)>>/g;
+            let regex = /<<([^>>]+)>>/g
 
             line = line.replace(regex, function (match) {
                 // match는 찾은 문자열을 가리킵니다. 예: '<<some text>>'
-                let extracted = match.slice(2, -2);  // 꺾쇠괄호를 제거합니다.
+                let extracted = match.slice(2, -2)  // 꺾쇠괄호를 제거합니다.
                 let [href, text] = extracted.split(',')
-                return `<a href="${href}">${text}</a>`;  // 변환된 문자열을 다시 꺾쇠괄호로 둘러싸서 반환합니다.
+                return `<a href="${href}">${text}</a>`  // 변환된 문자열을 다시 꺾쇠괄호로 둘러싸서 반환합니다.
             })
 
-            regex = /\[\[([^\]]+)\]\]/g;
+            regex = /\[\[([^\]]+)\]\]/g
             return line.replace(regex, function (match) {
                 // match는 찾은 문자열을 가리킵니다. 예: '<<some text>>'
-                let extracted = match.slice(2, -2);  // 꺾쇠괄호를 제거합니다.
+                let extracted = match.slice(2, -2)  // 꺾쇠괄호를 제거합니다.
                 let [src, width, height] = extracted.split(',')
-                // return `<img src="/upload/${src}" style={{ width: "${width}", height: "${height}" }} alt="" />`;
-                return `<img src="/upload/${src}" style="width: ${width};height: ${height};" alt=""/>`;  // 변환된 문자열을 다시 꺾쇠괄호로 둘러싸서 반환합니다.
+                // return `<img src="/upload/${src}" style={{ width: "${width}", height: "${height}" }} alt="" />`
+                return `<img src="/upload/${src}" style="width: ${width}height: ${height}" alt=""/>`  // 변환된 문자열을 다시 꺾쇠괄호로 둘러싸서 반환합니다.
             })
         }
 
@@ -175,7 +171,7 @@ function Document(props) {
             //TODO image 문법 추가
         })
 
-        return htmlText;
+        return htmlText
     }
 
     const getDocument = async(this_url, versionURI) => {
@@ -191,11 +187,10 @@ function Document(props) {
             renderedContents.push(<div key={Math.random()}>분류:<Link to={`/document/분류:파일/${file.category}`}>파일/{file.category}</Link></div>)
             renderedContents.push(<img key={Math.random()} src={imageUrl} alt={file.fileDes} />)
             renderedContents.push(<div key={Math.random()}>{file.fileDes}</div>)
-            setRenderedContents(renderedContents);
+            setRenderedContents(renderedContents)
         }
         else if(res.data.isCategory){
             const files = res.data.files
-            console.log(files)
         }
         else if(res.data.hasDocument){
             const category = res.data.category
@@ -203,7 +198,6 @@ function Document(props) {
             const content = res.data.content
             const recent = res.data.recent
             const transContent = transHtml(content)
-            console.log(transContent)
             const renderedContents = extractElements(transContent) // JSX 로 변환하여 렌더링
             const indexHtml = initIndexHtml(indexList)
             const params = new URLSearchParams(location.search)

@@ -26,8 +26,8 @@ function Login(){
             if(response.data.answer){
                 alert("로그인 성공 되셨습니다.")
                 // 쿠키 설정\
-                setCookies("userid", response.data.userid, {path: "/"});
-                setCookies("level", response.data.level, {path: "/"})
+                setCookies("userid", response.data.userid, {path: "/"})
+                setCookies("username", response.data.name, {path: "/"})
                 navigate("/");
             }
             else {

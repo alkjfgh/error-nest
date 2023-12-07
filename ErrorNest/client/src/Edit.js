@@ -109,6 +109,13 @@ const Edit = () => {
             <input type="text" value={categoryText} onChange={categoryTextChange}/>
             <textarea value={content} onChange={contentChange}></textarea>
             <button onClick={editSubmit}>편집 완료</button>
+
+            <div className={"editBtns-con"}>
+                <div><span className={"btn"}>문단 제목</span></div>
+                <div><span className={"btn"}>문단 제목</span></div>
+                <div><span className={"btn"}>문단 제목</span></div>
+                <div><span className={"btn"}>문단 제목</span></div>
+            </div>
         </>
     )
 }
