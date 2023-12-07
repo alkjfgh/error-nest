@@ -10,21 +10,25 @@ function decryptCookie(cipherText, key) {
 
 /** reportHistory CRUD */
 const memberSelect = async (req, res, next) => {
+    console.log("\n\n\n\n")
     console.log(`memberSelect controller 입장 성공 !!`);
 
-    const memberId = decryptCookie(req.query.id, req.query.username); // 복호화
-    console.log(`id >> ${req.query.id}`);
-    console.log(`username >> ${req.query.username}`);
-    console.log(`memberId >> ${memberId}`);
+    const {userid, username} = req.body
+
+    console.log("userid: " + userid)
+    console.log("username: " + username)
+
+    const descript_userid = decryptCookie(userid, username); // 복호화
+    console.log(`memberId >> ${descript_userid}`);
     try {
-        const result = await member.findOne({id: memberId});
+        const result = await member.findOne({id: descript_userid});
         console.log(`level >> ${result.level}`);
 
-        res.json({success: true, id: memberId, level: result.level, message: "맴버 가져오기 성공"});
+        res.json({success: true, id: descript_userid, level: result.level, message: "맴버 가져오기 성공"});
     } catch (err) {
         logger.error(err);
         next(err);
-        res.json({success: false, id: memberId, level: "noLogin", message: "맴버 가져오기 실패"});
+        res.json({success: false, id: descript_userid, level: "noLogin", message: "맴버 가져오기 실패"});
     }
 }
 const reportSelect = async (req, res, next) => {

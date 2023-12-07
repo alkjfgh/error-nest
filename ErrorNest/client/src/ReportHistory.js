@@ -20,9 +20,9 @@ const ReportHistory = () => {
 
     /** 로그인 한 계정의 레벨 가져오기 (user or admin) */
     const getMemberLevel = async (thisUri) => {
-        const writer = cookies.userid;
-        const writerName = cookies.username;
-        const response = await axios.get(`${thisUri}/getMember?id=${writer}&username=${writerName}`);
+        const userid = cookies.userid;
+        const username = cookies.username;
+        const response = await axios.post(`/reportHistory/getMember`,{userid, username});
         console.log(response);
         setLevel(response.data.level);
         setWriter(response.data.id);
