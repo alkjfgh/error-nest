@@ -12,7 +12,8 @@ function SignUp(props) {
         id: '',
         pw: '',
         email: '',
-        name: ''
+        name: '',
+        pwCheck: ''
     });
 
     const navigate = useNavigate(); // navigation 주는거임
@@ -55,7 +56,7 @@ function SignUp(props) {
         };
         console.log(data);
         const myRe = "^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,20}$";
-        if(inputs.pw.match(myRe)){
+        if(inputs.pw.match(myRe) && inputs.pw === inputs.pwCheck){
             emailjs
                 .send(
                     'Error-Nest', // 서비스 ID
@@ -73,6 +74,9 @@ function SignUp(props) {
                     // 이메일 전송 실패 처리 로직 추가
                 });
             await axios.post('/token', {data:{id: inputs.id, token: AuthCode}});
+        }
+        else if(inputs.pw !== inputs.pwCheck){
+            alert("비밀번호가 일치하지 않습니다.");
         }
         else{
             alert("비밀번호를 영어 소문자, 숫자, 특수문자가 각각 1개 이상 포함되도록 8~20자를 적어주세요.");
@@ -99,10 +103,11 @@ function SignUp(props) {
                 name: <input type="test" name="name" onChange={handleChange} required/><br/>
                 id: <input type="text" name="id" onChange={handleChange} required/><br/>
                 pw: <input type="password" name="pw" onChange={handleChange} required/><br/>
+                pw 확인: <input type="password" name="pwCheck" onChange={handleChange} required/><br/>
                 email: <input type="email" name="email" onChange={handleChange} required/>
                 <button type="button" onClick={() => {
                         const myRe = "^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,20}$";
-                        if(inputs.pw.match(myRe))
+                        if(inputs.pw.match(myRe) && inputs.pw === inputs.pwCheck)
                             setIsAuth("block")
                         sendAuthCode();
                     }
