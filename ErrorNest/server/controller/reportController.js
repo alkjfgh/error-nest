@@ -37,9 +37,22 @@ const documentSelect = async (req, res, next) => {
 const reportInsert = async (req, res, next) => {
     try {
         const report = req.body;
+
+        if (report.userInfo.isLogin) {
+            report.userInfo.userid =  decryptCookie(report.userInfo.userid, report.userInfo.username);
+        }
+
+        console.log(`report >>>`)
         console.log(report);
 
-        // const result = await Report.create(report);
+        const data = {
+            title: report.title,
+            comment: report.comment,
+            version: report.version,
+            writer: report.userInfo.userid
+        }
+
+        const result = await Report.create(data);
 
         res.json({success: true, message: "신고 완료 !!"});
     } catch (err) {
