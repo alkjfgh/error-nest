@@ -1,15 +1,7 @@
 const Member = require("../db/schema/member"); // Get member schema
 const logger = require("../log/logger");
 const CryptoJS = require('crypto-js');
-
-function encryptCookie(value, key) {
-    return CryptoJS.AES.encrypt(value, key).toString();
-}
-
-function decryptCookie(cipherText, key) {
-    const bytes  = CryptoJS.AES.decrypt(cipherText, key);
-    return bytes.toString(CryptoJS.enc.Utf8);
-}
+const {encryptCookie, decryptCookie} = require('./encript/encriptCookie')
 
 const memberAdmin = async (req, res, next) => {
     // console.log("admin 들어옴");
@@ -27,12 +19,13 @@ const memberAdmin = async (req, res, next) => {
 const memberSelect = async (req, res, next) => {
     const { id, pw } = req.body;
     try {
-        const members = await Member.findOne({ id, pw }); // 몽고디비의 db.users.find({}) 쿼리와 같음
-        if(!members){
+        const member = await Member.findOne({ id, pw }); // 몽고디비의 db.users.find({}) 쿼리와 같음
+        if(!member){
             res.json({answer: false});
         }
         else{
-            res.json({answer: true, level: members.level, userid: encryptCookie(members.id, members.name), name: members.name});
+            member.str_id = member._id.toString()
+            res.json({answer: true, level: member.level, userid: encryptCookie(member), username: member.name, userkey: member._id.toString()});
         }
 
     } catch (err) {
@@ -74,10 +67,13 @@ const memberDelete = async (req, res, next) => {
 const levelCheck = async (req, res, next) => {
     // console.log("연결됨");
     try{
-        const userid = decryptCookie(req.body.userid, req.body.username)
+        const member = {
+            id: req.body.userid,
+            username:  req.body.username,
+            str_id: req.body.userkey
+        }
+        const userid = decryptCookie(member)
         const result = await Member.findOne({id:userid});
-        console.log("result: ");
-        console.log(result);
         res.json({success: true, level: result.level});
     } catch (err) {
         logger.error(err);
@@ -87,7 +83,6 @@ const levelCheck = async (req, res, next) => {
 }
 
 const checkId = async (req, res, next) => {
-    console.log(req.body);
     try {
         const members = await Member.findOne(req.body); // 몽고디비의 db.users.find({}) 쿼리와 같음
         // console.log(members);
