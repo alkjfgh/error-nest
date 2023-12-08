@@ -21,15 +21,21 @@ const reportSelect = async (req, res, next) => {
     console.log(userInfo);
 
     try {
-        const result = await Report.find({writer: userInfo.userid});
+        let result = [];
+
+        if (userInfo.username === "관리자")
+            result = await Report.find({});
+        else
+            result = await Report.find({writer: userInfo.userid});
+
         console.log("---- result ----");
         console.log(result);
 
-        res.json({success: true, result: result, message: "게시판 리스트 가져오기 성공"});
+        res.json({success: true, result: result, writer: userInfo.userid, message: "게시판 리스트 가져오기 성공"});
     } catch (err) {
         logger.error(err);
         next(err);
-        res.json({success: false, result: null, message: "게시판 리스트 가져오기 실패"});
+        res.json({success: false, result: null, writer: userInfo.userid, message: "게시판 리스트 가져오기 실패"});
     }
 }
 

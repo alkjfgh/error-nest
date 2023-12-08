@@ -19,8 +19,9 @@ const ReportHistory = () => {
         const response = await axios.post(`${thisUri}/getReportList`,user);
         setReportList(response.data.result);
         console.log(response.data.result);
+        console.log("reportList >> ");
         console.log(reportList);
-
+        setWriter(response.data.writer);
     }
 
     /** 로그인 했을 시 id, 안했을 시 ip로 writer 설정 */
@@ -56,19 +57,21 @@ const ReportHistory = () => {
         <div>
             <h2>신고 목록</h2>
             writer: {writer}<br />
-            writerName: {cookies.username}<br />
-            level: {level}<br />
-            <ul>
-                {reportList.map((report) => (
-                    <li key={report._id}>
-                        <p>------------------------------------</p>
-                        <p>Title: {report.title}</p>
-                        <p>Writer: {report.writer}</p>
-                        <p>Comment: {report.comment}</p>
-                        <p>CreatedAt: {report.createAt}</p>
-                    </li>
-                ))}
-            </ul>
+            {reportList.length === 0 ? (
+                <p>신고한 목록이 없습니다</p>
+            ) : (
+                <ul>
+                    {reportList.map((report) => (
+                        <li key={report._id}>
+                            <p>------------------------------------</p>
+                            <p>Title: {report.title}</p>
+                            <p>Writer: {report.writer}</p>
+                            <p>Comment: {report.comment}</p>
+                            <p>CreatedAt: {report.createAt}</p>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 }
