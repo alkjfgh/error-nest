@@ -33,6 +33,11 @@ const reportSchema = new Schema({
     writer: {
         type: String,
         required: true
+    },
+    status: { // 취소, 삭제, 대기
+        type: String,
+        default: "대기",
+        required: true
     }
 }, { versionKey: false, _id: true});
 
