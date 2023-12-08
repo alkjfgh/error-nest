@@ -81,17 +81,18 @@ const levelCheck = async (req, res, next) => {
     }
 }
 
-const checkId = async (req, res, next) => {
+const checkEquals = async (req, res, next) => {
     try {
-        const members = await Member.findOne(req.body); // 몽고디비의 db.users.find({}) 쿼리와 같음
+        const {id, email} = req.body;
+        const membersId = await Member.findOne({id}); // 몽고디비의 db.users.find({}) 쿼리와 같음
+        const membersEmail = await Member.findOne({email});
         // console.log(members);
-        if(!members){
-            res.json({answer: true});
-        }
-        else{
-            // console.log(members);
-            res.json({answer: false});
-        }
+        let isId = false;
+        let isEmail = false;
+        if(!membersId) isId = true;
+        if(!membersEmail) isEmail = true;
+        res.json({id:isId, email:isEmail});
+
     } catch (err) {
         logger.error(err);
         next(err);
@@ -100,4 +101,4 @@ const checkId = async (req, res, next) => {
 }
 
 /** Exports CRUD functions */
-module.exports = {memberSelect, memberInsert, memberAdmin, memberDelete, levelCheck, checkId};
+module.exports = {memberSelect, memberInsert, memberAdmin, memberDelete, levelCheck, checkEquals};

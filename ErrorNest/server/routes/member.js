@@ -14,6 +14,6 @@ router.delete('/delete', memberController.memberDelete);
 
 router.post('/levelCheck', memberController.levelCheck);
 
-router.post('/checkId', memberController.checkId);
+router.post('/checkEquals', memberController.checkEquals);
 
 module.exports = router;

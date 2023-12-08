@@ -72,6 +72,7 @@ function SignUp(props) {
 
     const AuthCode = Math.random().toString(36).substr(2,6); //랜덤 문자열 6자리 생성
     const sendAuthCode = async () => {
+        // TODO 아이디, 비밀번호, 이메일, 이름 빈칸 체크 여기서부터 체크
         // 이메일 보내기
         // 여기서 정의해야하는 것은 위에서 만든 메일 템플릿에 지정한 변수({{ }})에 대한 값을 담아줘야한다.
         const data = {
@@ -82,9 +83,9 @@ function SignUp(props) {
         };
         console.log(data);
         const myRe = "^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,20}$";
-        const checkId = await axios.post('/member/checkId', {id: inputs.id});
-        setCanSignup(checkId.data.answer);
-        if(inputs.pw.match(myRe) && inputs.pw === inputs.pwCheck && checkId.data.answer === true && inputs.email !== ''){
+        const checkEquals = await axios.post('/member/checkEquals', {id: inputs.id, email: inputs.email});
+        setCanSignup(checkEquals.data.answer);
+        if(inputs.pw.match(myRe) && inputs.pw === inputs.pwCheck && checkEquals.data.id && inputs.email !== '' && checkEquals.data.email){
             // 인증 유효시간
             setCount(180);
             emailjs
@@ -109,8 +110,11 @@ function SignUp(props) {
         else if(inputs.pw !== inputs.pwCheck){
             alert("비밀번호가 일치하지 않습니다.");
         }
-        else if(checkId.data.answer === false){
+        else if(!checkEquals.data.id){
             alert("아이디가 중복됩니다.");
+        }
+        else if(!checkEquals.data.email){
+            alert("이미 계정이 존재하는 이메일입니다.");
         }
         else if(inputs.email === ''){
             alert("이메일을 적어주세요.");
