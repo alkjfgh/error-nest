@@ -18,6 +18,7 @@ import Logout from "./Logout";
 import ReportHistory from "./ReportHistory";
 import algoliasearch from "algoliasearch";
 import axios from "axios";
+import Loading from "./Loading";
 
 const App = () => {
     const ALGOLIA_APP_ID = process.env.REACT_APP_ALGOLIA_APP_ID
@@ -38,6 +39,8 @@ const App = () => {
 
     const [cookies, setCookies] = useCookies();
 
+    const [loading, setLoading] = useState(false);
+
     // 쿠키 초기화
     const setNewCookie = () => {
         const expires = new Date();
@@ -49,24 +52,28 @@ const App = () => {
         setCookies("username", usernameCookie, {path:"/", expires: expires});
     }
 
+    const changeLoading = (value) => {
+        setLoading(value)
+    }
+
     useEffect(() => {
-        setNewCookie()
+        if(cookies.userid) setNewCookie()
     },[]);
 
     return (
         <Router>
             <Header algolia={algolia}/>
+            {loading && <Loading/>}
             <Routes>
                 <Route path='/' element={<Layout><Main /></Layout>} />
                 <Route path='/logout' element={<Layout><Logout /></Layout>} />
                 <Route path='/document/*' element={<Layout><Document /></Layout>} />
                 <Route path='/search/*' element={<Layout><Search algolia={algolia} /></Layout>}/>
-                <Route path='/edit/*' element={<Layout><Edit algolia={algolia} /></Layout>}/>
+                <Route path='/edit/*' element={<Layout><Edit changeLoading={changeLoading}  algolia={algolia} /></Layout>}/>
                 <Route path='/history/*' element={<Layout><History /></Layout>}/>
                 <Route path='/Upload' element={<Layout><Upload algolia={algolia} /></Layout>}/>
                 <Route path='/signup' element={<Layout><SignUp email={email} /></Layout>}/>
                 <Route path='/login' element={<Layout><Login /></Layout>}/>
-                {/*{level !== "user" && level !== "" && <Route path='/admin' element={<Layout><Admin /></Layout>}/>}*/}
                 <Route path='/admin' element={<Layout><Admin /></Layout>}/>
                 <Route path='/report/*' element={<Layout><Report /></Layout>}/>
                 <Route path='/reportHistory' element={<Layout><ReportHistory /></Layout>}/>

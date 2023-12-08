@@ -22,6 +22,7 @@ const Edit = (props) => {
     const [categoryText, setCategoryText] = useState('')
 
     const index = props.algolia.index
+    const changeLoading = props.changeLoading
 
     function arrToText(category) {
         let text = ""
@@ -90,6 +91,7 @@ const Edit = (props) => {
     }
 
     const editSubmit = async (e) => {
+        changeLoading(true)
         const this_url = location.pathname
         const res = await axios.post(this_url,{title, content, category, version, writer, userid:cookies.userid})
         if(res.data.success){
@@ -99,6 +101,7 @@ const Edit = (props) => {
             await addAlgolia(category,"category")
         }
         else alert("failed update")
+        changeLoading(false)
     }
 
     const contentChange = (e) => {
