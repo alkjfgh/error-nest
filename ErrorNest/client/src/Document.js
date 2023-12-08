@@ -55,7 +55,7 @@ function Document(props) {
                         let styleObject = {}
 
                         // 스타일 속성을 분리합니다.
-                        let styles = styleString.split('')
+                        let styles = styleString.split(';')
 
                         for (let style of styles) {
                             // 각 스타일을 속성과 값으로 분리합니다.
@@ -131,19 +131,22 @@ function Document(props) {
 
             line = line.replace(regex, function (match) {
                 // match는 찾은 문자열을 가리킵니다. 예: '<<some text>>'
-                let extracted = match.slice(2, -2)  // 꺾쇠괄호를 제거합니다.
-                let [href, text] = extracted.split(',')
-                return `<a href="${href}">${text}</a>`  // 변환된 문자열을 다시 꺾쇠괄호로 둘러싸서 반환합니다.
+                const extracted = match.slice(2, -2)  // 꺾쇠괄호를 제거합니다.
+                const [href, text] = extracted.split(',')
+                const result = `<a href="${href}">${text}</a>`
+                return result
             })
 
             regex = /\[\[([^\]]+)\]\]/g
-            return line.replace(regex, function (match) {
-                // match는 찾은 문자열을 가리킵니다. 예: '<<some text>>'
+            line = line.replace(regex, function (match) {
+                // match는 찾은 문자열을 가리킵니다. 예: '[[some text]]'
                 let extracted = match.slice(2, -2)  // 꺾쇠괄호를 제거합니다.
                 let [src, width, height] = extracted.split(',')
-                // return `<img src="/upload/${src}" style={{ width: "${width}", height: "${height}" }} alt="" />`
-                return `<img src="/upload/${src}" style="width: ${width}height: ${height}" alt=""/>`  // 변환된 문자열을 다시 꺾쇠괄호로 둘러싸서 반환합니다.
+                const result = `<img src="/upload/${src.trim()}" style="width:${width.trim()};height:${height.trim()};" alt=""/>`
+                return result
             })
+
+            return line
         }
 
         contentArr.map((line) => {
@@ -168,7 +171,6 @@ function Document(props) {
                 htmlText += transLinkImage(line)
                 if(bq) htmlText += `</div></div>`
             }
-            //TODO image 문법 추가
         })
 
         return htmlText
@@ -190,7 +192,13 @@ function Document(props) {
             setRenderedContents(renderedContents)
         }
         else if(res.data.isCategory){
-            const files = res.data.files
+            // TODO 분류: 처리하기
+            const documents = res.data.documents
+            const renderedContents = []
+            documents.forEach((document) =>  {
+                renderedContents.push(<div key={`분류:${document}`}><Link to={`/document/${document}`}>{document.toString()}</Link></div>)
+            })
+            setRenderedContents(renderedContents)
         }
         else if(res.data.hasDocument){
             const category = res.data.category
@@ -222,6 +230,8 @@ function Document(props) {
         setIndexList([])
         setRenderedIndex([])
         setCategory([])
+        setWriter("")
+        setTitle("")
 
         getDocument(this_url, versionURI).then(r => {
             if(hash) scrollToElement(hash.substring(1, hash.length))
@@ -230,11 +240,11 @@ function Document(props) {
     }, [ location.pathname, location.hash ])
 
     return (
-        <>
+        <div>
             <div>
-                분류:
+                {category.length > 0 && `분류:`}
                 {category.map((cg, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
-                    <Link to={"/document/" + cg}>{cg}</Link>
+                    <Link to={`/document/분류:${cg}`}>{cg}</Link>
                 ))}
                 {writer && "작성자 : " + writer}
             </div>
@@ -246,7 +256,7 @@ function Document(props) {
             </div>
             <div className="index-list" id="top">{renderedIndex}</div>
             {renderedContents}
-        </>
+        </div>
     )
 }
 

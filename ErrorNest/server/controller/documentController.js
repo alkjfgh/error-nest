@@ -1,33 +1,40 @@
 const Document = require("../db/schema/document") // Get document schema
 const File = require("../db/schema/file")
+const Category = require("../db/schema/category")
 const logger = require("../log/logger")
 
 /** document select all */
 const documentSelect = async (req, res, next) => {
-    //TODO 파일: 으로 시작하는 문서 처리.
     const title = req.params[0]
     const version = parseInt(req.query.version) || false
 
     // title이 "파일:"으로 시작하는지 확인
     if (title.startsWith("파일:")) {
         const options = { fileName: title.substring(3) }
-        const file = await File.findOne(options)// 몽고디비의 db.users.find({}) 쿼리와 같음
-        const data = {
-            title: title,
-            fileName: options.fileName,
-            filePath: file.path,
-            fileDes: file.fileDes,
-            category: file.category,
-            isFile : true
-        }
-        res.json(data)
-    }else if(title.startsWith("분류:")){
-        if(title.startsWith("분류:파일/")){
-            const options = {
-                category: title.split('/')[1]
+        try {
+            const file = await File.findOne(options)// 몽고디비의 db.users.find({}) 쿼리와 같음
+            const data = {
+                title: title,
+                fileName: options.fileName,
+                filePath: file.path,
+                fileDes: file.fileDes,
+                category: file.category,
+                isFile : true
             }
-            const categories = await File.find(options)
-            res.json({title: title, categories: categories, isCategory: true})
+            res.json(data)
+        }catch (err){
+            logger.error(err)
+            next(err)
+        }
+    }else if(title.startsWith("분류:")){
+        //TODO 분류: 로 들어올 때 카테고리 보여주는 처리 해야함.
+        const category_title = title.split(':')[1]
+        try {
+            const result = await Category.findOne({title: category_title})
+            res.json({isCategory: true,documents: result.documents, title:title})
+        }catch (err){
+            logger.error(err)
+            next(err)
         }
     }
     else{
@@ -95,5 +102,3 @@ const documentUpdateTest = async (req, res, next) => {
 }
 /** Exports CRUD functions */
 module.exports = {documentSelect}
-
-//TODO 카테고리 스키마 구현해야함

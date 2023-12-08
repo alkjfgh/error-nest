@@ -1,4 +1,5 @@
 const Document = require("../db/schema/document"); // Get edit schema
+const Category = require("../db/schema/category")
 const logger = require("../log/logger");
 const CryptoJS = require('crypto-js');
 
@@ -36,6 +37,22 @@ const documentUpdate = async (req, res, next) => {
             writer: userid ? decryptCookie(userid, writer) : writer
         }
         const result = await Document.create(document)
+
+        // 카테고리 중복 방지 및 추가
+        const categories = new Set(category);
+
+        for (const cg of categories) {
+            try {
+                await Category.findOneAndUpdate(
+                    { title: cg },
+                    { $addToSet: { documents: title } },
+                    { upsert: true }
+                );
+            } catch (err) {
+                logger.error(err);
+            }
+        }
+
         res.json({success: true});
     } catch (err) {
         logger.error(err);

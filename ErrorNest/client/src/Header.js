@@ -68,6 +68,10 @@ const Header = (props) => {
         setSelectedIndex(-1)
     }, [inputText, location.pathname])
 
+    useEffect(() => {
+        setInputText("")
+    }, [location.pathname])
+
     return (
         <nav className="navigation">
             {/** 로고 이미지 */}

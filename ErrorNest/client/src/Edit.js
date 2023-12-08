@@ -55,20 +55,18 @@ const Edit = (props) => {
     useEffect( () => {
         const this_url = location.pathname
         getDocument(this_url, location.search).then(r => {})
-    }, [location.pathname])
+    }, [])
 
     useEffect(()=>{
-        setCategory(categoryText.split(','))
+        setCategory(categoryText.split(',').map((cg) => {return cg.trim()}))
     }, [categoryText])
 
-    const editSubmit = async (e) => {
-        const this_url = location.pathname
-        const res = await axios.post(this_url,{title, content, category, version, writer, userid:cookies.userid})
-        if(res.data.success){
-            const addIndex = props.algolia.addIndex
-
-            // 이미 존재하는 title인지 확인
-            const existingObject = await addIndex.getObject(title).catch(() => null)
+    const addAlgolia = async (titles,type) => {
+        const index = props.algolia.index
+        const addIndex = props.algolia.addIndex
+        for (let title of titles) {
+            if(type === "category") title = `분류:${title}`
+            const existingObject = await index.getObject(title).catch(() => null)
 
             if (existingObject === null) {  // 존재하지 않는 title인 경우에만 저장
                 const document = [
@@ -86,8 +84,19 @@ const Edit = (props) => {
                         console.error(err)
                     })
             }
+        }
 
-            navigate('/document/' + title)
+        navigate(`/document/${title}`)
+    }
+
+    const editSubmit = async (e) => {
+        const this_url = location.pathname
+        const res = await axios.post(this_url,{title, content, category, version, writer, userid:cookies.userid})
+        if(res.data.success){
+            const addIndex = props.algolia.addIndex
+            // 이미 존재하는 title인지 확인
+            await addAlgolia([title],"title")
+            await addAlgolia(category,"category")
         }
         else alert("failed update")
     }
