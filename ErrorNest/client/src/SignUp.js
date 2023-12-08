@@ -17,6 +17,15 @@ function SignUp(props) {
 
     const navigate = useNavigate(); // navigation 주는거임
     const [canSignup, setCanSignup] = useState();
+    const[count, setCount] = useState(0);
+
+    useEffect(() => {
+        if(count > 0){
+            setTimeout(() => {
+                setCount((count) => count - 1);
+            }, 1000);
+        }
+    },[count]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -56,13 +65,11 @@ function SignUp(props) {
         };
         console.log(data);
         const myRe = "^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,20}$";
-        // await checkId();
         const checkId = await axios.post('/member/checkId', {id: inputs.id});
         setCanSignup(checkId.data.answer);
-        // console.log("checkId " + checkId.data.answer);
-        // checkId.data.answer === true
-        if(inputs.pw.match(myRe) && inputs.pw === inputs.pwCheck && checkId.data.answer === true){
-            // setCanSignup(true);
+        if(inputs.pw.match(myRe) && inputs.pw === inputs.pwCheck && checkId.data.answer === true && inputs.email !== ''){
+            // 인증 유효시간
+            setCount(180);
             emailjs
                 .send(
                     props.email.REACT_APP_SERVICEID, // 서비스 ID
@@ -88,25 +95,19 @@ function SignUp(props) {
         else if(checkId.data.answer === false){
             alert("아이디가 중복됩니다.");
         }
+        else if(inputs.email === ''){
+            alert("이메일을 적어주세요.");
+        }
         else{
             alert("비밀번호를 영어 소문자, 숫자, 특수문자가 각각 1개 이상 포함되도록 8~20자를 적어주세요.");
         }
         // console.log("들어옴");
     }
 
-    // const checkId = async () => {
-    //     const result = await axios.post('/member/checkId', {id: inputs.id});
-    //     console.log("result" + result.data);
-    //     await sendAuthCode();
-    // }
-
     let flag = 0;
 
     const checkAuth = async (e) => {
         const res = await axios.post('/token/check', {data:{id: inputs.id, token: authCheck}});
-        // console.log(res.data.answer);
-        // console.log(inputs.id);
-        // console.log(authCheck);
         if(res.data.answer){
             alert("인증되었습니다.");
             flag = 1;
@@ -125,7 +126,7 @@ function SignUp(props) {
                         const myRe = "^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,20}$";
                         sendAuthCode();
                     }
-                }>인증</button><br/>
+                }>인증</button>{count !== 0 && <span> 인증 제한시간 {Math.floor(count/60)}:{count%60}</span>}<br/>
                 {isAuth && (
                     <div>
                         인증: <input type="text" onChange={(e) => setAuthCheck(e.target.value)}/>
