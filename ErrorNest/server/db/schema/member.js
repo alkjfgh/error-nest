@@ -17,6 +17,7 @@ const memberSchema = new Schema({
     email: {
         type: String,
         required: true,
+        unique: true,
     },
     name: {
         type: String,
@@ -29,8 +30,26 @@ const memberSchema = new Schema({
     },
     level: {
         type: String,
-        default: "user"
+        default: "user",
+    },
+    hashtag: {
+        type: Number,
+        required: true,
+        default: 0,
     }
+});
+
+memberSchema.pre('save', async function(next) {
+    if (this.isNew) {
+        const latestDoc = await this.constructor.findOne({ title: this.title }).sort('-hashtag');
+        if (latestDoc) {
+            this.hashtag = latestDoc.hashtag + 1;
+        } else {
+            this.hashtag = 1;
+        }
+    }
+
+    next();
 });
 
 /** member schema */
