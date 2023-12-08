@@ -44,13 +44,13 @@ const Report = (props) => {
     const getUserInfo = async () => {
         if(cookies.userid !== undefined) {
             console.log(`cookies.userid >> ${cookies.userid}`);
-            return {userid: cookies.userid, username: cookies.username, isLogin: true}; // 로그인 id
+            return {userid: cookies.userid, username: cookies.username, userkey: cookies.userkey, isLogin: true}; // 로그인 id
         } else {
             const response = await fetch("https://api64.ipify.org?format=json");
             const data = await response.json();
 
             console.log(`data.ip >> ${data.ip}`);
-            return {userid: data.ip, username: "noName", isLogin: false}; // PC ip
+            return {userid: data.ip, username: "noName", userkey: "noKey", isLogin: false}; // PC ip
         }
     }
 
@@ -75,6 +75,7 @@ const Report = (props) => {
             console.log(userInfo);
 
             console.log("reportSubmit ----");
+            console.log(userInfo);
             const res = await axios.post(thisUri,{title, comment, version, userInfo});
 
             console.log(res.data);
