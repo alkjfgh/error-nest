@@ -36,21 +36,22 @@ const App = () => {
     const algolia = {index, addIndex}
     const email = {REACT_APP_EMAIL, REACT_APP_SERVICEID, REACT_APP_TEMPLATEID, REACT_APP_USERID}
 
-    const [cookies] = useCookies();
-    // console.log("cookies" + cookies.userid)
-    const [level, setLevel] = useState("");
-    const levelCheck = async () => {
-        console.log("levelCheck들어옴");
-        const res = await axios.post('/member/levelCheck', {userid: cookies.userid,username: cookies.username});
-        setLevel(res.data.level);
-        console.log("level" + level);
-    };
+    const [cookies, setCookies] = useCookies();
+
+    // 쿠키 초기화
+    const setNewCookie = () => {
+        const expires = new Date();
+        expires.setDate(expires.getDate() + 30); // 30일 후에 만료
+
+        const useridCookie = cookies.userid;
+        const usernameCookie = cookies.username;
+        setCookies("userid", useridCookie, {path:"/", expires: expires});
+        setCookies("username", usernameCookie, {path:"/", expires: expires});
+    }
 
     useEffect(() => {
-        // console.log("cookies확인" + cookies.userid);
-        if(cookies.userid !== undefined)
-            levelCheck().then(r => {});
-    }, []);
+        setNewCookie()
+    },[]);
 
     return (
         <Router>

@@ -28,7 +28,7 @@ function Login(){
 
                 // 쿠키 만료 시간 설정
                 const expires = new Date();
-                expires.setDate(expires.getDate() + 30); // 7일 후에 만료
+                expires.setDate(expires.getDate() + 30); // 30일 후에 만료
 
                 // 쿠키 설정
                 setCookies("userid", response.data.userid, {path: "/", expires: expires})
