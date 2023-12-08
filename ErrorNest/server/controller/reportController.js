@@ -1,9 +1,16 @@
 const Report = require("../db/schema/report"); // Get report schema
 const logger = require("../log/logger");
 const Document = require("../db/schema/document");
+const CryptoJS = require("crypto-js");
+
+function decryptCookie(cipherText, key) {
+    const bytes  = CryptoJS.AES.decrypt(cipherText, key);
+    return bytes.toString(CryptoJS.enc.Utf8);
+}
 
 /** report CRUD */
 const documentSelect = async (req, res, next) => {
+    console.log("documentSelect Controller 진입 성공 !!");
     try {
         const title = req.params[0]
         if (req.query.version) {
@@ -18,11 +25,12 @@ const documentSelect = async (req, res, next) => {
                 content: document.content
             });
         } else {
-            res.json({title: title, version: 1, content: ""});
+            res.json({title: title, version: 1, content: "", message: "문서 가져오기 성공 !!"});
         }
     } catch (err) {
         logger.error(err);
         next(err);
+        res.json({title: title, version: 1, content: "", message: "문서 가져오기 실패 !!"});
     }
 }
 
@@ -31,8 +39,7 @@ const reportInsert = async (req, res, next) => {
         const report = req.body;
         console.log(report);
 
-        const result = await Report.create(report);
-        console.log(`result >> ${result}`);
+        // const result = await Report.create(report);
 
         res.json({success: true, message: "신고 완료 !!"});
     } catch (err) {
