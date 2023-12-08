@@ -5,7 +5,7 @@ const router = express.Router();
 /** GET /report */
 // router.get('/*', reportController.documentSelect);
 router.get('/getDocument/*', reportController.documentSelect);
-router.post('/insert/*', reportController.reportInsert);
+router.post('/insert/', reportController.reportInsert);
 
 
 module.exports = router;

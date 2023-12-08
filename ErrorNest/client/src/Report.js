@@ -23,11 +23,6 @@ const Report = () => {
         console.log("res.data");
         console.log(res.data);
 
-        const StringValue = `${thisUri}/getDocument${versionURI}`;
-
-        const userInfo = await getUserInfo();
-        console.log(userInfo);
-
         setTitle(res.data.title);
         setVersion(res.data.version);
         setWriter(await getWriter());
@@ -65,9 +60,16 @@ const Report = () => {
     }, []);
 
     const reportSubmit = async () => {
-        const thisUrl = location.pathname;
+        let thisUri = location.pathname;
+        thisUri = thisUri.substring(0, 7) + `/insert`;
+        console.log(`thisUri >> ${thisUri}`);
+
+        const userInfo = await getUserInfo();
+        console.log("userInfo ----");
+        console.log(userInfo);
+
         console.log("reportSubmit ----");
-        const res = await axios.post(thisUrl,{title, comment, version, writer});
+        const res = await axios.post(thisUri,{title, comment, version, userInfo});
 
         console.log(res.data);
 
