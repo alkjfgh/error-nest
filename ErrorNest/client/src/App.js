@@ -52,8 +52,10 @@ const App = () => {
         setCookies("username", usernameCookie, {path:"/", expires: expires});
     }
 
-    const changeLoading = (value) => {
-        setLoading(value)
+    const axiosLoading = async (func) => {
+        setLoading(true)
+        await func()
+        setLoading(false)
     }
 
     useEffect(() => {
@@ -66,17 +68,17 @@ const App = () => {
             {loading && <Loading/>}
             <Routes>
                 <Route path='/' element={<Layout><Main /></Layout>} />
-                <Route path='/logout' element={<Layout><Logout /></Layout>} />
-                <Route path='/document/*' element={<Layout><Document /></Layout>} />
-                <Route path='/search/*' element={<Layout><Search algolia={algolia} /></Layout>}/>
-                <Route path='/edit/*' element={<Layout><Edit changeLoading={changeLoading}  algolia={algolia} /></Layout>}/>
-                <Route path='/history/*' element={<Layout><History /></Layout>}/>
-                <Route path='/Upload' element={<Layout><Upload algolia={algolia} /></Layout>}/>
-                <Route path='/signup' element={<Layout><SignUp email={email} /></Layout>}/>
-                <Route path='/login' element={<Layout><Login /></Layout>}/>
-                <Route path='/admin' element={<Layout><Admin /></Layout>}/>
-                <Route path='/report/*' element={<Layout><Report /></Layout>}/>
-                <Route path='/reportHistory' element={<Layout><ReportHistory /></Layout>}/>
+                <Route path='/logout' element={<Layout><Logout axiosLoading={axiosLoading} /></Layout>} />
+                <Route path='/document/*' element={<Layout><Document axiosLoading={axiosLoading} /></Layout>} />
+                <Route path='/search/*' element={<Layout><Search axiosLoading={axiosLoading} algolia={algolia} /></Layout>}/>
+                <Route path='/edit/*' element={<Layout><Edit axiosLoading={axiosLoading} algolia={algolia} /></Layout>}/>
+                <Route path='/history/*' element={<Layout><History axiosLoading={axiosLoading} /></Layout>}/>
+                <Route path='/Upload' element={<Layout><Upload axiosLoading={axiosLoading} algolia={algolia} /></Layout>}/>
+                <Route path='/signup' element={<Layout><SignUp axiosLoading={axiosLoading} email={email} /></Layout>}/>
+                <Route path='/login' element={<Layout><Login axiosLoading={axiosLoading} /></Layout>}/>
+                <Route path='/admin' element={<Layout><Admin axiosLoading={axiosLoading} /></Layout>}/>
+                <Route path='/report/*' element={<Layout><Report axiosLoading={axiosLoading} /></Layout>}/>
+                <Route path='/reportHistory' element={<Layout><ReportHistory axiosLoading={axiosLoading} /></Layout>}/>
                 <Route path='*' element={<Layout><NotFound /></Layout>}/>
             </Routes>
         </Router>

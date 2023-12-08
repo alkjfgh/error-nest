@@ -22,7 +22,7 @@ const Edit = (props) => {
     const [categoryText, setCategoryText] = useState('')
 
     const index = props.algolia.index
-    const changeLoading = props.changeLoading
+    const axiosLoading = props.axiosLoading
 
     function arrToText(category) {
         let text = ""
@@ -91,17 +91,16 @@ const Edit = (props) => {
     }
 
     const editSubmit = async (e) => {
-        changeLoading(true)
-        const this_url = location.pathname
-        const res = await axios.post(this_url,{title, content, category, version, writer, userid:cookies.userid})
-        if(res.data.success){
-            const addIndex = props.algolia.addIndex
-            // 이미 존재하는 title인지 확인
-            await addAlgolia([title],"title")
-            await addAlgolia(category,"category")
-        }
-        else alert("failed update")
-        changeLoading(false)
+        axiosLoading(async () => {
+            const this_url = location.pathname
+            const res = await axios.post(this_url, {title, content, category, version, writer, userid: cookies.userid})
+            if (res.data.success) {
+                const addIndex = props.algolia.addIndex
+                // 이미 존재하는 title인지 확인
+                await addAlgolia([title], "title")
+                await addAlgolia(category, "category")
+            } else alert("failed update")
+        })
     }
 
     const contentChange = (e) => {
