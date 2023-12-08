@@ -4,6 +4,6 @@ const router = express.Router();
 
 /** GET /reportHistory */
 // router.get('/', reportHistoryController.reportSelect);
-router.post('/getMember', reportHistoryController.memberSelect);
+router.post('/getReportList', reportHistoryController.reportSelect);
 
 module.exports = router;

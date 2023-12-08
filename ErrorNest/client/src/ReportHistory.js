@@ -8,53 +8,49 @@ const ReportHistory = () => {
     const [cookies, setCookies] = useCookies();
     const [writer, setWriter] = useState("");
     const [level, setLevel] = useState("");
-    const [reportLIst, setReportList] = useState([]);
+    const [reportList, setReportList] = useState([]);
 
-    const getReportList = async (thisUri) => {
-        console.log(`thisUri >> ${thisUri}/getMember?writer=${writer}`);
-        // const response = await axios.get(`/reportHistory?writer=211.209.78.85`);
-        // const response = await axios.get(`${thisUri}?writer=${writer}`);
-        // console.log(response);
-        // axios get으로 데이터 전달
-    }
 
     /** 로그인 한 계정의 레벨 가져오기 (user or admin) */
-    const getMemberLevel = async (thisUri) => {
-        const userid = cookies.userid;
-        const username = cookies.username;
-        const response = await axios.post(`/reportHistory/getMember`,{userid, username});
-        console.log(response);
-        setLevel(response.data.level);
-        setWriter(response.data.id);
+    const getReportList = async (user) => {
+        const thisUri = location.pathname;
+        console.log("---------------------");
+        console.log(thisUri);
+        const response = await axios.post(`${thisUri}/getReportList`,user);
+        setReportList(response.data.result);
+        console.log(response.data.result);
+        console.log(reportList);
+
     }
 
     /** 로그인 했을 시 id, 안했을 시 ip로 writer 설정 */
-    const getWriter = async () => {
+    const getUserInfo = async () => {
+        // TODO: id를 가져와 로그인 체크 후(쿠기 값 확인) 서버에 값 전달 (아이디, 로그인체크(T or F)
         if(cookies.userid !== undefined) {
             console.log(`cookies.userid >> ${cookies.userid}`);
-            setWriter(cookies.userid);
+            return {userid: cookies.userid, username: cookies.username, isLogin: true}; // 로그인 id
         } else {
             const response = await fetch("https://api64.ipify.org?format=json");
             const data = await response.json();
 
             console.log(`data.ip >> ${data.ip}`);
-            setWriter(data.ip);
+            return {userid: data.ip, username: "noName", isLogin: false}; // PC ip
         }
     }
 
     useEffect(() => {
-        const thisUri = location.pathname;
-        getWriter().then(() => getMemberLevel(thisUri));
+        getUserInfo().then((user) => getReportList(user));
     }, []);
 
 
-    /** 예시 데이터 */
-    const posts = [
-        { id: 1, title: '첫 번째 글' },
-        { id: 2, title: '두 번째 글' },
-        { id: 3, title: '세 번째 글' },
-        // ... 필요한 만큼 데이터 추가
-    ];
+    /* --- 서버에서 받아온 데이터 예시 ---
+    comment: "집 가고 싶다"
+    createAt: "2023-12-06T09:52:46.280Z"
+    title: "봇치 더 록!"
+    version: 23
+    writer: "211.209.78.85"
+    */
+
 
     return (
         <div>
@@ -63,8 +59,14 @@ const ReportHistory = () => {
             writerName: {cookies.username}<br />
             level: {level}<br />
             <ul>
-                {posts.map(post => (
-                    <li key={post.id}>{post.title}</li>
+                {reportList.map((report) => (
+                    <li key={report._id}>
+                        <p>------------------------------------</p>
+                        <p>Title: {report.title}</p>
+                        <p>Writer: {report.writer}</p>
+                        <p>Comment: {report.comment}</p>
+                        <p>CreatedAt: {report.createAt}</p>
+                    </li>
                 ))}
             </ul>
         </div>
