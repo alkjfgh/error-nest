@@ -18,6 +18,10 @@ function SignUp(props) {
     const navigate = useNavigate(); // navigation 주는거임
     const [canSignup, setCanSignup] = useState();
     const[count, setCount] = useState(0);
+    const [flag, setFlag] = useState(false);
+    const [isCanPassword, setIsCanPassword] = useState("패스워드 형식이 맞지 않습니다.");
+    const [isPwEquals, setIsPwEquals] = useState("일지하지 않습니다.");
+    const axiosLoading = props.axiosLoading
 
     useEffect(() => {
         if(count > 0){
@@ -27,12 +31,23 @@ function SignUp(props) {
         }
     },[count]);
 
+    // 패스워드 정규식 체크
+    useEffect(() => {
+        isCanPw();
+    }, [inputs.pw]);
+
+    // 패스워드 확인 일치한지 체크
+    useEffect(() => {
+        pwEquals();
+    },[inputs.pwCheck]);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setInputs({
             ...inputs,
             [name]: value,
         });
+        console.log("pw확인 : " + inputs.pw);
         // console.log(inputs);
     }
 
@@ -41,10 +56,12 @@ function SignUp(props) {
         const data = inputs;
         // console.log(data);
         if(flag){
-            const response= await axios.post('/member/insert', data)
-                .then(()=>alert("회원가입 되었습니다."))
-                .then(()=>navigate("/"));
-            // console.log(response.data.success);
+            axiosLoading(async () => {
+                const response = await axios.post('/member/insert', data)
+                    // .then(() => alert("회원가입 되었습니다."))
+                    .then(() => navigate("/"));
+                // console.log(response.data.success);
+            });
         }
         else{
             alert("인증 먼저 해주세요.");
@@ -104,13 +121,28 @@ function SignUp(props) {
         // console.log("들어옴");
     }
 
-    let flag = 0;
+    const isCanPw = () => {
+        const myRe = "^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,20}$";
+        // console.log("isCanPw 들어옴");
+        // console.log(inputs.pw.match(myRe));
+        // console.log(inputs.pw);
+        if(inputs.pw.match(myRe)){
+            setIsCanPassword("사용가능한 형식입니다.");
+        }
+    }
+
+    const pwEquals = () => {
+        if(inputs.pw === inputs.pwCheck && inputs.pw !== ''){
+            setIsPwEquals("일치합니다.");
+        }
+    }
 
     const checkAuth = async (e) => {
         const res = await axios.post('/token/check', {data:{id: inputs.id, token: authCheck}});
+        // console.log("인증확인");
         if(res.data.answer){
             alert("인증되었습니다.");
-            flag = 1;
+            setFlag(true);
         }
     }
 
@@ -119,18 +151,22 @@ function SignUp(props) {
             <form onSubmit={handleSubmit}>
                 name: <input type="test" name="name" onChange={handleChange} required/><br/>
                 id: <input type="text" name="id" onChange={handleChange} required/><br/>
-                pw: <input type="password" name="pw" onChange={handleChange} required/><br/>
-                pw 확인: <input type="password" name="pwCheck" onChange={handleChange} required/><br/>
+                pw: <input type="password" name="pw" onChange={handleChange} required/>
+                <span> {isCanPassword}</span><br/>
+                pw 확인: <input type="password" name="pwCheck" onChange={handleChange} required/>
+                <span> {isPwEquals}</span><br/>
                 email: <input type="email" name="email" onChange={handleChange} required/>
                 <button type="button" onClick={() => {
-                        const myRe = "^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,20}$";
-                        sendAuthCode();
-                    }
-                }>인증</button>{count !== 0 && <span> 인증 제한시간 {Math.floor(count/60)}:{count%60}</span>}<br/>
+                    sendAuthCode();
+                }
+                }>인증
+                </button>
+                {count !== 0 && <span> 인증 제한시간 {Math.floor(count / 60)}:{count % 60}</span>}<br/>
                 {isAuth && (
                     <div>
                         인증: <input type="text" onChange={(e) => setAuthCheck(e.target.value)}/>
-                        <button type="button" onClick={checkAuth}>확인</button><br/>
+                        <button type="button" onClick={checkAuth}>확인</button>
+                        <br/>
                     </div>
                 )}
                 <button type="submit">회원가입</button>
