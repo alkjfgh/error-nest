@@ -14,11 +14,6 @@ const Report = () => {
 
     const getDocument = async (thisUri, versionURI) => {
         console.log(`axios(get) >> ${thisUri + versionURI}`);
-        // const addUri = '/document';
-        //
-        // /** uri에 document 라우터 추가 */
-        // thisUri = thisUri.slice(0, 7) + addUri + thisUri.slice(7); // report/document/*
-
         console.log(`thisUri >> ${thisUri}`);
 
         const res = await axios.get(thisUri + versionURI);

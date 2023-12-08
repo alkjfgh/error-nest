@@ -7,7 +7,6 @@ const ReportHistory = () => {
     const location = useLocation();
     const [cookies, setCookies] = useCookies();
     const [writer, setWriter] = useState("");
-    const [level, setLevel] = useState("");
     const [reportList, setReportList] = useState([]);
 
 
@@ -18,7 +17,6 @@ const ReportHistory = () => {
         console.log(thisUri);
         const response = await axios.post(`${thisUri}/getReportList`,user);
         setReportList(response.data.result);
-        console.log(response.data.result);
         console.log("reportList >> ");
         console.log(reportList);
         setWriter(response.data.writer);
@@ -26,7 +24,6 @@ const ReportHistory = () => {
 
     /** 로그인 했을 시 id, 안했을 시 ip로 writer 설정 */
     const getUserInfo = async () => {
-        // TODO: id를 가져와 로그인 체크 후(쿠기 값 확인) 서버에 값 전달 (아이디, 로그인체크(T or F)
         if(cookies.userid !== undefined) {
             console.log(`cookies.userid >> ${cookies.userid}`);
             return {userid: cookies.userid, username: cookies.username, isLogin: true}; // 로그인 id
@@ -42,16 +39,6 @@ const ReportHistory = () => {
     useEffect(() => {
         getUserInfo().then((user) => getReportList(user));
     }, []);
-
-
-    /* --- 서버에서 받아온 데이터 예시 ---
-    comment: "집 가고 싶다"
-    createAt: "2023-12-06T09:52:46.280Z"
-    title: "봇치 더 록!"
-    version: 23
-    writer: "211.209.78.85"
-    */
-
 
     return (
         <div>
