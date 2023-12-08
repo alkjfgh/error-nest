@@ -22,7 +22,7 @@ function Admin(props) {
     const levelCheck = async () => {
         console.log("levelCheck들어옴");
         if(cookies.userid) {
-            const res = await axios.post('/member/levelCheck', {userid: cookies.userid,username: cookies.username});
+            const res = await axios.post('/member/levelCheck', {userid: cookies.userid, username: cookies.username, userkey:cookies.userkey});
             return res.data.level
         }
         else return "";

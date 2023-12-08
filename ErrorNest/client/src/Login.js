@@ -32,7 +32,8 @@ function Login(){
 
                 // 쿠키 설정
                 setCookies("userid", response.data.userid, {path: "/", expires: expires})
-                setCookies("username", response.data.name, {path: "/", expires: expires})
+                setCookies("username", response.data.username, {path: "/", expires: expires})
+                setCookies("userkey", response.data.userkey, {path: "/", expires: expires})
                 if(response.data.level === "admin")
                     navigate("/admin");
                 else
