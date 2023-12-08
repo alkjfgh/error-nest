@@ -1,6 +1,5 @@
 const Member = require("../db/schema/member"); // Get member schema
 const logger = require("../log/logger");
-const CryptoJS = require('crypto-js');
 const {encryptCookie, decryptCookie} = require('./encript/encriptCookie')
 
 const memberAdmin = async (req, res, next) => {
