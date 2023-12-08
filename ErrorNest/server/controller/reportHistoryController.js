@@ -1,12 +1,6 @@
 const Report = require("../db/schema/report");
 const logger = require("../log/logger");
-const CryptoJS = require("crypto-js");
-
-
-function decryptCookie(cipherText, key) {
-    const bytes  = CryptoJS.AES.decrypt(cipherText, key);
-    return bytes.toString(CryptoJS.enc.Utf8);
-}
+const {encryptCookie, decryptCookie} = require('./encript/encriptCookie');
 
 /** reportHistory CRUD */
 const reportSelect = async (req, res, next) => {
@@ -14,8 +8,13 @@ const reportSelect = async (req, res, next) => {
     const userInfo = req.body;
     console.log(userInfo);
 
-    if (userInfo.isLogin)
-        userInfo.userid = decryptCookie(userInfo.userid, userInfo.username);
+    if (userInfo.isLogin) {
+        const member = {
+            id: userInfo.userid,
+            str_id: userInfo.userkey
+        }
+        userInfo.userid = decryptCookie(member);
+    }
 
     console.log("--- decryption result ---");
     console.log(userInfo);

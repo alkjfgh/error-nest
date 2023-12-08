@@ -3,7 +3,7 @@ import {Link, useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useCookies} from "react-cookie";
 
-const Report = () => {
+const Report = (props) => {
     const location = useLocation();
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
@@ -12,20 +12,25 @@ const Report = () => {
     const [comment, setComment] = useState("");
     const [cookies, setCookies, removeCookies] = useCookies();
 
+    const axiosLoading = props.axiosLoading
+
     const getDocument = async (thisUri, versionURI) => {
-        thisUri = thisUri.substring(0, 7) + `/getDocument` + thisUri.substring(7);
+        axiosLoading(async () => {
+            thisUri = thisUri.substring(0, 7) + `/getDocument` + thisUri.substring(7);
 
-        console.log(`thisUri >> ${thisUri}`);
-        console.log(`axios(get) >> ${thisUri + versionURI}`);
+            console.log(`thisUri >> ${thisUri}`);
+            console.log(`axios(get) >> ${thisUri + versionURI}`);
 
-        // const res = await axios.get(thisUri + versionURI);
-        const res = await axios.get(thisUri+ versionURI);
-        console.log("res.data");
-        console.log(res.data);
+            // const res = await axios.get(thisUri + versionURI);
+            const res = await axios.get(thisUri+ versionURI);
+            console.log("res.data");
+            console.log(res.data);
 
-        setTitle(res.data.title);
-        setVersion(res.data.version);
-        setWriter(await getWriter());
+            setTitle(res.data.title);
+            setVersion(res.data.version);
+            setWriter(await getWriter());
+        })
+
     }
 
     const getWriter = async () => {
@@ -39,13 +44,13 @@ const Report = () => {
     const getUserInfo = async () => {
         if(cookies.userid !== undefined) {
             console.log(`cookies.userid >> ${cookies.userid}`);
-            return {userid: cookies.userid, username: cookies.username, isLogin: true}; // 로그인 id
+            return {userid: cookies.userid, username: cookies.username, userkey: cookies.userkey, isLogin: true}; // 로그인 id
         } else {
             const response = await fetch("https://api64.ipify.org?format=json");
             const data = await response.json();
 
             console.log(`data.ip >> ${data.ip}`);
-            return {userid: data.ip, username: "noName", isLogin: false}; // PC ip
+            return {userid: data.ip, username: "noName", userkey: "noKey", isLogin: false}; // PC ip
         }
     }
 
@@ -60,23 +65,26 @@ const Report = () => {
     }, []);
 
     const reportSubmit = async () => {
-        let thisUri = location.pathname;
-        thisUri = thisUri.substring(0, 7) + `/insert`;
-        console.log(`thisUri >> ${thisUri}`);
+        axiosLoading(async () => {
+            let thisUri = location.pathname;
+            thisUri = thisUri.substring(0, 7) + `/insert`;
+            console.log(`thisUri >> ${thisUri}`);
 
-        const userInfo = await getUserInfo();
-        console.log("userInfo ----");
-        console.log(userInfo);
+            const userInfo = await getUserInfo();
+            console.log("userInfo ----");
+            console.log(userInfo);
 
-        console.log("reportSubmit ----");
-        const res = await axios.post(thisUri,{title, comment, version, userInfo});
+            console.log("reportSubmit ----");
+            console.log(userInfo);
+            const res = await axios.post(thisUri,{title, comment, version, userInfo});
 
-        console.log(res.data);
+            console.log(res.data);
 
-        if (res.data.success) {
-            alert(`${res.data.message}`);
-            navigate(`/document/${title}`);
-        }
+            if (res.data.success) {
+                alert(`${res.data.message}`);
+                navigate(`/document/${title}`);
+            }
+        })
     }
 
     const reportChange = (e) => {
