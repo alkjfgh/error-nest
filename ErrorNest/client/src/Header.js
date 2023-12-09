@@ -24,8 +24,29 @@ const Header = (props) => {
     const [encodedInputText, setEncodedInputText] = useState("");
     const [hits, setHits] = useState([]);
     const [selectedIndex, setSelectedIndex] = useState(-1);
+    const [view, setView] = useState(false);
 
     const index = props.algolia.index
+
+    // const handleBlurList = () => {
+    //     alert("list 들어옴");
+    //     setTimeout(() => {
+    //         setView(false)
+    //     }, 200);
+    // }
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            const divElement = document.querySelector('.navi-element-list-div');
+            if (divElement && !divElement.contains(event.target)) {
+                setView(false);
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     const handleInputText = (e) => {
         const searchText = e.target.value;
@@ -102,32 +123,41 @@ const Header = (props) => {
                 </Link>
             </div>
             {/** 네비게이션 요소 */}
-            <ul className="navi-element-list">
-                {cookies.userid === undefined && (
-                    <>
+            {/*onBlur={handleBlurList}*/}
+            <div className="navi-element-list-div">
+                <ul className="navi-element-list" onClick={() => {
+                    setView(!view)
+                }}>
+                    접속하기{" "}
+                    {view ? '▲' : '▼'}
+                    {view && <div>
+                        {cookies.userid === undefined && (
+                            <>
+                                <li className="navi-element">
+                                    <Link to="/login">로그인</Link>
+                                </li>
+                                <li className="navi-element">
+                                    <Link to="/signup">회원가입</Link>
+                                </li>
+                            </>
+                        )}
+                        {!(cookies.userid === undefined) && (
+                            <li className="navi-element">
+                                <Link to="/logout">로그아웃</Link>
+                            </li>
+                        )}
                         <li className="navi-element">
-                            <Link to="/login">로그인</Link>
+                            <Link to="/reportHistory">신고목록</Link>
                         </li>
                         <li className="navi-element">
-                            <Link to="/signup">회원가입</Link>
+                            <Link to="/upload">파일 업로드</Link>
                         </li>
-                    </>
-                )}
-                {!(cookies.userid === undefined) && (
-                    <li className="navi-element">
-                        <Link to="/logout">로그아웃</Link>
-                    </li>
-                )}
-                <li className="navi-element">
-                    <Link to="/reportHistory">신고목록</Link>
-                </li>
-                <li className="navi-element">
-                    <Link to="/upload">파일 업로드</Link>
-                </li>
-                {/*<li className="navi-element">*/}
-                {/*    <Link to="/contact">문의</Link>*/}
-                {/*</li>*/}
-            </ul>
+                        {/*<li className="navi-element">*/}
+                        {/*    <Link to="/contact">문의</Link>*/}
+                        {/*</li>*/}
+                    </div>}
+                </ul>
+            </div>
         </nav>
     );
 }

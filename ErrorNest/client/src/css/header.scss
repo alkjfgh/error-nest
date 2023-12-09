@@ -21,24 +21,34 @@
     }
   }
 
-  .navi-element-list {
-    display: flex;
-    align-items: center;
-    list-style: none;
+  .navi-element-list-div{
+    width: 7rem;
+    height: 70%;
 
-    .navi-element {
-      margin-right: 10px;
+    .navi-element-list {
+      position: absolute;
+      align-items: center;
+      list-style: none;
+      right: 0;
+      width: 7rem;
 
-      &:last-child {
-        margin-right: 0;
-      }
+      .navi-element {
+        margin-right: 10px;
 
-      a {
-        text-decoration: none;
-        color: #000;
+        &:last-child {
+          margin-right: 0;
+        }
+
+        a {
+          text-decoration: none;
+          color: #000;
+        }
       }
     }
   }
+
+
+
 
   .navi-button-div {
     display: flex;
