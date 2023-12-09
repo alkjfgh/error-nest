@@ -61,7 +61,11 @@ const reportInsert = async (req, res, next) => {
 }
 
 const reportSelect = async (req, res, next) => {
-
+    try {
+        res.json({success: true});
+    } catch {
+        res.json({success: false});
+    }
 }
 
 /** Exports CRUD functions */
