@@ -19,6 +19,9 @@ const ReportBoard = (props) => {
     const getReportBoard = async (data) => { // report/select
         // TODO: writer랑 reportNo를 넘겨서 가져와야 하는 것: report 모든 정보, id랑 writer랑 동일한지 체크한 값(T or F)
 
+        data.writer = writer;
+        data.reportNo = reportNo;
+
         console.log(data);
         const result = await axios.post('/report/select', data);
         console.log(result.data);
@@ -40,7 +43,7 @@ const ReportBoard = (props) => {
 
 
     useEffect(() => {
-        getUserInfo().then(Data => getReportBoard(Data))
+        getUserInfo().then(data => getReportBoard(data))
     }, []);
 
     return (

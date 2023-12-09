@@ -1,4 +1,5 @@
 const Report = require("../db/schema/report"); // Get report schema
+const Member = require("../db/schema/member");
 const logger = require("../log/logger");
 const Document = require("../db/schema/document");
 const {encryptCookie, decryptCookie} = require('./encript/encriptCookie');
@@ -7,8 +8,8 @@ const {encryptCookie, decryptCookie} = require('./encript/encriptCookie');
 /** report CRUD */
 const documentSelect = async (req, res, next) => {
     console.log("documentSelect Controller 진입 성공 !!");
+    const title = req.params[0]
     try {
-        const title = req.params[0]
         if (req.query.version) {
             let version = parseInt(req.query.version) // 페이지 번호
             const options = {title: title}
@@ -50,7 +51,7 @@ const reportInsert = async (req, res, next) => {
             writer: report.userInfo.userid
         }
 
-        const result = await Report.create(data);
+        await Report.create(data);
 
         res.json({success: true, message: "신고 완료 !!"});
     } catch (err) {
@@ -61,7 +62,27 @@ const reportInsert = async (req, res, next) => {
 }
 
 const reportSelect = async (req, res, next) => {
+    const data = req.body;
+
     try {
+        // const user = await Member
+        const reportInfo = await Report.findOne({writer: data.writer, reportNo: data.reportNo});
+        console.log('------------------------');
+        console.log(reportInfo);
+
+        let userInfo;
+
+        if (data.isLogin) {
+            const member = {
+                id: data.userid,
+                str_id: data.userkey
+            };
+            data.userid = decryptCookie(member);
+            userInfo = await Member.findOne({id: data.userid});
+        }
+
+        console.log('------------------------');
+        console.log(userInfo);
         res.json({success: true});
     } catch {
         res.json({success: false});
