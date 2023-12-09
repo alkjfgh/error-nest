@@ -83,15 +83,23 @@ const levelCheck = async (req, res, next) => {
 
 const checkEquals = async (req, res, next) => {
     try {
-        const {id, email} = req.body;
-        const membersId = await Member.findOne({id}); // 몽고디비의 db.users.find({}) 쿼리와 같음
-        const membersEmail = await Member.findOne({email});
-        // console.log(members);
-        let isId = false;
-        let isEmail = false;
-        if(!membersId) isId = true;
-        if(!membersEmail) isEmail = true;
-        res.json({id:isId, email:isEmail});
+        // console.log(req.body);
+        // const {name, value} = req.body;
+        // console.log(value);
+        // const {id, email} = req.body;
+        // const membersId = await Member.findOne({id}); // 몽고디비의 db.users.find({}) 쿼리와 같음
+        // const membersEmail = await Member.findOne({email});
+        const checkMember = await Member.findOne(req.body);
+        // console.log(checkMember);
+        let check = false;
+        if(!checkMember) check = true;
+        res.json({answer: check});
+        // // console.log(members);
+        // let isId = false;
+        // let isEmail = false;
+        // if(!membersId) isId = true;
+        // if(!membersEmail) isEmail = true;
+        // res.json({id:isId, email:isEmail});
 
     } catch (err) {
         logger.error(err);
