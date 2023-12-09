@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import {Link, useLocation} from 'react-router-dom'
+import {useLocation, useNavigate, Link} from 'react-router-dom'
+import {Link as LinkScroll, animateScroll as scroll } from 'react-scroll'
 import axios from 'axios'
 
 import './css/document.scss'
@@ -18,8 +19,9 @@ function Document(props) {
     const [isFile, setIsFile] = useState(false)
     const annotation = {
         numIndex: 0,
-        list: []
+        list: {}
     }
+    const [renderedAnnotation, setRenderedAnnotation] = useState([])
 
     const extractElements = (htmlString) => { // 문자열에서 HTML 요소 추출 및 재귀적 처리
         const wrapper = document.createElement('div')
@@ -31,23 +33,44 @@ function Document(props) {
             } else if (node.nodeType === Node.ELEMENT_NODE) {
                 const tagName = node.tagName.toLowerCase()
                 let content = null
-                if(tagName!=='img') content = extractElements(node.innerHTML)
+                if(tagName!=='img' && tagName !=='br') content = extractElements(node.innerHTML)
                 const classList = node.classList
                 if (tagName === 'h2'){
                     const aText = node.querySelector('a') ? node.querySelector('a').textContent : null
                     const spanText = node.querySelector('span') ? node.querySelector('span').textContent : null
                     indexList.push({ aText: aText, spanText: spanText })
                 }
-                const props = { key: index, className: classList[0]}
+                const props = { key: index, className: classList.value}
                 let element = tagName
 
-                if (node.id && node.id.startsWith('s-')) {
-                    props.id = node.id // id 추가
-                    props.href = '#top' // href 추가
-                }
-                if (tagName === 'a' && !node.id) {
-                    element = Link
-                    props.to = node.getAttribute('href')
+                if(node.id) props.id = node.id // id 추가
+                if (tagName === 'a') {
+                    if(classList.value.indexOf("scroll-link") !== -1){
+                        element = LinkScroll;
+                        // props.smooth = true; // smooth scroll
+                        if (node.id.startsWith("s-")) {
+                            props.to = 'top' // href 추가
+                            props.onClick = () => {
+                                window.history.pushState({}, '', '#top');
+                            }
+                            // props.to = '#top'
+                        }
+                        else{
+                            props.to = node.href.split('#')[1]
+                            props.onClick = () => {
+                                window.history.pushState({}, '', '#' + node.href.split('#')[1]);
+                            }
+                            // props.to = node.href
+                        }
+                    }else{
+                        element = Link
+                        props.to = node.getAttribute('href')
+                    }
+
+                    if(classList.value.indexOf("annotation-link") !== -1){
+                        // console.log(props.data_content)
+                        props['data-content'] = node.getAttribute('data-content')
+                    }
                 }
                 if(tagName === 'img'){
                     props.src = node.getAttribute('src')
@@ -94,25 +117,31 @@ function Document(props) {
     }
 
     function drawIndex(indexList, depth = 1) {
-        let result = []
+        // let result = []
+        let result = ""
         while (indexList.length > 0) {
             let index = indexList[0]
             let levels = index.aText.split('.').filter(Boolean)  // "2.1.1." => ["2", "1", "1"]
 
             if (levels.length === depth) {
-                result.push(
-                    <span key={index.aText}>
-                        <a href={"#s-"+index.aText.substring(0,index.aText.length-1)}>{index.aText}</a>
-                        {' ' + index.spanText}
-                    </span>
-                )
+                // result.push(
+                //     <span key={index.aText}>
+                //         <a href={"#s-"+index.aText.substring(0,index.aText.length-1)}>{index.aText}</a>
+                //         {' ' + index.spanText}
+                //     </span>
+                // )
+                result += `<span key=${index.aText}>
+                         <a href="#s-${index.aText.substring(0,index.aText.length-1) + '.'}" class="scroll-link">${index.aText}</a>
+                         ${' ' + index.spanText}
+                     </span>`
                 indexList.shift()
             } else if (levels.length > depth) {
                 let childIndexes = []
                 while (indexList.length > 0 && indexList[0].aText.split('.').filter(Boolean).length > depth) {
                     childIndexes.push(indexList.shift())
                 }
-                result.push(<div className={"index-space"} key={'div'+depth}>{drawIndex(childIndexes, depth + 1)}</div>)
+                // result.push(<div className={"index-space"} key={'div'+depth}>{drawIndex(childIndexes, depth + 1)}</div>)
+                result += `<div class="index-space" key='div${depth}'>${drawIndex(childIndexes, depth + 1)}</div>`
             } else {
                 break
             }
@@ -120,7 +149,7 @@ function Document(props) {
         return result
     }
 
-    function initIndexHtml() {
+    function initIndexHtml(indexList) {
         return drawIndex(indexList)
     }
 
@@ -173,7 +202,9 @@ function Document(props) {
                 }else{ // 둘 다 있을 때
                     annotation.list[index] = content
                 }
-                const result = `<a href="#an-${index}">[${index}]</a>`
+                // const result = `<a id="fn-${index}" href="#an-${index}" class="scroll-link annotation-link">[${index}]</a>`
+                let result = `<a id="fn-${index}" href="#an-${index}" class="scroll-link annotation-link" data-content="${content}">[${index}]</a>`
+                result += `<span class="hover-content"><a href="#an-${index}" class="scroll-link annotation-link" data-content="${content}">[${index}]</a> ${content}</span>`
                 return result
             })
 
@@ -181,6 +212,7 @@ function Document(props) {
         }
 
         contentArr.map((line) => {
+            if(line === "") htmlText += `</br>`
             if(line.startsWith("==")){
                 const ctr = (line.split('=').length - 1) / 2 - 2
                 const title = line.replaceAll('=','')
@@ -192,7 +224,7 @@ function Document(props) {
                 for(let i=0;i<=ctr;i++) id += subTitle[i] + '.'
                 // id = id.slice(0,-1)
 
-                htmlText += `<h2><a id="s-${id}" href="#top" class="content-link">${id}</a><span>${title}</span></h2>`
+                htmlText += `<h2><a id="s-${id}" href="#top" class="scroll-link">${id}</a><span>${title}</span></h2>`
             }else if(line.startsWith("$$")){
                 if(bq) htmlText += `<div><blockquote>`
                 else htmlText += `</blockquote></div>`
@@ -205,6 +237,17 @@ function Document(props) {
         })
 
         return htmlText
+    }
+
+    function initAnnotationHtml(annotation) {
+        let result = ''
+        const list = annotation.list
+
+        for (let index in list) {
+            const content = list[index]
+            result += `<div id="an-${index}"><a href="#fn-${index}" class="scroll-link">[${index}]</a><span>${content}</span></div>`
+        }
+        return result;
     }
 
     const getDocument = async(this_url, versionURI) => {
@@ -238,10 +281,14 @@ function Document(props) {
             const transContent = transHtml(content)
             const renderedContents = extractElements(transContent) // JSX 로 변환하여 렌더링
             const indexHtml = initIndexHtml(indexList)
+            const renderedIndex = extractElements(indexHtml)
+            const annotationHtml = initAnnotationHtml(annotation)
+            const renderedAnnotation = extractElements(annotationHtml)
             const params = new URLSearchParams(location.search)
 
             setRenderedContents(renderedContents)
-            setRenderedIndex(indexHtml)
+            setRenderedIndex(renderedIndex)
+            setRenderedAnnotation(renderedAnnotation)
             setVersion(parseInt(params.get('version')) || null)
             setCategory(category)
             setWriter(writer)
@@ -259,6 +306,7 @@ function Document(props) {
 
         setIndexList([])
         setRenderedIndex([])
+        setRenderedAnnotation([])
         setCategory([])
         setWriter("")
         setTitle("")
@@ -274,7 +322,7 @@ function Document(props) {
             <div>
                 {category.length > 0 && `분류:`}
                 {category.map((cg, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
-                    <Link to={`/document/분류:${cg}`}>{cg}</Link>
+                    <Link key={cg} to={`/document/분류:${cg}`}>{cg}</Link>
                 ))}
                 {writer && "작성자 : " + writer}
             </div>
@@ -286,6 +334,7 @@ function Document(props) {
             </div>
             <div className="index-list" id="top">{renderedIndex}</div>
             {renderedContents}
+            <div className="annotation-list">{renderedAnnotation}</div>
         </div>
     )
 }
