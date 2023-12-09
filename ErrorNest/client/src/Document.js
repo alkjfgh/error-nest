@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useLayoutEffect, useState} from 'react'
 import {useLocation, useNavigate, Link} from 'react-router-dom'
 import {Link as LinkScroll, animateScroll as scroll } from 'react-scroll'
 import axios from 'axios'
@@ -113,7 +113,7 @@ function Document(props) {
 
     function scrollToElement(id) {
         const element = document.getElementById(id)
-        if (element) element.scrollIntoView({ behavior: 'smooth' })
+        if (element) element.scrollIntoView()
     }
 
     function drawIndex(indexList, depth = 1) {
@@ -312,7 +312,11 @@ function Document(props) {
         setTitle("")
 
         getDocument(this_url, versionURI).then(r => {
-            if(hash) scrollToElement(hash.substring(1, hash.length))
+            if(hash) {
+                setTimeout(() => {
+                    scrollToElement(hash.substring(1, hash.length))
+                }, 300)
+            }
         })
 
     }, [ location.pathname, location.hash ])
