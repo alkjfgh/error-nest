@@ -60,6 +60,7 @@ const ReportHistory = (props) => {
                         <th>Writer</th>
                         {/*<th>Comment</th>*/}
                         <th>CreatedAt</th>
+                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -69,7 +70,10 @@ const ReportHistory = (props) => {
                             <td>{report.writer}</td>
                             {/*<td>{report.comment}</td>*/}
                             <td>{report.createAt}</td>
-                            <td><button onClick={() => buttonClick(writer)}>세부사항</button></td>
+                            <td>{report.status}</td>
+                            <td>
+                                <button onClick={() => buttonClick(writer)}>세부사항</button>
+                            </td>
 
                         </tr>
                     ))}
