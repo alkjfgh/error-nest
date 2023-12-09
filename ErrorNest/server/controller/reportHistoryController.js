@@ -3,7 +3,7 @@ const logger = require("../log/logger");
 const {encryptCookie, decryptCookie} = require('./encript/encriptCookie');
 
 /** reportHistory CRUD */
-const reportSelect = async (req, res, next) => {
+const reportSelectAll = async (req, res, next) => {
     console.log(`reportSelect controller 입장 성공 !!\n\n`);
     const userInfo = req.body;
     console.log(userInfo);
@@ -39,4 +39,4 @@ const reportSelect = async (req, res, next) => {
 }
 
 /** Exports CRUD functions */
-module.exports = {reportSelect};
+module.exports = {reportSelectAll};

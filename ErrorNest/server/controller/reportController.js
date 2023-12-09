@@ -60,5 +60,9 @@ const reportInsert = async (req, res, next) => {
     }
 }
 
+const reportSelect = async (req, res, next) => {
+
+}
+
 /** Exports CRUD functions */
-module.exports = {documentSelect, reportInsert};
+module.exports = {documentSelect, reportInsert, reportSelect};
