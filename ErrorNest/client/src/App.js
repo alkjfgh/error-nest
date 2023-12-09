@@ -78,7 +78,7 @@ const App = () => {
                 <Route path='/signup' element={<Layout><SignUp axiosLoading={axiosLoading} email={email} /></Layout>}/>
                 <Route path='/login' element={<Layout><Login axiosLoading={axiosLoading} /></Layout>}/>
                 <Route path='/admin' element={<Layout><Admin axiosLoading={axiosLoading} /></Layout>}/>
-                <Route path='/report/board/*' element={<Layout><ReportBoard axiosLoading={{axiosLoading}}/></Layout>}/>
+                <Route path='/report/board/*' element={<Layout><ReportBoard axiosLoading={{axiosLoading}}/></Layout>}/> {/* 신고 세부사항 페이지 추가 */}
                 <Route path='/report/*' element={<Layout><Report axiosLoading={axiosLoading} /></Layout>}/>
                 <Route path='/reportHistory' element={<Layout><ReportHistory axiosLoading={axiosLoading} /></Layout>}/>
                 <Route path='*' element={<Layout><NotFound /></Layout>}/>
