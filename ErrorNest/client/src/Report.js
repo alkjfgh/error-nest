@@ -59,7 +59,7 @@ const Report = (props) => {
         const params = new URLSearchParams(location.search);
         const versionURI = location.search;
 
-        setVersion(parseInt(params.get('version')) || 0)
+        setVersion(parseInt(params.get('version')) || 0);
         getDocument(thisUri, versionURI).then();
 
     }, []);
