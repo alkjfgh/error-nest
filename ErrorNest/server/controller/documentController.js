@@ -27,7 +27,6 @@ const documentSelect = async (req, res, next) => {
             next(err)
         }
     }else if(title.startsWith("분류:")){
-        //TODO 분류: 로 들어올 때 카테고리 보여주는 처리 해야함.
         const category_title = title.split(':')[1]
         try {
             const result = await Category.findOne({title: category_title})

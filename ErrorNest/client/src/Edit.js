@@ -120,6 +120,7 @@ const Edit = (props) => {
             case "블럭쿼터": addText = "$$내용$$"; break
             case "링크": addText = "<<링크 제목, 표시할 내용>>"; break
             case "이미지": addText = "[[분류/이미지 이름, 가로, 세로]]"; break
+            case "주석": addText = "##빈칸or주석이름 주석 내용##"; break
         }
         // 커서 위치에 문자열 삽입
         const cursorPosition = textRef.current["selectionStart"]
@@ -141,6 +142,7 @@ const Edit = (props) => {
                 <div><span className={"edit-btn"} onClick={editBtnClick}>블럭쿼터</span></div>
                 <div><span className={"edit-btn"} onClick={editBtnClick}>링크</span></div>
                 <div><span className={"edit-btn"} onClick={editBtnClick}>이미지</span></div>
+                <div><span className={"edit-btn"} onClick={editBtnClick}>주석</span></div>
             </div>
             <textarea ref={textRef} value={content} onChange={contentChange}></textarea>
             <button onClick={editSubmit}>편집 완료</button>
