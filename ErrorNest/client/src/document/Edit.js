@@ -34,6 +34,17 @@ const Edit = (props) => {
         return text
     }
 
+    const getIsBan = async () => {
+        const ipReg = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/
+        const writer = await getWriter()
+        let url = ''
+        if(ipReg.test(writer)) url = `/ban/${writer}/${undefined}`
+        else url = `/ban/${writer.split('#')[0]}/${writer.split('#')[1]}`
+        const banInfo = await axios.get(url)
+        setWriter(writer)
+        return banInfo.data.isBan
+    }
+
     const getWriter = async () => {
         if(cookies.username) return cookies.username
         const response = await fetch("https://api64.ipify.org?format=json")
@@ -41,21 +52,28 @@ const Edit = (props) => {
         return data.ip
     }
 
-    async function getDocument(this_url, versionURI) {
-        const res = await axios.get(this_url+versionURI)
+    const getDocument = async (this_url, versionURI) => {
+        axiosLoading( async () => {
+            const isBan = await getIsBan()
+            if(isBan) {
+                alert('편집 권한이 없습니다.')
+                navigate('/')
+            }
+            const res = await axios.get(this_url+versionURI)
 
-        setTitle(res.data.title)
-        setVersion(res.data.version)
-        setUpdateAt(res.data.updateAt)
-        setContent(res.data.content)
-        setCategory(res.data.category)
-        setWriter(await getWriter())
-        setCategoryText(arrToText(res.data.category))
+            setTitle(res.data.title)
+            setVersion(res.data.version)
+            setUpdateAt(res.data.updateAt)
+            setContent(res.data.content)
+            setCategory(res.data.category)
+            setCategoryText(arrToText(res.data.category))
+        })
     }
 
     useEffect( () => {
         const this_url = location.pathname
-        getDocument(this_url, location.search).then(r => {})
+        getDocument(this_url, location.search).then(r => {
+        })
     }, [])
 
     useEffect(()=>{
@@ -127,7 +145,7 @@ const Edit = (props) => {
         const textBeforeCursor = content.slice(0, cursorPosition)
         const textAfterCursor = content.slice(cursorPosition)
         const newText = textBeforeCursor + addText + textAfterCursor
-        setContent(newText);
+        setContent(newText)
     }
 
     return (
