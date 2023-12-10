@@ -57,20 +57,24 @@ const ReportHistory = (props) => {
                     <thead>
                     <tr>
                         <th>Title</th>
+                        <th>Version</th>
                         <th>Writer</th>
                         {/*<th>Comment</th>*/}
                         <th>CreatedAt</th>
                         <th>Status</th>
+                        <th>No</th>
                     </tr>
                     </thead>
                     <tbody>
                     {reportList.map((report) => (
                         <tr key={report._id}>
                             <td>{report.title}</td>
+                            <td>{report.version}</td>
                             <td>{report.writer}</td>
                             {/*<td>{report.comment}</td>*/}
                             <td>{report.createAt}</td>
                             <td>{report.status}</td>
+                            <td>{report.reportNo}</td>
                             <td>
                                 <button onClick={() => buttonClick(writer)}>세부사항</button>
                             </td>
