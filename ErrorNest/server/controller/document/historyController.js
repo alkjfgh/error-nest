@@ -1,5 +1,5 @@
-const Document = require("../db/schema/document"); // Get history schema
-const logger = require("../log/logger");
+const Document = require("../../db/schema/document/document"); // Get history schema
+const logger = require("../../log/logger");
 
 /** history CRUD */
 const historySelect = async (req, res, next) => {

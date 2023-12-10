@@ -1,7 +1,7 @@
-const Document = require("../db/schema/document"); // Get edit schema
-const Category = require("../db/schema/category")
-const logger = require("../log/logger");
-const {decryptCookie} = require('./encript/encriptCookie')
+const Document = require("../../db/schema/document/document"); // Get edit schema
+const Category = require("../../db/schema/document/category")
+const logger = require("../../log/logger");
+const {decryptCookie} = require('../encript/encriptCookie')
 
 /** edit CRUD */
 const documentSelect = async (req, res, next) => {

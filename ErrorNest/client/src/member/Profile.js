@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {useCookies, Cookies} from "react-cookie";
 
-import './css/nomalize.scss'
+import '../css/nomalize.scss'
 
 const Profile = (props) => {
     const [cookies] = useCookies([]);

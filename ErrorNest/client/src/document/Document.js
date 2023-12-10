@@ -3,7 +3,7 @@ import {useLocation, useNavigate, Link} from 'react-router-dom'
 import {Link as LinkScroll, animateScroll as scroll } from 'react-scroll'
 import axios from 'axios'
 
-import './css/document.scss'
+import '../css/document.scss'
 
 function Document(props) {
     const location = useLocation()

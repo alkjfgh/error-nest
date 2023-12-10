@@ -1,6 +1,6 @@
-const Member = require("../db/schema/member"); // Get member schema
-const logger = require("../log/logger");
-const {encryptCookie, decryptCookie} = require('./encript/encriptCookie')
+const Member = require("../../db/schema/member/member"); // Get member schema
+const logger = require("../../log/logger");
+const {encryptCookie, decryptCookie} = require('../encript/encriptCookie')
 
 const memberAdmin = async (req, res, next) => {
     // console.log("admin 들어옴");

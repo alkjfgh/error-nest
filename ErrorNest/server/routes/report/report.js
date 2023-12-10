@@ -1,5 +1,5 @@
 const express = require('express');
-const reportController = require('../controller/reportController');
+const reportController = require('../../controller/report/reportController');
 const router = express.Router();
 
 /** GET /report */

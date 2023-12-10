@@ -4,23 +4,23 @@ import {useCookies, Cookies} from "react-cookie";
 import Header from './Header';
 import Main from './Main';
 import NotFound from './NotFound';
-import Document from './Document';
-import Search from "./Search";
-import History from "./History";
-import Edit from "./Edit";
-import Upload from "./Upload";
+import Document from './document/Document';
+import Search from "./document/Search";
+import History from "./document/History";
+import Edit from "./document/Edit";
+import Upload from "./document/Upload";
 import Layout from "./Layout";
-import SignUp from "./SignUp";
-import Login from "./Login";
-import Admin from "./Admin";
-import Report from "./Report";
-import Logout from "./Logout";
-import ReportHistory from "./ReportHistory";
+import SignUp from "./member/SignUp";
+import Login from "./member/Login";
+import Admin from "./member/Admin";
+import Report from "./report/Report";
+import Logout from "./member/Logout";
+import ReportHistory from "./report/ReportHistory";
 import algoliasearch from "algoliasearch";
 import axios from "axios";
 import Loading from "./Loading";
-import ReportBoard from "./ReportBoard";
-import Profile from "./Profile";
+import ReportBoard from "./report/ReportBoard";
+import Profile from "./member/Profile";
 
 const App = () => {
     const ALGOLIA_APP_ID = process.env.REACT_APP_ALGOLIA_APP_ID

@@ -5,7 +5,7 @@ import { parse } from 'node-html-parser'
 import axios from "axios"
 import algoliasearch from "algoliasearch"
 
-import './css/edit.scss'
+import '../css/edit.scss'
 
 const Edit = (props) => {
     const location = useLocation()

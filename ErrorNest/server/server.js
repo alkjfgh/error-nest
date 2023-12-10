@@ -1,13 +1,13 @@
 const app = require('./serverInit')
-const document = require('./routes/document')
-const edit = require('./routes/edit')
-const history = require('./routes/history')
-const search = require('./routes/search')
-const upload = require('./routes/upload')
-const member = require('./routes/member')
-const report = require('./routes/report')
-const token = require('./routes/token');
-const reportHistory = require('./routes/reportHistory');
+const document = require('./routes/document/document')
+const edit = require('./routes/document/edit')
+const history = require('./routes/document/history')
+const search = require('./routes/document/search')
+const upload = require('./routes/document/upload')
+const member = require('./routes/member/member')
+const report = require('./routes/report/report')
+const token = require('./routes/member/token');
+const reportHistory = require('./routes/report/reportHistory');
 
 app.use('/document', document)
 app.use('/edit', edit)

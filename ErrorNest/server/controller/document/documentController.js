@@ -1,7 +1,7 @@
-const Document = require("../db/schema/document") // Get document schema
-const File = require("../db/schema/file")
-const Category = require("../db/schema/category")
-const logger = require("../log/logger")
+const Document = require("../../db/schema/document/document") // Get document schema
+const File = require("../../db/schema/document/file")
+const Category = require("../../db/schema/document/category")
+const logger = require("../../log/logger")
 
 /** document select all */
 const documentSelect = async (req, res, next) => {

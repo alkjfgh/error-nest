@@ -1,5 +1,5 @@
 const express = require('express');
-const editController = require('../controller/editController');
+const editController = require('../../controller/document/editController');
 const router = express.Router();
 
 /** GET /edit */

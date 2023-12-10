@@ -1,5 +1,5 @@
 const express = require('express');
-const documentController = require('../controller/documentController');
+const documentController = require('../../controller/document/documentController');
 const router = express.Router();
 
 /** GET /document */

@@ -1,6 +1,6 @@
-const Report = require("../db/schema/report");
-const logger = require("../log/logger");
-const {encryptCookie, decryptCookie} = require('./encript/encriptCookie');
+const Report = require("../../db/schema/report/report");
+const logger = require("../../log/logger");
+const {encryptCookie, decryptCookie} = require('../encript/encriptCookie');
 
 /** reportHistory CRUD */
 const reportSelectAll = async (req, res, next) => {
