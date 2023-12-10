@@ -19,7 +19,19 @@ app.use('/report', report)
 app.use('/token', token)
 app.use('/reportHistory', reportHistory);
 
+const Ban = require('./db/schema/member/ban')
+
 app.get('/', (req, res) => {
     // logger.info('GET /')
+    res.send("Hello World !!!")
+})
+
+app.get('/ban', (req, res) => {
+    Ban.create({
+        target: "test",
+        type: "test",
+        comment: "test",
+        remainDate: 1,
+    })
     res.send("Hello World !!!")
 })
