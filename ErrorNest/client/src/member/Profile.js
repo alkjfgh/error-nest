@@ -23,7 +23,7 @@ const Profile = (props) => {
     const axiosLoading = props.axiosLoading
 
     const getProfile = async (page) => {
-        // TODO 작성글 불러오기 유저 정보, 밴 정보 띄워주기
+        // TODO 유저 정보, 밴 정보 띄워주기
         const url = `${writer}/${hashtag.split('#')[1]}`;
         const writtenList = await axios.get(`/history/${url}`, page);
         const banInfo = await axios.get(`/ban/${url}`);
@@ -102,6 +102,7 @@ const Profile = (props) => {
                 </ul>
             </div>
             <div>
+                {/*TODO 아직 prev next가 안됨 page 번호는 바뀌는데 불러오는게 안됨*/}
                 <span>
                     {page - 1 > 0 ? (
                         <Link to={`/profile/${writer}/${hashtag.split('#')[1]}` + "?page=" + (page - 1)}>{"<"}Prev</Link>
