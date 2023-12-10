@@ -1,6 +1,6 @@
-const Member = require("../db/schema/member"); // Get member schema
-const logger = require("../log/logger");
-const {encryptCookie, decryptCookie} = require('./encript/encriptCookie')
+const Member = require("../../db/schema/member/member"); // Get member schema
+const logger = require("../../log/logger");
+const {encryptCookie, decryptCookie} = require('../encript/encriptCookie')
 
 const memberAdmin = async (req, res, next) => {
     // console.log("admin 들어옴");
@@ -24,7 +24,7 @@ const memberSelect = async (req, res, next) => {
         }
         else{
             member.str_id = member._id.toString()
-            res.json({answer: true, level: member.level, userid: encryptCookie(member), username: member.name, userkey: member._id.toString()});
+            res.json({answer: true, level: member.level, userid: encryptCookie(member), username: `${member.name}#${member.hashtag.toString().padStart(4, '0')}`, userkey: member._id.toString()});
         }
 
     } catch (err) {

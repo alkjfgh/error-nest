@@ -22,6 +22,7 @@ function SignUp(props) {
     const [check, setCheck] = useState(false);
     const [isCanPassword, setIsCanPassword] = useState("패스워드 형식이 맞지 않습니다.");
     const [isPwEquals, setIsPwEquals] = useState("일치하지 않습니다.");
+    const [isCanEmail, setIsCanEmail] = useState(false);
     const axiosLoading = props.axiosLoading
 
     useEffect(() => {
@@ -41,6 +42,10 @@ function SignUp(props) {
     useEffect(() => {
         pwEquals();
     },[inputs.pwCheck]);
+
+    useEffect(() => {
+        isCanEm();
+    }, [inputs.email]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -90,7 +95,7 @@ function SignUp(props) {
                 // const checkEquals = await axios.post('/member/checkEquals', {id: inputs.id, email: inputs.email});
                 const checkEquals = await axios.post('/member/checkEquals', {email: inputs.email});
                 setCanSignup(checkEquals.data.answer);
-                if(inputs.pw.match(myRe) && inputs.pw === inputs.pwCheck && checkEquals.data.answer && inputs.email.match('@')){
+                if(inputs.pw.match(myRe) && inputs.pw === inputs.pwCheck && checkEquals.data.answer && isCanEmail){
                     // 인증 유효시간
                     setCount(180);
                     emailjs
@@ -118,7 +123,7 @@ function SignUp(props) {
                 else if(!checkEquals.data.answer){
                     alert("이미 계정이 존재하는 이메일입니다.");
                 }
-                else if(!inputs.email.match("@")){
+                else if(!isCanEmail){
                     alert("올바른 이메일 형식을 적어주세요.");
                 }
                 else{
@@ -129,6 +134,12 @@ function SignUp(props) {
         }
         else alert("모든 칸을 입력해주세요.");
         // console.log("들어옴");
+    }
+
+    const isCanEm = () => {
+        const myRe = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+        if(inputs.email.match(myRe)) setIsCanEmail(true);
+        else setIsCanEmail(false);
     }
 
     // 패스워드 정규식 체크

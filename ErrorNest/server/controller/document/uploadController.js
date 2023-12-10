@@ -1,5 +1,5 @@
-const File = require("../db/schema/file"); // Get file schema
-const logger = require('../log/logger')
+const File = require("../../db/schema/document/file"); // Get file schema
+const logger = require('../../log/logger')
 
 const fileUpload = async (req, res, next) => {
     try {

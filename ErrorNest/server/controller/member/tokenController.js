@@ -1,5 +1,5 @@
-const Token = require("../db/schema/token"); // Get token schema
-const logger = require("../log/logger");
+const Token = require("../../db/schema/member/token"); // Get token schema
+const logger = require("../../log/logger");
 
 /** token CRUD */
 const tokenCRUD = async (req, res, next) => {

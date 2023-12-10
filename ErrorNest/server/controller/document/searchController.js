@@ -1,5 +1,5 @@
-const Document = require("../db/schema/document"); // Get search schema
-const logger = require("../log/logger");
+const Document = require("../../db/schema/document/document"); // Get search schema
+const logger = require("../../log/logger");
 
 /** search select all */
 const searchSelect = async (req, res, next) => {

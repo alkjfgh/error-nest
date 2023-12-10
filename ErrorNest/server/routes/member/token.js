@@ -1,5 +1,5 @@
 const express = require('express');
-const tokenController = require('../controller/tokenController');
+const tokenController = require('../../controller/member/tokenController');
 const router = express.Router();
 
 router.post('/', tokenController.tokenCRUD);
