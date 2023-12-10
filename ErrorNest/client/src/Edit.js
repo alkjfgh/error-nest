@@ -93,7 +93,7 @@ const Edit = (props) => {
     const editSubmit = async (e) => {
         axiosLoading(async () => {
             const this_url = location.pathname
-            const res = await axios.post(this_url, {title, content, category, version, writer, userid: cookies.userid, userkey: cookies.userkey})
+            const res = await axios.post(this_url, {title, content, category, version, writer})
             if (res.data.success) {
                 const addIndex = props.algolia.addIndex
                 // 이미 존재하는 title인지 확인

@@ -28,13 +28,6 @@ const Header = (props) => {
 
     const index = props.algolia.index
 
-    // const handleBlurList = () => {
-    //     alert("list 들어옴");
-    //     setTimeout(() => {
-    //         setView(false)
-    //     }, 200);
-    // }
-
     useEffect(() => {
         const handleClickOutside = (event) => {
             const divElement = document.querySelector('.navi-element-list-div');
@@ -131,6 +124,9 @@ const Header = (props) => {
                     접속하기{" "}
                     {view ? '▲' : '▼'}
                     {view && <div>
+                        <li className="navi-element">
+                            <Link to={`/profile/${cookies.username}`}>프로필</Link>
+                        </li>
                         {cookies.userid === undefined && (
                             <>
                                 <li className="navi-element">

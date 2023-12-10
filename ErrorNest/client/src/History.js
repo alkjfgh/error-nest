@@ -57,8 +57,8 @@ const History = () => {
                         <Link to={"/document/" + title + "?version="+history.version}>
                             <span>업데이트: {history.updateAt}</span>`
                             <span>, 버전: {history.version}</span>
-                            <span>, 작성자: {history.writer}</span>
                         </Link>
+                        <Link to={`/profile/${history.writer}`}>, 작성자: {history.writer}</Link>
                     </li>
                 ))}
             </ul>

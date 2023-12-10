@@ -24,7 +24,7 @@ const memberSelect = async (req, res, next) => {
         }
         else{
             member.str_id = member._id.toString()
-            res.json({answer: true, level: member.level, userid: encryptCookie(member), username: member.name, userkey: member._id.toString()});
+            res.json({answer: true, level: member.level, userid: encryptCookie(member), username: `${member.name}#${member.hashtag.toString().padStart(4, '0')}`, userkey: member._id.toString()});
         }
 
     } catch (err) {

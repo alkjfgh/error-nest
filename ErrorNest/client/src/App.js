@@ -20,6 +20,7 @@ import algoliasearch from "algoliasearch";
 import axios from "axios";
 import Loading from "./Loading";
 import ReportBoard from "./ReportBoard";
+import Profile from "./Profile";
 
 const App = () => {
     const ALGOLIA_APP_ID = process.env.REACT_APP_ALGOLIA_APP_ID
@@ -70,6 +71,7 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<Layout><Main /></Layout>} />
                 <Route path='/logout' element={<Layout><Logout axiosLoading={axiosLoading} /></Layout>} />
+                <Route path='/profile/*' element={<Layout><Profile axiosLoading={axiosLoading} /></Layout>} />
                 <Route path='/document/*' element={<Layout><Document axiosLoading={axiosLoading} /></Layout>} />
                 <Route path='/search/*' element={<Layout><Search axiosLoading={axiosLoading} algolia={algolia} /></Layout>}/>
                 <Route path='/edit/*' element={<Layout><Edit axiosLoading={axiosLoading} algolia={algolia} /></Layout>}/>

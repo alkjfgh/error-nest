@@ -24,16 +24,12 @@ const documentSelect = async (req, res, next) => {
 
 const documentUpdate = async (req, res, next) => {
     try {
-        const {title, content, category, writer, userid, userkey} = req.body
-        const member = {
-            id: userid,
-            str_id: userkey
-        }
+        const {title, content, category, writer} = req.body
         const document = {
             title: title,
             content: content,
             category: category,
-            writer: userid ? decryptCookie(member) : writer
+            writer: writer
         }
         const result = await Document.create(document)
 

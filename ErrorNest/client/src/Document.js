@@ -328,7 +328,7 @@ function Document(props) {
                 {category.map((cg, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
                     <Link key={cg} to={`/document/분류:${cg}`}>{cg}</Link>
                 ))}
-                {writer && "작성자 : " + writer}
+                작성자 : <Link to={`/profile/${writer}`}>{writer}</Link>
             </div>
             <h1>{title} {version ? "Version: " + version : null}</h1>
             <div className={"document-navi"}>
