@@ -54,18 +54,7 @@ const banUpdate = async (req, res, next) => {
             type = 'ip'
         }
 
-        // Ban 스키마에서 target을 찾아서 업데이트하거나, 존재하지 않으면 생성
-        await Ban.findOneAndUpdate(
-            { target },
-            {
-                type,
-                comment,
-                remainDate,
-            },
-            { upsert: true }
-        );
-
-        /*// Ban 스키마에서 target을 찾아서 삭제
+        // Ban 스키마에서 target을 찾아서 삭제
         await Ban.findOneAndDelete({ target })
 
         // 새로운 문서 생성
@@ -74,11 +63,11 @@ const banUpdate = async (req, res, next) => {
             type,
             comment,
             remainDate
-        })*/
+        })
 
         success = true
 
-        res.json({success,target,type,comment,remainDate})
+        res.json({success})
     } catch (err) {
         logger.error(err);
         next(err);

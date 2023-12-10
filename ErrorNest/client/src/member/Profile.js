@@ -10,22 +10,26 @@ const Profile = (props) => {
     const [cookies] = useCookies([]);
     const [inputs, setInputs] = useState({
         comment: '',
-        remainDate: 0,
+        remainDate: 1,
     });
+    const [banUpdateMessage, setBanUpdateMessage] = useState('')
 
     let writer = location.pathname.split('/')[2];
     writer = decodeURIComponent(writer);
     let hashtag = location.hash
+    const axiosLoading = props.axiosLoading
 
     const getProfile = async () => {
+        // TODO 작성글 불러오기 유저 정보, 밴 정보 띄워주기
         const url = `${writer}/${hashtag.split('#')[1]}`;
-        const writtenList = await axios.get(`/history/${url}`);
-        const baninfo = await axios.get(`/ban/${url}`);
-        console.log(baninfo.data);
+        // const res1 = await axios.get(`/history/${url}`);
+        const banInfo = await axios.get(`/ban/${url}`);
+        console.log(banInfo.data)
     }
 
     useEffect(() => {
-        getProfile();
+        // TODO 있는 유저 인지 or 맞는 포멧의 ip인지 확인 먼저 해야함
+        axiosLoading(getProfile)
     }, [location.pathname])
 
     const handleChange = (e) => {
@@ -34,14 +38,17 @@ const Profile = (props) => {
             ...inputs,
             [name]: value
         });
-        console.log(inputs);
     }
 
-
     const handleSubmit = async (e) => {
+        if(banUpdateMessage === '밴 처리중') return
+        setBanUpdateMessage('밴 처리중')
         e.preventDefault();
-        const res = await axios.post(`/ban/update/${writer}/${hashtag.split('#')[1]}`, {comment: inputs.comment, remainDate: inputs.remainDate});
-        console.log(res.data);
+        const data = {comment: inputs.comment, remainDate: inputs.remainDate}
+        const res = await axios.post(`/ban/update/${writer}/${hashtag.split('#')[1]}`, data);
+        const success = res.data.success
+        if(success) setBanUpdateMessage('밴 성공')
+        else setBanUpdateMessage('밴 실패')
     }
 
     return (
@@ -49,7 +56,9 @@ const Profile = (props) => {
             <h3>{writer+hashtag}</h3>
             <div>
                 <div>이메일</div>
+                {/*TODO admin or 자신만 볼 수 있도록*/}
                 <div>
+                    {/*TODO admin만 벤 할 수 있도록*/}
                     <form onSubmit={handleSubmit}>
                         벤 관련<br/>
                         벤 사유 : <input type="text" name="comment" onChange={handleChange}/>
@@ -61,6 +70,7 @@ const Profile = (props) => {
                             <option value="100000">영구정지</option>
                         </select>
                         <button type="submit">send</button>
+                        {banUpdateMessage}
                     </form>
                 </div>
             </div>

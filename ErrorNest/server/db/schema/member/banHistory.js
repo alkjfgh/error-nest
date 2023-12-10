@@ -16,11 +16,13 @@ const banHistorySchema = new Schema({
         type: Number
     },
     status: {
-        type: String,
+        type: String
     },
     createdAt: {
-        type: Date,
-        default: Date.now,
+        type: Date
+    },
+    expireAt: {
+        type: Date
     }
 });
 

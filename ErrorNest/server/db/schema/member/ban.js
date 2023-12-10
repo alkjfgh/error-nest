@@ -47,8 +47,10 @@ banSchema.pre('save', function(next) {
         target: this.target,
         type: this.type,
         comment: this.comment,
+        status: this.status,
         remainDate: this.remainDate,
-        status: this.status
+        createdAt: this.createdAt,
+        expireAt: this.expireAt,
     });
 
     banHistory.save()
