@@ -19,5 +19,17 @@ const historySelect = async (req, res, next) => {
     }
 }
 
+// 프로필에서 작성자가 적은 글만 찾아오기
+const profileSelect = async (req, res, next) => {
+    // console.log(req.params);
+    try{
+
+    } catch (err) {
+
+    }
+    const {username, hashtag} = req.params
+    const hashtagNum = +hashtag;
+}
+
 /** Exports CRUD functions */
-module.exports = {historySelect};
+module.exports = {historySelect, profileSelect};
