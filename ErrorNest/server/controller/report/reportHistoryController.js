@@ -5,9 +5,7 @@ const {encryptCookie, decryptCookie} = require('../encript/encriptCookie');
 
 /** reportHistory CRUD */
 const reportSelectAll = async (req, res, next) => {
-    console.log(`reportSelect controller 입장 성공 !!\n\n`);
     const reqData = req.body;
-    console.log(reqData);
 
     if (reqData.isLogin) {
         const member = {

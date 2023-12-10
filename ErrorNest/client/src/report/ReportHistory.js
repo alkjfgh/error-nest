@@ -39,8 +39,8 @@ const ReportHistory = (props) => {
         }
     }
 
-    const buttonClick = (reportId) => {
-         navigate(`/report/board/${reportId}`)
+    const buttonClick = (report) => {
+         navigate(`/report/board?writer=${report.writer}&reportNo=${report.reportNo}`);
     }
 
     useEffect(() => {
@@ -76,7 +76,7 @@ const ReportHistory = (props) => {
                             <td>{report.status}</td>
                             <td>{report.reportNo}</td>
                             <td>
-                                <button onClick={() => buttonClick(writer)}>세부사항</button>
+                                <button onClick={() => buttonClick(report)}>세부사항</button>
                             </td>
 
                         </tr>

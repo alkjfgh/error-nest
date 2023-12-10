@@ -2,6 +2,7 @@ const Report = require("../../db/schema/report/report"); // Get report schema
 const logger = require("../../log/logger");
 const Document = require("../../db/schema/document/document");
 const {encryptCookie, decryptCookie} = require('../encript/encriptCookie');
+const Member = require("../../db/schema/member/member");
 
 
 /** report CRUD */
@@ -61,7 +62,37 @@ const reportInsert = async (req, res, next) => {
 }
 
 const reportSelect = async (req, res, next) => {
+    const reqData = req.body;
 
+    if (reqData.isLogin) {
+        const member = {
+            id: reqData.userid,
+            str_id: reqData.userkey
+        }
+        reqData.userid = decryptCookie(member);
+    }
+
+    console.log(reqData);
+
+    try {
+        const userInfo = await Member.findOne({id: reqData.userid});
+        console.log("---- userInfo ----");
+        console.log(userInfo);
+
+        const reportInfo = await Report.findOne({writer: reqData.writer, reportNo: parseInt(reqData.reportNo)});
+        console.log("----- reportInfo -----");
+        console.log(reportInfo);
+
+        const result = {
+            level: userInfo.level,
+            isLogin: reqData.isLogin,
+            reportInfo: reportInfo
+        } // 여기서부터 제어
+
+        res.json({success: true, result: result, message: "reportSelect 연결 성공"});
+    } catch {
+        res.json({success: false, result: null, message: "reportSelect 연결 실패"});
+    }
 }
 
 /** Exports CRUD functions */
