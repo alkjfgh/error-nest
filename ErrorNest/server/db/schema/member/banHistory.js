@@ -4,18 +4,19 @@ const { Schema } = mongoose; // Get Schema
 
 const banHistorySchema = new Schema({
     target: {
-        type: String,
-        required: true,
+        type: String
     },
     type: {
-        type: String,
-        required: true
+        type: String
     },
     comment: {
         type: String
     },
     remainDate: {
         type: Number
+    },
+    status: {
+        type: String,
     },
     createdAt: {
         type: Date,

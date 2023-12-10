@@ -19,6 +19,14 @@ const banSchema = new Schema({
     remainDate: {
         type: Number
     },
+    status: {
+        type: String,
+        default: function() {
+            if(this.remainDate === 100000) return '영구정지';
+            else if(this.remainDate === 200000) return '탈퇴';
+            return '정지';
+        }
+    },
     createdAt: {
         type: Date,
         default: Date.now,
@@ -39,7 +47,8 @@ banSchema.pre('save', function(next) {
         target: this.target,
         type: this.type,
         comment: this.comment,
-        remainDate: this.remainDate
+        remainDate: this.remainDate,
+        status: this.status
     });
 
     banHistory.save()
