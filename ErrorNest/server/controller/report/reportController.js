@@ -85,9 +85,9 @@ const reportSelect = async (req, res, next) => {
         console.log(reportInfo);
 
 
-        res.json({success: true, message: "reportSelect 성공", isLogin: reqData.isLogin, userLevel: userInfo.level, reportInfo: reportInfo});
+        res.json({ message: "reportSelect 성공", isLogin: reqData.isLogin, userLevel: userInfo.level, reportInfo: reportInfo});
     } catch {
-        res.json({success: false, isLogin: reqData.isLogin, reportInfo: reportInfo, message: "reportSelect 실패"});
+        res.json({isLogin: reqData.isLogin, reportInfo: reportInfo, message: "reportSelect 실패"});
     }
 }
 

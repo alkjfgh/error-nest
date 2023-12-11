@@ -25,8 +25,9 @@ const reportSelectAll = async (req, res, next) => {
         if (reqData.isLogin) {
             if (userInfo.level === "admin")
                 result = await Report.find({});
+            else
+                result = await Report.find({writer: reqData.userid});
         }
-
         else
             result = await Report.find({writer: reqData.userid});
 
