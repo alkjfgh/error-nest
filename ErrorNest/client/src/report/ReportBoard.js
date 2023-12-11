@@ -35,6 +35,7 @@ const ReportBoard = (props) => {
     };
 
     const getUserInfo = async () => {
+
         if(cookies.userid !== undefined) {
             console.log(`cookies.userid >> ${cookies.userid}`);
             return {userid: cookies.userid, username: cookies.username, userkey: cookies.userkey, isLogin: true}; // 로그인 id
@@ -47,8 +48,12 @@ const ReportBoard = (props) => {
         }
     }
 
-    useEffect(() => {
+    const getData = async () => {
         getUserInfo().then(data => getReportBoard(data))
+    };
+
+    useEffect(() => {
+        axiosLoading(getData);
     }, []);
 
     return (

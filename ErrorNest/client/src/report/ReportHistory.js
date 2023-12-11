@@ -41,8 +41,12 @@ const ReportHistory = (props) => {
          navigate(`/report/board?writer=${reportInfo.writer}&reportNo=${reportInfo.reportNo}`)
     }
 
-    useEffect(() => {
+    const getData = async () => {
         getUserInfo().then((user) => getReportList(user));
+    };
+
+    useEffect(() => {
+        axiosLoading(getData);
     }, []);
 
     return (
