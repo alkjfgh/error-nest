@@ -42,7 +42,7 @@ const Report = (props) => {
         } else {
             const response = await fetch("https://api64.ipify.org?format=json");
             const data = await response.json();
-            return {userid: data.ip, isLogin: false}; // PC ip
+            return {username: cookies.username, isLogin: false}; // PC ip
         }
     }
 
@@ -56,7 +56,6 @@ const Report = (props) => {
 
     const reportSubmit = async () => {
         axiosLoading(async () => {
-
             const userInfo = await getUserInfo();
             console.log(userInfo);
 
