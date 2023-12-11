@@ -39,6 +39,7 @@ const banUpdate = async (req, res, next) => {
     const hashtagNumber = +hashtag
 
     const { comment, remainDate } = req.body
+    const remainDateNum = +remainDate
 
     let success = false
     try {
@@ -57,13 +58,15 @@ const banUpdate = async (req, res, next) => {
         // Ban 스키마에서 target을 찾아서 삭제
         await Ban.findOneAndDelete({ target })
 
-        // 새로운 문서 생성
-        await Ban.create({
-            target,
-            type,
-            comment,
-            remainDate
-        })
+        if(remainDateNum > 0){
+            // 새로운 문서 생성
+            await Ban.create({
+                target,
+                type,
+                comment,
+                remainDate
+            })
+        }
 
         success = true
 
