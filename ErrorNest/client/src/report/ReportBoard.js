@@ -16,6 +16,7 @@ const ReportBoard = (props) => {
     const reportNo = searchParams.get("reportNo");
 
     const [reportInfo, setReportInfo] = useState({});
+    const [isAdmin, setIsAdmin] = useState(false);
 
 
     const getReportBoard = async (data) => { // report/select
@@ -30,6 +31,9 @@ const ReportBoard = (props) => {
         console.log(result.data.reportInfo);
 
         setReportInfo(result.data.reportInfo);
+
+        if (result.data.userLevel === 'admin')
+            setIsAdmin(true);
     };
 
     const getUserInfo = async () => {
@@ -62,6 +66,7 @@ const ReportBoard = (props) => {
                     <p>CreatedAt: {reportInfo.createAt}</p>
 
                     <div className={"document-navi"}>
+                        {isAdmin && <Link to={`/profile/${reportInfo.writer}`}>프로필</Link>}
                         <Link to="/reportHistory">돌아가기</Link>
                     </div>
                 </>
