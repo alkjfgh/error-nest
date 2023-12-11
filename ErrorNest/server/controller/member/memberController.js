@@ -16,15 +16,17 @@ const memberAdmin = async (req, res, next) => {
 
 /** member CRUD */
 const memberSelect = async (req, res, next) => {
-    const { id, pw } = req.body;
+    let { id, pw, username, hashtag } = req.body;
+    if(hashtag) hashtag = parseInt(hashtag)
+    console.log(username, hashtag)
     try {
-        const member = await Member.findOne({ id, pw }); // 몽고디비의 db.users.find({}) 쿼리와 같음
+        const member = pw ? await Member.findOne({ id, pw }) : await Member.findOne({ name: username, hashtag }); // 몽고디비의 db.users.find({}) 쿼리와 같음
         if(!member){
             res.json({answer: false});
         }
         else{
             member.str_id = member._id.toString()
-            res.json({answer: true, level: member.level, userid: encryptCookie(member), username: `${member.name}#${member.hashtag.toString().padStart(4, '0')}`, userkey: member._id.toString()});
+            res.json({answer: true, level: member.level, userid: encryptCookie(member), username: `${member.name}#${member.hashtag.toString().padStart(4, '0')}`, userkey: member._id.toString(), useremail: member.email});
         }
 
     } catch (err) {

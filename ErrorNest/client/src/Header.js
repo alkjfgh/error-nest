@@ -39,6 +39,7 @@ const Header = (props) => {
     }
 
     useEffect(() => {
+        setUser('')
         getUser().then(r => {})
         const handleClickOutside = (event) => {
             const divElement = document.querySelector('.navi-element-list-div');

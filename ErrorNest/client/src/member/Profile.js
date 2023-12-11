@@ -17,43 +17,57 @@ const Profile = (props) => {
     const [writtenList, setWrittenList] = useState([]);
     const [page, setPage] = useState(1)
     const [maxPage, setMaxPage] = useState(1)
-    const [user, setUser] = useState('')
+    const [target, setTarget] = useState('')
     const [url, setUrl] = useState('')
+    const [user, setUser] = useState({})
+    const [banInfo, setBanInfo] = useState({})
 
     let hashtag = location.hash
     const axiosLoading = props.axiosLoading
 
-    const getUser = async () => {
-        let user = location.pathname.split('/')[2];
-        user = decodeURIComponent(user);
-        setUser(user)
+    const getTarget = async () => {
+        let target = location.pathname.split('/')[2];
+        target = decodeURIComponent(target);
+        setTarget(target)
         hashtag = hashtag.split('#')[1]
-        return user
+        return target
+    }
+
+    const getUser = async (target) => {
+        const ipReg = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/
+        if(ipReg.test(target)) return true
+
+        const user = await axios.post('/member', {username: target, hashtag})
+        if(user.data){
+            const username = user.data.username
+            setUser(user.data)
+            return username === `${target}#${hashtag}`
+        }
+        return false
     }
 
     const getProfile = async () => {
-        const user = await getUser()
+        const target = await getTarget()
+        const isEqual = await getUser(target)
         const params = new URLSearchParams(location.search);
         const page = parseInt(params.get('page')) || 1
-        setPage(page)
-        console.log(parseInt(params.get('page')) || 1)
-        // TODO 유저 정보, 밴 정보 띄워주기
-        const url = `${user}/${hashtag ? hashtag : 'ip'}`;
-        setUrl(url)
-        const writtenList = await axios.get(`/history/${url}?page=${page}`);
-        const banInfo = await axios.get(`/ban/${url}`);
-        const result = writtenList.data.writtenList;
-        const maxPage = Math.floor(writtenList.data.maxPage)
+        const url = `${target}/${hashtag ? hashtag : 'ip'}`;
+        const historyRes = await axios.get(`/history/${url}?page=${page}`);
+        const writtenList = historyRes.data.writtenList;
+        const maxPage = Math.floor(historyRes.data.maxPage)
 
-        setWrittenList(result);
+        if(isEqual){
+            const banInfoRes = await axios.get(`/ban/${url}`);
+            setBanInfo(banInfoRes.data)
+        }
+
+        setUrl(url)
+        setPage(page)
+        setWrittenList(writtenList);
         setMaxPage(maxPage);
-        console.log(url)
-        console.log(banInfo.data)
     }
 
     useEffect(() => {
-        // TODO 있는 유저 인지 or 맞는 포멧의 ip인지 확인 먼저 해야함
-
         axiosLoading(getProfile)
     }, [location.pathname,location.search])
 
@@ -66,6 +80,7 @@ const Profile = (props) => {
     }
 
     const handleSubmit = async (e) => {
+        if(user.level !== "admin") return
         if(banUpdateMessage === '밴 처리중') return
         setBanUpdateMessage('밴 처리중')
         e.preventDefault();
@@ -78,56 +93,65 @@ const Profile = (props) => {
 
     return (
         <>
-            <h3>{user + hashtag}</h3>
+            <h3>{target + hashtag}</h3>
             <div>
-                {hashtag && <div>이메일</div>}
-                {/*TODO admin or 자신만 볼 수 있도록*/}
+                {hashtag &&
+                    <div>
+                        이메일 : {user.useremail}
+                    </div>
+                }
+                {banInfo &&
+                    <div>
+                        <form onSubmit={handleSubmit}>
+                            <input type="text" name="comment" value={banInfo.comment || ''} disabled={user.level !== "admin"} onChange={handleChange}/>
+                            <select onChange={handleChange} value={banInfo.remainDate} disabled={user.level !== "admin"}
+                                    name="remainDate">
+                                <option value="0">정상</option>
+                                <option value="1">1일</option>
+                                <option value="3">3일</option>
+                                <option value="7">7일</option>
+                                <option value="30">30일</option>
+                                <option value="100000">영구정지</option>
+                            </select>
+                            {user.level === "admin" && <button type="submit">send</button>}
+                            {banUpdateMessage}
+                        </form>
+                    </div>
+                }
+            </div>
+            {writtenList.length > 0 &&
                 <div>
-                    {/*TODO admin만 벤 할 수 있도록*/}
-                    <form onSubmit={handleSubmit}>
-                        벤 사유 : <input type="text" name="comment" onChange={handleChange}/>
-                        <select onChange={handleChange} name="remainDate">
-                            <option value="1">1일</option>
-                            <option value="3">3일</option>
-                            <option value="7">7일</option>
-                            <option value="30">30일</option>
-                            <option value="100000">영구정지</option>
-                        </select>
-                        <button type="submit">send</button>
-                        {banUpdateMessage}
-                    </form>
+                    <h4>작성글</h4>
+                    <ul>
+                        {writtenList.map((history, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
+                            <li key={index}>
+                                <Link to={"/document/" + history.title + "?version=" + history.version}>
+                                    <span>제목: {history.title}</span>
+                                    <span>, 작성날짜: {history.updateAt}</span>`
+                                    <span>, 버전: {history.version}</span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+
+                    <div>
+                        <span>
+                            {page - 1 > 0 ? (
+                                <Link to={`/profile/${url}` + "?page=" + (page - 1)}>{"<"}Prev</Link>
+                            ) : (
+                                "<Prev"
+                            )}
+                        </span>
+                                <span>
+                            {page + 1 <= maxPage ? (
+                                <Link to={`/profile/${url}` + "?page=" + (page + 1)}>Next{">"}</Link>
+                            ) : (
+                                "Next>"
+                            )}
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <h4>작성글</h4>
-                <ul>
-                    {writtenList.map((history, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
-                        <li key={index}>
-                            <Link to={"/document/" + history.title + "?version=" + history.version}>
-                                <span>제목: {history.title}</span>
-                                <span>, 작성날짜: {history.updateAt}</span>`
-                                <span>, 버전: {history.version}</span>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <div>
-                <span>
-                    {page - 1 > 0 ? (
-                        <Link to={`/profile/${url}` + "?page=" + (page - 1)}>{"<"}Prev</Link>
-                    ) : (
-                        "<Prev"
-                    )}
-                </span>
-                <span>
-                    {page + 1 <= maxPage ? (
-                        <Link to={`/profile/${url}` + "?page=" + (page + 1)}>Next{">"}</Link>
-                    ) : (
-                        "Next>"
-                    )}
-                </span>
-            </div>
+            }
         </>
     );
 };
