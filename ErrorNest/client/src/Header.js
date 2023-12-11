@@ -138,9 +138,7 @@ const Header = (props) => {
             {/** 네비게이션 요소 */}
             {/*onBlur={handleBlurList}*/}
             <div className="navi-element-list-div">
-                <ul className="navi-element-list" onClick={() => {
-                    // setView(!view)
-                }}>
+                <ul className="navi-element-list">
                     <div id="nav-icon3" className={view ? 'open' : ''} onClick={handleIconClick}>
                         <span></span>
                         <span></span>
