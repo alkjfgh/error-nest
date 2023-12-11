@@ -62,29 +62,32 @@ const reportInsert = async (req, res, next) => {
 }
 
 const reportSelect = async (req, res, next) => {
-    const data = req.body;
+    const reqData = req.body;
+
+    let userInfo;
+    let reportInfo;
 
     try {
-        if (data.isLogin) {
+        if (reqData.isLogin) {
             const member = {
-                id: data.userid,
-                str_id: data.userkey
+                id: reqData.userid,
+                str_id: reqData.userkey
             };
-            data.userid = decryptCookie(member);
+            reqData.userid = decryptCookie(member);
+            userInfo = await Member.findOne({id: reqData.userid});
+
+            console.log('------------------------');
+            console.log(userInfo);
         }
 
-        const userInfo = await Member.findOne({id: data.userid});
-        console.log('------------------------');
-        console.log(userInfo);
-
-        const reportInfo = await Report.findOne({writer: data.writer, reportNo: data.reportNo});
+        reportInfo = await Report.findOne({writer: reqData.writer, reportNo: reqData.reportNo});
         console.log('------------------------');
         console.log(reportInfo);
 
 
-        res.json({success: true, message: "reportSelect 성공", userLevel: userInfo.level, reportInfo: reportInfo});
+        res.json({success: true, message: "reportSelect 성공", isLogin: reqData.isLogin, userLevel: userInfo.level, reportInfo: reportInfo});
     } catch {
-        res.json({success: false, message: "reportSelect 실패"});
+        res.json({success: false, isLogin: reqData.isLogin, reportInfo: reportInfo, message: "reportSelect 실패"});
     }
 }
 
