@@ -26,6 +26,7 @@ const Header = (props) => {
     const [selectedIndex, setSelectedIndex] = useState(-1);
     const [view, setView] = useState(false);
     const [user, setUser] = useState('')
+    const [isOpen, setIsOpen] = useState(false);
 
     const index = props.algolia.index
 
@@ -35,11 +36,12 @@ const Header = (props) => {
             const response = await fetch("https://api64.ipify.org?format=json")
             const data = await response.json()
             setUser(data.ip)
+            console.log(data.ip)
         }
+        console.log(cookies.username)
     }
 
     useEffect(() => {
-        getUser().then(r => {})
         const handleClickOutside = (event) => {
             const divElement = document.querySelector('.navi-element-list-div');
             if (divElement && !divElement.contains(event.target)) {
@@ -51,6 +53,23 @@ const Header = (props) => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+
+    useEffect(() => {
+        // 문자열 띄어쓰기 %20에서 인코딩
+        setEncodedInputText(encodeURIComponent(inputText).replace(/%20/g, '+'));
+        setHits([])
+        setSelectedIndex(-1)
+    }, [inputText, location.pathname])
+
+    useEffect(() => {
+        setUser('')
+        getUser().then(r => {})
+        setInputText("")
+    }, [location.pathname])
+
+    const handleIconClick = () => {
+        setIsOpen(!isOpen);
+    }
 
     const handleInputText = (e) => {
         const searchText = e.target.value;
@@ -86,28 +105,18 @@ const Header = (props) => {
         }
     };
 
-    useEffect(() => {
-        // 문자열 띄어쓰기 %20에서 인코딩
-        setEncodedInputText(encodeURIComponent(inputText).replace(/%20/g, '+'));
-        setHits([])
-        setSelectedIndex(-1)
-    }, [inputText, location.pathname])
-
-    useEffect(() => {
-        setInputText("")
-    }, [location.pathname])
-
     return (
         <nav className="navigation">
             {/** 로고 이미지 */}
             <Link to="/" className="logo-img-link">
-                <img src={logoImg} alt="로고 이미지" className="logo-image" />
+                <img src={logoImg} alt="로고 이미지" className="logo-image"/>
             </Link>
 
             {/** 검색 바 */}
             <div className="navi-button-div">
                 <div>
-                    <input className="navi-input-bar" type="text" placeholder="검색" value={inputText} onChange={handleInputText} onKeyDown={handleKeyPress}/>
+                    <input className="navi-input-bar" type="text" placeholder="검색" value={inputText}
+                           onChange={handleInputText} onKeyDown={handleKeyPress}/>
 
                     <div className="search-results">
                         {hits.slice(0, 10).map((hit, index) => (
@@ -130,10 +139,17 @@ const Header = (props) => {
             {/*onBlur={handleBlurList}*/}
             <div className="navi-element-list-div">
                 <ul className="navi-element-list" onClick={() => {
-                    setView(!view)
+                    // setView(!view)
                 }}>
-                    접속하기{" "}
-                    {view ? '▲' : '▼'}
+                    <div id="nav-icon3" className={isOpen ? 'open' : ''} onClick={handleIconClick}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    {/*접속하기{" "}*/}
+                    {/*{view ? '▲' : '▼'}*/}
                     {view && <div>
                         <li className="navi-element">
                             <Link to={`/profile/${user}`}>프로필</Link>
