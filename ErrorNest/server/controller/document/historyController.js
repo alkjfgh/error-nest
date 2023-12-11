@@ -23,7 +23,6 @@ const historySelect = async (req, res, next) => {
 const profileSelect = async (req, res, next) => {
     try{
         const {username, hashtag} = req.params
-        // const hashtagNum = +hashtag;  // hashtag 0001을 1로 변환
         let writer = username;
         if(hashtag !== "ip") writer = username + "#" + hashtag;
 
@@ -35,9 +34,6 @@ const profileSelect = async (req, res, next) => {
 
         const writtenList = await Document.find({writer: writer}).limit(limit).skip(skip).sort('-createdAt');
 
-        // console.log(writtenList);
-        // console.log(writtenList.title)
-
         res.json({writtenList, maxPage: count/limit+1});
     } catch (err) {
         logger.error(err);
@@ -45,5 +41,23 @@ const profileSelect = async (req, res, next) => {
     }
 }
 
+const editHistory = async (req, res, next) => {
+    console.log('getEditHistory')
+    try{
+        const count = await Document.countDocuments({});
+        let page = parseInt(req.query.page) || 1;
+        const limit = 10; // 페이지당 결과 개수
+        if((page - 1) * 10 > count) page = count / limit + 1
+        const skip = (page - 1) * limit; // 건너뛸 결과 개수
+
+        const editHistories = await Document.find({}).limit(limit).skip(skip).sort('-createdAt');
+
+        res.json({editHistories, maxPage: count/limit+1});
+    } catch (err) {
+        logger.error(err);
+        next(err);
+    }
+}
+
 /** Exports CRUD functions */
-module.exports = {historySelect, profileSelect};
+module.exports = {historySelect, profileSelect, editHistory};

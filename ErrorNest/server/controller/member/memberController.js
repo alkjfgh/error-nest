@@ -3,10 +3,14 @@ const logger = require("../../log/logger");
 const {encryptCookie, decryptCookie} = require('../encript/encriptCookie')
 
 const memberAdmin = async (req, res, next) => {
-    // console.log("admin 들어옴");
     try {
-        //sample code
-        const members = await Member.find({}); // 몽고디비의 db.users.find({}) 쿼리와 같음
+        const count = await Member.countDocuments({});
+        let page = parseInt(req.query.page) || 1;
+        const limit = 10; // 페이지당 결과 개수
+        if((page - 1) * 10 > count) page = count / limit + 1
+        const skip = (page - 1) * limit; // 건너뛸 결과 개수
+
+        const members = await Member.find({}).limit(limit).skip(skip).sort('-createdAt');; // 몽고디비의 db.users.find({}) 쿼리와 같음
         res.json({members});
     } catch (err) {
         logger.error(err);
@@ -16,11 +20,12 @@ const memberAdmin = async (req, res, next) => {
 
 /** member CRUD */
 const memberSelect = async (req, res, next) => {
-    let { id, pw, username, hashtag } = req.body;
-    if(hashtag) hashtag = parseInt(hashtag)
-    console.log(username, hashtag)
+    let { id, pw, userkey } = req.body;
+    if(userkey){
+        id = decryptCookie({id, str_id: userkey})
+    }
     try {
-        const member = pw ? await Member.findOne({ id, pw }) : await Member.findOne({ name: username, hashtag }); // 몽고디비의 db.users.find({}) 쿼리와 같음
+        const member = pw ? await Member.findOne({ id, pw }) : await Member.findOne({ id }); // 몽고디비의 db.users.find({}) 쿼리와 같음
         if(!member){
             res.json({answer: false});
         }
@@ -53,9 +58,7 @@ const memberInsert = async (req, res, next) => {
 }
 
 const memberDelete = async (req, res, next) => {
-    // console.log(req.body);
     try{
-        // console.log(req.body.id);
         const result = await Member.deleteOne(req.body);
         res.json({success: true});
     } catch (err) {
@@ -85,23 +88,10 @@ const levelCheck = async (req, res, next) => {
 
 const checkEquals = async (req, res, next) => {
     try {
-        // console.log(req.body);
-        // const {name, value} = req.body;
-        // console.log(value);
-        // const {id, email} = req.body;
-        // const membersId = await Member.findOne({id}); // 몽고디비의 db.users.find({}) 쿼리와 같음
-        // const membersEmail = await Member.findOne({email});
         const checkMember = await Member.findOne(req.body);
-        // console.log(checkMember);
         let check = false;
         if(!checkMember) check = true;
         res.json({answer: check});
-        // // console.log(members);
-        // let isId = false;
-        // let isEmail = false;
-        // if(!membersId) isId = true;
-        // if(!membersEmail) isEmail = true;
-        // res.json({id:isId, email:isEmail});
 
     } catch (err) {
         logger.error(err);

@@ -37,7 +37,7 @@ const Profile = (props) => {
         const ipReg = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/
         if(ipReg.test(target)) return true
 
-        const user = await axios.post('/member', {username: target, hashtag})
+        const user = await axios.post('/member', {id: cookies.userid, userkey: cookies.userkey})
         if(user.data){
             const username = user.data.username
             setUser(user.data)

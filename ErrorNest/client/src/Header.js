@@ -35,12 +35,12 @@ const Header = (props) => {
             const response = await fetch("https://api64.ipify.org?format=json")
             const data = await response.json()
             setUser(data.ip)
+            console.log(data.ip)
         }
+        console.log(cookies.username)
     }
 
     useEffect(() => {
-        setUser('')
-        getUser().then(r => {})
         const handleClickOutside = (event) => {
             const divElement = document.querySelector('.navi-element-list-div');
             if (divElement && !divElement.contains(event.target)) {
@@ -52,6 +52,19 @@ const Header = (props) => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+
+    useEffect(() => {
+        // 문자열 띄어쓰기 %20에서 인코딩
+        setEncodedInputText(encodeURIComponent(inputText).replace(/%20/g, '+'));
+        setHits([])
+        setSelectedIndex(-1)
+    }, [inputText, location.pathname])
+
+    useEffect(() => {
+        setUser('')
+        getUser().then(r => {})
+        setInputText("")
+    }, [location.pathname])
 
     const handleInputText = (e) => {
         const searchText = e.target.value;
@@ -86,17 +99,6 @@ const Header = (props) => {
             else navigate(`/document/${hits[selectedIndex].title}`)
         }
     };
-
-    useEffect(() => {
-        // 문자열 띄어쓰기 %20에서 인코딩
-        setEncodedInputText(encodeURIComponent(inputText).replace(/%20/g, '+'));
-        setHits([])
-        setSelectedIndex(-1)
-    }, [inputText, location.pathname])
-
-    useEffect(() => {
-        setInputText("")
-    }, [location.pathname])
 
     return (
         <nav className="navigation">
@@ -136,9 +138,12 @@ const Header = (props) => {
                     접속하기{" "}
                     {view ? '▲' : '▼'}
                     {view && <div>
-                        <li className="navi-element">
-                            <Link to={`/profile/${user}`}>프로필</Link>
-                        </li>
+                        {user &&
+                            <li className="navi-element">
+                                {/*TODO 새로고침 되야 user 됨*/}
+                                <Link to={`/profile/${user}`}>프로필</Link>
+                            </li>
+                        }
                         {cookies.userid === undefined && (
                             <>
                                 <li className="navi-element">
