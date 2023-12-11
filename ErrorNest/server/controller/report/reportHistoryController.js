@@ -20,10 +20,13 @@ const reportSelectAll = async (req, res, next) => {
         console.log("---- userInfo ----");
         console.log(userInfo);
         console.log(reqData.userid);
-        let result = [];
+        let result;
 
-        if (userInfo !== undefined && userInfo.level === "admin")
-            result = await Report.find({});
+        if (reqData.isLogin) {
+            if (userInfo.level === "admin")
+                result = await Report.find({});
+        }
+
         else
             result = await Report.find({writer: reqData.userid});
 
