@@ -83,9 +83,12 @@ const reportSelect = async (req, res, next) => {
         reportInfo = await Report.findOne({writer: reqData.writer, reportNo: reqData.reportNo});
         console.log('------------------------');
         console.log(reportInfo);
+        
+        console.log(`userLevel: ${userInfo.level}`);
+        console.log(`username: ${userInfo.name}`);
 
 
-        res.json({ message: "reportSelect 성공", isLogin: reqData.isLogin, userLevel: userInfo.level, username: userInfo.username, hastTag: userInfo.hastTag, reportInfo: reportInfo});
+        res.json({ message: "reportSelect 성공", isLogin: reqData.isLogin, userLevel: userInfo.level, username: userInfo.name, hashtag: userInfo.hashtag, reportInfo: reportInfo});
     } catch {
         res.json({isLogin: reqData.isLogin, reportInfo: reportInfo, message: "reportSelect 실패"});
     }

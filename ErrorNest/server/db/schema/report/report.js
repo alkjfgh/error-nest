@@ -34,6 +34,10 @@ const reportSchema = new Schema({
         type: String,
         required: true
     },
+    hashtag: {
+        type: Number,
+        required: true
+    },
     status: { // 취소, 삭제, 대기
         type: String,
         default: "대기",

@@ -366,7 +366,7 @@ function Document(props) {
             <div className={"document-navi"}>
                 {!isFile && <Link to={"/edit/" + title + "?version=" + version}>편집</Link>}
                 {!isFile && <Link to={"/history/" + title}>역사</Link>}
-                {!isFile && <Link to={"/report/" + title + "?version=" + version}>신고</Link>}
+                {!isFile && <Link to={"/report/" + title + "?version=" + version + "&writer=" + writer}>신고</Link>}
                 {!isFile && <span onClick={updateFavorite}>{star}</span>}
             </div>
             <div className="index-list" id="top">{renderedIndex}</div>
