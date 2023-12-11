@@ -68,7 +68,7 @@ const Header = (props) => {
     }, [location.pathname])
 
     const handleIconClick = () => {
-        setIsOpen(!isOpen);
+        setView(!view);
     }
 
     const handleInputText = (e) => {
@@ -141,7 +141,7 @@ const Header = (props) => {
                 <ul className="navi-element-list" onClick={() => {
                     // setView(!view)
                 }}>
-                    <div id="nav-icon3" className={isOpen ? 'open' : ''} onClick={handleIconClick}>
+                    <div id="nav-icon3" className={view ? 'open' : ''} onClick={handleIconClick}>
                         <span></span>
                         <span></span>
                         <span></span>
