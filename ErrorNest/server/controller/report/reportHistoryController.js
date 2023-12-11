@@ -19,9 +19,10 @@ const reportSelectAll = async (req, res, next) => {
         const userInfo = await Member.findOne({id: reqData.userid});
         console.log("---- userInfo ----");
         console.log(userInfo);
+        console.log(reqData.userid);
         let result = [];
 
-        if (userInfo.level === "admin")
+        if (userInfo !== undefined && userInfo.level === "admin")
             result = await Report.find({});
         else
             result = await Report.find({writer: reqData.userid});

@@ -16,12 +16,11 @@ const ReportHistory = (props) => {
         axiosLoading(async () => {
             const thisUri = location.pathname;
             console.log("---------------------");
-            console.log(thisUri);
+            console.log(`${thisUri}/getReportList`);
             const response = await axios.post(`${thisUri}/getReportList`,user);
             setReportList(response.data.result);
             console.log("reportList >> ");
             console.log(reportList);
-            setWriter(response.data.writer);
         })
     }
 
@@ -50,7 +49,7 @@ const ReportHistory = (props) => {
     return (
         <div>
             <h2>신고 목록</h2>
-            {reportList.length === 0 ? (
+            {!reportList ? (
                 <p>신고한 목록이 없습니다</p>
             ) : (
                 <table>
