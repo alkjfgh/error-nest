@@ -1,8 +1,8 @@
-const Report = require("../db/schema/report"); // Get report schema
-const Member = require("../db/schema/member");
-const logger = require("../log/logger");
-const Document = require("../db/schema/document");
-const {encryptCookie, decryptCookie} = require('./encript/encriptCookie');
+const Report = require("../../db/schema/report/report"); // Get report schema
+const Member = require("../../db/schema/member/member");
+const logger = require("../../log/logger");
+const Document = require("../../db/schema/document/document");
+const {encryptCookie, decryptCookie} = require('../encript/encriptCookie');
 
 
 /** report CRUD */
