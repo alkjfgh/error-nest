@@ -39,6 +39,9 @@ const reportSchema = new Schema({
         default: "대기",
         required: true
     },
+    adminComment: {
+        type: String
+    },
     reportNo: {
         type: Number,
         default: 0,
