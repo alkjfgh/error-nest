@@ -26,6 +26,7 @@ const Header = (props) => {
     const [selectedIndex, setSelectedIndex] = useState(-1);
     const [view, setView] = useState(false);
     const [user, setUser] = useState('')
+    const [isOpen, setIsOpen] = useState(false);
 
     const index = props.algolia.index
 
@@ -65,6 +66,10 @@ const Header = (props) => {
         getUser().then(r => {})
         setInputText("")
     }, [location.pathname])
+
+    const handleIconClick = () => {
+        setIsOpen(!isOpen);
+    }
 
     const handleInputText = (e) => {
         const searchText = e.target.value;
@@ -134,9 +139,9 @@ const Header = (props) => {
             {/*onBlur={handleBlurList}*/}
             <div className="navi-element-list-div">
                 <ul className="navi-element-list" onClick={() => {
-                    setView(!view)
+                    // setView(!view)
                 }}>
-                    <div id="nav-icon3">
+                    <div id="nav-icon3" className={isOpen ? 'open' : ''} onClick={handleIconClick}>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -146,12 +151,9 @@ const Header = (props) => {
                     {/*접속하기{" "}*/}
                     {/*{view ? '▲' : '▼'}*/}
                     {view && <div>
-                        {user &&
-                            <li className="navi-element">
-                                {/*TODO 새로고침 되야 user 됨*/}
-                                <Link to={`/profile/${user}`}>프로필</Link>
-                            </li>
-                        }
+                        <li className="navi-element">
+                            <Link to={`/profile/${user}`}>프로필</Link>
+                        </li>
                         {cookies.userid === undefined && (
                             <>
                                 <li className="navi-element">
