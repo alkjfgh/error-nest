@@ -1,72 +1,46 @@
 import React, {useEffect, useState} from 'react';
-import {useCookies} from "react-cookie";
+import {Link, useLocation} from "react-router-dom";
+
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
 
 function MemberListView(props) {
+    const location = useLocation()
+
     const [members, setMembers] = useState([{}]);
-    const [cookies] = useCookies();
-    const [level, setLevel] = useState("");
-    const navigate = useNavigate();
+    const [page, setPage] = useState(1)
+    const [maxPage, setMaxPage] = useState(1)
 
-
-
-
-
+    const axiosLoading = props.axiosLoading
 
     useEffect(() => {
-        // return () => {
-        //     getMembers().then(r => {});
-        // }
-        levelCheck().then((level) => {
-            if(level === "admin") getMembers();
-            else navigate("/");
-        });
+        setMembers([{}])
+        axiosLoading(getMembers)
     },[]);
 
-
-    const handleChange = (e) => {
-        const {name, value}  = e.target;
-        setInputs({
-            ...inputs,
-            [name]: value
-        });
-    }
-
-    const levelCheck = async () => {
-        console.log("levelCheck들어옴");
-        if(cookies.userid) {
-            const res = await axios.post('/member/levelCheck', {userid: cookies.userid, username: cookies.username, userkey:cookies.userkey});
-            return res.data.level
-        }
-        else return "";
-        // console.log("level" + level);
-    };
+    useEffect(() => {
+        setMembers([{}])
+        axiosLoading(getMembers)
+    }, [page]);
 
     /** 유저 목록 조회 */
     const getMembers = async () => {
-        const response = await axios.get('/member/admin');
-        // setMembers(response.data.members);
-        // console.log(response.data.members);
+        const response = await axios.get(`/member/admin?page=${page}`);
         const formattedMembers = response.data.members.map((member) => ({
             ...member,
             date: new Date(member.date).toLocaleDateString().slice(0, -1) // 원하는 날짜 형식으로 변환
         }));
+        const maxPage = Math.floor(response.data.maxPage)
+        
         setMembers(formattedMembers);
-        console.log(formattedMembers);
+        setMaxPage(maxPage);
     };
 
 
 
     const handleDelete = async (e) => {
-        // alert(e.target.name);
         const data = await axios.delete('/member/delete', {data:{ id: e.target.name}})
             .then(()=>getMembers());
     }
-
-
-
-
 
     return (
         <>
@@ -81,26 +55,45 @@ function MemberListView(props) {
                     <th>date</th>
                     <th>level</th>
                 </tr>
-                {members && members.map((member) => (
-                    <tr>
-                        <td>{member.name}</td>
-                        <td>{member.hashtag}</td>
-                        <td>{member.id}</td>
-                        <td>{member.pw}</td>
-                        <td>{member.email}</td>
-                        <td>{member.date}</td>
-                        <td>{member.level}</td> &nbsp;
-                        <button type="button" name={member.id} onClick={handleDelete}>삭제</button>
-                    </tr>
-                ))}
+                {members.length > 0 && members.map((member, index) => {
+                    let hashtag = member.hashtag ? member.hashtag.toString().padStart(4, '0') : '';
+                    return (
+                        <tr key={index}>
+                            <td><Link to={`/profile/${member.name}#${hashtag}`}>{member.name}</Link></td>
+                            <td>{hashtag}</td>
+                            <td>{member.id}</td>
+                            <td>{member.pw}</td>
+                            <td>{member.email}</td>
+                            <td>{member.date}</td>
+                            <td>{member.level}</td>
+                            <td>
+                                <button type="button" name={member.id} onClick={handleDelete}>삭제</button>
+                            </td>
+                        </tr>
+                    );
+                })}
                 </tbody>
             </table>
 
-
-
-
+            <div>
+                {/* TODO ban 여러개 넣어서 테스트 해봐야 함*/}
+                <span>
+                    {page - 1 > 0 ? (
+                        <span onClick={() => setPage(page - 1)}>{"<"}Prev</span>
+                    ) : (
+                        "<Prev"
+                    )}
+                </span>
+                <span>
+                    {page + 1 <= maxPage ? (
+                        <span onClick={() => setPage(page + 1)}>Next{">"}</span>
+                    ) : (
+                        "Next>"
+                    )}
+                </span>
+            </div>
         </>
-    );
+    )
 }
 
 export default MemberListView;

@@ -22,7 +22,7 @@ const Report = (props) => {
             console.log(`axios(get) >> ${thisUri + versionURI}`);
 
             // const res = await axios.get(thisUri + versionURI);
-            const res = await axios.get(thisUri+ versionURI);
+            const res = await axios.get(thisUri + versionURI);
             console.log("res.data");
             console.log(res.data);
 

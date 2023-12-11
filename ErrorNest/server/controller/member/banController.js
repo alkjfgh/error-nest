@@ -1,6 +1,7 @@
-const Ban = require("../../db/schema/member/ban"); // Get member schema
-const Member = require('../../db/schema/member/member')
+const Ban = require("../../db/schema/member/ban");
+const Member = require("../../db/schema/member/member")
 const logger = require("../../log/logger");
+const BanHistory = require("../../db/schema/member/banHistory")
 
 const isBan = async (req, res, next) => {
     const { username, hashtag } = req.params
@@ -39,6 +40,7 @@ const banUpdate = async (req, res, next) => {
     const hashtagNumber = +hashtag
 
     const { comment, remainDate } = req.body
+    const remainDateNum = +remainDate
 
     let success = false
     try {
@@ -57,13 +59,15 @@ const banUpdate = async (req, res, next) => {
         // Ban 스키마에서 target을 찾아서 삭제
         await Ban.findOneAndDelete({ target })
 
-        // 새로운 문서 생성
-        await Ban.create({
-            target,
-            type,
-            comment,
-            remainDate
-        })
+        if(remainDateNum > 0){
+            // 새로운 문서 생성
+            await Ban.create({
+                target,
+                type,
+                comment,
+                remainDate
+            })
+        }
 
         success = true
 
@@ -75,5 +79,37 @@ const banUpdate = async (req, res, next) => {
     }
 }
 
+const banList = async (req, res, next) => {
+    try {
+        const count = await Ban.countDocuments({});
+        let page = parseInt(req.query.page) || 1;
+        const limit = 10; // 페이지당 결과 개수
+        if((page - 1) * 10 > count) page = count / limit + 1
+        const skip = (page - 1) * limit; // 건너뛸 결과 개수
+
+        const banList = await Ban.find({}).limit(limit).skip(skip).sort('-createdAt') // 몽고디비의 db.users.find({}) 쿼리와 같음
+        res.json({banList});
+    } catch (err) {
+        logger.error(err);
+        next(err);
+    }
+}
+
+const banHistory = async (req, res, next) => {
+    try {
+        const count = await BanHistory.countDocuments({});
+        let page = parseInt(req.query.page) || 1;
+        const limit = 10; // 페이지당 결과 개수
+        if((page - 1) * 10 > count) page = count / limit + 1
+        const skip = (page - 1) * limit; // 건너뛸 결과 개수
+
+        const banHistories = await BanHistory.find({}).limit(limit).skip(skip).sort('-createdAt') // 몽고디비의 db.users.find({}) 쿼리와 같음
+        res.json({banHistories});
+    } catch (err) {
+        logger.error(err);
+        next(err);
+    }
+}
+
 /** Exports CRUD functions */
-module.exports = {isBan, banUpdate};
+module.exports = {isBan, banUpdate, banList, banHistory};
