@@ -29,7 +29,6 @@ const ReportBoard = (props) => {
         console.log(data);
         const result = await axios.post('/report/select', data);
         console.log(result.data);
-        console.log(result.data.reportInfo);
 
         setReportInfo(result.data.reportInfo);
 
@@ -73,6 +72,10 @@ const ReportBoard = (props) => {
         }
     }
 
+    const cancelButtonClick = async (reportInfo) => {
+        const response = await axios.put('/report/updateCancel', reportInfo);
+    }
+
     useEffect(() => {
         axiosLoading(getData);
     }, []);
@@ -95,7 +98,9 @@ const ReportBoard = (props) => {
                     {reportInfo.status === "완료" &&
                         <p>관리자 답장: {reportInfo.adminComment}</p>
                     }
-
+                    {reportInfo.status === "대기" &&
+                        <button onClick={() => cancelButtonClick(reportInfo)}>취소</button>
+                    }
                 </>
             )}
             <div className={"document-navi"}>

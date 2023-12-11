@@ -8,6 +8,7 @@ router.get('/getDocument/*', reportController.documentSelect);
 router.post('/select/', reportController.reportSelect);
 router.post('/insert/', reportController.reportInsert);
 router.put('/update/', reportController.reportUpdate);
+router.put('/updateCancel/', reportController.reportUpdateCancel);
 
 
 module.exports = router;
