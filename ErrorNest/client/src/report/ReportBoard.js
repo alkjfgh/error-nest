@@ -1,5 +1,5 @@
-import {useLocation} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {Link, useLocation} from "react-router-dom";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useCookies} from "react-cookie";
 
@@ -15,6 +15,8 @@ const ReportBoard = (props) => {
     const writer = searchParams.get("writer");
     const reportNo = searchParams.get("reportNo");
 
+    const [reportInfo, setReportInfo] = useState({});
+
 
     const getReportBoard = async (data) => { // report/select
         // TODO: writer랑 reportNo를 넘겨서 가져와야 하는 것: report 모든 정보, id랑 writer랑 동일한지 체크한 값(T or F)
@@ -25,6 +27,9 @@ const ReportBoard = (props) => {
         console.log(data);
         const result = await axios.post('/report/select', data);
         console.log(result.data);
+        console.log(result.data.reportInfo);
+
+        setReportInfo(result.data.reportInfo);
     };
 
     const getUserInfo = async () => {
@@ -48,11 +53,21 @@ const ReportBoard = (props) => {
 
     return (
         <>
-            <h2>ReportBoard Page </h2>
-            writer: {writer} <br/>
-            reportNo: {reportNo} <br/>
+            {reportInfo && (
+                <>
+                    <h2>{reportInfo.title} - ver {reportInfo.version}</h2>
+                    <p>writer: {reportInfo.writer}</p>
+                    <p>Status: {reportInfo.status}</p>
+                    <p>Comment: {reportInfo.comment}</p>
+                    <p>CreatedAt: {reportInfo.createAt}</p>
+
+                    <div className={"document-navi"}>
+                        <Link to="/reportHistory">돌아가기</Link>
+                    </div>
+                </>
+            )}
         </>
     )
 }
 
-export default  ReportBoard;
+export default ReportBoard;

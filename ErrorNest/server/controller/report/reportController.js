@@ -65,27 +65,25 @@ const reportSelect = async (req, res, next) => {
     const data = req.body;
 
     try {
-        // const user = await Member
-        const reportInfo = await Report.findOne({writer: data.writer, reportNo: data.reportNo});
-        console.log('------------------------');
-        console.log(reportInfo);
-
-        let userInfo;
-
         if (data.isLogin) {
             const member = {
                 id: data.userid,
                 str_id: data.userkey
             };
             data.userid = decryptCookie(member);
-            userInfo = await Member.findOne({id: data.userid});
         }
 
+        const userInfo = await Member.findOne({id: data.userid});
         console.log('------------------------');
         console.log(userInfo);
-        res.json({success: true});
+
+        const reportInfo = await Report.findOne({writer: data.writer, reportNo: data.reportNo});
+        console.log('------------------------');
+        console.log(reportInfo);
+
+        res.json({success: true, message: "reportSelect 성공", reportInfo: reportInfo});
     } catch {
-        res.json({success: false});
+        res.json({success: false, message: "reportSelect 실패"});
     }
 }
 
