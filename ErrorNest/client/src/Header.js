@@ -26,6 +26,7 @@ const Header = (props) => {
     const [selectedIndex, setSelectedIndex] = useState(-1);
     const [view, setView] = useState(false);
     const [user, setUser] = useState('')
+    const [isOpen, setIsOpen] = useState(false);
 
     const index = props.algolia.index
 
@@ -63,6 +64,10 @@ const Header = (props) => {
         getUser().then(r => {})
         setInputText("")
     }, [location.pathname])
+
+    const handleIconClick = () => {
+        setView(!view);
+    }
 
     const handleInputText = (e) => {
         const searchText = e.target.value;
@@ -102,13 +107,14 @@ const Header = (props) => {
         <nav className="navigation">
             {/** 로고 이미지 */}
             <Link to="/" className="logo-img-link">
-                <img src={logoImg} alt="로고 이미지" className="logo-image" />
+                <img src={logoImg} alt="로고 이미지" className="logo-image"/>
             </Link>
 
             {/** 검색 바 */}
             <div className="navi-button-div">
                 <div>
-                    <input className="navi-input-bar" type="text" placeholder="검색" value={inputText} onChange={handleInputText} onKeyDown={handleKeyPress}/>
+                    <input className="navi-input-bar" type="text" placeholder="검색" value={inputText}
+                           onChange={handleInputText} onKeyDown={handleKeyPress}/>
 
                     <div className="search-results">
                         {hits.slice(0, 10).map((hit, index) => (
@@ -130,18 +136,20 @@ const Header = (props) => {
             {/** 네비게이션 요소 */}
             {/*onBlur={handleBlurList}*/}
             <div className="navi-element-list-div">
-                <ul className="navi-element-list" onClick={() => {
-                    setView(!view)
-                }}>
-                    접속하기{" "}
-                    {view ? '▲' : '▼'}
-                    {view && <div>
-                        {user &&
-                            <li className="navi-element">
-                                {/*TODO 새로고침 되야 user 됨*/}
-                                <Link to={`/profile/${user}`}>프로필</Link>
-                            </li>
-                        }
+                <ul className="navi-element-list">
+                    <div id="nav-icon3" className={view ? 'open' : ''} onClick={handleIconClick}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    {/*접속하기{" "}*/}
+                    {/*{view ? '▲' : '▼'}*/}
+                    {view && <div id="menu">
+                        <li className="navi-element">
+                            <Link to={`/profile/${user}`}>프로필</Link>
+                        </li>
                         {cookies.userid === undefined && (
                             <>
                                 <li className="navi-element">
