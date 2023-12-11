@@ -42,7 +42,6 @@ const profileSelect = async (req, res, next) => {
 }
 
 const editHistory = async (req, res, next) => {
-    console.log('getEditHistory')
     try{
         const count = await Document.countDocuments({});
         let page = parseInt(req.query.page) || 1;

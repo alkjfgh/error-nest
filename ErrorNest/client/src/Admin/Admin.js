@@ -8,6 +8,7 @@ import MemberListView from "./MemberListView";
 import BanListView from "./BanListView";
 import EditHistoryView from "./EditHistoryView";
 import BanHistoryView from "./BanHistoryView";
+import ReportHistory from "../report/ReportHistory";
 
 function Admin(props) {
     const [cookies] = useCookies();
@@ -61,7 +62,7 @@ function Admin(props) {
                 {currentView === "벤 상태" && <BanListView axiosLoading={axiosLoading}/>}
                 {currentView === "벤 로그" && <BanHistoryView axiosLoading={axiosLoading}/>}
                 {currentView === "편집 로그" && <EditHistoryView axiosLoading={axiosLoading}/>}
-                {/*{currentView === "신고 목록" && <EditHistoryView axiosLoading={axiosLoading}/>}*/}
+                {currentView === "신고 목록" && <ReportHistory axiosLoading={axiosLoading}/>}
             </div>
         </>
     )
