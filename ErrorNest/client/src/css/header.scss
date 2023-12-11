@@ -1,11 +1,13 @@
 @import "nomalize.scss";
+@import "basic";
 
 .navigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 5rem;
-  background-color: yellow;
+  //background-color: yellow;
+  background-color: $conceptYellow;
   margin-bottom: 1rem;
 
   .logo-img-link {
