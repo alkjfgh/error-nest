@@ -21,23 +21,26 @@ const historySelect = async (req, res, next) => {
 
 // 프로필에서 작성자가 적은 글만 찾아오기
 const profileSelect = async (req, res, next) => {
-    // console.log(req.params);
+    console.log('profileSelect')
     try{
         const {username, hashtag} = req.params
         // const hashtagNum = +hashtag;  // hashtag 0001을 1로 변환
-        let data = username;
-        if(hashtag !== "undefined") data = username + "#" + hashtag;
+        let writer = username;
+        if(hashtag !== "ip") writer = username + "#" + hashtag;
 
-        const count = await Document.countDocuments({writer: data});
+        console.log(req.params)
+        const count = await Document.countDocuments({writer: writer});
         let page = parseInt(req.query.page) || 1;
         const limit = 10; // 페이지당 결과 개수
         if((page - 1) * 10 > count) page = count / limit + 1
         const skip = (page - 1) * limit; // 건너뛸 결과 개수
-        // console.log(page);
-        // console.log(count);
-        // console.log(data);
 
-        const writtenList = await Document.find({writer: data}).limit(limit).skip(skip).sort('-version');
+        console.log(count)
+        console.log(page)
+        console.log(limit)
+        console.log(skip)
+
+        const writtenList = await Document.find({writer: writer}).limit(limit).skip(skip).sort('-createdAt');
 
         // console.log(writtenList);
         // console.log(writtenList.title)

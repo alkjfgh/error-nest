@@ -36,20 +36,20 @@ const History = () => {
             <h1>{title} 역사</h1>
             <div className={"document-navi"}><Link to={"/document/" + title}>돌아가기</Link></div>
             <div>
-                        <span>
-                            {page - 1 > 0 ? (
-                                <Link to={"/history/" + title + "?page=" + (page - 1)}>{"<"}Prev</Link>
-                            ) : (
-                                "<Prev"
-                            )}
-                        </span>
                 <span>
-                            {page + 1 <= maxPage ? (
-                                <Link to={"/history/" + title + "?page=" + (page + 1)}>Next{">"}</Link>
-                            ) : (
-                                "Next>"
-                            )}
-                        </span>
+                    {page - 1 > 0 ? (
+                        <Link to={"/history/" + title + "?page=" + (page - 1)}>{"<"}Prev</Link>
+                    ) : (
+                        "<Prev"
+                    )}
+                </span>
+                <span>
+                    {page + 1 <= maxPage ? (
+                        <Link to={"/history/" + title + "?page=" + (page + 1)}>Next{">"}</Link>
+                    ) : (
+                        "Next>"
+                    )}
+                </span>
             </div>
             <ul>
                 {histories.map((history, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
