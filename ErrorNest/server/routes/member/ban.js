@@ -6,4 +6,8 @@ router.get('/:username/:hashtag', banController.isBan);
 
 router.post('/update/:username/:hashtag', banController.banUpdate);
 
+router.get('/list', banController.banList)
+
+router.get('/history', banController.banHistory)
+
 module.exports = router;
