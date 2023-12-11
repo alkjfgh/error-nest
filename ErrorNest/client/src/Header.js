@@ -36,9 +36,7 @@ const Header = (props) => {
             const response = await fetch("https://api64.ipify.org?format=json")
             const data = await response.json()
             setUser(data.ip)
-            console.log(data.ip)
         }
-        console.log(cookies.username)
     }
 
     useEffect(() => {

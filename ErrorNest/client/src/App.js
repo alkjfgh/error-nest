@@ -17,10 +17,10 @@ import Report from "./report/Report";
 import Logout from "./member/Logout";
 import ReportHistory from "./report/ReportHistory";
 import algoliasearch from "algoliasearch";
-import axios from "axios";
 import Loading from "./Loading";
 import ReportBoard from "./report/ReportBoard";
 import Profile from "./member/Profile";
+import AxiosLoadingContext from './AxiosLoadingContext'; // 경로는 실제 context 파일 위치에 따라 다름
 
 const App = () => {
     const ALGOLIA_APP_ID = process.env.REACT_APP_ALGOLIA_APP_ID
@@ -65,27 +65,29 @@ const App = () => {
     },[]);
 
     return (
-        <Router>
-            <Header algolia={algolia}/>
-            {loading && <Loading/>}
-            <Routes>
-                <Route path='/' element={<Layout><Main /></Layout>} />
-                <Route path='/logout' element={<Layout><Logout axiosLoading={axiosLoading} /></Layout>} />
-                <Route path='/profile/*' element={<Layout><Profile axiosLoading={axiosLoading} /></Layout>} />
-                <Route path='/document/*' element={<Layout><Document axiosLoading={axiosLoading} /></Layout>} />
-                <Route path='/search/*' element={<Layout><Search axiosLoading={axiosLoading} algolia={algolia} /></Layout>}/>
-                <Route path='/edit/*' element={<Layout><Edit axiosLoading={axiosLoading} algolia={algolia} /></Layout>}/>
-                <Route path='/history/*' element={<Layout><History axiosLoading={axiosLoading} /></Layout>}/>
-                <Route path='/Upload' element={<Layout><Upload axiosLoading={axiosLoading} algolia={algolia} /></Layout>}/>
-                <Route path='/signup' element={<Layout><SignUp axiosLoading={axiosLoading} email={email} /></Layout>}/>
-                <Route path='/login' element={<Layout><Login axiosLoading={axiosLoading} /></Layout>}/>
-                <Route path='/admin' element={<Layout><Admin axiosLoading={axiosLoading} /></Layout>}/>
-                <Route path='/report/board/*' element={<Layout><ReportBoard axiosLoading={axiosLoading}/></Layout>}/> {/* 신고 세부사항 페이지 추가 */}
-                <Route path='/report/*' element={<Layout><Report axiosLoading={axiosLoading} /></Layout>}/>
-                <Route path='/reportHistory' element={<Layout><ReportHistory axiosLoading={axiosLoading} /></Layout>}/>
-                <Route path='*' element={<Layout><NotFound /></Layout>}/>
-            </Routes>
-        </Router>
+        <AxiosLoadingContext.Provider value={axiosLoading}>
+            <Router>
+                <Header algolia={algolia}/>
+                {loading && <Loading/>}
+                <Routes>
+                    <Route path='/' element={<Layout><Main /></Layout>} />
+                    <Route path='/logout' element={<Layout><Logout axiosLoading={axiosLoading} /></Layout>} />
+                    <Route path='/profile/*' element={<Layout><Profile axiosLoading={axiosLoading} /></Layout>} />
+                    <Route path='/document/*' element={<Layout><Document axiosLoading={axiosLoading} /></Layout>} />
+                    <Route path='/search/*' element={<Layout><Search axiosLoading={axiosLoading} algolia={algolia} /></Layout>}/>
+                    <Route path='/edit/*' element={<Layout><Edit axiosLoading={axiosLoading} algolia={algolia} /></Layout>}/>
+                    <Route path='/history/*' element={<Layout><History axiosLoading={axiosLoading} /></Layout>}/>
+                    <Route path='/Upload' element={<Layout><Upload axiosLoading={axiosLoading} algolia={algolia} /></Layout>}/>
+                    <Route path='/signup' element={<Layout><SignUp axiosLoading={axiosLoading} email={email} /></Layout>}/>
+                    <Route path='/login' element={<Layout><Login axiosLoading={axiosLoading} /></Layout>}/>
+                    <Route path='/admin' element={<Layout><Admin axiosLoading={axiosLoading} /></Layout>}/>
+                    <Route path='/report/board/*' element={<Layout><ReportBoard axiosLoading={axiosLoading}/></Layout>}/> {/* 신고 세부사항 페이지 추가 */}
+                    <Route path='/report/*' element={<Layout><Report axiosLoading={axiosLoading} /></Layout>}/>
+                    <Route path='/reportHistory' element={<Layout><ReportHistory axiosLoading={axiosLoading} /></Layout>}/>
+                    <Route path='*' element={<Layout><NotFound /></Layout>}/>
+                </Routes>
+            </Router>
+        </AxiosLoadingContext.Provider>
     );
 };
 

@@ -85,11 +85,39 @@ const reportSelect = async (req, res, next) => {
         console.log(reportInfo);
 
 
-        res.json({ message: "reportSelect 성공", isLogin: reqData.isLogin, userLevel: userInfo.level, reportInfo: reportInfo});
+        res.json({ message: "reportSelect 성공", isLogin: reqData.isLogin, userLevel: userInfo.level, username: userInfo.username, hastTag: userInfo.hastTag, reportInfo: reportInfo});
     } catch {
         res.json({isLogin: reqData.isLogin, reportInfo: reportInfo, message: "reportSelect 실패"});
     }
 }
 
+const reportUpdate = async (req, res, next) => {
+    console.log(req.body);
+
+    const filter = {writer: req.body.writer, reportNo: req.body.reportNo};
+    const update = {$set: {adminComment: req.body.adminComment, status: "완료"}};
+
+    console.log(filter);
+    console.log(update);
+
+    try{
+        await Report.updateOne(filter, update);
+        res.json({message: "신고 상태가 완료로 변경되었습니다."});
+    } catch {  
+        res.json({message: "상태 완료 오류"});
+    }
+}
+
+const reportUpdateCancel = async (req, res, next) => {
+    console.log(req.body);
+
+    try{
+        // await Report.updateOne(filter, update);
+        res.json({message: "취소 완료"});
+    } catch {
+        res.json({message: "취소 완료 오류"});
+    }
+}
+
 /** Exports CRUD functions */
-module.exports = {documentSelect, reportInsert, reportSelect};
+module.exports = {documentSelect, reportInsert, reportSelect, reportUpdate, reportUpdateCancel};
