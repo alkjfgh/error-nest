@@ -73,7 +73,15 @@ const ReportBoard = (props) => {
     }
 
     const cancelButtonClick = async (reportInfo) => {
-        const response = await axios.put('/report/updateCancel', reportInfo);
+        const userInfo = await getUserInfo();
+        const response = await axios.put('/report/updateCancel', {reportInfo, userInfo});
+
+        if (response.data.success) {
+            alert(response.data.message);
+            navigate('/reportHistory');
+        } else {
+            alert(response.data.message);
+        }
     }
 
     useEffect(() => {
@@ -85,7 +93,7 @@ const ReportBoard = (props) => {
             {reportInfo && (
                 <>
                     <h2>{reportInfo.title} - ver {reportInfo.version}</h2>
-                    <p>writer: {reportInfo.writer}</p>
+                    <p>writer: {reportInfo.reportId}</p>
                     <p>Status: {reportInfo.status}</p>
                     <p>Comment: {reportInfo.comment}</p>
                     <p>CreatedAt: {reportInfo.createAt}</p>
@@ -101,12 +109,13 @@ const ReportBoard = (props) => {
                     {reportInfo.status === "대기" &&
                         <button onClick={() => cancelButtonClick(reportInfo)}>취소</button>
                     }
+                    <div className={"document-navi"}>
+                        {isAdmin && <Link to={`/profile/${reportInfo.reportId}`}>프로필</Link>}
+                        <Link to="/reportHistory">돌아가기</Link>
+                    </div>
                 </>
             )}
-            <div className={"document-navi"}>
-                {isAdmin && <Link to={`/profile/${reportInfo.writer}`}>프로필</Link>}
-                <Link to="/reportHistory">돌아가기</Link>
-            </div>
+
         </>
     )
 }

@@ -48,7 +48,7 @@ const reportInsert = async (req, res, next) => {
             title: report.title,
             comment: report.comment,
             version: report.version,
-            writer: report.userInfo.userid
+            reportId: report.userInfo.userid
         }
 
         await Report.create(data);
@@ -109,13 +109,32 @@ const reportUpdate = async (req, res, next) => {
 }
 
 const reportUpdateCancel = async (req, res, next) => {
-    console.log(req.body);
+    const reqData = req.body;
+    console.log(reqData);
+    // id를 가져와 해당 신고자 아이디와 같을 시만 적용되게 !
+
+    let userInfo;
 
     try{
-        // await Report.updateOne(filter, update);
-        res.json({message: "취소 완료"});
+        if (req.body.userInfo.isLogin) {
+            const member = {
+                id: req.body.userInfo.userid,
+                str_id: req.body.userInfo.userkey
+            }
+            req.body.userInfo.userid = decryptCookie(member);
+        }
+
+        if (req.body.userInfo.userid === req.body.reportInfo.reportId) {
+            const filter = {writer: req.body.reportInfo.reportId, reportNo: req.body.reportInfo.reportNo};
+            const update = {$set: {status: "취소"}};
+
+            await Report.updateOne(filter, update);
+            res.json({success: true, message: "신고 상태가 취소되었습니다."});
+        } else {
+            res.json({success: false, message: "신고자만 취소할 수 있습니다."});
+        }
     } catch {
-        res.json({message: "취소 완료 오류"});
+        res.json({message: "취소 오류"});
     }
 }
 

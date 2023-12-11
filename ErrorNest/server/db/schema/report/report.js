@@ -30,7 +30,7 @@ const reportSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    writer: {
+    reportId: {
         type: String,
         required: true
     },
@@ -51,7 +51,7 @@ const reportSchema = new Schema({
 
 reportSchema.pre('save', async function(next) {
     if (this.isNew) {
-        const latestDoc = await this.constructor.findOne({ writer: this.writer }).sort('-reportNo');
+        const latestDoc = await this.constructor.findOne({ reportId: this.reportId }).sort('-reportNo');
         if (latestDoc) {
             this.reportNo = latestDoc.reportNo + 1;
         } else {
