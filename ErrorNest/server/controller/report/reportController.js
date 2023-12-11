@@ -6,49 +6,42 @@ const {encryptCookie, decryptCookie} = require('../encript/encriptCookie');
 
 
 /** report CRUD */
+
+/** documentSelect: 완료 */
 const documentSelect = async (req, res, next) => {
-    console.log("documentSelect Controller 진입 성공 !!");
-    const title = req.params[0]
+    console.log(req.body);
+    let documentInfo;
+
     try {
-        if (req.query.version) {
-            let version = parseInt(req.query.version) // 페이지 번호
-            const options = {title: title}
-            if (version) options.version = version
-            const document = await Document.findOne(options).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
-            res.json({
-                title: document.title,
-                version: document.version,
-                updateAt: document.updateAt,
-                content: document.content
-            });
-        } else {
-            res.json({title: title, version: 1, content: "", message: "문서 가져오기 성공 !!"});
+        if (req.body.version) {
+            let version;
+            if (req.body.version !== "null") {
+                version = parseInt(req.body.version);
+                documentInfo = await Document.findOne({title: req.body.title, version: version});
+            } else {
+                documentInfo = await Document.findOne({title: req.body.title}).sort('-version');
+            }
+            console.log(documentInfo);
+
+            res.json({title: documentInfo.title, version: documentInfo.version, myName: req.body.username});
         }
     } catch (err) {
         logger.error(err);
         next(err);
-        res.json({title: title, version: 1, content: "", message: "문서 가져오기 실패 !!"});
+        res.json({message: "문서 가져오기 실패 !!"});
     }
 }
 
+/** reportInsert 완료 */
 const reportInsert = async (req, res, next) => {
     try {
-        const report = req.body;
-        console.log(report);
-
-        if (report.userInfo.isLogin) {
-            const member = {
-                id: report.userInfo.userid,
-                str_id: report.userInfo.userkey
-            }
-            report.userInfo.userid = decryptCookie(member);
-        }
+        console.log(req.body);
 
         const data = {
-            title: report.title,
-            comment: report.comment,
-            version: report.version,
-            writer: report.userInfo.userid
+            title: req.body.title,
+            comment: req.body.comment,
+            version: req.body.version,
+            writer: req.body.username
         }
 
         await Report.create(data);
@@ -61,6 +54,7 @@ const reportInsert = async (req, res, next) => {
     }
 }
 
+/** reportSelect 시작 */
 const reportSelect = async (req, res, next) => {
     const reqData = req.body;
 

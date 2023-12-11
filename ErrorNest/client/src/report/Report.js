@@ -5,78 +5,62 @@ import {useCookies} from "react-cookie";
 
 const Report = (props) => {
     const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+
+    const writer = searchParams.get("writer");
+
     const navigate = useNavigate();
+
     const [title, setTitle] = useState("");
-    const [writer, setWriter] = useState("");
-    const [version, setVersion] = useState(1);
+    const [myName, setMyName] = useState("");
+    const [version, setVersion] = useState(0);
     const [comment, setComment] = useState("");
-    const [cookies, setCookies, removeCookies] = useCookies();
+    const [cookies,] = useCookies();
 
-    const axiosLoading = props.axiosLoading
+    const axiosLoading = props.axiosLoading;
 
-    const getDocument = async (thisUri, versionURI) => {
-        axiosLoading(async () => {
-            thisUri = thisUri.substring(0, 7) + `/getDocument` + thisUri.substring(7);
+    /** 문서 정보 (title, version)과 내 이름을 가져옴 */
+    const getDocument = async (data) => {
+        const searchParams = new URLSearchParams(location.search);
 
-            console.log(`thisUri >> ${thisUri}`);
-            console.log(`axios(get) >> ${thisUri + versionURI}`);
+        data.writer = searchParams.get("writer");
+        data.version = searchParams.get("version");
+        data.title = decodeURIComponent(location.pathname.replace('/report/', ''));
 
-            // const res = await axios.get(thisUri + versionURI);
-            const res = await axios.get(thisUri + versionURI);
-            console.log("res.data");
-            console.log(res.data);
+        const res = await axios.post('/report/getDocument/', data);
+        console.log(res.data);
 
-            setTitle(res.data.title);
-            setVersion(res.data.version);
-            setWriter(await getWriter());
-        })
-
+        setTitle(res.data.title);
+        setVersion(res.data.version);
+        setMyName(res.data.myName);
     }
 
-    const getWriter = async () => {
-        if(cookies.userid) return cookies.userid;
-        const response = await fetch("https://api64.ipify.org?format=json");
-        const data = await response.json();
-        console.log(`data.ip >> ${data.ip}`);
-        return data.ip;
-    }
-
+    /** 로그인 상태와 각 상태와 관련된 정보를 가져옴 */
     const getUserInfo = async () => {
         if(cookies.userid !== undefined) {
-            console.log(`cookies.userid >> ${cookies.userid}`);
             return {userid: cookies.userid, username: cookies.username, userkey: cookies.userkey, isLogin: true}; // 로그인 id
         } else {
             const response = await fetch("https://api64.ipify.org?format=json");
             const data = await response.json();
-
-            console.log(`data.ip >> ${data.ip}`);
-            return {userid: data.ip, username: "noName", userkey: "noKey", isLogin: false}; // PC ip
+            return {userid: data.ip, isLogin: false}; // PC ip
         }
     }
 
+    const getData = async () => {
+        getUserInfo().then((user) => getDocument(user));
+    }
+
     useEffect(() => {
-        const thisUri= location.pathname;
-        const params = new URLSearchParams(location.search);
-        const versionURI = location.search;
-
-        setVersion(parseInt(params.get('version')) || 0);
-        getDocument(thisUri, versionURI).then();
-
+        axiosLoading(getData);
     }, []);
 
     const reportSubmit = async () => {
         axiosLoading(async () => {
-            let thisUri = location.pathname;
-            thisUri = thisUri.substring(0, 7) + `/insert`;
-            console.log(`thisUri >> ${thisUri}`);
 
             const userInfo = await getUserInfo();
-            console.log("userInfo ----");
             console.log(userInfo);
 
-            console.log("reportSubmit ----");
-            console.log(userInfo);
-            const res = await axios.post(thisUri,{title, comment, version, userInfo});
+            const res = await axios.post('/report/insert',{title, comment, version, username: userInfo.username});
 
             console.log(res.data);
 
