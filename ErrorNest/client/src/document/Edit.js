@@ -167,8 +167,9 @@ const Edit = (props) => {
 
     useEffect( () => {
         const this_url = location.pathname
-        getDocument(this_url, location.search).then(() => {
-            init().then(() => {})
+        init().then(() => {
+            getDocument(this_url, location.search).then(() => {
+            })
         })
     }, [])
 
