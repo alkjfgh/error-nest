@@ -7,7 +7,6 @@ const ReportHistory = (props) => {
     const location = useLocation();
     const [cookies, setCookies] = useCookies();
     const navigate = useNavigate();
-    const [writer, setWriter] = useState("");
     const [reportList, setReportList] = useState([]);
 
     const axiosLoading = props.axiosLoading;

@@ -22,6 +22,12 @@ const reportSelectAll = async (req, res, next) => {
         console.log(reqData.userid);
         let result;
 
+        /** 페이징 개수 */
+        // let page = 1; // 페이지 번호
+        // const limit = 10; // 페이지당 결과 개수
+        // if((page - 1) * 10 > count) page = count / limit + 1
+        // const skip = (page - 1) * limit; // 건너뛸 결과 개수
+
         if (reqData.isLogin) {
             if (userInfo.level === "admin")
                 result = await Report.find({});

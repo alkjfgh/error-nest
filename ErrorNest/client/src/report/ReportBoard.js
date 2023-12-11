@@ -10,7 +10,7 @@ const ReportBoard = (props) => {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
 
-    const [cookies, setCookies] = useCookies()
+    const [cookies,] = useCookies()
 
     const writer = searchParams.get("writer");
     const reportNo = searchParams.get("reportNo");
@@ -19,9 +19,7 @@ const ReportBoard = (props) => {
     const [isAdmin, setIsAdmin] = useState(false);
 
 
-    const getReportBoard = async (data) => { // report/select
-        // TODO: writer랑 reportNo를 넘겨서 가져와야 하는 것: report 모든 정보, id랑 writer랑 동일한지 체크한 값(T or F)
-
+    const getReportBoard = async (data) => {
         data.writer = writer;
         data.reportNo = reportNo;
 
@@ -49,8 +47,6 @@ const ReportBoard = (props) => {
         }
     }
 
-
-
     useEffect(() => {
         getUserInfo().then(data => getReportBoard(data))
     }, []);
@@ -64,13 +60,12 @@ const ReportBoard = (props) => {
                     <p>Status: {reportInfo.status}</p>
                     <p>Comment: {reportInfo.comment}</p>
                     <p>CreatedAt: {reportInfo.createAt}</p>
-
-                    <div className={"document-navi"}>
-                        {isAdmin && <Link to={`/profile/${reportInfo.writer}`}>프로필</Link>}
-                        <Link to="/reportHistory">돌아가기</Link>
-                    </div>
                 </>
             )}
+            <div className={"document-navi"}>
+                {isAdmin && <Link to={`/profile/${reportInfo.writer}`}>프로필</Link>}
+                <Link to="/reportHistory">돌아가기</Link>
+            </div>
         </>
     )
 }
