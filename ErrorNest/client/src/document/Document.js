@@ -4,9 +4,11 @@ import {Link as LinkScroll, animateScroll as scroll } from 'react-scroll'
 import axios from 'axios'
 
 import '../css/document.scss'
+import {useCookies} from "react-cookie";
 
 function Document(props) {
     const location = useLocation()
+    const [cookies, setCookies, removeCookies] = useCookies();
 
     const [title, setTitle] = useState('')
     const [category, setCategory] = useState([])
@@ -22,6 +24,9 @@ function Document(props) {
         list: {}
     }
     const [renderedAnnotation, setRenderedAnnotation] = useState([])
+    const [star, setStar] = useState('☆')
+
+    const axiosLoading = props.axiosLoading
 
     const extractElements = (htmlString) => { // 문자열에서 HTML 요소 추출 및 재귀적 처리
         const wrapper = document.createElement('div')
@@ -254,6 +259,7 @@ function Document(props) {
         const res = await axios.get(this_url + versionURI)
 
         setTitle(res.data.title)
+        await isFavorite(res.data.title)
 
         if(res.data.isFile){
             setIsFile(res.data.isFile)
@@ -299,17 +305,10 @@ function Document(props) {
         }
     }
 
-    useEffect(() => {
+    const initDocument = async () => {
         const this_url = location.pathname
         const hash = location.hash ? location.hash : undefined
         const versionURI = location.search
-
-        setIndexList([])
-        setRenderedIndex([])
-        setRenderedAnnotation([])
-        setCategory([])
-        setWriter("")
-        setTitle("")
 
         getDocument(this_url, versionURI).then(r => {
             if(hash) {
@@ -319,6 +318,39 @@ function Document(props) {
             }
         })
 
+    }
+
+    const isFavorite = async (title) => {
+        const user = await getUser()
+        const res = await axios.post('/favorite',{title: title, target: user})
+        const isStar = res.data.isStar
+        if(isStar) setStar('★')
+    }
+
+    const updateFavorite = async () => {
+        const user = await getUser()
+        const res = await axios.post('/favorite/update',{title: title, target: user})
+        setStar(res.data.star)
+    }
+
+    const getUser = async () => {
+        if(cookies.username) return cookies.username
+        else{
+            const response = await fetch("https://api64.ipify.org?format=json")
+            const data = await response.json()
+            return data.ip
+        }
+    }
+
+    useEffect(() => {
+        setIndexList([])
+        setRenderedIndex([])
+        setRenderedAnnotation([])
+        setCategory([])
+        setWriter("")
+        setTitle("")
+
+        axiosLoading(initDocument)
     }, [ location.pathname, location.hash ])
 
     return (
@@ -335,6 +367,7 @@ function Document(props) {
                 {!isFile && <Link to={"/edit/" + title + "?version=" + version}>편집</Link>}
                 {!isFile && <Link to={"/history/" + title}>역사</Link>}
                 {!isFile && <Link to={"/report/" + title + "?version=" + version}>신고</Link>}
+                {!isFile && <span onClick={updateFavorite}>{star}</span>}
             </div>
             <div className="index-list" id="top">{renderedIndex}</div>
             {renderedContents}
