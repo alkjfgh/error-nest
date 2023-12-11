@@ -101,13 +101,14 @@ const Header = (props) => {
         <nav className="navigation">
             {/** 로고 이미지 */}
             <Link to="/" className="logo-img-link">
-                <img src={logoImg} alt="로고 이미지" className="logo-image" />
+                <img src={logoImg} alt="로고 이미지" className="logo-image"/>
             </Link>
 
             {/** 검색 바 */}
             <div className="navi-button-div">
                 <div>
-                    <input className="navi-input-bar" type="text" placeholder="검색" value={inputText} onChange={handleInputText} onKeyDown={handleKeyPress}/>
+                    <input className="navi-input-bar" type="text" placeholder="검색" value={inputText}
+                           onChange={handleInputText} onKeyDown={handleKeyPress}/>
 
                     <div className="search-results">
                         {hits.slice(0, 10).map((hit, index) => (
@@ -132,8 +133,15 @@ const Header = (props) => {
                 <ul className="navi-element-list" onClick={() => {
                     setView(!view)
                 }}>
-                    접속하기{" "}
-                    {view ? '▲' : '▼'}
+                    <div id="nav-icon3">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    {/*접속하기{" "}*/}
+                    {/*{view ? '▲' : '▼'}*/}
                     {view && <div>
                         <li className="navi-element">
                             <Link to={`/profile/${user}`}>프로필</Link>
