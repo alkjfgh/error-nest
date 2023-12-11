@@ -25,10 +25,21 @@ const Header = (props) => {
     const [hits, setHits] = useState([]);
     const [selectedIndex, setSelectedIndex] = useState(-1);
     const [view, setView] = useState(false);
+    const [user, setUser] = useState('')
 
     const index = props.algolia.index
 
+    const getUser = async () => {
+        if(cookies.username) setUser(cookies.username)
+        else{
+            const response = await fetch("https://api64.ipify.org?format=json")
+            const data = await response.json()
+            setUser(data.ip)
+        }
+    }
+
     useEffect(() => {
+        getUser().then(r => {})
         const handleClickOutside = (event) => {
             const divElement = document.querySelector('.navi-element-list-div');
             if (divElement && !divElement.contains(event.target)) {
@@ -125,7 +136,7 @@ const Header = (props) => {
                     {view ? '▲' : '▼'}
                     {view && <div>
                         <li className="navi-element">
-                            <Link to={`/profile/${cookies.username}`}>프로필</Link>
+                            <Link to={`/profile/${user}`}>프로필</Link>
                         </li>
                         {cookies.userid === undefined && (
                             <>
