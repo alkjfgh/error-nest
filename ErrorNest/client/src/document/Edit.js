@@ -1,17 +1,16 @@
 import React, { useState, useEffect, useRef } from "react"
 import {Link, useLocation, useNavigate } from 'react-router-dom'
 import { useCookies } from "react-cookie"
-import { parse } from 'node-html-parser'
 import axios from "axios"
-import algoliasearch from "algoliasearch"
 
 import '../css/edit.scss'
+import {CodeEdit} from "./CodeEdit";
 
 const Edit = (props) => {
     const location = useLocation()
     const navigate = useNavigate()
     const [cookies, setCookies, removeCookies] = useCookies()
-    const textRef = useRef()
+    const textRef = useRef(null)
 
     const [title, setTitle] = useState('')
     const [version, setVersion] = useState('')
@@ -69,16 +68,6 @@ const Edit = (props) => {
             setCategoryText(arrToText(res.data.category))
         })
     }
-
-    useEffect( () => {
-        const this_url = location.pathname
-        getDocument(this_url, location.search).then(r => {
-        })
-    }, [])
-
-    useEffect(()=>{
-        setCategory(categoryText.split(',').map((cg) => {return cg.trim()}))
-    }, [categoryText])
 
     const addAlgolia = async (titles,type) => {
         const index = props.algolia.index
@@ -145,16 +134,78 @@ const Edit = (props) => {
         const textBeforeCursor = content.slice(0, cursorPosition)
         const textAfterCursor = content.slice(cursorPosition)
         const newText = textBeforeCursor + addText + textAfterCursor
+        // const newText = content + addText
         setContent(newText)
     }
 
+    const init = async () => {
+        const textarea = document.querySelector("textarea");
+        const lineNumbers = document.querySelector(".line-numbers");
+
+        textarea.addEventListener("keyup", (event) => {
+            const numberOfLines = event.target.value.split("\n").length;
+
+            lineNumbers.innerHTML = Array(numberOfLines)
+                .fill("<span></span>")
+                .join("");
+        });
+
+        textarea.addEventListener("keydown", (event) => {
+            if (event.key === "Tab") {
+                const start = textarea.selectionStart;
+                const end = textarea.selectionEnd;
+
+                textarea.value =
+                    textarea.value.substring(0, start) +
+                    "\t" +
+                    textarea.value.substring(end);
+
+                event.preventDefault();
+            }
+        });
+    };
+
+    useEffect( () => {
+        const this_url = location.pathname
+        getDocument(this_url, location.search).then(() => {
+            init().then(() => {})
+        })
+    }, [])
+
+    useEffect(()=>{
+        setCategory(categoryText.split(',').map((cg) => {return cg.trim()}))
+    }, [categoryText])
+
     return (
-        <>
-            <h1>{title} - {"(Version "+version+")"}</h1>
-            <div className={"document-navi"}><Link to={"/document/" + title}>돌아가기</Link><Link to={"/history/" + title}>역사</Link></div>
-            <input type="text" value={writer} readOnly/>
-            <input type="text" value={categoryText} onChange={categoryTextChange}/>
-            {/*에디트 내용 자동 추가 버튼*/}
+        <div>
+            <h1>{title} - {"(Version " + version + ")"}</h1>
+            <div className={"document-navi"}>
+                <button onClick={() => {
+                    navigate("/document/" + title)
+                }} className={"button"}>
+                    <span>
+                        <Link to={"/document/" + title} className={"document-navi-btn"}>돌아가기</Link>
+                    </span>
+                </button>
+                <button onClick={() => {
+                    navigate("/history/" + title)
+                }} className={"button"}>
+                    <span>
+                        <Link to={"/history/" + title} className={"document-navi-btn"}>역사</Link>
+                    </span>
+                </button>
+            </div>
+            <div className={'edit-input-con'}>
+                <div className="text-input">
+                    <input type="text" id="edit-writer" value={writer} readOnly placeholder="작성자"/>
+                    <label htmlFor="edit-writer">작성자</label>
+                </div>
+                <div className="text-input">
+                    <input type="text" id="edit-category" placeholder="분류" value={categoryText}
+                           onChange={categoryTextChange}/>
+                    <label htmlFor="edit-category">분류</label>
+                </div>
+            </div>
             <div className={"editBtns-con"}>
                 <div><span className={"edit-btn"} onClick={editBtnClick}>문단 제목</span></div>
                 <div><span className={"edit-btn"} onClick={editBtnClick}>블럭쿼터</span></div>
@@ -162,10 +213,25 @@ const Edit = (props) => {
                 <div><span className={"edit-btn"} onClick={editBtnClick}>이미지</span></div>
                 <div><span className={"edit-btn"} onClick={editBtnClick}>주석</span></div>
             </div>
-            <textarea ref={textRef} value={content} onChange={contentChange}></textarea>
-            <button onClick={editSubmit}>편집 완료</button>
 
-        </>
+            {/*<textarea ref={textRef} value={content} onChange={contentChange}></textarea>*/}
+
+            {/*<CodeEdit*/}
+            {/*    name="test-textarea"*/}
+            {/*    value={content}*/}
+            {/*    onValueChange={(content) => setContent(content)}*/}
+            {/*    numOfLines={10}*/}
+            {/*/>*/}
+
+            <div className="editor">
+                <div className="line-numbers">
+                    <span></span>
+                </div>
+                <textarea ref={textRef} value={content} onChange={contentChange}></textarea>
+            </div>
+
+            <button onClick={editSubmit}>편집 완료</button>
+        </div>
     )
 }
 

@@ -9,6 +9,7 @@ import {useCookies} from "react-cookie";
 function Document(props) {
     const location = useLocation()
     const [cookies, setCookies, removeCookies] = useCookies();
+    const navigate = useNavigate()
 
     const [title, setTitle] = useState('')
     const [category, setCategory] = useState([])
@@ -358,18 +359,21 @@ function Document(props) {
             <div>
                 {category.length > 0 && `분류:`}
                 {category.map((cg, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
-                    <Link key={cg} to={`/document/분류:${cg}`}>{cg}</Link>
+                    <>
+                        <Link key={cg} to={`/document/분류:${cg}`}>{cg}</Link>
+                        <span className={"category-padding"}></span>
+                    </>
                 ))}
                 작성자 : <Link to={`/profile/${writer}`}>{writer}</Link>
             </div>
             <h1>{title} {version ? "Version: " + version : null}</h1>
             <div className={"document-navi"}>
-                {!isFile && <Link to={"/edit/" + title + "?version=" + version}>편집</Link>}
-                {!isFile && <Link to={"/history/" + title}>역사</Link>}
-                {!isFile && <Link to={"/report/" + title + "?version=" + version + "&writer="+writer}>신고</Link>}
-                {!isFile && <span onClick={updateFavorite}>{star}</span>}
+                {!isFile && <button onClick={() => {navigate("/edit/" + title + "?version=" + version)}} className={"button"}><span><Link to={"/edit/" + title + "?version=" + version} className={"document-navi-btn"}>편집</Link></span></button>}
+                {!isFile && <button onClick={() => {navigate("/history/" + title)}} className={"button"}><span><Link to={"/history/" + title} className={"document-navi-btn"}>역사</Link></span></button>}
+                {!isFile && <button onClick={() => {navigate("/report/" + title + "?version=" + version + "&writer=" + writer)}} className={"button"}><span><Link to={"/report/" + title + "?version=" + version + "&writer=" + writer} className={"document-navi-btn"}>신고</Link></span></button>}
+                {!isFile && <button onClick={updateFavorite} className={"button"}><span><span className={"document-navi-btn"}>{star}</span></span></button>}
             </div>
-            <div className="index-list" id="top">{renderedIndex}</div>
+                            <div className="index-list" id="top">{renderedIndex}</div>
             {renderedContents}
             <div className="annotation-list">{renderedAnnotation}</div>
         </div>
