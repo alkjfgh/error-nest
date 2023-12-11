@@ -91,5 +91,23 @@ const reportSelect = async (req, res, next) => {
     }
 }
 
+const reportUpdate = async (req, res, next) => {
+
+    console.log(req.body);
+
+    const filter = {writer: req.body.writer, reportNo: req.body.reportNo};
+    const update = {$set: {adminComment: req.body.adminComment, status: "완료"}};
+
+    console.log(filter);
+    console.log(update);
+
+    try{
+        await Report.updateOne(filter, update);
+        res.json({message: "신고 상태가 완료로 변경되었습니다."});
+    } catch {  
+        res.json({message: "서버 연결 비정상적인 성공"});
+    }
+}
+
 /** Exports CRUD functions */
-module.exports = {documentSelect, reportInsert, reportSelect};
+module.exports = {documentSelect, reportInsert, reportSelect, reportUpdate};
