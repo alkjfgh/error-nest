@@ -12,7 +12,7 @@ import Upload from "./document/Upload";
 import Layout from "./Layout";
 import SignUp from "./member/SignUp";
 import Login from "./member/Login";
-import Admin from "./member/Admin";
+import Admin from "./Admin/Admin";
 import Report from "./report/Report";
 import Logout from "./member/Logout";
 import ReportHistory from "./report/ReportHistory";

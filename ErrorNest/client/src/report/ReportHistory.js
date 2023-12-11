@@ -39,8 +39,8 @@ const ReportHistory = (props) => {
         }
     }
 
-    const buttonClick = (report) => {
-         navigate(`/report/board?writer=${report.writer}&reportNo=${report.reportNo}`);
+    const buttonClick = (reportInfo) => {
+         navigate(`/report/board?writer=${reportInfo.writer}&reportNo=${reportInfo.reportNo}`)
     }
 
     useEffect(() => {
@@ -57,7 +57,6 @@ const ReportHistory = (props) => {
                     <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Version</th>
                         <th>Writer</th>
                         {/*<th>Comment</th>*/}
                         <th>CreatedAt</th>
@@ -69,16 +68,12 @@ const ReportHistory = (props) => {
                     {reportList.map((report) => (
                         <tr key={report._id}>
                             <td>{report.title}</td>
-                            <td>{report.version}</td>
                             <td>{report.writer}</td>
                             {/*<td>{report.comment}</td>*/}
                             <td>{report.createAt}</td>
                             <td>{report.status}</td>
                             <td>{report.reportNo}</td>
-                            <td>
-                                <button onClick={() => buttonClick(report)}>세부사항</button>
-                            </td>
-
+                            <td><button onClick={() => buttonClick(report)}>세부사항</button></td>
                         </tr>
                     ))}
                     </tbody>

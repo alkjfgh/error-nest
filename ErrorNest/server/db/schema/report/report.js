@@ -38,8 +38,26 @@ const reportSchema = new Schema({
         type: String,
         default: "대기",
         required: true
+    },
+    reportNo: {
+        type: Number,
+        default: 0,
+        required: true
     }
 }, { versionKey: false, _id: true});
+
+reportSchema.pre('save', async function(next) {
+    if (this.isNew) {
+        const latestDoc = await this.constructor.findOne({ writer: this.writer }).sort('-reportNo');
+        if (latestDoc) {
+            this.reportNo = latestDoc.reportNo + 1;
+        } else {
+            this.reportNo = 1;
+        }
+    }
+
+    next();
+});
 
 /** report schema */
 module.exports = mongoose.model('report', reportSchema);

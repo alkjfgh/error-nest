@@ -1,28 +1,31 @@
 import {useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {useCookies} from "react-cookie";
 import axios from "axios";
+import {useCookies} from "react-cookie";
 
 
 const ReportBoard = (props) => {
     const axiosLoading = props.axiosLoading;
+
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
 
-    const [cookies] = useCookies();
+    const [cookies, setCookies] = useCookies()
 
-    const writer = searchParams.get('writer');
-    const reportNo = searchParams.get('reportNo');
+    const writer = searchParams.get("writer");
+    const reportNo = searchParams.get("reportNo");
 
-    const getReport = async (dataInfo) => {
-        const thisUrl = location.pathname;
-        console.log(thisUrl);
-        dataInfo.writer = writer;
-        dataInfo.reportNo = reportNo;
 
-        const response = await axios.post(thisUrl, dataInfo);
-        console.log(response);
-    }
+    const getReportBoard = async (data) => { // report/select
+        // TODO: writer랑 reportNo를 넘겨서 가져와야 하는 것: report 모든 정보, id랑 writer랑 동일한지 체크한 값(T or F)
+
+        data.writer = writer;
+        data.reportNo = reportNo;
+
+        console.log(data);
+        const result = await axios.post('/report/select', data);
+        console.log(result.data);
+    };
 
     const getUserInfo = async () => {
         if(cookies.userid !== undefined) {
@@ -37,15 +40,17 @@ const ReportBoard = (props) => {
         }
     }
 
+
+
     useEffect(() => {
-        getUserInfo().then((user) => getReport(user));
+        getUserInfo().then(data => getReportBoard(data))
     }, []);
 
     return (
         <>
             <h2>ReportBoard Page </h2>
             writer: {writer} <br/>
-            reportNo: {reportNo}
+            reportNo: {reportNo} <br/>
         </>
     )
 }

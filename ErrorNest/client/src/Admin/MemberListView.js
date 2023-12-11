@@ -3,11 +3,16 @@ import {useCookies} from "react-cookie";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-function Admin(props) {
+function MemberListView(props) {
     const [members, setMembers] = useState([{}]);
     const [cookies] = useCookies();
     const [level, setLevel] = useState("");
     const navigate = useNavigate();
+
+
+
+
+
 
     useEffect(() => {
         // return () => {
@@ -16,8 +21,17 @@ function Admin(props) {
         levelCheck().then((level) => {
             if(level === "admin") getMembers();
             else navigate("/");
-            });
+        });
     },[]);
+
+
+    const handleChange = (e) => {
+        const {name, value}  = e.target;
+        setInputs({
+            ...inputs,
+            [name]: value
+        });
+    }
 
     const levelCheck = async () => {
         console.log("levelCheck들어옴");
@@ -42,14 +56,7 @@ function Admin(props) {
         console.log(formattedMembers);
     };
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const data = inputs;
-    //     // console.log(data);
-    //     const response= await axios.post('/member/insert', data);
-    //     console.log(response.data.success);
-    //     if(response.data.success) getMembers().then(r => {});
-    // };
+
 
     const handleDelete = async (e) => {
         // alert(e.target.name);
@@ -57,33 +64,43 @@ function Admin(props) {
             .then(()=>getMembers());
     }
 
+
+
+
+
     return (
         <>
             <table>
                 <tbody>
+                <tr>
+                    <th>name</th>
+                    <th>hashtag</th>
+                    <th>id</th>
+                    <th>password</th>
+                    <th>email</th>
+                    <th>date</th>
+                    <th>level</th>
+                </tr>
+                {members && members.map((member) => (
                     <tr>
-                        <th>name</th>
-                        <th>id</th>
-                        <th>password</th>
-                        <th>email</th>
-                        <th>date</th>
-                        <th>level</th>
+                        <td>{member.name}</td>
+                        <td>{member.hashtag}</td>
+                        <td>{member.id}</td>
+                        <td>{member.pw}</td>
+                        <td>{member.email}</td>
+                        <td>{member.date}</td>
+                        <td>{member.level}</td> &nbsp;
+                        <button type="button" name={member.id} onClick={handleDelete}>삭제</button>
                     </tr>
-                    {members && members.map((member) => (
-                        <tr>
-                            <td>{member.name}</td>
-                            <td>{member.id}</td>
-                            <td>{member.pw}</td>
-                            <td>{member.email}</td>
-                            <td>{member.date}</td>
-                            <td>{member.level}</td> &nbsp;
-                            <button type="button" name={member.id} onClick={handleDelete}>삭제</button>
-                        </tr>
-                    ))}
+                ))}
                 </tbody>
             </table>
+
+
+
+
         </>
     );
 }
 
-export default Admin;
+export default MemberListView;
