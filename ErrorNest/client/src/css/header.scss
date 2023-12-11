@@ -32,7 +32,7 @@
       align-items: center;
       list-style: none;
       right: 0;
-      width: 7rem;
+      width: 5rem;
       z-index: 100;
 
       .navi-element {
@@ -47,6 +47,13 @@
           color: #000;
         }
       }
+    }
+
+    .toggle {
+      display: block;
+      width: 28px;
+      height: 30px;
+      margin: 30px auto 10px;
     }
   }
 
@@ -99,3 +106,6 @@
 .search-result-item:hover, .selected {
   background-color: grey;
 }
+
+
+

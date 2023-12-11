@@ -97,6 +97,17 @@ const Header = (props) => {
         setInputText("")
     }, [location.pathname])
 
+
+    // 네비 이미지
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleIconClick = () => {
+        setIsOpen(!isOpen);
+    };
+
+
+
+
     return (
         <nav className="navigation">
             {/** 로고 이미지 */}
@@ -130,10 +141,18 @@ const Header = (props) => {
             {/*onBlur={handleBlurList}*/}
             <div className="navi-element-list-div">
                 <ul className="navi-element-list" onClick={() => {
-                    setView(!view)
+                    // setView(!view)
                 }}>
-                    접속하기{" "}
-                    {view ? '▲' : '▼'}
+
+                    <div id="nav-icon3" className={isOpen ? 'open' : ''} onClick={handleIconClick}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    {/*접속하기{" "}*/}
+                    {/*{view ? '▲' : '▼'}*/}
                     {view && <div>
                         <li className="navi-element">
                             <Link to={`/profile/${user}`}>프로필</Link>
