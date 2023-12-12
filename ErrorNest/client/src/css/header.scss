@@ -127,7 +127,7 @@
     top: 50%;
     left: 0;
     right: 0;
-    width: 650px;
+    width: 43%;
     height: 60px;
     padding: 5px;
     background-color: #ffcb49;
@@ -135,6 +135,18 @@
     box-shadow:0 5px 5px 1px rgba(178, 87, 0, 0.58), 0 0 0 10px #ffffffeb;
     transform: scale(0.6);
     z-index: 999;
+    min-width: 300px;
+
+    #s-cover{
+      left: -2%;
+      top: -3px
+    }
+    @media (min-width: 1536px) {
+      #s-cover {
+        top: -3px;
+        left: 17%;
+      }
+    }
 
     .td {
       display: table-cell;
@@ -176,7 +188,7 @@
         margin: 0;
         border: 0;
         background-color: transparent;
-        width: 553px;
+        width: 117%;
         height: 50px;
         font-size: 40px;
         line-height: 1;

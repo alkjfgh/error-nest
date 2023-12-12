@@ -70,8 +70,10 @@ const Edit = (props) => {
             setVersion(res.data.version)
             setUpdateAt(res.data.updateAt)
             setContent(res.data.content)
-            setCategory(res.data.category)
-            setCategoryText(arrToText(res.data.category))
+            if(res.data.category){
+                setCategory(res.data.category)
+                setCategoryText(arrToText(res.data.category))
+            }
         })
     }
 
@@ -146,13 +148,14 @@ const Edit = (props) => {
             case "링크": addText = "<<링크 제목, 표시할 내용>>"; break
             case "이미지": addText = "[[분류/이미지 이름, 가로, 세로]]"; break
             case "주석": addText = "##빈칸or주석이름 주석 내용##"; break
+            case "코드": addText = "~~~언어\n내용\n~~"; break
         }
         // 커서 위치에 문자열 삽입
         // const cursorPosition = textRef.current["selectionStart"]
         // const textBeforeCursor = content.slice(0, cursorPosition)
         // const textAfterCursor = content.slice(cursorPosition)
         // const newText = textBeforeCursor + addText + textAfterCursor
-        const newText = content + addText
+        const newText = content + '\n' + addText
         setContent(newText)
     }
 
@@ -174,7 +177,7 @@ const Edit = (props) => {
 
 
     return (
-        <div>
+        <div className={'edit-con'}>
             <h1>{title} - {"(Version " + version + ")"}</h1>
             <div className={"document-navi"}>
                 <button onClick={() => {
@@ -209,13 +212,14 @@ const Edit = (props) => {
                 <div><span className={"edit-btn"} onClick={editBtnClick}>링크</span></div>
                 <div><span className={"edit-btn"} onClick={editBtnClick}>이미지</span></div>
                 <div><span className={"edit-btn"} onClick={editBtnClick}>주석</span></div>
+                <div><span className={"edit-btn"} onClick={editBtnClick}>코드</span></div>
             </div>
 
             {/*<textarea ref={textRef} value={content} onChange={contentChange}></textarea>*/}
 
             <Editor
                 value={content}
-                onValueChange={content => setContent(content)}
+                onValueChange={content => {setContent(content);}}
                 highlight={content => hightlightWithLineNumbers(content, languages.js)}
                 padding={10}
                 textareaId="codeArea"

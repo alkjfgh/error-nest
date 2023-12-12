@@ -4,6 +4,8 @@ import {useCookies} from "react-cookie";
 import axios from "axios";
 import {Link, useLocation} from "react-router-dom"; // 경로는 실제 context 파일 위치에 따라 다름
 
+import './css/aside.scss'
+
 const Aside = (props) => {
     const axiosLoading = React.useContext(AxiosLoadingContext);
 
@@ -11,6 +13,7 @@ const Aside = (props) => {
     const [cookies, setCookies, removeCookies] = useCookies();
 
     const [favorites, setFavorites] = useState([{}])
+    const [favoriteElements, setFavoriteElements] = useState([]); // 추가된 상태변수
 
     const getUser = async () => {
         if(cookies.username) return cookies.username
@@ -26,6 +29,11 @@ const Aside = (props) => {
         const res = await axios.post('/favorite/list', {target: user})
         const favorites = res.data.favorites
         setFavorites(favorites)
+        //TODO 짤라서 보여주기
+        const elements = favorites.map((favorite, index) => ( // favorites 배열을 JSX 형태로 변환하여 favoriteElements를 업데이트
+            <div key={index}><Link to={`/document/${favorite.title}`}>{favorite.title}</Link><span onClick={() => unFavorite(favorite.title)}>삭제</span></div>
+        ));
+        setFavoriteElements(elements);
     };
 
     const unFavorite = async (title) => {
@@ -35,17 +43,40 @@ const Aside = (props) => {
     }
 
     useEffect(() => {
-        getFavoriteList().then(r => {})
+        setInterval(getFavoriteList, 1000)
+        // getFavoriteList().then(r => {})
     }, [location.pathname]);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const bannerTop = document.querySelector('.container').offsetTop;
+            const chaseElem = document.querySelector(".banner"); // 현재 스크롤 위치를 가져옵니다.
+            let scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            scrollPosition += 10
+
+            // 스크롤 위치에 따라 chaseElem의 top 위치를 조정합니다.
+            if (scrollPosition > bannerTop) {
+                chaseElem.style.top = `${scrollPosition - 96}px`;
+            } else {
+                chaseElem.style.top = `${bannerTop - 96}px`;
+            }
+
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <aside>
+        <aside className="banner">
             {favorites.length === 0 &&
                 <div>즐겨찾기한 한 항목이 없습니다</div>
             }
-            {favorites.length > 0 && favorites.map((favorite, index) => (
-                <div key={index}><Link to={`/document/${favorite.title}`}>{favorite.title}</Link><span onClick={() => unFavorite(favorite.title)}>삭제</span></div>
-            ))}
+            {favoriteElements}
         </aside>
     );
 }

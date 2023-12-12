@@ -2,9 +2,11 @@ import React, {useEffect, useLayoutEffect, useState} from 'react'
 import {useLocation, useNavigate, Link} from 'react-router-dom'
 import {Link as LinkScroll, animateScroll as scroll } from 'react-scroll'
 import axios from 'axios'
+import {useCookies} from "react-cookie";
 
 import '../css/document.scss'
-import {useCookies} from "react-cookie";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 function Document(props) {
     const location = useLocation()
@@ -74,7 +76,6 @@ function Document(props) {
                     }
 
                     if(classList.value.indexOf("annotation-link") !== -1){
-                        // console.log(props.data_content)
                         props['data-content'] = node.getAttribute('data-content')
                     }
                 }
@@ -111,6 +112,11 @@ function Document(props) {
                         props.style = styleObject
                     }
                 }
+                if(tagName === "syntaxhighlighter"){
+                    element = SyntaxHighlighter
+                    props.language = 'javascript'
+                    props.style = solarizedlight
+                }
                 return React.createElement(element, props, content)
             }
             return null
@@ -130,12 +136,6 @@ function Document(props) {
             let levels = index.aText.split('.').filter(Boolean)  // "2.1.1." => ["2", "1", "1"]
 
             if (levels.length === depth) {
-                // result.push(
-                //     <span key={index.aText}>
-                //         <a href={"#s-"+index.aText.substring(0,index.aText.length-1)}>{index.aText}</a>
-                //         {' ' + index.spanText}
-                //     </span>
-                // )
                 result += `<span key=${index.aText}>
                          <a href="#s-${index.aText.substring(0,index.aText.length-1) + '.'}" class="scroll-link">${index.aText}</a>
                          ${' ' + index.spanText}
@@ -146,7 +146,6 @@ function Document(props) {
                 while (indexList.length > 0 && indexList[0].aText.split('.').filter(Boolean).length > depth) {
                     childIndexes.push(indexList.shift())
                 }
-                // result.push(<div className={"index-space"} key={'div'+depth}>{drawIndex(childIndexes, depth + 1)}</div>)
                 result += `<div class="index-space" key='div${depth}'>${drawIndex(childIndexes, depth + 1)}</div>`
             } else {
                 break
@@ -164,6 +163,8 @@ function Document(props) {
         let htmlText = ""
         let subTitle = [0,]
         let bq = true
+        let divOpen = false
+        let code = false
 
         const transLinkImage = (line) => {
             let regex = /<<([^>>]+)>>/g
@@ -217,9 +218,11 @@ function Document(props) {
             return line
         }
 
-        contentArr.map((line) => {
+        contentArr.map((line, index) => {
             if(line === "") htmlText += `</br>`
             if(line.startsWith("==")){
+                htmlText += `</div></div>`
+                divOpen = false
                 const ctr = (line.split('=').length - 1) / 2 - 2
                 const title = line.replaceAll('=','')
                 let id = ''
@@ -228,17 +231,30 @@ function Document(props) {
                 else subTitle[ctr]++
 
                 for(let i=0;i<=ctr;i++) id += subTitle[i] + '.'
-                // id = id.slice(0,-1)
 
                 htmlText += `<h2><a id="s-${id}" href="#top" class="scroll-link">${id}</a><span>${title}</span></h2>`
             }else if(line.startsWith("$$")){
+                htmlText += `</div></div>`
+                divOpen = false
                 if(bq) htmlText += `<div><blockquote>`
                 else htmlText += `</blockquote></div>`
                 bq = !bq
-            }else{
-                if(bq) htmlText += `<div><div>`
+            }else if(line.startsWith('~~~')){
+                htmlText += `</div></div>`
+                divOpen = false
+                if(bq) htmlText += `<div><SyntaxHighlighter language="{line.split('~~~')[1]}" style={solarizedlight}>`
+                else htmlText += `</SyntaxHighlighter></div>`
+                bq = !bq
+                code = !code
+            }
+            else{
+                if(!divOpen && bq){
+                    htmlText += `<div><div>`
+                    divOpen = true
+                }
                 htmlText += transLinkImage(line)
-                if(bq) htmlText += `</div></div>`
+                if(!code) htmlText += '<br/>'
+                else htmlText += '\n'
             }
         })
 
@@ -345,11 +361,13 @@ function Document(props) {
 
     useEffect(() => {
         setIndexList([])
+        setRenderedContents([])
         setRenderedIndex([])
         setRenderedAnnotation([])
         setCategory([])
         setWriter("")
         setTitle("")
+        setStar('☆')
 
         axiosLoading(initDocument)
     }, [ location.pathname, location.hash ])
@@ -358,13 +376,19 @@ function Document(props) {
         <div>
             <div>
                 {category.length > 0 && `분류:`}
-                {category.map((cg, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
-                    <>
-                        <Link key={cg} to={`/document/분류:${cg}`}>{cg}</Link>
+                {/*{category.map((cg, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링*/}
+                {/*    <>*/}
+                {/*        <Link key={cg} to={`/document/분류:${cg}`}>{cg}</Link>*/}
+                {/*        <span className={"category-padding"}></span>*/}
+                {/*    </>*/}
+                {/*))}*/}
+                {category.map((cg, index) => (
+                    <React.Fragment key={index}>
+                        <Link to={`/document/분류:${cg}`}>{cg}</Link>
                         <span className={"category-padding"}></span>
-                    </>
+                    </React.Fragment>
                 ))}
-                작성자 : <Link to={`/profile/${writer}`}>{writer}</Link>
+                {writer && <><>작성자 : </><Link to={`/profile/${writer}`}>{writer}</Link></>}
             </div>
             <h1>{title} {version ? "Version: " + version : null}</h1>
             <div className={"document-navi"}>
@@ -373,7 +397,7 @@ function Document(props) {
                 {!isFile && <button onClick={() => {navigate("/report/" + title + "?version=" + version + "&writer=" + writer)}} className={"button"}><span><Link to={"/report/" + title + "?version=" + version + "&writer=" + writer} className={"document-navi-btn"}>신고</Link></span></button>}
                 {!isFile && <button onClick={updateFavorite} className={"button"}><span><span className={"document-navi-btn"}>{star}</span></span></button>}
             </div>
-                            <div className="index-list" id="top">{renderedIndex}</div>
+            <div className="index-list" id="top">{renderedIndex}</div>
             {renderedContents}
             <div className="annotation-list">{renderedAnnotation}</div>
         </div>

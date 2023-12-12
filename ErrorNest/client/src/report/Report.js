@@ -97,7 +97,7 @@ const Report = (props) => {
             </div>
 
             <button onClick={reportSubmit} className={"button"}>
-                <span>신고 완료</span>
+                <span className={"report-button"}>신고 완료</span>
             </button>
         </div>
     )
