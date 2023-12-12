@@ -1,19 +1,24 @@
-.admin-view-btn-con{
-  .admin-view-btn{
-    width: 15%;
-    float: left;
-    text-align: center;
-  }
-
-  .admin-view-btn:hover {
-    cursor: pointer;
-    background-color: darkblue;
-  }
-}
+//.admin-view-btn-con{
+//  .admin-view-btn{
+//    width: 15%;
+//    float: left;
+//    text-align: center;
+//  }
+//
+//  .admin-view-btn:hover {
+//    cursor: pointer;
+//    background-color: darkblue;
+//  }
+//}
 
 .admin-view-con{
 }
 
+.admin-container {
+    background-color: #e5e9f4;
+    padding: 2rem;
+    height: 100vh;
+}
 
 @import url('https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css');
 
@@ -65,16 +70,14 @@ button.neumorphic {
     font-family: system-ui, sans-serif;
     font-size: 16cqi;
   }
+  .svg-inline--fa{
+    font-size: 45px;
+  }
 }
 
 
-//
-//body {
-//  background-color: #e5e9f4;
-//  padding: 2rem;
-//}
 
-h1 {
+.admin-h1 {
   text-align: center;
   color: hsl(0 0% 10%);
   font-family: system-ui, sans-serif;
