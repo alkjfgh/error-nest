@@ -50,7 +50,7 @@ function MemberListView(props) {
         <>
             <div className="memberListView-container">
                 <div className="memberListView-table-container">
-                 <table className="memberListView-table">
+                 <table className="adminListView-table">
                     <thead>
                     <tr>
 

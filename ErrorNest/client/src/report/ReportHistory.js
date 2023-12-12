@@ -3,6 +3,11 @@ import { useCookies } from "react-cookie";
 import {useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 
+
+import '../css/memberListView.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faBan, faMagicWandSparkles, faMagnifyingGlassPlus} from "@fortawesome/free-solid-svg-icons";
+
 const ReportHistory = (props) => {
     const location = useLocation();
     const [cookies, setCookies] = useCookies();
@@ -61,35 +66,54 @@ const ReportHistory = (props) => {
     return (
         <div>
             <h2>신고 목록</h2>
-            {reportList.length === 0 ? (
-                <h3>신고한 목록이 없습니다</h3>
+            {!reportList ? (
+                <p>신고한 목록이 없습니다</p>
             ) : (
-                <table>
+                <table className="adminListView-table">
                     <thead>
                     <tr>
-                        <th>id</th>
-                        <th>Title</th>
-                        <th>CreatedAt</th>
-                        <th>Status</th>
-                        <th>No</th>
+                        <th><h1>Title</h1></th>
+                        <th><h1>Title</h1></th>
+                        <th><h1>Status</h1></th>
+                        <th><h1>No</h1></th>
+                        <th><h1>Info</h1></th>
                     </tr>
                     </thead>
                     <tbody>
                     {reportList.map((report) => (
                         <tr key={report._id}>
-                        <td>{report.reportId}</td>
-                            <td>{report.title}</td>
-                            <td>{report.createAt}</td>
-                            <td>{report.status}</td>
-                            <td>{report.reportNo}</td>
+                            <td className="tdStyle">{report.title}</td>
+                            <td className="tdStyle">{report.createAt}</td>
+                            <td className="tdStyle">{report.status}</td>
+                            <td className="tdStyle">{report.reportNo}</td>
                             <td>
-                                <button onClick={() => buttonClick(report)}>내용보기</button>
+                                <button className="member-delete-btn" onClick={() => buttonClick(report)}>
+                                    {/*<i className="fa-solid fa-magnifying-glass-plus"></i>*/}
+                                    <FontAwesomeIcon icon={faMagnifyingGlassPlus} className="fa-light" />
+                                </button>
                             </td>
                         </tr>
                     ))}
                     </tbody>
                 </table>
             )}
+
+            <div>
+                <span>
+                    {page - 1 > 0 ? (
+                        <span onClick={() => setPage(page - 1)}>{"<"}Prev</span>
+                    ) : (
+                        "<Prev"
+                    )}
+                </span>
+                <span>
+                    {page + 1 <= maxPage ? (
+                        <span onClick={() => setPage(page + 1)}>Next{">"}</span>
+                    ) : (
+                        "Next>"
+                    )}
+                </span>
+            </div>
         </div>
 
     );

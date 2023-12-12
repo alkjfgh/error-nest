@@ -1,11 +1,11 @@
 @import "nomalize.scss";
 
-.memberListView-table {
+.adminListView-table {
   th {
     //background-color: #9A6D4A;
     h1 {
       font-weight: bold;
-      font-size: 1.9em;
+      font-size: 1.9rem;
       text-align: left;
       color: #185875;
     }
@@ -29,7 +29,7 @@
 
   text-align: left;
   overflow: hidden;
-  width: 80%;
+  width: 50rem;
   margin: 0 auto;
   display: table;
   padding: 0 0 8em 0;
@@ -110,6 +110,7 @@
     transition-property: all;
     //transition-timing-function: line;
   }
+  //
 
   @media (max-width: 800px) {
     td:nth-child(4),

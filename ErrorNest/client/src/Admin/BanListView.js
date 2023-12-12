@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useLocation} from "react-router-dom";
 
+
 import axios from "axios";
+
+import '../css/memberListView.scss'
 
 function BanListView(props) {
     const location = useLocation()
@@ -32,49 +35,55 @@ function BanListView(props) {
 
     return (
         <>
-            <table>
-                <tbody>
-                <tr>
-                    <th>target</th>
-                    <th>type</th>
-                    <th>comment</th>
-                    <th>status</th>
-                    <th>remainDate</th>
-                    <th>createdAt</th>
-                    <th>expireAt</th>
-                </tr>
-                {banList.length > 0 && banList.map((banInfo, index) => {
-                    return (
-                        <tr key={index}>
-                            <td>{banInfo.target}</td>
-                            <td>{banInfo.type}</td>
-                            <td>{banInfo.comment}</td>
-                            <td>{banInfo.status}</td>
-                            <td>{banInfo.remainDate}</td>
-                            <td>{banInfo.createdAt}</td>
-                            <td>{banInfo.expireAt}</td>
-                        </tr>
-                    );
-                })}
-                </tbody>
-            </table>
+            <div className="banListView-container">
 
-            <div>
-                {/* TODO 유저 여러개 넣어서 테스트 해봐야 함*/}
-                <span>
-                    {page - 1 > 0 ? (
-                        <span onClick={() => setPage(page - 1)}>{"<"}Prev</span>
-                    ) : (
-                        "<Prev"
-                    )}
-                </span>
-                <span>
-                    {page + 1 <= maxPage ? (
-                        <span onClick={() => setPage(page + 1)}>Next{">"}</span>
-                    ) : (
-                        "Next>"
-                    )}
-                </span>
+                <table className="adminListView-table">
+                    <thead>
+                    <tr>
+                        <th><h1>target</h1></th>
+                        <th><h1>type</h1></th>
+                        <th><h1>comment</h1></th>
+                        <th><h1>comment</h1></th>
+                        <th><h1>remainDate</h1></th>
+                        <th><h1>createdAt</h1></th>
+                        <th><h1>expireAt</h1></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {banList.length > 0 && banList.map((banInfo, index) => {
+                        return (
+                            <tr key={index}>
+                                <td className="tdStyle">{banInfo.target}</td>
+                                <td className="tdStyle">{banInfo.type}</td>
+                                <td className="tdStyle">{banInfo.comment}</td>
+                                <td className="tdStyle">{banInfo.status}</td>
+                                <td className="tdStyle">{banInfo.remainDate}</td>
+                                <td className="tdStyle">{banInfo.createdAt}</td>
+                                <td className="tdStyle">{banInfo.expireAt}</td>
+                            </tr>
+                        );
+                    })}
+                    </tbody>
+                </table>
+
+                <div>
+                    {/* TODO 유저 여러개 넣어서 테스트 해봐야 함*/}
+                    <span>
+                        {page - 1 > 0 ? (
+                            <span onClick={() => setPage(page - 1)}>{"<"}Prev</span>
+                        ) : (
+                            "<Prev"
+                        )}
+                    </span>
+                    <span>
+                        {page + 1 <= maxPage ? (
+                            <span onClick={() => setPage(page + 1)}>Next{">"}</span>
+                        ) : (
+                            "Next>"
+                        )}
+                    </span>
+                </div>
             </div>
         </>
     );
