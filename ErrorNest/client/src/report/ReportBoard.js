@@ -2,7 +2,7 @@ import {Link, useLocation, useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useCookies} from "react-cookie";
-
+import "../css/report.scss";
 
 const ReportBoard = (props) => {
     const axiosLoading = props.axiosLoading;
@@ -73,7 +73,15 @@ const ReportBoard = (props) => {
     }
 
     const cancelButtonClick = async (reportInfo) => {
-        const response = await axios.put('/report/updateCancel', reportInfo);
+        const userInfo = await getUserInfo();
+        const response = await axios.put('/report/updateCancel', {reportInfo, userInfo});
+
+        if (response.data.success) {
+            alert(response.data.message);
+            navigate('/reportHistory');
+        } else {
+            alert(response.data.message);
+        }
     }
 
     useEffect(() => {
@@ -83,15 +91,35 @@ const ReportBoard = (props) => {
     return (
         <>
             {reportInfo && (
-                <>
-                    <h2>{reportInfo.title} - ver {reportInfo.version}</h2>
-                    <p>writer: {reportInfo.writer}</p>
-                    <p>Status: {reportInfo.status}</p>
+                <div>
+                    <h1>신고 내용: {reportInfo.title}</h1>
+                    <div className={"document-navi"}>
+                        <button onClick={() => navigate("/reportHistory")} className={"button"}>
+                            <span><Link to="/reportHistory">돌아가기</Link></span>
+                        </button>
+                    </div>
+                    <div className={"report-input-icon"}>
+                        <div className={"text-input"}>
+                            <input type={"text"} id={"report-writer"} value={reportInfo.version} placeholder={"작성자"}
+                                   readOnly/>
+                            <label htmlFor={"report-writer"}>버전</label>
+                        </div>
+                        <div className={"text-input"}>
+                            <input type={"text"} id={"report-writer"} value={reportInfo.reportId} placeholder={"작성자"}
+                                   readOnly/>
+                            <label htmlFor={"report-writer"}>작성자</label>
+                        </div>
+                        <div className={"text-input"}>
+                            <input type={"text"} id={"report-writer"} value={reportInfo.status} placeholder={"작성자"}
+                                   readOnly/>
+                            <label htmlFor={"report-writer"}>상태</label>
+                        </div>
+                    </div>
                     <p>Comment: {reportInfo.comment}</p>
                     <p>CreatedAt: {reportInfo.createAt}</p>
                     {isAdmin && reportInfo.status === "대기" &&
                         <>
-                            <textarea value={adminComment} onChange={(e) => handlerChangeAdminComment(e)}></textarea>
+                        <textarea value={adminComment} onChange={(e) => handlerChangeAdminComment(e)}></textarea>
                             <button onClick={() => buttonClick(reportInfo)}>답장</button>
                         </>
                     }
@@ -101,12 +129,13 @@ const ReportBoard = (props) => {
                     {reportInfo.status === "대기" &&
                         <button onClick={() => cancelButtonClick(reportInfo)}>취소</button>
                     }
-                </>
+                    <div className={"document-navi"}>
+                        {isAdmin && <Link to={`/profile/${reportInfo.reportId}`}>프로필</Link>}
+
+                    </div>
+                </div>
             )}
-            <div className={"document-navi"}>
-                {isAdmin && <Link to={`/profile/${reportInfo.writer}`}>프로필</Link>}
-                <Link to="/reportHistory">돌아가기</Link>
-            </div>
+
         </>
     )
 }

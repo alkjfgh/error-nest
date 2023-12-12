@@ -6,42 +6,63 @@ const {encryptCookie, decryptCookie} = require('../encript/encriptCookie');
 
 
 /** report CRUD */
-
-/** documentSelect: 완료 */
 const documentSelect = async (req, res, next) => {
-    console.log(req.body);
-    let documentInfo;
+    console.log("documentSelect Controller 진입 성공 !!");
+    const title = req.body.title;
 
+    console.log(req.body);
     try {
         if (req.body.version) {
-            let version;
-            if (req.body.version !== "null") {
-                version = parseInt(req.body.version);
-                documentInfo = await Document.findOne({title: req.body.title, version: version});
+            let version = parseInt(req.body.version); // 페이지 번호
+            const options = {title: title};
+            if (version) {
+                options.version = version;
             } else {
-                documentInfo = await Document.findOne({title: req.body.title}).sort('-version');
+                // version이 null인 경우 가장 높은 버전의 문서를 찾기 위해 추가
+                const latestDocument = await Document.findOne({title: title}).sort('-version');
+                if (latestDocument) {
+                    version = latestDocument.version;
+                } else {
+                    version = 1; // 문서가 없는 경우 기본값 1로 설정
+                }
+                options.version = version;
             }
-            console.log(documentInfo);
-
-            res.json({title: documentInfo.title, version: documentInfo.version, myName: req.body.username});
+            const document = await Document.findOne(options).sort('-version'); // 몽고디비의 db.users.find({}) 쿼리와 같음
+            res.json({
+                title: document.title,
+                version: document.version,
+                updateAt: document.updateAt,
+                content: document.content
+            });
+        } else {
+            res.json({title: title, version: 1, content: "", message: "문서 가져오기 성공 !!"});
         }
     } catch (err) {
         logger.error(err);
         next(err);
-        res.json({message: "문서 가져오기 실패 !!"});
+        res.json({title: title, version: 1, content: "", message: "문서 가져오기 실패 !!"});
     }
 }
 
-/** reportInsert 완료 */
 const reportInsert = async (req, res, next) => {
     try {
-        console.log(req.body);
+        const report = req.body;
+
+        if (report.userInfo.isLogin) {
+            const member = {
+                id: report.userInfo.userid,
+                str_id: report.userInfo.userkey
+            }
+            report.userInfo.userid = decryptCookie(member);
+        }
+        console.log("--------------------");
+        console.log(report);
 
         const data = {
-            title: req.body.title,
-            comment: req.body.comment,
-            version: req.body.version,
-            writer: req.body.username
+            title: report.title,
+            comment: report.comment,
+            version: report.version,
+            reportId: report.userInfo.userid
         }
 
         await Report.create(data);
@@ -54,7 +75,6 @@ const reportInsert = async (req, res, next) => {
     }
 }
 
-/** reportSelect 시작 */
 const reportSelect = async (req, res, next) => {
     const reqData = req.body;
 
@@ -77,12 +97,9 @@ const reportSelect = async (req, res, next) => {
         reportInfo = await Report.findOne({writer: reqData.writer, reportNo: reqData.reportNo});
         console.log('------------------------');
         console.log(reportInfo);
-        
-        console.log(`userLevel: ${userInfo.level}`);
-        console.log(`username: ${userInfo.name}`);
 
 
-        res.json({ message: "reportSelect 성공", isLogin: reqData.isLogin, userLevel: userInfo.level, username: userInfo.name, hashtag: userInfo.hashtag, reportInfo: reportInfo});
+        res.json({ message: "reportSelect 성공", isLogin: reqData.isLogin, userLevel: userInfo.level, username: userInfo.username, hastTag: userInfo.hastTag, reportInfo: reportInfo});
     } catch {
         res.json({isLogin: reqData.isLogin, reportInfo: reportInfo, message: "reportSelect 실패"});
     }
@@ -106,13 +123,32 @@ const reportUpdate = async (req, res, next) => {
 }
 
 const reportUpdateCancel = async (req, res, next) => {
-    console.log(req.body);
+    const reqData = req.body;
+    console.log(reqData);
+    // id를 가져와 해당 신고자 아이디와 같을 시만 적용되게 !
+
+    let userInfo;
 
     try{
-        // await Report.updateOne(filter, update);
-        res.json({message: "취소 완료"});
+        if (req.body.userInfo.isLogin) {
+            const member = {
+                id: req.body.userInfo.userid,
+                str_id: req.body.userInfo.userkey
+            }
+            req.body.userInfo.userid = decryptCookie(member);
+        }
+
+        if (req.body.userInfo.userid === req.body.reportInfo.reportId) {
+            const filter = {reportId: req.body.reportInfo.reportId, reportNo: req.body.reportInfo.reportNo};
+            const update = {$set: {status: "취소"}};
+
+            await Report.updateOne(filter, update);
+            res.json({success: true, message: "신고 상태가 취소되었습니다."});
+        } else {
+            res.json({success: false, message: "신고자만 취소할 수 있습니다."});
+        }
     } catch {
-        res.json({message: "취소 완료 오류"});
+        res.json({message: "취소 오류"});
     }
 }
 

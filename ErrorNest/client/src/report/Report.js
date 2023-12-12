@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useCookies} from "react-cookie";
+import "../css/report.scss";
 
 const Report = (props) => {
     const location = useLocation();
@@ -27,10 +28,11 @@ const Report = (props) => {
         data.version = searchParams.get("version");
         data.title = decodeURIComponent(location.pathname.replace('/report/', ''));
 
+        setTitle(data.title);
+
         const res = await axios.post('/report/getDocument/', data);
         console.log(res.data);
 
-        setTitle(res.data.title);
         setVersion(res.data.version);
         setMyName(res.data.myName);
     }
@@ -42,7 +44,7 @@ const Report = (props) => {
         } else {
             const response = await fetch("https://api64.ipify.org?format=json");
             const data = await response.json();
-            return {username: cookies.username, isLogin: false}; // PC ip
+            return {userid: data.ip, isLogin: false}; // PC ip
         }
     }
 
@@ -59,14 +61,12 @@ const Report = (props) => {
             const userInfo = await getUserInfo();
             console.log(userInfo);
 
-            const res = await axios.post('/report/insert',{title, comment, version, username: userInfo.username});
+            const res = await axios.post('/report/insert',{title, comment, version, userInfo});
 
             console.log(res.data);
 
-            if (res.data.success) {
-                alert(`${res.data.message}`);
+            if (res.data.success)
                 navigate(`/document/${title}`);
-            }
         })
     }
 
@@ -75,12 +75,31 @@ const Report = (props) => {
     }
 
     return (
-        <>
-            <h2>신고: {title} - {`(Version ${version})`}</h2>
-            <div className={"document-navi"}><Link to={"/document/" + title}>돌아가기</Link></div>
-            <textarea value={comment} onChange={reportChange}></textarea>
-            <button onClick={reportSubmit}>신고 완료</button>
-        </>
+        <div>
+            <h1>신고: {title}</h1>
+            <div className={"document-navi"}>
+                <button onClick={() => navigate("/document/" + title)} className={"button"}>
+                    <span><Link to={"/document/" + title}>돌아가기</Link></span>
+                </button>
+            </div>
+            <div className={"report-input-icon"}>
+                <div className={"text-input"}>
+                    <input type={"text"} id={"report-writer"} value={version} placeholder={"작성자"} readOnly/>
+                    <label htmlFor={"report-writer"}>버전</label>
+                </div>
+                <div className={"text-input"}>
+                    <input type={"text"} id={"report-writer"} value={writer} placeholder={"작성자"} readOnly/>
+                    <label htmlFor={"report-writer"}>작성자</label>
+                </div>
+            </div>
+            <div className={"report-writing"}>
+                <textarea value={comment} onChange={reportChange}></textarea>
+            </div>
+
+            <button onClick={reportSubmit} className={"button"}>
+                <span>신고 완료</span>
+            </button>
+        </div>
     )
 }
 export default Report;
