@@ -51,7 +51,7 @@ function Login(props){
     }
 
     return(
-
+    <div className="loginContainer">
         <div className="loginBox">
 
             {/*id: <input type="text" name="id" id="" onChange={handleForm}/><br/>*/}
@@ -78,11 +78,8 @@ function Login(props){
                     </span>
                 </a>
             </li>
-
-
-
-
         </div>
+    </div>
     )
 }
 

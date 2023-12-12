@@ -11,32 +11,52 @@ $text-color: #999;
 // 버튼에 사용됨
 
 
-$LoginPrimary: rgba(243, 237, 237, 0.71);
+$LoginPrimary: rgba(243, 237, 237);
 
 
 *{
   text-align: start;
+
+  //overflow: hidden;
 }
 
+body {
+  overflow: hidden;
+
+}
+
+.loginContainer {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  //box-shadow: none;
+
+  //background-color: #9A6D4A;
+  //width: 100vh;
+}
 
 .loginBox {
-  font-family: 'Roboto', sans-serif;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  height: 50%;
   align-items: center;
-  margin-top: 5rem;
-  height: 38rem; // 뷰포트의 100% 높이를 사용하여 세로 중앙 정렬
+  margin-bottom: 8%;
+  //background: #9A6D4A;
+  //overflow: hidden;
+  //margin-top: 5rem;
+  //height: 38rem; // 뷰포트의 100% 높이를 사용하여 세로 중앙 정렬
   //width: 600px;
   //margin: 30px auto 0;
   //display: block;
-  background: #FFF;
+  background: rgba(236, 197, 154, 0.7);
+  width: 100%;
   //padding: 10px 50px 50px;
 
   .group {
     position: relative;
-    margin-bottom: 2rem;
+    //margin-bottom: 2rem;
 
     input {
       //font-size: 18px;
@@ -169,7 +189,6 @@ $borderWidth: 3px;
     &:hover {
       background-position: 0% 100%;
     }
-
   }
 }
 
