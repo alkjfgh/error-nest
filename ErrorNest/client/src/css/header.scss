@@ -147,6 +147,12 @@
         left: 17%;
       }
     }
+    @media (min-width: 1920px) {
+      #s-cover {
+        top: -3px;
+        left: 47%;
+      }
+    }
 
     .td {
       display: table-cell;
