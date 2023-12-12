@@ -3,18 +3,24 @@ import {useCookies} from "react-cookie";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-import '../css/admin.scss'
+
 import MemberListView from "./MemberListView";
 import BanListView from "./BanListView";
 import EditHistoryView from "./EditHistoryView";
 import BanHistoryView from "./BanHistoryView";
 import ReportHistory from "../report/ReportHistory";
 
+// css 관련 import
+import '../css/admin.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faAtom, faDisease, faDna, faSeedling} from "@fortawesome/free-solid-svg-icons";
+// import { faDna, faChartMixed, faAtom, faSeedling, faDisease };
+
 function Admin(props) {
     const [cookies] = useCookies();
     const navigate = useNavigate();
-
     const [currentView, setCurrentView] = useState("main");
+
 
     const axiosLoading = props.axiosLoading
 
@@ -45,6 +51,35 @@ function Admin(props) {
 
     return (
         <>
+
+            <div className="admin-container">
+            <h1>Neumorphic buttons</h1>
+            <div className="admin-buttons">
+                <button className="neumorphic">
+                    <FontAwesomeIcon icon={faDna} className="fa-light" />
+                    <span>Button 2</span>
+                </button>
+                <button className="neumorphic">
+                    <FontAwesomeIcon icon={faAtom} className="fa-light" />
+                    <span>Button 3</span>
+                </button>
+                <button className="neumorphic">
+                    <FontAwesomeIcon icon={faAtom} className="fa-light" />
+                    <span>Button 4</span>
+                </button>
+                <button className="neumorphic">
+                    <FontAwesomeIcon icon={faSeedling} className="fa-light" />
+                    <span>Button 5</span>
+                </button>
+                <button className="neumorphic">
+                    <FontAwesomeIcon icon={faDisease} className="fa-light" />
+                    <span>Button 6</span>
+                </button>
+            </div>
+
+
+
+
             {currentView === 'main' &&
                 <div className="admin-view-btn-con">
                     <div className="admin-view-btn" onClick={viewHandler}>유저 목록</div>
@@ -63,6 +98,7 @@ function Admin(props) {
                 {currentView === "벤 로그" && <BanHistoryView axiosLoading={axiosLoading}/>}
                 {currentView === "편집 로그" && <EditHistoryView axiosLoading={axiosLoading}/>}
                 {currentView === "신고 목록" && <ReportHistory axiosLoading={axiosLoading}/>}
+            </div>
             </div>
         </>
     )
