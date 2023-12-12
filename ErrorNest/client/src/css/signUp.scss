@@ -248,7 +248,9 @@ $borderWidth: 3px;
 }
 
 .signUp-button {
+  //pointer-events: all;
   background-color: inherit;
+  //cursor: pointer;
   font-size: 1.2rem;
   line-height: 1;
   color: currentColor;
@@ -290,6 +292,7 @@ $borderWidth: 3px;
   }
 
   &:hover {
+
     span {
       transform: translate(0px, 0px);
       transition: .2s ease-in-out;

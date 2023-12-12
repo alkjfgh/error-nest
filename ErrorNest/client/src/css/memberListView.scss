@@ -1,0 +1,123 @@
+@import "nomalize.scss";
+
+.memberListView-table {
+  th {
+    //background-color: #9A6D4A;
+    h1 {
+      font-weight: bold;
+      font-size: 1.9em;
+      text-align: left;
+      color: #185875;
+    }
+    .tabelTitle-delete{
+      color: #0E1119;
+    }
+  }
+
+  td {
+    font-weight: normal;
+    font-size: 1em;
+    a {
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #d3846e;
+    }
+    //-webkit-box-shadow: 0 2px 2px -2px #0E1119;
+    //-moz-box-shadow: 0 2px 2px -2px #0E1119;
+    //box-shadow: 0 2px 2px -2px #0E1119;
+  }
+
+  text-align: left;
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+
+
+  tr:nth-child(odd) {
+    background-color: #ecdcaf;
+
+    .member-delete-btn{
+      width: 100%;
+      height: 100%;
+      background-color: #ecdcaf;
+      border: none;
+      font-size: 1.5rem;
+    }
+
+    .member-delete-btn:hover{
+      //background-color: #93b0ea;
+      border: none;
+      color: #9A6D4A;
+    }
+
+  }
+
+
+  tr:nth-child(even) {
+    background-color: #e8dfc6;
+
+    .member-delete-btn{
+      width: 100%;
+      height: 100%;
+      background-color: #e8dfc6;
+      border: none;
+      font-size: 1.5rem;
+    }
+
+    .member-delete-btn:hover{
+      //background-color: #93b0ea;
+      border: none;
+      color: #9A6D4A;
+    }
+  }
+
+  th {
+    background-color: $admin_background;
+  }
+
+  td:first-child {
+    color: #FB667A;
+  }
+
+  tr:hover {
+    background-color: #93b0ea;
+    -webkit-box-shadow: 0 6px 6px -6px #4861a4;
+    -moz-box-shadow: 0 6px 6px -6px #0E1119;
+    box-shadow: 0 6px 6px -6px #0E1119;
+
+    .member-delete-btn{
+      width: 100%;
+      height: 100%;
+      background-color: #93b0ea;
+      border: none;
+      font-weight: bold;
+    }
+
+  }
+
+  .tdStyle:hover {
+    background-color: #ecc03f;
+    color: #403E10;
+    font-weight: bold;
+
+    box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+    transform: translate3d(6px, -6px, 0);
+
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    //transition-timing-function: line;
+  }
+
+  @media (max-width: 800px) {
+    td:nth-child(4),
+    th:nth-child(4) {
+      display: none;
+    }
+  }
+
+}
+
+
