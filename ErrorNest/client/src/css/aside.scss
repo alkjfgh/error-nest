@@ -1,0 +1,72 @@
+aside::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+aside {
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+  border-radius: 15px;
+  width: 300px;
+  height: 600px; //내부 크기만큼 height 하도록 바꿔야함
+  // 여기에 aside 스타일을 추가하세요
+  background-color: #db762e;
+
+  position: relative;
+
+  padding: 1rem;
+  overflow-y: scroll;
+
+  div{
+    display: flex;
+    height: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    //border: 1px solid brown;
+    line-height: 2.5rem;
+    background-color: #fdd48a;
+    overflow: hidden;
+    border-radius: 10px;
+
+    a{
+      padding-left: 1rem;
+      padding-right: 2.5rem;
+      display: inline-block;
+      overflow: hidden;  		// 을 사용해 영역을 감출 것
+      text-overflow: ellipsis;  	// 로 ... 을 만들기
+      white-space: nowrap; 		// 아래줄로 내려가는 것을 막기위해
+      flex: 1;
+      color: #522c0a !important;
+    }
+
+    a:hover{
+      color: #d5803b !important;
+    }
+
+    span{
+      display: inline-block;
+      width: 3rem;
+      text-align: center!important;
+      //height: 1.5rem;
+      right: 1rem;
+      position: absolute;
+      padding: 0 0.3rem;
+      border-radius: 10px;
+      background-color: orange;
+    }
+
+    span:hover{
+      cursor: pointer;
+      background-color: #d58026;
+      transition-duration: 300ms;
+    }
+  }
+
+  div:hover a{
+  }
+}
+
+@media screen and (max-width: 1000px) { // 브라우저 너비가 1000px 이하일 때
+  aside {
+    display: none; // aside를 숨김
+  }
+}

@@ -97,23 +97,6 @@ const History = () => {
                 <button className="nextPage" onClick={() => navigate("/history/" + title + "?page=" + (page + 1))} disabled={page === maxPage}>Next</button>
             </div>
 
-            <div className={'pagination-con'}>
-                <span>
-                    {page - 1 > 0 ? (
-                        <Link to={"/history/" + title + "?page=" + (page - 1)}>{"<"}Prev</Link>
-                    ) : (
-                        "<Prev"
-                    )}
-                </span>
-                <span>
-                    {page + 1 <= maxPage ? (
-                        <Link to={"/history/" + title + "?page=" + (page + 1)}>Next{">"}</Link>
-                    ) : (
-                        "Next>"
-                    )}
-                </span>
-            </div>
-
             <div className={'history-con'}>
                 <ul className="history-list">
                     {histories.map((history, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링

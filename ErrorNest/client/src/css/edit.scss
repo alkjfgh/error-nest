@@ -2,6 +2,12 @@
 
 .container{
 
+  .edit-con{
+    h1{
+      width: 70%;
+    }
+  }
+
   .editor {
     counter-reset: line;
     border: 1px solid #ced4da;

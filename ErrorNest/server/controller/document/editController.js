@@ -7,7 +7,8 @@ const {decryptCookie} = require('../encript/encriptCookie')
 const documentSelect = async (req, res, next) => {
     try {
         const title = req.params[0]
-        if(req.query.version){
+        const isDocument = await Document.findOne({title})
+        if(isDocument !== null){
             let version = parseInt(req.query.version) // 페이지 번호
             const options = { title: title }
             if(version) options.version = version

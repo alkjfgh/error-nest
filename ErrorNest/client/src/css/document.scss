@@ -19,6 +19,8 @@
   article {
     flex: 1; // 남는 공간을 모두 사용하도록 설정
     // 여기에 article 스타일을 추가하세요
+    //width: calc(100vw - 300px - 3rem);
+    //left: 0;
     position: relative;
     background-color: $document_background;
     margin-right: 1rem;
@@ -31,7 +33,7 @@
 
     h1{
       font-size: 2.2rem;
-      margin-top: 0;
+      margin-top: 2rem;
     }
 
     img{
@@ -122,18 +124,7 @@
     }
   }
 
-  aside {
-    border-radius: 15px;
-    width: 300px;
-    height: 600px; //내부 크기만큼 height 하도록 바꿔야함
-    // 여기에 aside 스타일을 추가하세요
-    background-color: #db762e;
-  }
-
   @media screen and (max-width: 1000px) { // 브라우저 너비가 1000px 이하일 때
-    aside {
-      display: none; // aside를 숨김
-    }
 
     article{
       margin-right: 0;

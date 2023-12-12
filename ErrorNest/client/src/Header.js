@@ -96,6 +96,7 @@ const Header = (props) => {
             setSelectedIndex((prevIndex) => Math.max(prevIndex - 1, -1));
             e.preventDefault();  // 기본 동작 막기
         } else if (e.key === 'Enter') {
+            if(inputText.length === 0) return
             setInputText("")
             // Enter 키를 누르면 선택된 검색 결과로 이동
             if(selectedIndex === -1 || selectedIndex === hits.length) navigate(`/search?q=${encodedInputText}`)
@@ -129,12 +130,26 @@ const Header = (props) => {
                     </div>
                 </div>
                 <div id="s-cover" className="td">
-                    <Link to={`/search?q=${encodedInputText}`}>
-                        <button className="navi-button">
-                            <div id="s-circle"></div>
-                            <span></span>
-                        </button>
-                    </Link>
+                    {/*<Link to={`/search?q=${encodedInputText}`} c>*/}
+                    {/*    <button className="navi-button">*/}
+                    {/*        <div id="s-circle"></div>*/}
+                    {/*        <span></span>*/}
+                    {/*    </button>*/}
+                    {/*</Link>*/}
+                    {
+                        encodedInputText.length > 0 ?
+                            <Link to={`/search?q=${encodedInputText}`}>
+                                <button className="navi-button">
+                                    <div id="s-circle"></div>
+                                    <span></span>
+                                </button>
+                            </Link>
+                            :
+                            <button className="navi-button" disabled>
+                                <div id="s-circle"></div>
+                                <span></span>
+                            </button>
+                    }
                 </div>
             </div>
 
