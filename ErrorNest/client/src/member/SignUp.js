@@ -43,7 +43,8 @@ function SignUp(props) {
     useEffect(() => {
         pwEquals();
     },[inputs.pwCheck]);
-
+    
+    // 이메일 중복 체크
     useEffect(() => {
         isCanEm();
     }, [inputs.email]);
@@ -186,32 +187,71 @@ function SignUp(props) {
                 <li className="signUp-container__item">
                     <span className="welcome-message">Welcome to ErrorNest!</span>
                     <div className="signUp-group">
-                        <input type="test" name="name" onChange={handleChange} required/>
-                        <span className="buttonClick"><button className="continue action-button animate">확인</button></span>
+                        <input type="test" name="name" onChange={handleChange} required placeholder=""/>
+                        <span className="buttonClick"><button
+                            className="continue action-button animate">확인</button>
+                        </span>
                         <span className="signUp-highlight"></span>
                         <span className="signUp-bar"></span>
                         <label htmlFor="name">Name</label>
                     </div>
-
-                    id: <input type="text" name="id" onChange={handleChange} required/>
-                    <button type="button" onClick={() => checkId()}>중복확인</button>
-                    <br/>
-                    pw: <input type="password" name="pw" onChange={handleChange} required/>
-                    {inputs.pw.trim() && <span> {isCanPassword}</span>}<br/>
-                    pw 확인: <input type="password" name="pwCheck" onChange={handleChange} required/>
-                    {inputs.pwCheck.trim() && <span> {isPwEquals}</span>}<br/>
-                    email: <input type="email" name="email" onBlur={handleChange} required/>
-                    <button type="button" onClick={() => sendAuthCode()}>인증
-                    </button>
-                    {count !== 0 && <span> 인증 제한시간 {Math.floor(count / 60)}:{count % 60}</span>}<br/>
-                    {isAuth && (
+                    <div className="signUp-group">
+                        <input type="text" name="id" onChange={handleChange} required placeholder=""/>
+                        <span className="buttonClick">
+                            <button id="idCheck" className="continue action-button animate" type="button" onClick={() => checkId()}>중복확인</button>
+                        </span>
+                        <span className="signUp-highlight"></span>
+                        <span className="signUp-bar"></span>
+                        <label htmlFor="id">Id</label>
+                    </div>
+                    <div className="signUp-group pw-group">
+                        <input type="password" name="pw" onChange={handleChange} required placeholder=""/>
+                        <span className="buttonClick">
+                            <button className="continue action-button animate">확인</button>
+                        </span>
                         <div>
-                            인증: <input type="text" onChange={(e) => setAuthCheck(e.target.value)}/>
-                            <button type="button" onClick={checkAuth}>확인</button>
-                            <br/>
+                            {inputs.pw.trim() && <span className="hidden">{isCanPassword}</span>}
                         </div>
-                    )}
-                    <button type="submit">회원가입</button>
+                        <span className="signUp-highlight"></span>
+                        <span className="signUp-bar"></span>
+                        <label htmlFor="pw">Password</label>
+                    </div>
+                    <div className="signUp-group pw-group">
+                        <input type="password" name="pwCheck" onChange={handleChange} required placeholder=""/>
+                        <span className="buttonClick">
+                            <button className="continue action-button animate">확인</button>
+                        </span>
+                        <div>
+                            {inputs.pwCheck.trim() && <span className="hidden"><span>{isPwEquals}</span></span>}
+                        </div>
+                        <span className="signUp-highlight"></span>
+                        <span className="signUp-bar"></span>
+                        <label htmlFor="pwCheck">Verify Password</label>
+                    </div>
+                    <div className="signUp-group">
+                        <input type="email" name="email" onBlur={handleChange} required placeholder=""/>
+                        <span className="buttonClick">
+                            <button className="continue action-button animate" type="button" onClick={() => sendAuthCode()}>인증</button>
+                        </span>
+                        <div>
+                            {count >= 1 && count !== 0 && <span className="hidden"><span>인증 제한시간 {Math.floor(count / 60)}:{count % 60}</span></span>}
+                        </div>
+                        <span className="signUp-highlight"></span>
+                        <span className="signUp-bar"></span>
+                        <label htmlFor="email">Email</label>
+                    </div>
+                    {/*{isAuth && (*/}
+                    <div className="signUp-group">
+                        <input type="text" name="auth" onChange={(e) => setAuthCheck(e.target.value)} required placeholder=""/>
+                        <span className="buttonClick">
+                            <button className="continue action-button animate" type="button" onClick={checkAuth}>확인</button>
+                        </span>
+                        <span className="signUp-highlight"></span>
+                        <span className="signUp-bar"></span>
+                        <label htmlFor="auth">Auth</label>
+                    </div>
+                    {/*)}*/}
+                    <button className="login-button" type="submit"><span>회원가입</span></button>
                 </li>
             </form>
         </div>
