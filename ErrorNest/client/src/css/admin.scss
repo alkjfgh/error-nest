@@ -29,6 +29,7 @@ button.neumorphic {
   border-radius: 1rem;
   color: hsl(0 0% 10%);
   background: none;
+  //align-items: center;
 
   display: grid;
   place-content: center;
@@ -71,7 +72,8 @@ button.neumorphic {
     font-size: 16cqi;
   }
   .svg-inline--fa{
-    font-size: 45px;
+    //align-items: center;
+    font-size: 50px;
   }
 }
 

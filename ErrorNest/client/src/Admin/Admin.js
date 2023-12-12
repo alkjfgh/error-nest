@@ -13,7 +13,16 @@ import ReportHistory from "../report/ReportHistory";
 // css 관련 import
 import '../css/admin.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faAtom, faDisease, faDna, faSeedling} from "@fortawesome/free-solid-svg-icons";
+import {
+    faAtom,
+    faBan,
+    faDisease,
+    faDna, faHand,
+    faPenToSquare,
+    faScroll,
+    faSeedling,
+    faUser
+} from "@fortawesome/free-solid-svg-icons";
 // import { faDna, faChartMixed, faAtom, faSeedling, faDisease };
 
 function Admin(props) {
@@ -60,23 +69,25 @@ function Admin(props) {
                 {currentView === 'main' &&
             <div className="admin-buttons" >
                 <button className="neumorphic" onClick={()=>viewHandler("유저 목록")}>
-                    <FontAwesomeIcon icon={faDna} className="fa-light" />
+                    <FontAwesomeIcon icon={faUser} className="fa-light" />
                     <span>User List</span>
                 </button>
                 <button className="neumorphic" onClick={()=>viewHandler("벤 상태")}>
-                    <FontAwesomeIcon icon={faAtom} className="fa-light" />
+                    <FontAwesomeIcon icon={faBan} className="fa-light" />
                     <span onClick={viewHandler}>Ban Status</span>
                 </button>
                 <button className="neumorphic" onClick={()=>viewHandler("벤 로그")}>
-                    <FontAwesomeIcon icon={faAtom} className="fa-light" />
+                    {/*<i className="fa-solid fa-scroll"></i>*/}
+                    <FontAwesomeIcon icon={faScroll} className="fa-light" />
                     <span onClick={viewHandler}>Ban Log</span>
                 </button>
                 <button className="neumorphic" onClick={()=>viewHandler("편집 로그")}>
-                    <FontAwesomeIcon icon={faSeedling} className="fa-light" />
+                    {/*<i className="fa-solid fa-pen-to-square"></i>*/}
+                    <FontAwesomeIcon icon={faPenToSquare} className="fa-light" />
                     <span onClick={viewHandler}>Edit Log</span>
                 </button>
                 <button className="neumorphic" onClick={()=>viewHandler("신고 목록")}>
-                    <FontAwesomeIcon icon={faDisease} className="fa-light" />
+                    <FontAwesomeIcon icon={faHand} className="fa-light" />
                     <span onClick={viewHandler}>Report List</span>
                 </button>
             </div>}
