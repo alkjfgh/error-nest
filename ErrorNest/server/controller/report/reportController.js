@@ -125,7 +125,7 @@ const reportUpdateCancel = async (req, res, next) => {
         }
 
         if (req.body.userInfo.userid === req.body.reportInfo.reportId) {
-            const filter = {writer: req.body.reportInfo.reportId, reportNo: req.body.reportInfo.reportNo};
+            const filter = {reportId: req.body.reportInfo.reportId, reportNo: req.body.reportInfo.reportNo};
             const update = {$set: {status: "취소"}};
 
             await Report.updateOne(filter, update);
