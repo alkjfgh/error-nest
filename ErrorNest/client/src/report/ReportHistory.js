@@ -67,6 +67,7 @@ const ReportHistory = (props) => {
                 <table>
                     <thead>
                     <tr>
+                        <th>id</th>
                         <th>Title</th>
                         <th>CreatedAt</th>
                         <th>Status</th>
@@ -76,6 +77,7 @@ const ReportHistory = (props) => {
                     <tbody>
                     {reportList.map((report) => (
                         <tr key={report._id}>
+                            <td>{report.reportId}</td>
                             <td>{report.title}</td>
                             <td>{report.createAt}</td>
                             <td>{report.status}</td>

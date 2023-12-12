@@ -20,6 +20,18 @@
       border-radius: 3px;
       padding: 10px 10px 10px 100px;
       transition: all 0.1s ease-out;
+
+      &.waiting {
+        background-color: #a1d2e1; // 대기 상태 배경색
+      }
+
+      &.completed {
+        background-color: #99d099; // 완료 상태 배경색
+      }
+
+      &.canceled {
+        background-color: #f1bebe; // 취소 상태 배경색
+      }
     }
 
     input[type="text"] + label{
@@ -36,6 +48,18 @@
       transform: translateZ(0) translateX(0);
       transition: all 0.3s ease-in;
       transition-delay: 0.2s;
+
+      &.waiting {
+        background-color: #198dd5; // 대기 상태 배경색
+      }
+
+      &.completed {
+        background-color: green; // 완료 상태 배경색
+      }
+
+      &.canceled {
+        background-color: red; // 취소 상태 배경색
+      }
     }
 
     input[type="text"]:focus + label{
@@ -89,6 +113,60 @@
     resize: none;
     box-sizing: border-box; /* 추가 */
   }
+}
+
+.report-comment {
+  margin-top: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+
+  .comment {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: auto;
+    height: 300px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.admin-action {
+  display: flex;
+  flex-direction: column;
+  //align-items: center;
+  margin-top: 20px;
+
+  textarea {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: auto;
+    height: 100px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .admin-result {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: auto;
+    height: 100px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+}
+
+.report-button {
+  text-align: center !important;
 }
 
 

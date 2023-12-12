@@ -92,9 +92,10 @@ const reportSelect = async (req, res, next) => {
 
             console.log('------------------------');
             console.log(userInfo);
+            // console.log(reqData.writer);
         }
 
-        reportInfo = await Report.findOne({writer: reqData.writer, reportNo: reqData.reportNo});
+        reportInfo = await Report.findOne({reportId: reqData.writer, reportNo: reqData.reportNo});
         console.log('------------------------');
         console.log(reportInfo);
 
