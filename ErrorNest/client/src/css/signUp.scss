@@ -54,10 +54,25 @@ $LoginPrimary: rgba(243, 237, 237, 0.71);
       padding: 5px 11px;
     }
 
-    .hidden{
+    .hidden {
       display: block;
       text-align: left;
+      color: red;
+      font-size: 12px;
+
+      #time{
+        font-size: 14px;
+      }
+
+      &.valid {
+        color: green;
+      }
+
+      &.invalid {
+        color: red;
+      }
     }
+
 
     .buttonClick{
       position: relative;
@@ -186,6 +201,7 @@ $LoginPrimary: rgba(243, 237, 237, 0.71);
 
   .pw-group{
     margin-bottom: 1rem;
+    right: 3.7rem;
 
     div{
       width: 100%;
@@ -231,7 +247,7 @@ $borderWidth: 3px;
     color: $btn-text-color;
     height: auto;
     min-height: 33vh;
-    padding: 40px 80px;
+    padding: 40px 110px;
     display: grid;
     place-items: center;
     position: relative;
@@ -245,19 +261,26 @@ $borderWidth: 3px;
     }
 
   }
+  
+  @media (min-width: 500px) and (max-width: 632px){
+    &__item {
+      padding: 40px 2.5rem;
+    }
+  }
 }
 
-.signUp-button {
+.signUp-button, .signUp-button:link, .signUp-button:visited {
   //pointer-events: all;
   background-color: inherit;
   //cursor: pointer;
   font-size: 1.2rem;
   line-height: 1;
-  color: currentColor;
+  color: cornflowerblue; // 수정된 부분
   text-decoration: none;
   display: block;
   position: relative;
   text-align: center;
+  border: none;
 
   span {
     background-color: $accent;
@@ -274,12 +297,11 @@ $borderWidth: 3px;
   &::after {
     content: "";
     display: block;
-    width: 100%;
+    width: 94%;
     height: 100%;
     border-radius: 2em;
     position: absolute;
     top: 0;
-    left: 0;
     border: 2px solid currentColor;
     background-color: inherit;
     pointer-events: none;
@@ -292,7 +314,7 @@ $borderWidth: 3px;
   }
 
   &:hover {
-
+    color: darkblue; // 수정된 부분
     span {
       transform: translate(0px, 0px);
       transition: .2s ease-in-out;

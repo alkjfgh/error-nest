@@ -24,6 +24,7 @@ function SignUp(props) {
     const [isCanPassword, setIsCanPassword] = useState("패스워드 형식이 맞지 않습니다.");
     const [isPwEquals, setIsPwEquals] = useState("일치하지 않습니다.");
     const [isCanEmail, setIsCanEmail] = useState(false);
+    const [nameCheck, setNameCheck] = useState(false);
     const axiosLoading = props.axiosLoading
 
     useEffect(() => {
@@ -171,9 +172,12 @@ function SignUp(props) {
     // 아이디 중복 체크
     const checkId = async () => {
         const checkEquals = await axios.post('/member/checkEquals', {id: inputs.id});
-        if(checkEquals.data.answer){
+        if(checkEquals.data.answer && inputs.id !== ''){
             alert("사용가능한 아이디입니다.");
             setCheck(true);
+        }
+        else if(inputs.id === ''){
+            alert("아이디를 입력해주세요.");
         }
         else{
             alert("중복된 아이디입니다.");
@@ -188,14 +192,14 @@ function SignUp(props) {
                     <span className="welcome-message">Welcome to ErrorNest!</span>
                     <div className="signUp-group">
                         <input type="test" name="name" onChange={handleChange} required placeholder=""/>
-                        <span className="buttonClick"><button
-                            className="continue action-button animate">확인</button>
+                        <span className="buttonClick">
+                            <button className="continue action-button animate" onClick={()=>setNameCheck(true)}>계속</button>
                         </span>
                         <span className="signUp-highlight"></span>
                         <span className="signUp-bar"></span>
                         <label htmlFor="name">Name</label>
                     </div>
-                    <div className="signUp-group">
+                    {nameCheck && inputs.name !== '' && <div className="signUp-group">
                         <input type="text" name="id" onChange={handleChange} required placeholder=""/>
                         <span className="buttonClick">
                             <button id="idCheck" className="continue action-button animate" type="button" onClick={() => checkId()}>중복확인</button>
@@ -203,44 +207,38 @@ function SignUp(props) {
                         <span className="signUp-highlight"></span>
                         <span className="signUp-bar"></span>
                         <label htmlFor="id">Id</label>
-                    </div>
-                    <div className="signUp-group pw-group">
+                    </div>}
+                    {check && <div className="signUp-group pw-group">
                         <input type="password" name="pw" onChange={handleChange} required placeholder=""/>
-                        <span className="buttonClick">
-                            <button className="continue action-button animate">확인</button>
-                        </span>
                         <div>
-                            {inputs.pw.trim() && <span className="hidden">{isCanPassword}</span>}
+                            {inputs.pw.trim() && <span className={`hidden ${isCanPassword === "사용가능한 형식입니다." ? "valid" : "invalid"}`}>{isCanPassword}</span>}
                         </div>
                         <span className="signUp-highlight"></span>
                         <span className="signUp-bar"></span>
                         <label htmlFor="pw">Password</label>
-                    </div>
-                    <div className="signUp-group pw-group">
+                    </div>}
+                    {isCanPassword === "사용가능한 형식입니다." && <div className="signUp-group pw-group">
                         <input type="password" name="pwCheck" onChange={handleChange} required placeholder=""/>
-                        <span className="buttonClick">
-                            <button className="continue action-button animate">확인</button>
-                        </span>
                         <div>
-                            {inputs.pwCheck.trim() && <span className="hidden"><span>{isPwEquals}</span></span>}
+                            {inputs.pwCheck.trim() && <span className={`hidden ${isPwEquals === "일치합니다." ? "valid" : "invalid"}`}><span>{isPwEquals}</span></span>}
                         </div>
                         <span className="signUp-highlight"></span>
                         <span className="signUp-bar"></span>
                         <label htmlFor="pwCheck">Verify Password</label>
-                    </div>
-                    <div className="signUp-group">
+                    </div>}
+                    {isPwEquals === "일치합니다." && <div className="signUp-group">
                         <input type="email" name="email" onBlur={handleChange} required placeholder=""/>
                         <span className="buttonClick">
                             <button className="continue action-button animate" type="button" onClick={() => sendAuthCode()}>인증</button>
                         </span>
                         <div>
-                            {count >= 1 && count !== 0 && <span className="hidden"><span>인증 제한시간 {Math.floor(count / 60)}:{count % 60}</span></span>}
+                            {count >= 1 && count !== 0 && <span className="hidden"><span id="time">인증 제한시간 {Math.floor(count / 60)}:{count % 60}</span></span>}
                         </div>
                         <span className="signUp-highlight"></span>
                         <span className="signUp-bar"></span>
                         <label htmlFor="email">Email</label>
-                    </div>
-                    {/*{isAuth && (*/}
+                    </div>}
+                    {isAuth && (
                     <div className="signUp-group">
                         <input type="text" name="auth" onChange={(e) => setAuthCheck(e.target.value)} required placeholder=""/>
                         <span className="buttonClick">
@@ -250,8 +248,8 @@ function SignUp(props) {
                         <span className="signUp-bar"></span>
                         <label htmlFor="auth">Auth</label>
                     </div>
-                    {/*)}*/}
-                    <button className="login-button" type="submit"><span>회원가입</span></button>
+                    )}
+                    {flag && <button className="signUp-button" type="submit"><span>회원가입</span></button>}
                 </li>
             </form>
         </div>
