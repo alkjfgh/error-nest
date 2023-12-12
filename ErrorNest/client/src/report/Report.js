@@ -27,10 +27,11 @@ const Report = (props) => {
         data.version = searchParams.get("version");
         data.title = decodeURIComponent(location.pathname.replace('/report/', ''));
 
+        setTitle(data.title);
+
         const res = await axios.post('/report/getDocument/', data);
         console.log(res.data);
 
-        setTitle(res.data.title);
         setVersion(res.data.version);
         setMyName(res.data.myName);
     }

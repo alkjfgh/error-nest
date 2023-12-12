@@ -8,13 +8,26 @@ const {encryptCookie, decryptCookie} = require('../encript/encriptCookie');
 /** report CRUD */
 const documentSelect = async (req, res, next) => {
     console.log("documentSelect Controller 진입 성공 !!");
-    const title = req.params[0]
+    const title = req.body.title;
+
+    console.log(req.body);
     try {
-        if (req.query.version) {
-            let version = parseInt(req.query.version) // 페이지 번호
-            const options = {title: title}
-            if (version) options.version = version
-            const document = await Document.findOne(options).sort('-version') // 몽고디비의 db.users.find({}) 쿼리와 같음
+        if (req.body.version) {
+            let version = parseInt(req.body.version); // 페이지 번호
+            const options = {title: title};
+            if (version) {
+                options.version = version;
+            } else {
+                // version이 null인 경우 가장 높은 버전의 문서를 찾기 위해 추가
+                const latestDocument = await Document.findOne({title: title}).sort('-version');
+                if (latestDocument) {
+                    version = latestDocument.version;
+                } else {
+                    version = 1; // 문서가 없는 경우 기본값 1로 설정
+                }
+                options.version = version;
+            }
+            const document = await Document.findOne(options).sort('-version'); // 몽고디비의 db.users.find({}) 쿼리와 같음
             res.json({
                 title: document.title,
                 version: document.version,
