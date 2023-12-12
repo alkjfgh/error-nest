@@ -184,15 +184,13 @@ function SignUp(props) {
         <div className="signUpBox">
             <form onSubmit={handleSubmit}>
                 <li className="signUp-container__item">
-                    <span className="welcome-message">Welcome to Error Nest!</span>
+                    <span className="welcome-message">Welcome to ErrorNest!</span>
                     <div className="signUp-group">
                         <input type="test" name="name" onChange={handleChange} required/>
-                        <span className="highlight"></span>
-                        <span className="bar"></span>
+                        <span className="buttonClick"><button className="continue action-button animate">확인</button></span>
+                        <span className="signUp-highlight"></span>
+                        <span className="signUp-bar"></span>
                         <label htmlFor="name">Name</label>
-                        <span style={{right: 0}}>
-                            <button>확인</button>
-                        </span>
                     </div>
 
                     id: <input type="text" name="id" onChange={handleChange} required/>

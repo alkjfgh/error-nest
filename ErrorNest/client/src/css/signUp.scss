@@ -7,6 +7,23 @@ $highlight-color: #5264AE;
 $text-color: #999;
 
 
+@keyframes text {
+  0% {
+    clip-path:polygon(0 0, 0 0, 0 100%, 0 100%)
+  }
+  100% {
+    clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%)
+  }
+}
+.welcome-message{
+  clip-path:polygon(0 0, 0 0, 0 100%, 0 100%);
+  animation: text linear 1s forwards;
+  animation-delay: 1s;
+  right: 7.7rem;
+  position: relative;
+  bottom: 15px;
+}
+
 
 // 버튼에 사용됨
 
@@ -21,6 +38,7 @@ $LoginPrimary: rgba(243, 237, 237, 0.71);
 
 .signUpBox {
   font-family: 'Roboto', sans-serif;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,18 +54,60 @@ $LoginPrimary: rgba(243, 237, 237, 0.71);
   .signUp-group {
     position: relative;
     margin-bottom: 2rem;
+    right: 2.4rem;
+
+    .buttonClick{
+      position: relative;
+      left: 2rem;
+    }
+
+    .continue
+    {
+      background-color: #f1c40f;
+      border-bottom: 5px solid #f39c12;
+      text-shadow: 0px -2px #f39c12;
+    }
+
+    .action-button
+    {
+      position: relative;
+      padding: 10px 40px;
+      border-radius: 3px;
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+      color: #FFF;
+      text-decoration: none;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+    }
+
+    .action-button:hover
+    {
+      transform: translate(0px,5px);
+      -webkit-transform: translate(0px,5px);
+      border-bottom: 1px solid;
+    }
+
+    .animate
+    {
+      transition: all 0.1s;
+      -webkit-transition: all 0.1s;
+    }
 
     input {
       //font-size: 18px;
       font-size: 1rem;
       //padding: 10px 10px 10px 5px;
       padding: 1rem 1rem 1rem 1rem;
-      display: block;
+      //display: block;
       //width: 300px;
       width: 16.75rem;
       border: none;
       border-bottom: 0.1rem solid $secondary-color;
       outline: none;
+      //position: relative;
+      //right: 3.5rem;
     }
 
     label {
@@ -59,7 +119,7 @@ $LoginPrimary: rgba(243, 237, 237, 0.71);
       pointer-events: none;
       //left: 5px;
       left: 0.3rem;
-      top: 10px;
+      top: 15px;
       //top: 0.05vh;
       transition: 0.2s ease all;
     }
@@ -72,7 +132,7 @@ $LoginPrimary: rgba(243, 237, 237, 0.71);
       color: $highlight-color;
     }
 
-    .bar {
+    .signUp-bar {
       position: relative;
       display: block;
       //width: 300px;
@@ -103,7 +163,7 @@ $LoginPrimary: rgba(243, 237, 237, 0.71);
       width: 50%;
     }
 
-    .highlight {
+    .signUp-highlight {
       position: absolute;
       height: 60%;
       //width: 100px;
@@ -114,7 +174,7 @@ $LoginPrimary: rgba(243, 237, 237, 0.71);
       opacity: 0.5;
     }
 
-    input:focus ~ .highlight {
+    input:focus ~ .signUp-highlight {
       animation: inputHighlighter 0.3s ease;
     }
   }
@@ -157,7 +217,7 @@ $borderWidth: 3px;
     color: $btn-text-color;
     height: auto;
     min-height: 33vh;
-    padding: 40px 110px;
+    padding: 40px 80px;
     display: grid;
     place-items: center;
     position: relative;
@@ -172,7 +232,7 @@ $borderWidth: 3px;
   }
 }
 
-.login-button {
+.signUp-button {
   background-color: inherit;
   font-size: 1.2rem;
   line-height: 1;
