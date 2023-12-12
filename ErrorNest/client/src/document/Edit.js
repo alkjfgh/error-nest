@@ -2,9 +2,15 @@ import React, { useState, useEffect, useRef } from "react"
 import {Link, useLocation, useNavigate } from 'react-router-dom'
 import { useCookies } from "react-cookie"
 import axios from "axios"
+import Editor from "react-simple-code-editor";
+import { highlight, languages } from "prismjs/components/prism-core";
 
+import "prismjs/components/prism-clike";
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-java";
+import "prismjs/components/prism-python";
+import "prismjs/themes/prism.css";
 import '../css/edit.scss'
-import {CodeEdit} from "./CodeEdit";
 
 const Edit = (props) => {
     const location = useLocation()
@@ -98,16 +104,28 @@ const Edit = (props) => {
     }
 
     const editSubmit = async (e) => {
-        axiosLoading(async () => {
-            const this_url = location.pathname
-            const res = await axios.post(this_url, {title, content, category, version, writer})
-            if (res.data.success) {
-                const addIndex = props.algolia.addIndex
-                // 이미 존재하는 title인지 확인
-                await addAlgolia([title], "title")
-                await addAlgolia(category, "category")
-            } else alert("failed update")
-        })
+        e.preventDefault();
+        e.stopPropagation();
+        const button = e.currentTarget;
+        button.classList.add("loading");
+        button.disabled = true;
+
+        const this_url = location.pathname
+        const res = await axios.post(this_url, {title, content, category, version, writer})
+        button.classList.add("loaded");
+
+        if (res.data.success) {
+            // 이미 존재하는 title인지 확인
+            await addAlgolia([title], "title")
+            await addAlgolia(category, "category")
+        } else alert("failed update")
+
+        button.classList.add("finished");
+
+        button.classList.remove("finished");
+        button.classList.remove("loaded");
+        button.classList.remove("loading");
+        button.disabled = false;
     }
 
     const contentChange = (e) => {
@@ -130,52 +148,30 @@ const Edit = (props) => {
             case "주석": addText = "##빈칸or주석이름 주석 내용##"; break
         }
         // 커서 위치에 문자열 삽입
-        const cursorPosition = textRef.current["selectionStart"]
-        const textBeforeCursor = content.slice(0, cursorPosition)
-        const textAfterCursor = content.slice(cursorPosition)
-        const newText = textBeforeCursor + addText + textAfterCursor
-        // const newText = content + addText
+        // const cursorPosition = textRef.current["selectionStart"]
+        // const textBeforeCursor = content.slice(0, cursorPosition)
+        // const textAfterCursor = content.slice(cursorPosition)
+        // const newText = textBeforeCursor + addText + textAfterCursor
+        const newText = content + addText
         setContent(newText)
     }
 
-    const init = async () => {
-        const textarea = document.querySelector("textarea");
-        const lineNumbers = document.querySelector(".line-numbers");
-
-        textarea.addEventListener("keyup", (event) => {
-            const numberOfLines = event.target.value.split("\n").length;
-
-            lineNumbers.innerHTML = Array(numberOfLines)
-                .fill("<span></span>")
-                .join("");
-        });
-
-        textarea.addEventListener("keydown", (event) => {
-            if (event.key === "Tab") {
-                const start = textarea.selectionStart;
-                const end = textarea.selectionEnd;
-
-                textarea.value =
-                    textarea.value.substring(0, start) +
-                    "\t" +
-                    textarea.value.substring(end);
-
-                event.preventDefault();
-            }
-        });
-    };
-
     useEffect( () => {
         const this_url = location.pathname
-        init().then(() => {
-            getDocument(this_url, location.search).then(() => {
-            })
+        getDocument(this_url, location.search).then(() => {
         })
-    }, [])
+    }, [location.pathname, location.search])
 
     useEffect(()=>{
         setCategory(categoryText.split(',').map((cg) => {return cg.trim()}))
     }, [categoryText])
+
+    const hightlightWithLineNumbers = (input, language) =>
+        highlight(input, language)
+            .split("\n")
+            .map((line, i) => `<span class='editorLineNumber'>${i + 1}</span>${line}`)
+            .join("\n");
+
 
     return (
         <div>
@@ -217,21 +213,36 @@ const Edit = (props) => {
 
             {/*<textarea ref={textRef} value={content} onChange={contentChange}></textarea>*/}
 
-            {/*<CodeEdit*/}
-            {/*    name="test-textarea"*/}
-            {/*    value={content}*/}
-            {/*    onValueChange={(content) => setContent(content)}*/}
-            {/*    numOfLines={10}*/}
-            {/*/>*/}
+            <Editor
+                value={content}
+                onValueChange={content => setContent(content)}
+                highlight={content => hightlightWithLineNumbers(content, languages.js)}
+                padding={10}
+                textareaId="codeArea"
+                className="editor"
+                style={{
+                    fontFamily: '"Fira code", "Fira Mono", monospace',
+                    fontSize: 18,
+                    outline: 0
+                }}
+            />
 
-            <div className="editor">
-                <div className="line-numbers">
-                    <span></span>
-                </div>
-                <textarea ref={textRef} value={content} onChange={contentChange}></textarea>
+            <div className={'submit-btn-con'}>
+                {/*<button className={'submit-btn'} onClick={editSubmit}>편집 완료</button>*/}
+                <button className="expand submit-btn" onClick={editSubmit}>
+                    편집 완료
+                    <span className="expand-icon expand-hover">
+                      <svg className="first" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 32 32" version="1.1">
+                        <path
+                            d="M8.489 31.975c-0.271 0-0.549-0.107-0.757-0.316-0.417-0.417-0.417-1.098 0-1.515l14.258-14.264-14.050-14.050c-0.417-0.417-0.417-1.098 0-1.515s1.098-0.417 1.515 0l14.807 14.807c0.417 0.417 0.417 1.098 0 1.515l-15.015 15.022c-0.208 0.208-0.486 0.316-0.757 0.316z"/>
+                      </svg>
+                      <span className="loader"></span>
+                      <svg className="second" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
+                        <path stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 5L8 15l-5-4"/>
+                      </svg>
+                    </span>
+                </button>
             </div>
-
-            <button onClick={editSubmit}>편집 완료</button>
         </div>
     )
 }
