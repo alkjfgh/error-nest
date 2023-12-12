@@ -97,3 +97,26 @@ button.neumorphic {
   grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr));
   gap: 2rem;
 }
+
+
+.admin-return-btn{
+  background-color: #e7dcad;
+  border: none;
+  height: 2.2rem;
+  width: 5.5rem;
+  border-radius: 5px;
+  box-shadow: 0px 3px 4px #5d5226;
+  //box-shadow: 0px 3px 4px inset;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1b2a44;
+  margin-bottom: 3rem;
+
+  &:hover {
+    background-color: #93b0ea;
+    color: white;
+  }
+}
+
+
+

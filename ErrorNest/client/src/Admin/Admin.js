@@ -93,7 +93,11 @@ function Admin(props) {
             </div>}
 
                 {currentView !== 'main' &&
-                    <div onClick={mainView}>돌아가기</div>
+                    <span>
+                        <button className="admin-return-btn" onClick={mainView}>
+                         돌아가기
+                        </button>
+                    </span>
                 }
 
 
