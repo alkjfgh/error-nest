@@ -47,7 +47,6 @@ const documentSelect = async (req, res, next) => {
 const reportInsert = async (req, res, next) => {
     try {
         const report = req.body;
-        console.log(report);
 
         if (report.userInfo.isLogin) {
             const member = {
@@ -56,6 +55,8 @@ const reportInsert = async (req, res, next) => {
             }
             report.userInfo.userid = decryptCookie(member);
         }
+        console.log("--------------------");
+        console.log(report);
 
         const data = {
             title: report.title,
