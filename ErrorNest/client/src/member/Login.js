@@ -2,6 +2,7 @@ import {useState} from "react";
 import axios from "axios";
 import {useCookies, Cookies} from "react-cookie";
 import {useNavigate} from "react-router-dom";
+import "../css/login.scss";
 
 function Login(props){
     const [user, setUser] = useState({
@@ -50,10 +51,37 @@ function Login(props){
     }
 
     return(
-        <div>
-            id: <input type="text" name="id" id="" onChange={handleForm}/><br/>
-            pw: <input type="password" name="pw" id=""  onChange={handleForm}/>
-            <input type="button" value="login"  onClick={handleLogin}/>
+
+        <div className="loginBox">
+
+            {/*id: <input type="text" name="id" id="" onChange={handleForm}/><br/>*/}
+            {/*pw: <input type="password" name="pw" id=""  onChange={handleForm}/>*/}
+            {/*<input type="button" value="login"  onClick={handleLogin}/>*/}
+            <li className="list__item">
+
+                <div className="group">
+                    <input type="text" name="id" id="" onChange={handleForm} required />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    <label htmlFor="name">Id</label>
+                </div>
+
+                <div className="group">
+                    <input type="password" name="pw" id="" onChange={handleForm} required />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    <label htmlFor="pw">Password</label>
+                </div>
+                <a href="#" className="login-button">
+                    <span onClick={handleLogin}>
+                      Login
+                    </span>
+                </a>
+            </li>
+
+
+
+
         </div>
     )
 }

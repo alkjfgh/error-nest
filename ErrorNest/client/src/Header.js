@@ -110,9 +110,33 @@ const Header = (props) => {
                 <img src={logoImg} alt="로고 이미지" className="logo-image"/>
             </Link>
 
+            {/*/!** 검색 바 *!/*/}
+            {/*<div className="navi-button-div">*/}
+            {/*    <div>*/}
+            {/*        <input className="navi-input-bar" type="text" placeholder="검색" value={inputText}*/}
+            {/*               onChange={handleInputText} onKeyDown={handleKeyPress}/>*/}
+
+            {/*        <div className="search-results">*/}
+            {/*            {hits.slice(0, 10).map((hit, index) => (*/}
+            {/*                <Link*/}
+            {/*                    key={index}*/}
+            {/*                    to={`/document/${hit.title}`}*/}
+            {/*                    className={`search-result-item ${index === selectedIndex ? 'selected' : ''}`}*/}
+            {/*                >*/}
+            {/*                    {hit.title}*/}
+            {/*                </Link>*/}
+            {/*            ))}*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+
+            {/*    <Link to={`/search?q=${encodedInputText}`}>*/}
+            {/*        <button className="navi-button">검색</button>*/}
+            {/*    </Link>*/}
+            {/*</div>*/}
+
             {/** 검색 바 */}
-            <div className="navi-button-div">
-                <div>
+            <div className="navi-button-div" id="cover">
+                <div className="td">
                     <input className="navi-input-bar" type="text" placeholder="검색" value={inputText}
                            onChange={handleInputText} onKeyDown={handleKeyPress}/>
 
@@ -128,11 +152,16 @@ const Header = (props) => {
                         ))}
                     </div>
                 </div>
-
-                <Link to={`/search?q=${encodedInputText}`}>
-                    <button className="navi-button">검색</button>
-                </Link>
+                <div id="s-cover" className="td">
+                    <Link to={`/search?q=${encodedInputText}`}>
+                        <button className="navi-button">
+                            <div id="s-circle"></div>
+                            <span></span>
+                        </button>
+                    </Link>
+                </div>
             </div>
+
             {/** 네비게이션 요소 */}
             {/*onBlur={handleBlurList}*/}
             <div className="navi-element-list-div">
