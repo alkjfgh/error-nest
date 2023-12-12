@@ -167,6 +167,7 @@
       display: table-cell;
       vertical-align: middle;
       position: relative;
+      height: 60px;
 
       .search-results {
         position: absolute;
@@ -204,7 +205,7 @@
         border: 0;
         background-color: transparent;
         width: 117%;
-        height: 50px;
+        height: 100%;
         font-size: 40px;
         line-height: 1;
         text-align: left;
