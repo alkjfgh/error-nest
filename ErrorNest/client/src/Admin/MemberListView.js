@@ -3,6 +3,10 @@ import {Link, useLocation} from "react-router-dom";
 
 import axios from "axios";
 
+import '../css/memberListView.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faBan} from "@fortawesome/free-solid-svg-icons";
+
 function MemberListView(props) {
     const location = useLocation()
 
@@ -44,53 +48,64 @@ function MemberListView(props) {
 
     return (
         <>
-            <table>
-                <tbody>
-                <tr>
-                    <th>name</th>
-                    <th>hashtag</th>
-                    <th>id</th>
-                    <th>password</th>
-                    <th>email</th>
-                    <th>date</th>
-                    <th>level</th>
-                </tr>
-                {members.length > 0 && members.map((member, index) => {
-                    let hashtag = member.hashtag ? member.hashtag.toString().padStart(4, '0') : '';
-                    return (
-                        <tr key={index}>
-                            <td><Link to={`/profile/${member.name}#${hashtag}`}>{member.name}</Link></td>
-                            <td>{hashtag}</td>
-                            <td>{member.id}</td>
-                            <td>{member.pw}</td>
-                            <td>{member.email}</td>
-                            <td>{member.date}</td>
-                            <td>{member.level}</td>
-                            <td>
-                                <button type="button" name={member.id} onClick={handleDelete}>삭제</button>
-                            </td>
-                        </tr>
-                    );
-                })}
-                </tbody>
-            </table>
+            <div className="memberListView-container">
+                <div className="memberListView-table-container">
+                 <table className="memberListView-table">
+                    <thead>
+                    <tr>
 
-            <div>
-                {/* TODO ban 여러개 넣어서 테스트 해봐야 함*/}
-                <span>
-                    {page - 1 > 0 ? (
-                        <span onClick={() => setPage(page - 1)}>{"<"}Prev</span>
-                    ) : (
-                        "<Prev"
-                    )}
-                </span>
-                <span>
-                    {page + 1 <= maxPage ? (
-                        <span onClick={() => setPage(page + 1)}>Next{">"}</span>
-                    ) : (
-                        "Next>"
-                    )}
-                </span>
+                        <th><h1>name</h1></th>
+                        <th><h1>hashtag</h1></th>
+                        <th><h1>id</h1></th>
+                        <th><h1>password</h1></th>
+                        <th><h1>email</h1></th>
+                        <th><h1>date</h1></th>
+                        <th><h1>level</h1></th>
+                        <th><h1 className="tabelTitle-delete">delete</h1></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {members.length > 0 && members.map((member, index) => {
+                        let hashtag = member.hashtag ? member.hashtag.toString().padStart(4, '0') : '';
+                        return (
+                            <tr key={index}>
+                                <td className="tdStyle"><Link to={`/profile/${member.name}#${hashtag}`}>{member.name}</Link></td>
+                                <td className="tdStyle">{hashtag}</td>
+                                <td className="tdStyle">{member.id}</td>
+                                <td className="tdStyle">{member.pw}</td>
+                                <td className="tdStyle">{member.email}</td>
+                                <td className="tdStyle">{member.date}</td>
+                                <td className="tdStyle">{member.level}</td>
+
+                                    <button type="button" className="member-delete-btn" name={member.id} onClick={handleDelete}>
+                                        <FontAwesomeIcon icon={faBan} className="fa-light" />
+                                        </button>
+                                    {/*<span name={member.id} onClick={handleDelete}>삭제</span>*/}
+
+                            </tr>
+                        );
+                    })}
+                    </tbody>
+                 </table>
+                </div>
+
+                <div>
+                    {/* TODO ban 여러개 넣어서 테스트 해봐야 함*/}
+                    <span>
+                        {page - 1 > 0 ? (
+                            <span onClick={() => setPage(page - 1)}>{"<"}Prev</span>
+                        ) : (
+                            "<Prev"
+                        )}
+                    </span>
+                    <span>
+                        {page + 1 <= maxPage ? (
+                            <span onClick={() => setPage(page + 1)}>Next{">"}</span>
+                        ) : (
+                            "Next>"
+                        )}
+                    </span>
+                </div>
             </div>
         </>
     )

@@ -16,13 +16,14 @@
 
 .admin-container {
     background-color: #e5e9f4;
-    padding: 2rem;
+    //padding: 2rem;
     height: 100vh;
 }
 
 @import url('https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css');
 
 button.neumorphic {
+  cursor: pointer;
   container-type: inline-size;
   aspect-ratio: 1/1;
   border: 0.5rem solid transparent;
@@ -89,7 +90,7 @@ button.neumorphic {
 .admin-buttons {
 
     background-color: #e5e9f4;
-    padding: 2rem;
+    //padding: 2rem;
   display: grid;
   width: min(75rem, 100%);
   margin-inline: auto;
