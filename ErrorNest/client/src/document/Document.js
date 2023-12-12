@@ -28,6 +28,7 @@ function Document(props) {
     }
     const [renderedAnnotation, setRenderedAnnotation] = useState([])
     const [star, setStar] = useState('☆')
+    const [documentCategory, setDocumentCategory] = useState([])
 
     const axiosLoading = props.axiosLoading
 
@@ -222,7 +223,7 @@ function Document(props) {
         }
 
         contentArr.map((line, index) => {
-            if(line === "") htmlText += `</br>`
+            if(line === "" && !code) htmlText += `</br>`
             if(line.startsWith("==")){
                 htmlText += `</div></div>`
                 divOpen = false
@@ -260,7 +261,6 @@ function Document(props) {
                 else htmlText += '\n'
             }
         })
-
         return htmlText
     }
 
@@ -286,9 +286,13 @@ function Document(props) {
             const file = res.data
             const imageUrl = `/upload/${file.category}/${file.fileName}`
             const renderedContents = []
-            renderedContents.push(<div key={Math.random()}>분류:<Link to={`/document/${file.category}`}>{file.category}</Link></div>)
+            const category = [file.category]
+            setDocumentCategory(category)
+            // renderedContents.push(<div key={Math.random()}>분류:<Link to={`/document/${file.category}`}>{file.category}</Link></div>)
+            renderedContents.push(<h2>이미지</h2>)
             renderedContents.push(<img key={Math.random()} src={imageUrl} alt={file.fileDes} />)
-            renderedContents.push(<div key={Math.random()}>{file.fileDes}</div>)
+            renderedContents.push(<h2>설명</h2>)
+            renderedContents.push(<div className={'file-des'} key={Math.random()}>{file.fileDes}</div>)
             setRenderedContents(renderedContents)
         }
         else if(res.data.isCategory){
@@ -372,6 +376,7 @@ function Document(props) {
         setTitle("")
         setStar('☆')
         setIsFile(false)
+        setDocumentCategory([])
 
         axiosLoading(initDocument)
     }, [ location.pathname, location.hash ])
@@ -379,10 +384,16 @@ function Document(props) {
     return (
         <div>
             <div>
-                {category.length > 0 && `분류:`}
+                {(category.length > 0 || documentCategory.length > 0) && `분류:`}
                 {category.map((cg, index) => (
                     <React.Fragment key={index}>
                         <Link to={`/document/분류:${cg}`}>{cg}</Link>
+                        <span className={"category-padding"}></span>
+                    </React.Fragment>
+                ))}
+                {documentCategory.map((cg, index) => (
+                    <React.Fragment key={index}>
+                        <Link to={`/document/${cg}`}>{cg}</Link>
                         <span className={"category-padding"}></span>
                     </React.Fragment>
                 ))}

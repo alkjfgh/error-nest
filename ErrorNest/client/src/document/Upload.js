@@ -1,7 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react'
-import axios from "axios"
-import algoliasearch from "algoliasearch"
 import {Link, useNavigate} from "react-router-dom"
+import axios from "axios"
+
+import "../css/upload.scss"
 
 const Upload = (props) => {
     const navigate = useNavigate()
@@ -119,35 +120,32 @@ const Upload = (props) => {
     }
 
     return (
-        <>
+        <div className={'file-form-con'}>
             <h1>파일 올리기</h1>
-            <form onSubmit={fileUploadSubmit}>
-                <div>
-                    <label htmlFor="fakeFileInput">파일 선택</label>
-                    <div>
+            <div className="fileForm">
+                <div className="form">
+                    <form className="registerForm">
+                        <label htmlFor="fakeFileInput">파일 선택</label>
                         <input type="text" id="fakeFileInput" readOnly value={fileName}/>
-                        <span>
-                            <button type="button" onClick={handleButtonClick}>Select</button>
-                        </span>
+                        <button type="button" onClick={handleButtonClick}>Select</button>
                         <input
                             type="file"
                             ref={fileInputRef}
                             onChange={handleFileChange}
-                            style={{ display: 'none' }}
+                            style={{display: 'none'}}
                             accept=".jpg,.png,.gif,.webp,.bmp,.svg,.ico"
                             name={"fileData"}
                             required={true}
                         />
-                    </div>
-                    <div>
+
                         <label htmlFor="fileName">파일 이름</label><br/>
-                        <input type="text" name={"inputFileName"} value={inputs.inputFileName} onChange={handleChange} required={true}/>
-                    </div>
-                    <div>
+                        <input type="text" name={"inputFileName"} value={inputs.inputFileName}
+                               onChange={handleChange} required={true}/>
+
                         <label htmlFor="fileDes">파일 설명</label><br/>
-                        <textarea name={"fileDes"} value={inputs.fileDes} onChange={handleChange} required={true}></textarea>
-                    </div>
-                    <div>
+                        <textarea name={"fileDes"} value={inputs.fileDes} onChange={handleChange}
+                                  required={true}></textarea>
+
                         <label htmlFor="category">분류</label><br/>
                         <input
                             type="text"
@@ -161,17 +159,18 @@ const Upload = (props) => {
                         {showResults && (
                             <ul className="search-results">
                                 {hits.map((hit, index) => (
-                                    <button key={index} className={`search-result-item`} onMouseDown={() => handleCategoryClick(hit.title)}>
+                                    <button key={index} className={`search-result-item`}
+                                            onMouseDown={() => handleCategoryClick(hit.title)}>
                                         {hit.title}
                                     </button>
                                 ))}
                             </ul>
                         )}
-                    </div>
-                    <button type="submit">업로드</button>
+                        <button type="submit">업로드</button>
+                    </form>
                 </div>
-            </form>
-        </>
+            </div>
+        </div>
     )
 }
 
