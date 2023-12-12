@@ -28,7 +28,8 @@
     height: 100%;
 
     .navi-element-list {
-      position: absolute;
+      position: fixed;
+      top: 0;
       align-items: center;
       list-style: none;
       right: 0;
@@ -106,6 +107,25 @@
         background: rgba(239, 135, 0, 0.7);
         box-shadow: 0 1px 8px rgba(0,0,0,0.05);
         border-radius: 4px;
+        width: 10rem;
+
+        li {
+          position: relative;
+
+          a {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            transition: background-color 0.3s;
+
+            &:hover {
+              background-color: #ddd; // 마우스 호버시 배경색 변경
+            }
+          }
+        }
       }
 
       .navi-element {
@@ -125,7 +145,7 @@
 
   .navi-button-div {
     top: 50%;
-    left: 0;
+    left: 100px;
     right: 0;
     width: 43%;
     height: 60px;
