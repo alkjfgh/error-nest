@@ -26,9 +26,10 @@ html, body {
 
 .loginContainer {
   height: 100vh;
-  //box-shadow: none;
   display: grid;
   place-items: center;
+  //box-shadow: none;
+
   //background-color: #9A6D4A;
   //width: 100vh;
 }
@@ -40,6 +41,7 @@ html, body {
   font-family: 'Roboto', sans-serif;
   height: 50%;
   align-items: center;
+  margin-bottom: 8%;
   //background: #9A6D4A;
   //overflow: hidden;
   //margin-top: 5rem;
