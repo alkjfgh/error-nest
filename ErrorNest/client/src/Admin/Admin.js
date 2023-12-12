@@ -41,7 +41,10 @@ function Admin(props) {
     }
 
     const viewHandler = (e) => {
-        const currentView = e.target.innerHTML
+        // const currentView = e.target.innerHTML
+        const currentView = e
+        // console.log(e)
+        // alert(e)
         setCurrentView(currentView);
     }
 
@@ -53,52 +56,67 @@ function Admin(props) {
         <>
 
             <div className="admin-container">
-            <h1>Neumorphic buttons</h1>
-            <div className="admin-buttons">
-                <button className="neumorphic">
+            <h1 className="admin-h1">Admin Page</h1>
+                {currentView === 'main' &&
+            <div className="admin-buttons" >
+                <button className="neumorphic" onClick={()=>viewHandler("유저 목록")}>
                     <FontAwesomeIcon icon={faDna} className="fa-light" />
-                    <span>Button 2</span>
+                    <span>User List</span>
                 </button>
-                <button className="neumorphic">
+                <button className="neumorphic" onClick={()=>viewHandler("벤 상태")}>
                     <FontAwesomeIcon icon={faAtom} className="fa-light" />
-                    <span>Button 3</span>
+                    <span onClick={viewHandler}>Ban Status</span>
                 </button>
-                <button className="neumorphic">
+                <button className="neumorphic" onClick={()=>viewHandler("벤 로그")}>
                     <FontAwesomeIcon icon={faAtom} className="fa-light" />
-                    <span>Button 4</span>
+                    <span onClick={viewHandler}>Ban Log</span>
                 </button>
-                <button className="neumorphic">
+                <button className="neumorphic" onClick={()=>viewHandler("편집 로그")}>
                     <FontAwesomeIcon icon={faSeedling} className="fa-light" />
-                    <span>Button 5</span>
+                    <span onClick={viewHandler}>Edit Log</span>
                 </button>
-                <button className="neumorphic">
+                <button className="neumorphic" onClick={()=>viewHandler("신고 목록")}>
                     <FontAwesomeIcon icon={faDisease} className="fa-light" />
-                    <span>Button 6</span>
+                    <span onClick={viewHandler}>Report List</span>
                 </button>
-            </div>
+            </div>}
+
+                {currentView !== 'main' &&
+                    <div onClick={mainView}>돌아가기</div>
+                }
 
 
-
-
-            {currentView === 'main' &&
-                <div className="admin-view-btn-con">
-                    <div className="admin-view-btn" onClick={viewHandler}>유저 목록</div>
-                    <div className="admin-view-btn" onClick={viewHandler}>벤 상태</div>
-                    <div className="admin-view-btn" onClick={viewHandler}>벤 로그</div>
-                    <div className="admin-view-btn" onClick={viewHandler}>편집 로그</div>
-                    <div className="admin-view-btn" onClick={viewHandler}>신고 목록</div>
+                <div className="admin-buttons">
+                    {currentView === "유저 목록" && <MemberListView axiosLoading={axiosLoading}/>}
+                    {currentView === "벤 상태" && <BanListView axiosLoading={axiosLoading}/>}
+                    {currentView === "벤 로그" && <BanHistoryView axiosLoading={axiosLoading}/>}
+                    {currentView === "편집 로그" && <EditHistoryView axiosLoading={axiosLoading}/>}
+                    {currentView === "신고 목록" && <ReportHistory axiosLoading={axiosLoading}/>}
                 </div>
-            }
-            {currentView !== 'main' &&
-                <div onClick={mainView}>돌아가기</div>
-            }
-            <div className="admin-view-con">
-                {currentView === "유저 목록" && <MemberListView axiosLoading={axiosLoading}/>}
-                {currentView === "벤 상태" && <BanListView axiosLoading={axiosLoading}/>}
-                {currentView === "벤 로그" && <BanHistoryView axiosLoading={axiosLoading}/>}
-                {currentView === "편집 로그" && <EditHistoryView axiosLoading={axiosLoading}/>}
-                {currentView === "신고 목록" && <ReportHistory axiosLoading={axiosLoading}/>}
-            </div>
+
+
+            {/*하단 원래 있는 내용*/}
+
+            {/*    {currentView === 'main' &&*/}
+            {/*    <div className="admin-view-btn-con">*/}
+            {/*        <div className="admin-view-btn" onClick={viewHandler}>유저 목록</div>*/}
+            {/*        <div className="admin-view-btn" onClick={viewHandler}>벤 상태</div>*/}
+            {/*        <div className="admin-view-btn" onClick={viewHandler}>벤 로그</div>*/}
+            {/*        <div className="admin-view-btn" onClick={viewHandler}>편집 로그</div>*/}
+            {/*        <div className="admin-view-btn" onClick={viewHandler}>신고 목록</div>*/}
+            {/*    </div>*/}
+            {/*}*/}
+            {/*{currentView !== 'main' &&*/}
+            {/*    <div onClick={mainView}>돌아가기</div>*/}
+            {/*}*/}
+
+            {/*<div className="admin-view-con">*/}
+            {/*    {currentView === "유저 목록" && <MemberListView axiosLoading={axiosLoading}/>}*/}
+            {/*    {currentView === "벤 상태" && <BanListView axiosLoading={axiosLoading}/>}*/}
+            {/*    {currentView === "벤 로그" && <BanHistoryView axiosLoading={axiosLoading}/>}*/}
+            {/*    {currentView === "편집 로그" && <EditHistoryView axiosLoading={axiosLoading}/>}*/}
+            {/*    {currentView === "신고 목록" && <ReportHistory axiosLoading={axiosLoading}/>}*/}
+            {/*</div>*/}
             </div>
         </>
     )
