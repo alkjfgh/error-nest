@@ -65,10 +65,8 @@ const Report = (props) => {
 
             console.log(res.data);
 
-            if (res.data.success) {
-                alert(`${res.data.message}`);
+            if (res.data.success)
                 navigate(`/document/${title}`);
-            }
         })
     }
 

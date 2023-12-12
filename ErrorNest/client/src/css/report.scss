@@ -55,6 +55,11 @@
     right: 0;
     margin-right: 0;
   }
+
+  .text-input:nth-of-type(3) {
+    right: -30%; /* 원하는 만큼 조절 */
+    margin-right: 0;
+  }
 }
 
 .report-writing{
