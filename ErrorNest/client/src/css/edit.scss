@@ -1,7 +1,44 @@
 .container{
-  textarea{
+  .editor{
     width: 100%;
-    height: 600px;
+    //height: 500px;
+    display: inline-flex;
+    gap: 10px;
+    font-family: monospace;
+    line-height: 21px;
+    background: #282a3a;
+    border-radius: 3px;
+    //padding: 20px 10px;
+
+    .line-numbers {
+      width: 40px;
+      text-align: right;
+    }
+
+    .line-numbers span {
+      font-size: 13px;
+      counter-increment: linenumber;
+    }
+
+    .line-numbers span::before {
+      content: counter(linenumber);
+      display: block;
+      color: #506882;
+    }
+
+    textarea {
+      width: 100%;
+      font-size: 13px;
+      line-height: 21px;
+      overflow-y: hidden;
+      padding: 0;
+      border: 0;
+      background: #282a3a;
+      color: #FFF;
+      outline: none;
+      resize: none;
+      box-sizing: border-box; /* 추가 */
+    }
   }
 
   .editBtns-con{
@@ -23,6 +60,62 @@
     .edit-btn:hover{
       background-color: darkgreen;
       cursor: pointer;
+    }
+
+  }
+  .edit-input-con{
+    //margin-top: 20px;
+    padding-top: 20px;
+    height: 3rem;
+
+    .text-input{
+      position: absolute;
+      width: 40%;
+
+      input[type="text"]{
+        display: inline-block;
+        width: 15rem;
+        //width: 500px;
+        height: 40px;
+        box-sizing: border-box;
+        outline: none;
+        border: 1px solid lightgray;
+        border-radius: 3px;
+        padding: 10px 10px 10px 100px;
+        transition: all 0.1s ease-out;
+      }
+
+      input[type="text"] + label{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: 40px;
+        line-height: 40px;
+        color: white;
+        border-radius: 3px 0 0 3px;
+        padding: 0 20px;
+        background: #E03616;
+        transform: translateZ(0) translateX(0);
+        transition: all 0.3s ease-in;
+        transition-delay: 0.2s;
+      }
+
+      input[type="text"]:focus + label{
+        transform: translateY(-120%) translateX(0%);
+        border-radius: 3px;
+        transition: all 0.1s ease-out;
+      }
+
+      input[type="text"]:focus{
+        padding: 10px;
+        transition: all 0.3s ease-out;
+        transition-delay: 0.2s;
+      }
+    }
+
+    .text-input:nth-of-type(2){
+      right: 0;
     }
   }
 }

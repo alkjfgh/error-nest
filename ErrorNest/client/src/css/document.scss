@@ -1,4 +1,5 @@
 @import "nomalize.scss";
+@import  url(https://fonts.googleapis.com/css?family=Montserrat);
 
 .container {
   max-width: 1330px;
@@ -19,13 +20,14 @@
     flex: 1; // 남는 공간을 모두 사용하도록 설정
     // 여기에 article 스타일을 추가하세요
     position: relative;
-    background-color: #61dafb;
+    background-color: $document_background;
     margin-right: 1rem;
     min-height: 35rem;
     min-width: 0;
     overflow: visible;
     padding: 1.5rem;
     word-break: break-all;
+    border-radius: 15px;
 
     h1{
       font-size: 2.2rem;
@@ -36,6 +38,14 @@
       width: 100%;
     }
 
+    .scroll-link{
+      color:cornflowerblue;
+    }
+
+    .category-padding{
+      margin-left: 5px;
+    }
+
     .document-navi {
       position: absolute;
       top: 0;
@@ -44,22 +54,28 @@
       text-align: right;
       width: auto;
 
-      a{
-        border: .0625rem solid #ccc;
-        cursor: pointer;
-        display: inline-block;
-        font-size: .9rem;
-        font-weight: 400;
-        line-height: 1.5;
-        padding: .3rem .8rem;
-        text-align: center;
-        touch-action: manipulation;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        vertical-align: middle;
-        white-space: nowrap;
+      .document-navi-btn{
+        //border: .0625rem solid #ccc;
+        //cursor: pointer;
+        //display: inline-block;
+        //font-size: .9rem;
+        //font-weight: 400;
+        //line-height: 1.5;
+        //padding: .3rem .8rem;
+        //text-align: center;
+        //width: 2rem;
+        //color: cornflowerblue;
+        //touch-action: manipulation;
+        //-webkit-user-select: none;
+        //-moz-user-select: none;
+        //-ms-user-select: none;
+        //user-select: none;
+        //vertical-align: middle;
+        //white-space: nowrap;
+      }
+      .document-navi-btn:hover {
+        //color:darkblue;
+        //background-color: rgba(243, 195, 93, 0.71);
       }
     }
 
@@ -100,13 +116,18 @@
       width: 100%;
       position: relative;
     }
+
+    .scroll-link{
+
+    }
   }
 
   aside {
+    border-radius: 15px;
     width: 300px;
     height: 600px; //내부 크기만큼 height 하도록 바꿔야함
     // 여기에 aside 스타일을 추가하세요
-    background-color: red;
+    background-color: #db762e;
   }
 
   @media screen and (max-width: 1000px) { // 브라우저 너비가 1000px 이하일 때
@@ -116,6 +137,11 @@
 
     article{
       margin-right: 0;
+
+      .document-navi{
+        width: 2rem;
+        right: 4rem;
+      }
     }
   }
 }
