@@ -101,7 +101,9 @@ const ReportBoard = (props) => {
 
     return (
         <>
-            {reportInfo && (
+            {reportInfo ? (
+                <h3>신고한 내용이 없습니다.</h3>
+            ) : (
                 <div>
                     <h1>신고 내용: {reportInfo.title}</h1>
                     <div className={"document-navi"}>

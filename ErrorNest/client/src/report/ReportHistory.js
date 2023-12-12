@@ -61,8 +61,8 @@ const ReportHistory = (props) => {
     return (
         <div>
             <h2>신고 목록</h2>
-            {!reportList ? (
-                <p>신고한 목록이 없습니다</p>
+            {reportList.length === 0 ? (
+                <h3>신고한 목록이 없습니다</h3>
             ) : (
                 <table>
                     <thead>
@@ -77,7 +77,7 @@ const ReportHistory = (props) => {
                     <tbody>
                     {reportList.map((report) => (
                         <tr key={report._id}>
-                            <td>{report.reportId}</td>
+                        <td>{report.reportId}</td>
                             <td>{report.title}</td>
                             <td>{report.createAt}</td>
                             <td>{report.status}</td>
@@ -90,23 +90,6 @@ const ReportHistory = (props) => {
                     </tbody>
                 </table>
             )}
-
-            <div>
-                <span>
-                    {page - 1 > 0 ? (
-                        <span onClick={() => setPage(page - 1)}>{"<"}Prev</span>
-                    ) : (
-                        "<Prev"
-                    )}
-                </span>
-                <span>
-                    {page + 1 <= maxPage ? (
-                        <span onClick={() => setPage(page + 1)}>Next{">"}</span>
-                    ) : (
-                        "Next>"
-                    )}
-                </span>
-            </div>
         </div>
 
     );
