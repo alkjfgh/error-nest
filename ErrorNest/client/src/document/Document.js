@@ -6,7 +6,7 @@ import {useCookies} from "react-cookie";
 
 import '../css/document.scss'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { solarizedlight, atomDark, duotoneDark,solarizedDarkAtom } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 function Document(props) {
     const location = useLocation()
@@ -114,8 +114,11 @@ function Document(props) {
                 }
                 if(tagName === "syntaxhighlighter"){
                     element = SyntaxHighlighter
-                    props.language = 'javascript'
-                    props.style = solarizedlight
+                    props.language = node.getAttribute('language')
+                    props.style = atomDark
+                    // props.style = solarizedlight
+                    // props.style = duotoneDark
+                    // props.style = solarizedDarkAtom
                 }
                 return React.createElement(element, props, content)
             }
@@ -184,7 +187,7 @@ function Document(props) {
                 // match는 찾은 문자열을 가리킵니다. 예: '[[some text]]'
                 let extracted = match.slice(2, -2)  // [[]] 제거합니다.
                 let [src, width, height] = extracted.split(',')
-                const result = `<img src="/upload/${src.trim()}" style="width:${width.trim()};height:${height.trim()};" alt=""/>`
+                const result = `<a href="/document/파일:${src.trim().split('/')[1]}"><img src="/upload/${src.trim()}" style="width:${width.trim()};height:${height.trim()};" alt=""/></a>`
                 return result
             })
 
@@ -242,7 +245,7 @@ function Document(props) {
             }else if(line.startsWith('~~~')){
                 htmlText += `</div></div>`
                 divOpen = false
-                if(bq) htmlText += `<div><SyntaxHighlighter language="{line.split('~~~')[1]}" style={solarizedlight}>`
+                if(bq) htmlText += `<div><SyntaxHighlighter language="${line.split('~~~')[1]}">`
                 else htmlText += `</SyntaxHighlighter></div>`
                 bq = !bq
                 code = !code
@@ -283,7 +286,7 @@ function Document(props) {
             const file = res.data
             const imageUrl = `/upload/${file.category}/${file.fileName}`
             const renderedContents = []
-            renderedContents.push(<div key={Math.random()}>분류:<Link to={`/document/분류:파일/${file.category}`}>파일/{file.category}</Link></div>)
+            renderedContents.push(<div key={Math.random()}>분류:<Link to={`/document/${file.category}`}>{file.category}</Link></div>)
             renderedContents.push(<img key={Math.random()} src={imageUrl} alt={file.fileDes} />)
             renderedContents.push(<div key={Math.random()}>{file.fileDes}</div>)
             setRenderedContents(renderedContents)
@@ -368,6 +371,7 @@ function Document(props) {
         setWriter("")
         setTitle("")
         setStar('☆')
+        setIsFile(false)
 
         axiosLoading(initDocument)
     }, [ location.pathname, location.hash ])
@@ -376,12 +380,6 @@ function Document(props) {
         <div>
             <div>
                 {category.length > 0 && `분류:`}
-                {/*{category.map((cg, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링*/}
-                {/*    <>*/}
-                {/*        <Link key={cg} to={`/document/분류:${cg}`}>{cg}</Link>*/}
-                {/*        <span className={"category-padding"}></span>*/}
-                {/*    </>*/}
-                {/*))}*/}
                 {category.map((cg, index) => (
                     <React.Fragment key={index}>
                         <Link to={`/document/분류:${cg}`}>{cg}</Link>

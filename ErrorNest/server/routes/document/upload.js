@@ -9,7 +9,7 @@ const fs = require('fs');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         const category = req.query.category ? req.query.category + '/' : '';
-        const destinationPath = path.join(__dirname, `../uploads/${category}`);
+        const destinationPath = path.join(__dirname, `../../uploads/${category}`);
         // 폴더가 없으면 생성
         if (!fs.existsSync(destinationPath)) {
             fs.mkdirSync(destinationPath, { recursive: true });
