@@ -16,6 +16,7 @@ function setPaging(count, req) {
 /** reportHistory CRUD */
 const reportSelectAll = async (req, res, next) => {
     const reqData = req.body;
+    console.log(reqData);
 
     if (reqData.isLogin) {
         const member = {
@@ -30,15 +31,8 @@ const reportSelectAll = async (req, res, next) => {
         console.log("---- userInfo ----");
         console.log(userInfo);
         console.log(reqData.userid);
+
         let result;
-
-        /** 페이징 개수 */
-        // let page = 1; // 페이지 번호
-        // const limit = 10; // 페이지당 결과 개수
-        // if((page - 1) * 10 > count) page = count / limit + 1
-        // const skip = (page - 1) * limit; // 건너뛸 결과 개수
-
-
         let count = 0
         let paging
 
@@ -49,15 +43,15 @@ const reportSelectAll = async (req, res, next) => {
                 result = await Report.find({}).limit(paging.limit).skip(paging.skip).sort('-createdAt');
             }
             else{
-                count = await Report.countDocuments({writer: reqData.userid});
+                count = await Report.countDocuments({reportId: reqData.userid});
                 paging = setPaging(count, req)
-                result = await Report.find({writer: reqData.userid}).limit(paging.limit).skip(paging.skip).sort('-createdAt');
+                result = await Report.find({reportId: reqData.userid}).limit(paging.limit).skip(paging.skip).sort('-createdAt');
             }
         }
         else{
-            count = await Report.countDocuments({writer: reqData.userid});
+            count = await Report.countDocuments({reportId: reqData.userid});
             paging = setPaging(count, req)
-            result = await Report.find({writer: reqData.userid}).limit(paging.limit).skip(paging.skip).sort('-createdAt');
+            result = await Report.find({reportId: reqData.userid}).limit(paging.limit).skip(paging.skip).sort('-createdAt');
         }
 
         console.log(count)

@@ -7,15 +7,15 @@ const Logout = () => {
     const navigate = useNavigate();
 
     const logout = async () => {
-        removeCookie('userid');
-        removeCookie('username');
-        removeCookie('userkey');
-        alert("로그아웃 되었습니다.");
-        navigate('/');
+        await removeCookie('userid');
+        await removeCookie('username');
+        await removeCookie('userkey');
     }
 
     useEffect(() => {
-        logout().then((r) => {})
+        logout().then((r) => {
+            alert("로그아웃 되었습니다.");
+            navigate('/');})
     }, []);
 }
 

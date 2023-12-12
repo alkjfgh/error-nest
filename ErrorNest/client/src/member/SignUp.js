@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import emailjs from 'emailjs-com';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import '../css/signUp.scss';
 
 function SignUp(props) {
     const [isAuth, setIsAuth] = useState(false);
@@ -180,29 +181,40 @@ function SignUp(props) {
     }
 
     return (
-        <>
+        <div className="signUpBox">
             <form onSubmit={handleSubmit}>
-                name: <input type="test" name="name" onChange={handleChange} required/><br/>
-                id: <input type="text" name="id" onChange={handleChange} required/>
-                <button type="button" onClick={()=>checkId()}>중복확인</button><br/>
-                pw: <input type="password" name="pw" onChange={handleChange} required/>
-                {inputs.pw.trim() && <span> {isCanPassword}</span>}<br/>
-                pw 확인: <input type="password" name="pwCheck" onChange={handleChange} required/>
-                {inputs.pwCheck.trim() && <span> {isPwEquals}</span>}<br/>
-                email: <input type="email" name="email" onBlur={handleChange} required/>
-                <button type="button" onClick={() => sendAuthCode()}>인증
-                </button>
-                {count !== 0 && <span> 인증 제한시간 {Math.floor(count / 60)}:{count % 60}</span>}<br/>
-                {isAuth && (
-                    <div>
-                        인증: <input type="text" onChange={(e) => setAuthCheck(e.target.value)}/>
-                        <button type="button" onClick={checkAuth}>확인</button>
-                        <br/>
+                <li className="signUp-container__item">
+                    <span className="welcome-message">Welcome to ErrorNest!</span>
+                    <div className="signUp-group">
+                        <input type="test" name="name" onChange={handleChange} required/>
+                        <span className="buttonClick"><button className="continue action-button animate">확인</button></span>
+                        <span className="signUp-highlight"></span>
+                        <span className="signUp-bar"></span>
+                        <label htmlFor="name">Name</label>
                     </div>
-                )}
-                <button type="submit">회원가입</button>
+
+                    id: <input type="text" name="id" onChange={handleChange} required/>
+                    <button type="button" onClick={() => checkId()}>중복확인</button>
+                    <br/>
+                    pw: <input type="password" name="pw" onChange={handleChange} required/>
+                    {inputs.pw.trim() && <span> {isCanPassword}</span>}<br/>
+                    pw 확인: <input type="password" name="pwCheck" onChange={handleChange} required/>
+                    {inputs.pwCheck.trim() && <span> {isPwEquals}</span>}<br/>
+                    email: <input type="email" name="email" onBlur={handleChange} required/>
+                    <button type="button" onClick={() => sendAuthCode()}>인증
+                    </button>
+                    {count !== 0 && <span> 인증 제한시간 {Math.floor(count / 60)}:{count % 60}</span>}<br/>
+                    {isAuth && (
+                        <div>
+                            인증: <input type="text" onChange={(e) => setAuthCheck(e.target.value)}/>
+                            <button type="button" onClick={checkAuth}>확인</button>
+                            <br/>
+                        </div>
+                    )}
+                    <button type="submit">회원가입</button>
+                </li>
             </form>
-        </>
+        </div>
     );
 }
 

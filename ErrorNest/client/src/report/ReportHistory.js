@@ -41,7 +41,7 @@ const ReportHistory = (props) => {
     }
 
     const buttonClick = (reportInfo) => {
-         navigate(`/report/board?writer=${reportInfo.writer}&reportNo=${reportInfo.reportNo}`)
+         navigate(`/report/board?reportId=${reportInfo.reportId}&reportNo=${reportInfo.reportNo}`)
     }
 
     const getData = async () => {
@@ -68,8 +68,6 @@ const ReportHistory = (props) => {
                     <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Writer</th>
-                        {/*<th>Comment</th>*/}
                         <th>CreatedAt</th>
                         <th>Status</th>
                         <th>No</th>
@@ -79,13 +77,11 @@ const ReportHistory = (props) => {
                     {reportList.map((report) => (
                         <tr key={report._id}>
                             <td>{report.title}</td>
-                            <td>{report.writer}</td>
-                            {/*<td>{report.comment}</td>*/}
                             <td>{report.createAt}</td>
                             <td>{report.status}</td>
                             <td>{report.reportNo}</td>
                             <td>
-                                <button onClick={() => buttonClick(report)}>세부사항</button>
+                                <button onClick={() => buttonClick(report)}>내용보기</button>
                             </td>
                         </tr>
                     ))}

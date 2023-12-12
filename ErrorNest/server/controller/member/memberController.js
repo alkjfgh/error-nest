@@ -20,12 +20,14 @@ const memberAdmin = async (req, res, next) => {
 
 /** member CRUD */
 const memberSelect = async (req, res, next) => {
-    let { id, pw, userkey } = req.body;
+    let { id, pw, userkey, username, hashtag } = req.body;
     if(userkey){
         id = decryptCookie({id, str_id: userkey})
     }
     try {
-        const member = pw ? await Member.findOne({ id, pw }) : await Member.findOne({ id }); // 몽고디비의 db.users.find({}) 쿼리와 같음
+        let member
+        if(!username) member =  pw ? await Member.findOne({ id, pw }) : await Member.findOne({ id }); // 몽고디비의 db.users.find({}) 쿼리와 같음
+        else member = await Member.findOne({ name: username, hashtag })
         if(!member){
             res.json({answer: false});
         }

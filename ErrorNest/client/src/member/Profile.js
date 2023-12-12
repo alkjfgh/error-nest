@@ -21,6 +21,7 @@ const Profile = (props) => {
     const [url, setUrl] = useState('')
     const [user, setUser] = useState({})
     const [banInfo, setBanInfo] = useState({})
+    const [targetUser, setTargetUser] = useState({})
 
     let hashtag = location.hash
     const axiosLoading = props.axiosLoading
@@ -30,6 +31,10 @@ const Profile = (props) => {
         target = decodeURIComponent(target);
         setTarget(target)
         hashtag = hashtag.split('#')[1]
+        if(hashtag) {
+            const targetUser = await axios.post('/member', {username: target, hashtag})
+            setTargetUser(targetUser.data)
+        }
         return target
     }
 
@@ -97,7 +102,7 @@ const Profile = (props) => {
             <div>
                 {hashtag &&
                     <div>
-                        이메일 : {user.useremail}
+                        이메일 : {targetUser.useremail}
                     </div>
                 }
                 {banInfo &&
