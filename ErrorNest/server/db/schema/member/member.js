@@ -41,7 +41,7 @@ const memberSchema = new Schema({
 
 memberSchema.pre('save', async function(next) {
     if (this.isNew) {
-        const latestDoc = await this.constructor.findOne({ title: this.title }).sort('-hashtag');
+        const latestDoc = await this.constructor.findOne({ name: this.name }).sort('-hashtag');
         if (latestDoc) {
             this.hashtag = latestDoc.hashtag + 1;
         } else {
