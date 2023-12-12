@@ -45,6 +45,65 @@ $LoginPrimary: rgba(243, 237, 237, 0.71);
   background: #FFF;
   //padding: 10px 50px 50px;
 
+  .flying-squares {
+    position: absolute;
+    z-index: 1;
+
+    @media (min-width: 1400px) {
+      .square {
+        position: inherit;
+        width: 15vw;
+        height: 15vw;
+        rotate: 0.4turn;
+        background-color: var(--square-color);
+        top: var(--y);
+        left: var(--x);
+        opacity: 0.3;
+        rotate:  var(--rx) var(--ry) var(--rz) 0.55turn;
+        animation: flying 2s infinite alternate both;
+
+        &:nth-of-type(1) {
+          --y: -3vh;
+          --x: -46vw;
+          --rx: 0.5;
+          --ry: 2.1;
+          --rz: 1.6;
+          //--square-color: var(--red);
+          background-color: red;
+          animation-delay: 1s;
+        }
+
+        &:nth-of-type(2) {
+          --y: 25vh;
+          --x: -40vw;
+          --rx: 1.7;
+          --ry: 2.3;
+          --rz: 2.1;
+          //--square-color: var(--purple);
+          background-color: purple;
+        }
+
+        &:nth-of-type(3) {
+          --y: 7vh;
+          --x: 25vw;
+          --rx: 0.5;
+          --ry: 2.1;
+          --rz: 1.6;
+          //--square-color: var(--red);
+          background-color: green;
+          animation-delay: 1s;
+        }
+      }
+    }
+  }
+
+  @keyframes flying {
+    to {
+      translate: 0 -5vh;
+    }
+  }
+
+
   .signUp-group {
     position: relative;
     margin-bottom: 2rem;
@@ -208,20 +267,6 @@ $LoginPrimary: rgba(243, 237, 237, 0.71);
       height: 1.7rem;
     }
   }
-
-  //input[type="button"] {
-  //  font-size: 18px;
-  //  //padding: 10px 20px;
-  //  background: $primary-color;
-  //  border: none;
-  //  color: #FFF;
-  //  cursor: pointer;
-  //  transition: background 0.3s ease;
-  //
-  //  &:hover {
-  //    background: darken($primary-color, 10%);
-  //  }
-  //}
 }
 
 @keyframes inputHighlighter {
