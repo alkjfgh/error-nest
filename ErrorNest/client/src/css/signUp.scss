@@ -32,13 +32,12 @@ $LoginPrimary: rgba(243, 237, 237, 0.71);
 
 
 *{
-  text-align: start;
 }
 
 
 .signUpBox {
   font-family: 'Roboto', sans-serif;
-
+  text-align: start;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,6 +95,7 @@ $LoginPrimary: rgba(243, 237, 237, 0.71);
     }
 
     input {
+      text-align: start;
       //font-size: 18px;
       font-size: 1rem;
       //padding: 10px 10px 10px 5px;

@@ -21,12 +21,11 @@ $LoginPrimary: rgba(243, 237, 237);
 }
 
 body {
-  overflow: hidden;
-
+  //overflow: hidden;
 }
 
 .loginContainer {
-  height: 100vh;
+  height: calc(100vh - 6rem);
   display: grid;
   place-items: center;
   //box-shadow: none;
@@ -42,7 +41,7 @@ body {
   font-family: 'Roboto', sans-serif;
   height: 50%;
   align-items: center;
-  margin-bottom: 8%;
+  //margin-bottom: 8%;
   //background: #9A6D4A;
   //overflow: hidden;
   //margin-top: 5rem;
