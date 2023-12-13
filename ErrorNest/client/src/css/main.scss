@@ -1,0 +1,205 @@
+/* OPTIONAL STYLES */
+
+@font-face {
+  font-family: "Misto";
+}
+
+:root {
+  //--bg: #000000;
+  --text: #9b4b09;
+  --border: #1B1B1B;
+  --red: #C11D1D;
+}
+
+.main-h1 {
+
+  justify-content: center; // 가운데 정렬
+  align-items: center; // 가운데 정렬
+
+  font-size: 50px;
+
+
+
+}
+
+.main-h2 {
+  //font-family: "Misto";
+  z-index: 2;
+  font-size: 50px;
+}
+//
+
+.main-p {
+  //font-famil: "Futura";
+  z-index: 2;
+  font-size: 24px;
+}
+
+
+.main-container {
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  color: var(--text);
+}
+
+/* GRID */
+
+.main-container-item {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+  //height: fit-content;
+}
+
+.card1 {
+
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  //height: fit-content;
+}
+
+.card2 {
+  //padding-left: 5%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  //margin-right: 3rem;
+  //gap: 10px;
+  //margin-left: 3rem;
+  .card-text{
+    //padding-left: 3rem;
+    //padding-right: 2rem;
+    padding: 0 2rem;
+    width: calc(100% - 4rem);
+    //margin-rsight: 2rem;
+    //padding: 2rem;
+  }
+
+  //align-items: flex-start !important;
+}
+
+.card3 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.card4 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+
+
+/* CARD */
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg);
+  //padding: 1em 3em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px solid var(--border);
+  border-radius: 20px;
+
+  cursor: pointer;
+}
+
+.card-text {
+  z-index: 2;
+}
+
+
+
+
+
+/* Positioning the Grainy Texture inside the cards */
+.one {
+  left: -15em;
+  top: -20em;
+}
+
+.two {
+  left: -25em;
+  top: -20em;
+}
+
+.three {
+  right: -25em;
+  bottom: -25em;
+}
+
+.four {
+  right: -20em;
+  bottom: -20em;
+}
+
+
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 900px) {
+  .card1, .card2, .card3, .card4 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .card2 {
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  .card3 {
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  .card4 {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    p{
+      font-size: 2rem;
+    }
+  }
+
+}
+
+
+
+.main-welcome-message{
+  //text-align: center;
+  justify-content: center; // 가운데 정렬
+  align-items: center; // 가운데 정렬
+  // 가운데 정렬
+
+
+
+
+}
+
+
+.welcome-message-container {
+  justify-content: center; // 가운데 정렬
+  align-items: center;
+  display: flex;
+}
+//
+//}
+
+
+
+
