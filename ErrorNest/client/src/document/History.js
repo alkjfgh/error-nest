@@ -81,9 +81,10 @@ const History = () => {
                         value={page}
                         min={1}
                         max={maxPage}
-                        onChange={(e) => setPage(+e.target.value)}
+                        onChange={(e) => {
+                            if(+e.target.value <= maxPage && +e.target.value >= 1) setPage(+e.target.value)
+                        }}
                         onBlur={() => {
-                            // navigate("/history/" + title + "?page=" + page)
                             setIsEditing(false)
                         }}
                         autoFocus
@@ -100,22 +101,20 @@ const History = () => {
             <div className={'history-con'}>
                 <ul className="history-list">
                     {histories.map((history, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
-                        <>
-                            <li key={index}>
-                                <span></span>
-                                <div className="title"><Link
-                                    to={"/document/" + title + "?version=" + history.version}>{history.title}</Link>
-                                </div>
-                                <div className="info">버전: {history.version}</div>
-                                <div className="name">
-                                    <Link to={`/profile/${history.writer}`}>작성자: {history.writer}</Link>
-                                </div>
-                                <div className="time">
-                                    <span>{history.date}</span>
-                                    <span>{history.time}</span>
-                                </div>
-                            </li>
-                        </>
+                        <li key={history.title+history.version}>
+                            <span></span>
+                            <div className="title"><Link
+                                to={"/document/" + title + "?version=" + history.version}>{history.title}</Link>
+                            </div>
+                            <div className="info">버전: {history.version}</div>
+                            <div className="name">
+                                <Link to={`/profile/${history.writer}`}>작성자: {history.writer}</Link>
+                            </div>
+                            <div className="time">
+                                <span>{history.date}</span>
+                                <span>{history.time}</span>
+                            </div>
+                        </li>
                     ))}
                 </ul>
             </div>
