@@ -284,7 +284,8 @@ function Document(props) {
         if(res.data.isFile){
             setIsFile(res.data.isFile)
             const file = res.data
-            const imageUrl = `/upload/${file.category}/${file.fileName}`
+            let fp = file.filePath.split('/')
+            const imageUrl = `/upload/${file.category}/${fp[fp.length - 1]}`
             const renderedContents = []
             const category = [file.category]
             setDocumentCategory(category)

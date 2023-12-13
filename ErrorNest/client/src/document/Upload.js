@@ -97,6 +97,9 @@ const Upload = (props) => {
 
                 navigate('/document/' + fileName)
             }
+            else{
+                console.log('error')
+            }
         })
     }
 
@@ -124,7 +127,7 @@ const Upload = (props) => {
             <h1>파일 올리기</h1>
             <div className="fileForm">
                 <div className="form">
-                    <form className="registerForm">
+                    <form className="registerForm" onSubmit={fileUploadSubmit}>
                         <label htmlFor="fakeFileInput">파일 선택</label>
                         <input type="text" id="fakeFileInput" readOnly value={fileName}/>
                         <button type="button" onClick={handleButtonClick}>Select</button>
