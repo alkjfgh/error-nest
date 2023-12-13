@@ -7,6 +7,7 @@ import algoliasearch from "algoliasearch";
 /** css & img */
 import './css/header.scss'
 import logoImg from './img/errorNestLogo.png'
+import axios from "axios";
 
 /** 헤더 기능 구현 목록
  * 로고 - 메인 페이지 이동
@@ -18,7 +19,9 @@ const Header = (props) => {
 
     /** 쿠키 값 가져오기 */
     const [cookies, setCookies, removeCookies] = useCookies();
-    
+
+
+
     /** useState 요소들 */
     const [inputText, setInputText] = useState("");
     const [encodedInputText, setEncodedInputText] = useState("");
@@ -27,6 +30,7 @@ const Header = (props) => {
     const [view, setView] = useState(false);
     const [user, setUser] = useState('')
     const [isOpen, setIsOpen] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const index = props.algolia.index
 
@@ -37,6 +41,32 @@ const Header = (props) => {
             const data = await response.json()
             setUser(data.ip)
         }
+    }
+
+    const getUserInfo = async () => {
+        if(cookies.userid !== undefined) {
+            return {userid: cookies.userid, username: cookies.username, userkey: cookies.userkey, isLogin: true}; // 로그인 id
+        } else {
+            const response = await fetch("https://api64.ipify.org?format=json");
+            const data = await response.json();
+
+            return {userid: data.ip, username: "noName", userkey: cookies.userkey, isLogin: false}; // PC ip
+        }
+    }
+
+    const getUserLevel = async (result) => {
+        if (result.isLogin) {
+            const userInfo = await axios.post('/member/levelCheck', result);
+            if (userInfo.data.level === 'admin') {
+                setIsAdmin(true);
+            } else {
+                setIsAdmin(false);
+            }
+        }
+    }
+
+    const clickButtonLogout = async () => {
+        setIsAdmin(false);
     }
 
     useEffect(() => {
@@ -62,6 +92,7 @@ const Header = (props) => {
     useEffect(() => {
         setUser('')
         getUser().then(r => {})
+        getUserInfo().then(result => getUserLevel(result));
         setInputText("")
     }, [location.pathname])
 
@@ -175,7 +206,7 @@ const Header = (props) => {
                         )}
                         {!(cookies.userid === undefined) && (
                             <li className="navi-element">
-                                <Link to="/logout">로그아웃</Link>
+                                <Link to="/logout" onClick={clickButtonLogout}>로그아웃</Link>
                             </li>
                         )}
                         <li className="navi-element">
@@ -184,9 +215,13 @@ const Header = (props) => {
                         <li className="navi-element">
                             <Link to="/upload">파일 업로드</Link>
                         </li>
-                        {/*<li className="navi-element">*/}
-                        {/*    <Link to="/contact">문의</Link>*/}
-                        {/*</li>*/}
+                        {(!(cookies.userid === undefined) && isAdmin) && (
+                            <>
+                            <li className="navi-element">
+                                <Link to="/admin">관리자</Link>
+                            </li>
+                            </>
+                        )}
                     </div>}
                 </ul>
             </div>

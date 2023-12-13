@@ -133,7 +133,6 @@ function Document(props) {
     }
 
     function drawIndex(indexList, depth = 1) {
-        // let result = []
         let result = ""
         while (indexList.length > 0) {
             let index = indexList[0]
@@ -213,9 +212,10 @@ function Document(props) {
                 }else{ // 둘 다 있을 때
                     annotation.list[index] = content
                 }
-                // const result = `<a id="fn-${index}" href="#an-${index}" class="scroll-link annotation-link">[${index}]</a>`
-                let result = `<a id="fn-${index}" href="#an-${index}" class="scroll-link annotation-link" data-content="${content}">[${index}]</a>`
+                let result = '<span class="ano-con">'
+                result += `<a id="fn-${index}" href="#an-${index}" class="scroll-link annotation-link" data-content="${content}">[${index}]</a>`
                 result += `<span class="hover-content"><a href="#an-${index}" class="scroll-link annotation-link" data-content="${content}">[${index}]</a> ${content}</span>`
+                result += '</span>'
                 return result
             })
 
@@ -383,7 +383,7 @@ function Document(props) {
 
     return (
         <div>
-            <div>
+            <div className={'document-info'}>
                 {(category.length > 0 || documentCategory.length > 0) && `분류:`}
                 {category.map((cg, index) => (
                     <React.Fragment key={index}>
@@ -406,9 +406,19 @@ function Document(props) {
                 {!isFile && <button onClick={() => {navigate("/report/" + title + "?version=" + version + "&writer=" + writer)}} className={"button"}><span><Link to={"/report/" + title + "?version=" + version + "&writer=" + writer} className={"document-navi-btn"}>신고</Link></span></button>}
                 {!isFile && <button onClick={updateFavorite} className={"button"}><span><span className={"document-navi-btn"}>{star}</span></span></button>}
             </div>
-            <div className="index-list" id="top">{renderedIndex}</div>
+            {renderedIndex.length > 0 && (
+                <div className="index-list" id="top">
+                    <div className={'index-title'}>목차</div>
+                    {renderedIndex}
+                </div>
+            )}
             {renderedContents}
-            <div className="annotation-list">{renderedAnnotation}</div>
+            {renderedAnnotation.length > 0 && (
+                <div className="annotation-list">
+                    <h3 className={'annotation-title'}>주석</h3>
+                    {renderedAnnotation}
+                </div>
+            )}
         </div>
     )
 }

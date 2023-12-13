@@ -1,6 +1,26 @@
 @import "nomalize.scss";
 
+@font-face {
+  font-family: 'TTTtangsbudaejjigaeB';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KCC-Ganpan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .navigation {
+  @media (max-width: 630px) {
+    .navi-button-div {
+      display: none;
+    }
+  }
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -196,7 +216,8 @@
         border-radius: 4px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         margin-top: 10px;
-        font-size: 23px;
+        font-size: 30px;
+        font-family: 'KCC-Ganpan';
       }
 
       .search-result-item {
@@ -206,10 +227,13 @@
         color: black;
         background-color: #f1f1f1;
         text-align: left;
+        height: 60px;
+
       }
 
       .search-result-item:hover, .selected {
-        background-color: grey;
+        background-color: #fdca49;
+        color: white;
       }
 
       input:focus {
@@ -219,8 +243,8 @@
       .navi-input-bar {
         display: table-cell;
         color: #fff;
-        padding: 0;
         margin: 0;
+        padding-left: 10px;
         border: 0;
         background-color: transparent;
         width: 117%;
@@ -228,6 +252,7 @@
         font-size: 40px;
         line-height: 1;
         text-align: left;
+        font-family: 'KCC-Ganpan';
         //position: relative;
         //top: -0.7rem;
 

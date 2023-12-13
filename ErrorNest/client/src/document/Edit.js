@@ -148,7 +148,7 @@ const Edit = (props) => {
             case "링크": addText = "<<링크 제목, 표시할 내용>>"; break
             case "이미지": addText = "[[분류/이미지 이름, 가로, 세로]]"; break
             case "주석": addText = "##빈칸or주석이름 주석 내용##"; break
-            case "코드": addText = "~~~언어\n내용\n~~"; break
+            case "코드": addText = "~~~언어\n내용\n~~~"; break
         }
         // 커서 위치에 문자열 삽입
         // const cursorPosition = textRef.current["selectionStart"]
