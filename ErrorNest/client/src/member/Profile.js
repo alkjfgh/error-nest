@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import {useCookies, Cookies} from "react-cookie";
+import {useNavigate} from "react-router-dom";
 
 import '../css/profile.scss'
 // import '../css/nomalize.scss'
@@ -9,6 +10,8 @@ import axios from "axios";
 const Profile = (props) => {
     const location = useLocation()
     const [cookies] = useCookies([]);
+    const navigate = useNavigate();
+    const [pageIndex, setPageIndex] = useState(1);
 
     // const [inputs, setInputs] = useState({
     //     comment: '',
@@ -26,7 +29,7 @@ const Profile = (props) => {
         remainDate: 1,
     })
     const [targetUser, setTargetUser] = useState({})
-    const [count, setCount] = useState(1)
+    const [isEditing, setIsEditing] = useState(false);
 
     let hashtag = location.hash
     const axiosLoading = props.axiosLoading
@@ -72,6 +75,7 @@ const Profile = (props) => {
         }
 
         setUrl(url)
+        setPageIndex(page)
         setPage(page)
         setWrittenList(writtenList);
         setMaxPage(maxPage);
@@ -99,6 +103,10 @@ const Profile = (props) => {
         const success = res.data.success
         if(success) setBanUpdateMessage('밴 성공')
         else setBanUpdateMessage('밴 실패')
+    }
+
+    const pageChangeHandle = (e) => {
+        setPage(e.target.value);
     }
 
     return (
@@ -145,42 +153,57 @@ const Profile = (props) => {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    {writtenList.map((history, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
-                                        <tr>
-                                            <td>{index+page*10-9}</td>
-                                            <td><Link
-                                                to={"/document/" + history.title + "?version=" + history.version}>
-                                                <span>{history.title}</span>
-                                            </Link></td>
-                                            <td><Link
-                                                to={"/document/" + history.title + "?version=" + history.version}>
-                                                <span>{history.updateAt}</span>
-                                            </Link></td>
-                                            <td><Link
-                                                to={"/document/" + history.title + "?version=" + history.version}>
-                                                <span>{history.version}</span>
-                                            </Link></td>
-                                        </tr>
-                                    ))}
+                                {writtenList.map((history, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
+                                    <tr>
+                                        <td>{index + pageIndex * 10 - 9}</td>
+                                        <td><Link
+                                            to={"/document/" + history.title + "?version=" + history.version}>
+                                            <span>{history.title}</span>
+                                        </Link></td>
+                                        <td><Link
+                                            to={"/document/" + history.title + "?version=" + history.version}>
+                                            <span>{history.updateAt}</span>
+                                        </Link></td>
+                                        <td><Link
+                                            to={"/document/" + history.title + "?version=" + history.version}>
+                                            <span>{history.version}</span>
+                                        </Link></td>
+                                    </tr>
+                                ))}
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <div>
-                        <span>
-                            {page - 1 > 0 ? (
-                                <Link to={`/profile/${url}` + "?page=" + (page - 1)}>{"<"}Prev</Link>
+                    <div className="pagination-con">
+                        <div className="pagination">
+                            <button className="prevPage" onClick={() => navigate(`/profile/${url}` + "?page=" + (page - 1))}
+                                    disabled={page === 1}>Prev
+                            </button>
+                            {isEditing ? (
+                                <input
+                                    className={'pageId'}
+                                    type="number"
+                                    value={page}
+                                    min={1}
+                                    max={maxPage}
+                                    onChange={pageChangeHandle}
+                                    onBlur={() => {
+                                        setIsEditing(false)
+                                        if(page < 1) navigate(`/profile/${url}` + "?page=" + (1));
+                                        else if(page > maxPage) navigate(`/profile/${url}` + "?page=" + (maxPage));
+                                        if(page >= 1 && maxPage >= page) navigate(`/profile/${url}` + "?page=" + (page));
+                                    }}
+                                    autoFocus
+                                />
                             ) : (
-                                "<Prev"
+                                <div className="pageId" onClick={() => setIsEditing(true)}>
+                                    {page}
+                                </div>
                             )}
-                        </span>
-                        <span>
-                            {page + 1 <= maxPage ? (
-                                <Link to={`/profile/${url}` + "?page=" + (page + 1)}>Next{">"}</Link>
-                            ) : (
-                                "Next>"
-                            )}
-                        </span>
+                            <button className="nextPage" onClick={(() => navigate(`/profile/${url}` + "?page=" + (page + 1)))}
+                                    disabled={page === maxPage}>Next
+                            </button>
+                        </div>
                     </div>
                 </div>
             }
