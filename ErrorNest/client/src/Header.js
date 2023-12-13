@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import { useState } from "react";
 import { useCookies } from "react-cookie";
@@ -20,8 +20,6 @@ const Header = (props) => {
     /** 쿠키 값 가져오기 */
     const [cookies, setCookies, removeCookies] = useCookies();
 
-
-
     /** useState 요소들 */
     const [inputText, setInputText] = useState("");
     const [encodedInputText, setEncodedInputText] = useState("");
@@ -33,6 +31,8 @@ const Header = (props) => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     const index = props.algolia.index
+
+    const dropdownRef = useRef(null);
 
     const getUser = async () => {
         if(cookies.username) setUser(cookies.username)
@@ -67,25 +67,21 @@ const Header = (props) => {
 
     const clickButtonLogout = async () => {
         setIsAdmin(false);
+        setView(false);
     }
 
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            const divElement = document.querySelector('.navi-element-list-div');
-            if (divElement && !divElement.contains(event.target)) {
-                setView(false);
-            }
-        }
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
+    const handleRelatedSearchClick = (e, clickedText) => {
+        setInputText(clickedText); // 검색어 업데이트
+        setHits([]); // 검색 결과 초기화
+
+        // 해당 페이지로 이동
+        navigate(`/document/${clickedText}`);
+    };
 
     useEffect(() => {
         // 문자열 띄어쓰기 %20에서 인코딩
         setEncodedInputText(encodeURIComponent(inputText).replace(/%20/g, '+'));
-        setHits([])
+        // setHits([])
         setSelectedIndex(-1)
     }, [inputText, location.pathname])
 
@@ -95,6 +91,10 @@ const Header = (props) => {
         getUserInfo().then(result => getUserLevel(result));
         setInputText("")
     }, [location.pathname])
+
+    useEffect(() => {
+        setHits([]);
+    }, [location.pathname]);
 
     const handleIconClick = () => {
         setView(!view);
@@ -131,7 +131,11 @@ const Header = (props) => {
             setInputText("")
             // Enter 키를 누르면 선택된 검색 결과로 이동
             if(selectedIndex === -1 || selectedIndex === hits.length) navigate(`/search?q=${encodedInputText}`)
-            else navigate(`/document/${hits[selectedIndex].title}`)
+            else {
+                const inputValue = hits[selectedIndex].title;
+                // setHits([]);
+                navigate(`/document/${inputValue}`)
+            }
         }
     };
 
@@ -148,6 +152,7 @@ const Header = (props) => {
                     <input className="navi-input-bar" type="text" placeholder="검색" value={inputText}
                            onChange={handleInputText} onKeyDown={handleKeyPress} required/>
 
+                    {/*검색 결과*/}
                     <div className="search-results">
                         {hits.slice(0, 10).map((hit, index) => (
                             <Link
@@ -180,7 +185,7 @@ const Header = (props) => {
 
             {/** 네비게이션 요소 */}
             {/*onBlur={handleBlurList}*/}
-            <div className="navi-element-list-div">
+            <div className="navi-element-list-div" ref={dropdownRef}>
                 <ul className="navi-element-list">
                     <div id="nav-icon3" className={view ? 'open' : ''} onClick={handleIconClick}>
                         <span></span>
@@ -189,18 +194,17 @@ const Header = (props) => {
                         <span></span>
                     </div>
 
-
                     {view && <div id="menu">
                         <li className="navi-element">
-                            <Link to={`/profile/${user}`}>프로필</Link>
+                            <Link to={`/profile/${user}`} onClick={() => setView(false)}>프로필</Link>
                         </li>
                         {cookies.userid === undefined && (
                             <>
                                 <li className="navi-element">
-                                    <Link to="/login">로그인</Link>
+                                    <Link to="/login" onClick={() => setView(false)}>로그인</Link>
                                 </li>
                                 <li className="navi-element">
-                                    <Link to="/signup">회원가입</Link>
+                                    <Link to="/signup" onClick={() => setView(false)}>회원가입</Link>
                                 </li>
                             </>
                         )}
@@ -210,15 +214,15 @@ const Header = (props) => {
                             </li>
                         )}
                         <li className="navi-element">
-                            <Link to="/reportHistory">신고목록</Link>
+                            <Link to="/reportHistory" onClick={() => setView(false)}>신고목록</Link>
                         </li>
                         <li className="navi-element">
-                            <Link to="/upload">파일 업로드</Link>
+                            <Link to="/upload" onClick={() => setView(false)}>파일 업로드</Link>
                         </li>
                         {(!(cookies.userid === undefined) && isAdmin) && (
                             <>
                             <li className="navi-element">
-                                <Link to="/admin">관리자</Link>
+                                <Link to="/admin" onClick={() => setView(false)}>관리자</Link>
                             </li>
                             </>
                         )}
