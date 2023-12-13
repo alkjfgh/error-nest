@@ -56,5 +56,6 @@
   },
   "devDependencies": {
     "node-html-parser": "^6.1.11"
-  }
+  },
+  "homepage": "./"
 }
