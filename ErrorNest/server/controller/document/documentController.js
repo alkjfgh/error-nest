@@ -16,11 +16,12 @@ const documentSelect = async (req, res, next) => {
             const data = {
                 title: title,
                 fileName: options.fileName,
-                filePath: file.path,
+                filePath: file.filePath,
                 fileDes: file.fileDes,
                 category: file.category,
                 isFile : true
             }
+            console.log(data)
             res.json(data)
         }catch (err){
             logger.error(err)
