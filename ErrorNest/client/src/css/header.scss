@@ -100,13 +100,14 @@
         display: block;
         border-left: 15px solid transparent;
         border-right: 15px solid transparent;
-        border-bottom: 20px solid rgb(139, 207, 219);
+        border-bottom: 20px solid #ffaf1c;
       }
 
       #menu{
         margin: 1.45rem auto;
         //background: rgb(239, 135, 0);
-        background: rgb(140, 208, 220);
+        //background: rgb(140, 208, 220);
+        background: #ffaf1c;
         box-shadow: 0 1px 8px rgba(0,0,0,0.05);
         border-radius: 8px;
         width: 10rem;
@@ -117,7 +118,7 @@
         li {
           position: relative;
           width: 10rem;
-
+          font-weight: 600;
 
           a {
             display: block;
@@ -131,9 +132,9 @@
 
 
             &:hover {
-              background-color: #9fe7f1; // 마우스 호버시 배경색 변경
+              background-color: #ffe85f; // 마우스 호버시 배경색 변경
               //color: white;
-              font-weight: bold;
+              font-weight: 900;
             }
           }
         }
