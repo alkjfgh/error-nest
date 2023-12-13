@@ -23,7 +23,7 @@ const Profile = (props) => {
     const [user, setUser] = useState({})
     const [banInfo, setBanInfo] = useState({})
     const [targetUser, setTargetUser] = useState({})
-    const [isAdmin, setIsAdmin] = useState(false);
+
 
     let hashtag = location.hash
     const axiosLoading = props.axiosLoading
@@ -47,14 +47,10 @@ const Profile = (props) => {
 
         const user = await axios.post('/member', {id: cookies.userid, userkey: cookies.userkey})
         console.log(user.data.level);
-        // user.data.level === 'admin'
+
        if(user.data){
             const username = user.data.username
             setUser(user.data);
-            if(user.data.level === "admin"){
-                setIsAdmin(true);
-                console.log(isAdmin);
-            }
             return username === `${target}#${hashtag}`
         }
 
@@ -63,7 +59,7 @@ const Profile = (props) => {
 
     const getProfile = async () => {
         const target = await getTarget()
-        const isEqual = await getUser(target)
+        const isEqual = getUser(target)
         const params = new URLSearchParams(location.search);
         const page = parseInt(params.get('page')) || 1
         const url = `${target}/${hashtag ? hashtag : 'ip'}`;
@@ -71,8 +67,7 @@ const Profile = (props) => {
         const writtenList = historyRes.data.writtenList;
         const maxPage = Math.floor(historyRes.data.maxPage)
 
-        console.log(isAdmin);
-        if(isEqual || isAdmin){
+        if(isEqual){
             const banInfoRes = await axios.get(`/ban/${url}`);
             setBanInfo(banInfoRes.data)
         }
