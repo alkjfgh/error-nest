@@ -113,7 +113,7 @@ const Header = (props) => {
 
             {/** 검색 바 */}
             <div className="navi-button-div" id="cover">
-                <div className="td">
+                <div className="td" id="td">
                     <input className="navi-input-bar" type="text" placeholder="검색" value={inputText}
                            onChange={handleInputText} onKeyDown={handleKeyPress} required/>
 
@@ -130,12 +130,6 @@ const Header = (props) => {
                     </div>
                 </div>
                 <div id="s-cover" className="td">
-                    {/*<Link to={`/search?q=${encodedInputText}`} c>*/}
-                    {/*    <button className="navi-button">*/}
-                    {/*        <div id="s-circle"></div>*/}
-                    {/*        <span></span>*/}
-                    {/*    </button>*/}
-                    {/*</Link>*/}
                     {
                         encodedInputText.length > 0 ?
                             <Link to={`/search?q=${encodedInputText}`}>

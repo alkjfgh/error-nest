@@ -169,6 +169,10 @@
     z-index: 999;
     min-width: 300px;
 
+    #td{
+      width: 50rem;
+    }
+
     #s-cover{
       right: 0;
       top: 4px;
@@ -190,6 +194,8 @@
         //border: 1px solid #ccc;
         border-radius: 4px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        margin-top: 10px;
+        font-size: 23px;
       }
 
       .search-result-item {
