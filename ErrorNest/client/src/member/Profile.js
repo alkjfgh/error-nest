@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import {useCookies, Cookies} from "react-cookie";
 
+import '../css/profile.scss'
 import '../css/nomalize.scss'
 import axios from "axios";
 
@@ -109,11 +110,10 @@ const Profile = (props) => {
                     </div>
                 }
                 {banInfo &&
-                    <div>
+                    <div className="ban-div">
                         <form onSubmit={handleSubmit}>
                             <input type="text" name="comment" value={banInfo.comment || ''} disabled={user.level !== "admin"} onChange={handleChange}/>
-                            <select onChange={handleChange} value={banInfo.remainDate} disabled={user.level !== "admin"}
-                                    name="remainDate">
+                            <select onChange={handleChange} value={banInfo.remainDate} disabled={user.level !== "admin"} name="remainDate" className="select-css">
                                 <option value="0">정상</option>
                                 <option value="1">1일</option>
                                 <option value="3">3일</option>
@@ -150,7 +150,7 @@ const Profile = (props) => {
                                 "<Prev"
                             )}
                         </span>
-                                <span>
+                        <span>
                             {page + 1 <= maxPage ? (
                                 <Link to={`/profile/${url}` + "?page=" + (page + 1)}>Next{">"}</Link>
                             ) : (
