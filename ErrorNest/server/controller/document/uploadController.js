@@ -2,6 +2,7 @@ const File = require("../../db/schema/document/file"); // Get file schema
 const logger = require('../../log/logger')
 
 const fileUpload = async (req, res, next) => {
+    console.log('fileUpload')
     try {
         const fileData = req.file;
         const fileName = fileData.originalname;

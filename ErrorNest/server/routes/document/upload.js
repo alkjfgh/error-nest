@@ -10,6 +10,9 @@ const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         const category = req.query.category ? req.query.category + '/' : '';
         const destinationPath = path.join(__dirname, `../../uploads/${category}`);
+        console.log('multer.diskStorage')
+        console.log(category)
+        console.log(destinationPath)
         // 폴더가 없으면 생성
         if (!fs.existsSync(destinationPath)) {
             fs.mkdirSync(destinationPath, { recursive: true });
@@ -17,6 +20,7 @@ const storage = multer.diskStorage({
         cb(null, destinationPath); // 파일이 저장될 경로
     },
     filename: function (req, file, cb) {
+        console.log(file.originalname)
         cb(null, file.originalname) // 파일명
     }
 })
