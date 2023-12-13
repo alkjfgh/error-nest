@@ -1,0 +1,117 @@
+//
+//.ban-div{
+//  text-align: center;
+//
+//  // class는 select 요소 자체에 적용되며 wrapper 요소에는 적용되지 않습니다.
+//  .select-css {
+//    font-size: 14px;
+//    font-weight: 700;
+//    color: #444;
+//    padding: .6em 1.4em .5em .8em;
+//    width: 10%;
+//    max-width: 100%; // width가 100%가 아닌 경우에 유용합니다.
+//    box-sizing: border-box;
+//    margin: 0 1rem;
+//    border: 1px solid #aaa;
+//    box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
+//    border-radius: .5em;
+//    -moz-appearance: none;
+//    -webkit-appearance: none;
+//    appearance: none;
+//    background-color: #fff;
+//    // 아래의 배경 이미지는 2개의 URL을 사용합니다. 첫 번째는 화살표 아이콘에 대한 svg 데이터 URI이고, 두 번째는 그라디언트입니다.
+//    // 아이콘 색상을 변경하려면 URL이므로 `#` 대신 `%23`을 사용해야 합니다. 또는 다른 svg 아이콘이나 외부 이미지 참조로 교체할 수 있습니다.
+//    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+//    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+//    background-repeat: no-repeat, repeat;
+//    // 화살표 아이콘 위치 (오른쪽으로 1em, 수직으로 50%), 그리고 그라디언트 위치
+//    background-position: right .7em top 50%, 0 0;
+//    // 아이콘 크기, 그리고 그라디언트 크기
+//    background-size: .65em auto, 100%;
+//
+//    // IE 브라우저에서 화살표 아이콘 숨기기
+//    &::-ms-expand {
+//      display: none;
+//    }
+//
+//    // 호버 스타일
+//    &:hover {
+//      border-color: #888;
+//    }
+//
+//    // 포커스 스타일
+//    &:focus {
+//      border-color: #aaa;
+//      // 여기서 -webkit-focus-ring-color를 사용하는 것이 좋지만 box-shadow에는 작동하지 않습니다.
+//      box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+//      box-shadow: 0 0 0 3px -moz-mac-focusring;
+//      color: #222;
+//      outline: none;
+//    }
+//
+//    // 옵션을 일반 굵기로 설정합니다.
+//    option {
+//      font-weight: normal;
+//    }
+//
+//    // 오른쪽에서 왼쪽으로 텍스트를 지원하며, 아랍어와 히브리어에 대한 명시적인 지원
+//    *[dir="rtl"] &,
+//    :root:lang(ar) &,
+//    :root:lang(iw) & {
+//      background-position: left .7em top 50%, 0 0;
+//      padding: .6em .8em .5em 1.4em;
+//    }
+//
+//    //// 비활성화된 스타일
+//    &:disabled,
+//    &[aria-disabled=true] {
+//      color: graytext;
+//      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+//      linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+//    }
+//
+//    // 비활성화된 상태에서 호버 스타일
+//    &:disabled:hover,
+//    &[aria-disabled=true] {
+//      border-color: #aaa;
+//    }
+//  }
+//
+//  input {
+//    width: 250px;
+//    height: 35px;
+//    border-radius: 3px;
+//    border: 1px solid #CCCCCC;
+//    font-size: 14px;
+//    padding-left: 10px;
+//    transition: 0.3s;
+//
+//    &::-webkit-input-placeholder {
+//      font-size: 14px;
+//    }
+//
+//    &:focus {
+//      border: 1px solid #286EFA !important;
+//      outline-width: 0;
+//    }
+//  }
+//
+//  button {
+//    margin-top: 30px;
+//    width: 70px;
+//    height: 40px;
+//    background: #286EFA;
+//    color: white;
+//    font-size: 14px;
+//    border: 1px solid #286EFA;
+//    border-radius: 3px;
+//    text-align: center;
+//
+//    &:hover {
+//      background: darken(#286EFA, 10%);
+//      cursor: pointer;
+//    }
+//  }
+//}
+//
+//

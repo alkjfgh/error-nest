@@ -3,6 +3,7 @@ import {Link, useLocation} from 'react-router-dom';
 import {useCookies, Cookies} from "react-cookie";
 
 import '../css/nomalize.scss'
+import '../css/profile.scss'
 import axios from "axios";
 
 const Profile = (props) => {
@@ -22,6 +23,7 @@ const Profile = (props) => {
     const [user, setUser] = useState({})
     const [banInfo, setBanInfo] = useState({})
     const [targetUser, setTargetUser] = useState({})
+    const [isAdmin, setIsAdmin] = useState(false);
 
     let hashtag = location.hash
     const axiosLoading = props.axiosLoading
@@ -31,6 +33,7 @@ const Profile = (props) => {
         target = decodeURIComponent(target);
         setTarget(target)
         hashtag = hashtag.split('#')[1]
+
         if(hashtag) {
             const targetUser = await axios.post('/member', {username: target, hashtag})
             setTargetUser(targetUser.data)
@@ -43,11 +46,17 @@ const Profile = (props) => {
         if(ipReg.test(target)) return true
 
         const user = await axios.post('/member', {id: cookies.userid, userkey: cookies.userkey})
-        if(user.data){
+        console.log(user.data.level);
+        // user.data.level === 'admin'
+       if(user.data){
             const username = user.data.username
-            setUser(user.data)
+            setUser(user.data);
+            if(user.data.level === "admin"){
+                setIsAdmin(true);
+            }
             return username === `${target}#${hashtag}`
         }
+
         return false
     }
 
@@ -61,6 +70,7 @@ const Profile = (props) => {
         const writtenList = historyRes.data.writtenList;
         const maxPage = Math.floor(historyRes.data.maxPage)
 
+        console.log(isAdmin);
         if(isEqual){
             const banInfoRes = await axios.get(`/ban/${url}`);
             setBanInfo(banInfoRes.data)
@@ -106,11 +116,10 @@ const Profile = (props) => {
                     </div>
                 }
                 {banInfo &&
-                    <div>
+                    <div className="ban-div">
                         <form onSubmit={handleSubmit}>
-                            <input type="text" name="comment" value={banInfo.comment || ''} disabled={user.level !== "admin"} onChange={handleChange}/>
-                            <select onChange={handleChange} value={banInfo.remainDate} disabled={user.level !== "admin"}
-                                    name="remainDate">
+                            <input type="text" className="comment-input" name="comment" value={banInfo.comment || undefined} disabled={user.level !== "admin"} onChange={handleChange}/>
+                            <select onChange={handleChange} value={banInfo.remainDate} disabled={user.level !== "admin"} name="remainDate" className="select-css">
                                 <option value="0">정상</option>
                                 <option value="1">1일</option>
                                 <option value="3">3일</option>
@@ -118,7 +127,7 @@ const Profile = (props) => {
                                 <option value="30">30일</option>
                                 <option value="100000">영구정지</option>
                             </select>
-                            {user.level === "admin" && <button type="submit">send</button>}
+                            {user.level === "admin" && <button type="submit" className="send">send</button>}
                             {banUpdateMessage}
                         </form>
                     </div>
