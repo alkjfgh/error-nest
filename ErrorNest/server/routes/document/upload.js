@@ -8,10 +8,10 @@ const fs = require('fs');
 // 이미지를 저장할 경로와 파일명을 설정합니다.
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const category = req.query.category ? req.query.category + '/' : '';
-        const destinationPath = path.join(__dirname, `../../uploads/${category}`);
         console.log('multer.diskStorage')
+        const category = req.query.category ? req.query.category + '/' : '';
         console.log(category)
+        const destinationPath = path.join(__dirname, `../../uploads/${category}`);
         console.log(destinationPath)
         // 폴더가 없으면 생성
         if (!fs.existsSync(destinationPath)) {
