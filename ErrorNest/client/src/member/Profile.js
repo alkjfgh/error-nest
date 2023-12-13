@@ -3,7 +3,6 @@ import {Link, useLocation} from 'react-router-dom';
 import {useCookies, Cookies} from "react-cookie";
 
 import '../css/nomalize.scss'
-import '../css/profile.scss'
 import axios from "axios";
 
 const Profile = (props) => {
@@ -11,11 +10,6 @@ const Profile = (props) => {
     const [cookies] = useCookies([]);
 
     const [inputs, setInputs] = useState({
-        comment: '',
-        remainDate: 1,
-    });
-
-    const [getInputs, setGetInputs] = useState({
         comment: '',
         remainDate: 1,
     });
@@ -29,7 +23,6 @@ const Profile = (props) => {
     const [banInfo, setBanInfo] = useState({})
     const [targetUser, setTargetUser] = useState({})
 
-
     let hashtag = location.hash
     const axiosLoading = props.axiosLoading
 
@@ -38,7 +31,6 @@ const Profile = (props) => {
         target = decodeURIComponent(target);
         setTarget(target)
         hashtag = hashtag.split('#')[1]
-
         if(hashtag) {
             const targetUser = await axios.post('/member', {username: target, hashtag})
             setTargetUser(targetUser.data)
@@ -47,25 +39,21 @@ const Profile = (props) => {
     }
 
     const getUser = async (target) => {
-
         const ipReg = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/
         if(ipReg.test(target)) return true
 
         const user = await axios.post('/member', {id: cookies.userid, userkey: cookies.userkey})
-        console.log(user.data.level);
-
-       if(user.data){
+        if(user.data){
             const username = user.data.username
-            setUser(user.data);
+            setUser(user.data)
             return username === `${target}#${hashtag}`
         }
-
         return false
     }
 
     const getProfile = async () => {
         const target = await getTarget()
-        const isEqual = getUser(target)
+        const isEqual = await getUser(target)
         const params = new URLSearchParams(location.search);
         const page = parseInt(params.get('page')) || 1
         const url = `${target}/${hashtag ? hashtag : 'ip'}`;
@@ -76,29 +64,17 @@ const Profile = (props) => {
         if(isEqual){
             const banInfoRes = await axios.get(`/ban/${url}`);
             setBanInfo(banInfoRes.data)
-            console.log(banInfoRes.data);
-            // comment: '신고', remainDate: 7
-            setGetInputs({
-                comment: banInfo.comment,
-                remainDate: banInfo.remainDate
-            })
         }
+
         setUrl(url)
         setPage(page)
         setWrittenList(writtenList);
         setMaxPage(maxPage);
-
-
     }
 
     useEffect(() => {
         axiosLoading(getProfile)
-    }, [location.pathname,location.search,getInputs.comment,getInputs.remainDate])
-
-    useEffect(() =>{
-        // getProfile()
-    },[inputs.comment,inputs.remainDate])
-
+    }, [location.pathname,location.search])
 
     const handleChange = (e) => {
         const {name, value}  = e.target;
@@ -109,7 +85,6 @@ const Profile = (props) => {
     }
 
     const handleSubmit = async (e) => {
-        console.log(user.level)
         if(user.level !== "admin") return
         if(banUpdateMessage === '밴 처리중') return
         setBanUpdateMessage('밴 처리중')
@@ -131,11 +106,11 @@ const Profile = (props) => {
                     </div>
                 }
                 {banInfo &&
-                    <div className="ban-div">
+                    <div>
                         <form onSubmit={handleSubmit}>
-                            <input type="text" className="comment-input" name="comment" value={inputs.comment || undefined} placeholder={getInputs.comment || undefined} disabled={user.level !== "admin"} onChange={handleChange}/>
-                            <select onChange={handleChange} value={inputs.remainDate} disabled={user.level !== "admin"} name="remainDate" className="select-css">
-                                <option value="0">정상</option>
+                            <input type="text" name="comment" value={banInfo.comment || ''} disabled={user.level !== "admin"} onChange={handleChange}/>
+                            <select onChange={handleChange} value={banInfo.remainDate} disabled={user.level !== "admin"}
+                                    name="remainDate">
                                 <option value="0">정상</option>
                                 <option value="1">1일</option>
                                 <option value="3">3일</option>
@@ -143,12 +118,11 @@ const Profile = (props) => {
                                 <option value="30">30일</option>
                                 <option value="100000">영구정지</option>
                             </select>
-                            {user.level === "admin" && <button type="submit" className="send">send</button>}
+                            {user.level === "admin" && <button type="submit">send</button>}
                             {banUpdateMessage}
                         </form>
                     </div>
                 }
-
             </div>
             {writtenList.length > 0 &&
                 <div>

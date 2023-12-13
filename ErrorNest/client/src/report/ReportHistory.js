@@ -21,26 +21,20 @@ const ReportHistory = (props) => {
     /** 로그인 한 계정의 레벨 가져오기 (user or admin) */
     const getReportList = async (user) => {
         const thisUri = location.pathname;
-        console.log("---------------------");
-        console.log(`${thisUri}/getReportList`);
         const response = await axios.post(`/reportHistory/getReportList?page=${page}`,user);
         const maxPage = Math.floor(response.data.maxPage)
         setMaxPage(maxPage);
         setReportList(response.data.result);
-        console.log("reportList >> ");
-        console.log(reportList);
     }
 
     /** 로그인 했을 시 id, 안했을 시 ip로 writer 설정 */
     const getUserInfo = async () => {
         if(cookies.userid !== undefined) {
-            console.log(`cookies.userid >> ${cookies.userid}`);
             return {userid: cookies.userid, username: cookies.username, userkey: cookies.userkey, isLogin: true}; // 로그인 id
         } else {
             const response = await fetch("https://api64.ipify.org?format=json");
             const data = await response.json();
 
-            console.log(`data.ip >> ${data.ip}`);
             return {userid: data.ip, username: "noName", userkey: cookies.userkey, isLogin: false}; // PC ip
         }
     }

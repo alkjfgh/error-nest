@@ -30,7 +30,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --host 0.0.0.0",
     "ipv4": "set HOST=172.16.10.156&&react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -56,5 +56,6 @@
   },
   "devDependencies": {
     "node-html-parser": "^6.1.11"
-  }
+  },
+  "homepage": "./"
 }

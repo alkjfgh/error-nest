@@ -19,7 +19,6 @@ function Login(props){
             ...user,
             [e.target.name] : e.target.value
         })
-        console.log(user)
     }
 
     const handleLogin = async () => {

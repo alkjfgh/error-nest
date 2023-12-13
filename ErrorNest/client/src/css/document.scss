@@ -127,6 +127,44 @@
   .file-des{
   }
 
+  .document-list{
+    width: calc(100% - 0.2rem);
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0.2rem 0 0.2rem 1rem;
+    font-weight: 700;
+    border: 1px solid white;
+    margin-bottom: 0.5rem;
+    border-radius: 30px;
+  }
+
+  .document-list:hover{
+    cursor: pointer;
+    background-color: #fab360;
+    transition-duration: 200ms;
+  }
+
+  .new-document{
+    margin-left: 1rem;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 0.5rem;
+
+    span{
+      color: cornflowerblue;
+    }
+  }
+
+  .new-document:hover {
+    cursor: pointer;
+    background-color: #fab360;
+    transition-duration: 200ms;
+  }
+
+  .search-document-con{
+    padding-top: 1rem;
+  }
+
   @media screen and (max-width: 1000px) { // 브라우저 너비가 1000px 이하일 때
 
     article{

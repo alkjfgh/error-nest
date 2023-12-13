@@ -4,13 +4,11 @@ const logger = require("../../log/logger");
 /** search select all */
 const searchSelect = async (req, res, next) => {
     const title = req.query.title;
-    console.log(`result >> ${title}`);
 
     try {
         const latestDoc = await Document.findOne({ title: title }).sort('-version');
-        console.log(`latestDoc >> ${latestDoc}`);
-        console.log(`latestDoc.content >> ${latestDoc.title}`);
-        res.json({title: title, searchTitle: latestDoc.title});
+        if(latestDoc === null) res.json({title: title, searchTitle: ""});
+        else res.json({title: title, searchTitle: latestDoc.title});
     } catch (err) {
         logger.error(err);
         next(err);

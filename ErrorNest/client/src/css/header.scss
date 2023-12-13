@@ -29,11 +29,11 @@
     height: 100%;
 
     .navi-element-list {
-      position: fixed;
+      position: absolute;
       top: 0;
       align-items: center;
       list-style: none;
-      right: 0;
+      right: 5px;
       width: 7rem;
       z-index: 100;
 
