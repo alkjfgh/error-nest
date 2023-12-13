@@ -15,9 +15,10 @@
 }
 
 .admin-container {
-    background-color: #e5e9f4;
-    //padding: 2rem;
-    height: 100vh;
+  background-color: #e5e9f4;
+  //padding: 2rem;
+  margin-top: -1rem;
+  height: 100vh;
 }
 
 @import url('https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css');
@@ -85,6 +86,7 @@ button.neumorphic {
   color: hsl(0 0% 10%);
   font-family: system-ui, sans-serif;
   font-size: 3rem;
+  margin-top: 0;
 }
 
 .admin-buttons {
