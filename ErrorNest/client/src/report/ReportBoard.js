@@ -26,33 +26,22 @@ const ReportBoard = (props) => {
         data.writer = writer;
         data.reportNo = reportNo;
 
-        console.log(`writer >> ${writer}`);
-        console.log(`reportNo >> ${reportNo}`);
-
         // const result = await axios.post('/report/select', data);
         axios.post('/report/select', data).then(result=> {
-            console.log(result.data.reportInfo);
             setReportInfo(result.data.reportInfo);
 
             if (result.data.userLevel === 'admin')
                 setIsAdmin(true);
-
-            console.log(reportInfo);
         });
-
-        // console.log(result.data);
-        // await setReportInfo(result.data.reportInfo);
     };
 
     const getUserInfo = async () => {
         if(cookies.userid !== undefined) {
-            console.log(`cookies.userid >> ${cookies.userid}`);
             return {userid: cookies.userid, username: cookies.username, userkey: cookies.userkey, isLogin: true}; // 로그인 id
         } else {
             const response = await fetch("https://api64.ipify.org?format=json");
             const data = await response.json();
 
-            console.log(`data.ip >> ${data.ip}`);
             return {userid: data.ip, username: "noName", userkey: cookies.userkey, isLogin: false}; // PC ip
         }
     }
@@ -78,10 +67,8 @@ const ReportBoard = (props) => {
         if (adminComment === "") {
             alert("답장을 입력해주세요.");
         } else {
-            console.log(`adminComment >> ${adminComment}`);
             reportInfo.adminComment = adminComment;
             const response = await axios.put('/report/update', reportInfo);
-            console.log(response);
             alert(response.data.message);
             navigate('/reportHistory');
         }
@@ -101,9 +88,6 @@ const ReportBoard = (props) => {
 
     useEffect(() => {
         axiosLoading(getData);
-        console.log(isAdmin);
-        console.log("--------------------");
-        console.log(reportInfo);
     }, []);
 
     return (
