@@ -69,11 +69,25 @@ const Header = (props) => {
         setIsAdmin(false);
     }
 
+    const clickInputBar = async () => {
+        if (inputText.trim() !== "") {
+            // 입력된 글자가 있을 때에만 검색 결과 가져오기
+            index.search(inputText)
+                .then(({ hits }) => {
+                    setHits(hits);
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        }
+    }
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             const divElement = document.querySelector('.navi-element-list-div');
             if (divElement && !divElement.contains(event.target)) {
                 setView(false);
+                setHits([]); // 여기에 추가: 검색 결과 초기화
             }
         }
         document.addEventListener('mousedown', handleClickOutside);
@@ -85,7 +99,7 @@ const Header = (props) => {
     useEffect(() => {
         // 문자열 띄어쓰기 %20에서 인코딩
         setEncodedInputText(encodeURIComponent(inputText).replace(/%20/g, '+'));
-        setHits([])
+        // setHits([])
         setSelectedIndex(-1)
     }, [inputText, location.pathname])
 
@@ -146,7 +160,7 @@ const Header = (props) => {
             <div className="navi-button-div" id="cover">
                 <div className="td" id="td">
                     <input className="navi-input-bar" type="text" placeholder="검색" value={inputText}
-                           onChange={handleInputText} onKeyDown={handleKeyPress} required/>
+                           onChange={handleInputText} onClick={clickInputBar} onKeyDown={handleKeyPress} required/>
 
                     <div className="search-results">
                         {hits.slice(0, 10).map((hit, index) => (
