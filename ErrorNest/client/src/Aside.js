@@ -43,8 +43,8 @@ const Aside = (props) => {
     }
 
     useEffect(() => {
-        setInterval(getFavoriteList, 5000)
-        // getFavoriteList().then(r => {})
+        // setInterval(getFavoriteList, 5000)
+        getFavoriteList().then(r => {})
     }, [location.pathname]);
 
     useEffect(() => {
