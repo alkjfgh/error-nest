@@ -9,10 +9,10 @@ const Profile = (props) => {
     const location = useLocation()
     const [cookies] = useCookies([]);
 
-    const [inputs, setInputs] = useState({
-        comment: '',
-        remainDate: 1,
-    });
+    // const [inputs, setInputs] = useState({
+    //     comment: '',
+    //     remainDate: 1,
+    // });
     const [banUpdateMessage, setBanUpdateMessage] = useState('')
     const [writtenList, setWrittenList] = useState([]);
     const [page, setPage] = useState(1)
@@ -20,7 +20,10 @@ const Profile = (props) => {
     const [target, setTarget] = useState('')
     const [url, setUrl] = useState('')
     const [user, setUser] = useState({})
-    const [banInfo, setBanInfo] = useState({})
+    const [banInfo, setBanInfo] = useState({
+        comment: '',
+        remainDate: 1,
+    })
     const [targetUser, setTargetUser] = useState({})
 
     let hashtag = location.hash
@@ -46,7 +49,7 @@ const Profile = (props) => {
         if(user.data){
             const username = user.data.username
             setUser(user.data)
-            return username === `${target}#${hashtag}`
+            return user.data.level === "admin" || username === `${target}#${hashtag}`
         }
         return false
     }
@@ -78,8 +81,8 @@ const Profile = (props) => {
 
     const handleChange = (e) => {
         const {name, value}  = e.target;
-        setInputs({
-            ...inputs,
+        setBanInfo({
+            ...banInfo,
             [name]: value
         });
     }
@@ -89,7 +92,7 @@ const Profile = (props) => {
         if(banUpdateMessage === '밴 처리중') return
         setBanUpdateMessage('밴 처리중')
         e.preventDefault();
-        const data = {comment: inputs.comment, remainDate: inputs.remainDate}
+        const data = {comment: banInfo.comment, remainDate: banInfo.remainDate}
         const res = await axios.post(`/ban/update/${url}`, data);
         const success = res.data.success
         if(success) setBanUpdateMessage('밴 성공')
@@ -147,7 +150,7 @@ const Profile = (props) => {
                                 "<Prev"
                             )}
                         </span>
-                                <span>
+                        <span>
                             {page + 1 <= maxPage ? (
                                 <Link to={`/profile/${url}` + "?page=" + (page + 1)}>Next{">"}</Link>
                             ) : (
