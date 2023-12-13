@@ -3,7 +3,7 @@ import {Link, useLocation} from 'react-router-dom';
 import {useCookies, Cookies} from "react-cookie";
 
 import '../css/profile.scss'
-import '../css/nomalize.scss'
+// import '../css/nomalize.scss'
 import axios from "axios";
 
 const Profile = (props) => {
@@ -26,6 +26,7 @@ const Profile = (props) => {
         remainDate: 1,
     })
     const [targetUser, setTargetUser] = useState({})
+    const [count, setCount] = useState(1)
 
     let hashtag = location.hash
     const axiosLoading = props.axiosLoading
@@ -102,17 +103,17 @@ const Profile = (props) => {
 
     return (
         <>
-            <h3>{target + hashtag}</h3>
+            <h2>{target + hashtag}</h2>
             <div>
                 {hashtag &&
-                    <div>
+                    <div id="email-div">
                         이메일 : {targetUser.useremail}
                     </div>
                 }
-                {banInfo &&
+                {banInfo && (user.username === target + hashtag || user.level === "admin") &&
                     <div className="ban-div">
                         <form onSubmit={handleSubmit}>
-                            <input type="text" name="comment" value={banInfo.comment || ''} disabled={user.level !== "admin"} onChange={handleChange}/>
+                            벤 사유 : &nbsp;<input type="text" name="comment" value={banInfo.comment || ''} disabled={user.level !== "admin"} onChange={handleChange}/>
                             <select onChange={handleChange} value={banInfo.remainDate} disabled={user.level !== "admin"} name="remainDate" className="select-css">
                                 <option value="0">정상</option>
                                 <option value="1">1일</option>
@@ -129,19 +130,42 @@ const Profile = (props) => {
             </div>
             {writtenList.length > 0 &&
                 <div>
-                    <h4>작성글</h4>
-                    <ul>
-                        {writtenList.map((history, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
-                            <li key={index}>
-                                <Link to={"/document/" + history.title + "?version=" + history.version}>
-                                    <span>제목: {history.title}</span>
-                                    <span>, 작성날짜: {history.updateAt}</span>`
-                                    <span>, 버전: {history.version}</span>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-
+                    <div className="table-container">
+                        <div className="table__caption">
+                            <h2 className="table__header">작성글</h2>
+                        </div>
+                        <div className="inner">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th>작성날짜</th>
+                                    <th>버전</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {writtenList.map((history, index) => ( // histories 배열을 순회하며 각 항목을 li 태그로 렌더링
+                                        <tr>
+                                            <td>{index+page*10-9}</td>
+                                            <td><Link
+                                                to={"/document/" + history.title + "?version=" + history.version}>
+                                                <span>{history.title}</span>
+                                            </Link></td>
+                                            <td><Link
+                                                to={"/document/" + history.title + "?version=" + history.version}>
+                                                <span>{history.updateAt}</span>
+                                            </Link></td>
+                                            <td><Link
+                                                to={"/document/" + history.title + "?version=" + history.version}>
+                                                <span>{history.version}</span>
+                                            </Link></td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     <div>
                         <span>
                             {page - 1 > 0 ? (
