@@ -31,7 +31,6 @@ const Report = (props) => {
         setTitle(data.title);
 
         const res = await axios.post('/report/getDocument/', data);
-        console.log(res.data);
 
         setVersion(res.data.version);
         setMyName(res.data.myName);
@@ -59,11 +58,7 @@ const Report = (props) => {
     const reportSubmit = async () => {
         axiosLoading(async () => {
             const userInfo = await getUserInfo();
-            console.log(userInfo);
-
             const res = await axios.post('/report/insert',{title, comment, version, userInfo});
-
-            console.log(res.data);
 
             if (res.data.success)
                 navigate(`/document/${title}`);
