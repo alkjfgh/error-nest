@@ -57,8 +57,11 @@ const Header = (props) => {
     const getUserLevel = async (result) => {
         if (result.isLogin) {
             const userInfo = await axios.post('/member/levelCheck', result);
-            if (userInfo.data.level === 'admin')
+            if (userInfo.data.level === 'admin') {
                 setIsAdmin(true);
+            } else {
+                setIsAdmin(false);
+            }
         }
     }
 
@@ -212,14 +215,13 @@ const Header = (props) => {
                         <li className="navi-element">
                             <Link to="/upload">파일 업로드</Link>
                         </li>
-                        {(!(cookies.userid === undefined) && isAdmin) ? (
+                        {(!(cookies.userid === undefined) && isAdmin) && (
                             <>
                             <li className="navi-element">
                                 <Link to="/admin">관리자</Link>
                             </li>
                             </>
-                        ):(<></>)}
-
+                        )}
                     </div>}
                 </ul>
             </div>
