@@ -1,6 +1,12 @@
 @import "nomalize.scss";
 
 .navigation {
+  @media (max-width: 630px) {
+    .navi-button-div {
+      display: none;
+    }
+  }
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -206,10 +212,12 @@
         color: black;
         background-color: #f1f1f1;
         text-align: left;
+        height: 60px;
       }
 
       .search-result-item:hover, .selected {
-        background-color: grey;
+        background-color: #fdca49;
+        color: white;
       }
 
       input:focus {
