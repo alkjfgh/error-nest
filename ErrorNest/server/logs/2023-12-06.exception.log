@@ -1,7 +1,7 @@
 2023-12-06 16:01:01 [Error-Nest] error: uncaughtException: Route.get() requires a callback function but got a [object Object]
 Error: Route.get() requires a callback function but got a [object Object]
     at Route.<computed> [as get] (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\express\lib\router\route.js:211:15)
-    at proto.<computed> [as get] (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\express\lib\router\index.js:521:19)
+    at proto.<computed> [as get] (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\express\lib\router\index.jsx:521:19)
     at Object.<anonymous> (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\routes\report.js:7:8)
     at Module._compile (node:internal/modules/cjs/loader:1256:14)
     at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
@@ -45,7 +45,7 @@ SyntaxError: Unexpected end of input
 2023-12-06 16:01:46 [Error-Nest] error: uncaughtException: Route.get() requires a callback function but got a [object Object]
 Error: Route.get() requires a callback function but got a [object Object]
     at Route.<computed> [as get] (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\express\lib\router\route.js:211:15)
-    at proto.<computed> [as get] (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\express\lib\router\index.js:521:19)
+    at proto.<computed> [as get] (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\express\lib\router\index.jsx:521:19)
     at Object.<anonymous> (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\routes\report.js:6:8)
     at Module._compile (node:internal/modules/cjs/loader:1256:14)
     at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
@@ -56,10 +56,10 @@ Error: Route.get() requires a callback function but got a [object Object]
     at Object.<anonymous> (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\server.js:8:16)
 2023-12-06 16:09:11 [Error-Nest] error: uncaughtException: Cannot read properties of undefined (reading 'length')
 TypeError: Cannot read properties of undefined (reading 'length')
-    at pathtoRegexp (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\path-to-regexp\index.js:63:49)
+    at pathtoRegexp (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\path-to-regexp\index.jsx:63:49)
     at new Layer (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\express\lib\router\layer.js:45:17)
-    at Function.route (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\express\lib\router\index.js:505:15)
-    at proto.<computed> [as post] (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\express\lib\router\index.js:520:22)
+    at Function.route (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\express\lib\router\index.jsx:505:15)
+    at proto.<computed> [as post] (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\node_modules\express\lib\router\index.jsx:520:22)
     at Object.<anonymous> (D:\1_ByeongJun Sturctures\Programming Language\web\error-nest\ErrorNest\server\routes\report.js:7:8)
     at Module._compile (node:internal/modules/cjs/loader:1256:14)
     at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)

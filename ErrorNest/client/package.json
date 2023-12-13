@@ -20,7 +20,6 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.18.0",
-    "react-scripts": "5.0.1",
     "react-scroll": "^1.9.0",
     "react-select": "^5.8.0",
     "react-simple-code-editor": "^0.13.1",
@@ -30,11 +29,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "ipv4": "set HOST=172.16.10.156&&react-scripts start",
-    "build": "react-scripts build",
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite preview",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "ipv4": "set HOST=172.16.10.156&&react-scripts start"
   },
   "eslintConfig": {
     "extends": [
@@ -55,6 +55,8 @@
     ]
   },
   "devDependencies": {
-    "node-html-parser": "^6.1.11"
+    "@vitejs/plugin-react": "^4.2.1",
+    "node-html-parser": "^6.1.11",
+    "vite": "^5.0.8"
   }
 }
