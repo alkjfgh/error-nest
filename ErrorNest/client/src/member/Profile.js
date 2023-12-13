@@ -129,6 +129,7 @@ const Profile = (props) => {
                         </form>
                     </div>
                 }
+
             </div>
             {writtenList.length > 0 &&
                 <div>
