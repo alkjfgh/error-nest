@@ -59,8 +59,6 @@ const Header = (props) => {
             const userInfo = await axios.post('/member/levelCheck', result);
             if (userInfo.data.level === 'admin')
                 setIsAdmin(true);
-
-            console.log(userInfo.data.level);
         }
     }
 
