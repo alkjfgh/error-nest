@@ -299,7 +299,7 @@ function Document(props) {
             const documents = res.data.documents
             const renderedContents = []
             documents.forEach((document) =>  {
-                renderedContents.push(<div key={`분류:${document}`}><Link to={`/document/${document}`}>{document.toString()}</Link></div>)
+                renderedContents.push(<div className={'document-list'} onClick={() => navigate(`/document/${document}`)} key={`분류:${document}`}><Link to={`/document/${document}`}>{document.toString()}</Link></div>)
             })
             setRenderedContents(renderedContents)
         }

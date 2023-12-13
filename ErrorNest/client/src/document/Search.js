@@ -49,16 +49,20 @@ const Search = (props) => {
 
     return (
         <>
-            <div>찾는 문서가 없나요?<span onClick={directDocument}>'{searchText}'문서로 가기</span></div>
-            {hits.length > 0 ? (
-                hits.map((hit, index) => (
-                    <Link key={index} to={`/document/${hit.title}`} className="search-result-item">
-                        {hit.title} {/* hit 객체의 필드에 따라 변경 */}
-                    </Link>
-                ))
-            ) : (
-                <div className="no-results">{message}</div>
-            )}
+            <div>찾는 문서가 없나요?<span className={'new-document'} onClick={directDocument}><span>'{searchText}'</span>문서로 가기</span></div>
+            <div className={`search-document-con`}>
+                {hits.length > 0 ? (
+                    hits.map((hit, index) => (
+                        <div className={'document-list'} onClick={() => navigate(`/document/${hit.title}`)}>
+                            <Link key={index} to={`/document/${hit.title}`} className="search-result-item">
+                                {hit.title} {/* hit 객체의 필드에 따라 변경 */}
+                            </Link>
+                        </div>
+                    ))
+                ) : (
+                    <div className="no-results">{message}</div>
+                )}
+            </div>
         </>
     )
 
