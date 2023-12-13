@@ -72,6 +72,7 @@ const memberDelete = async (req, res, next) => {
 
 const levelCheck = async (req, res, next) => {
     // console.log("연결됨");
+    console.log(req.body);
     try{
         const member = {
             id: req.body.userid,
