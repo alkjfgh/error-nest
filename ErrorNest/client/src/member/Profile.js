@@ -53,6 +53,7 @@ const Profile = (props) => {
             setUser(user.data);
             if(user.data.level === "admin"){
                 setIsAdmin(true);
+                console.log(isAdmin);
             }
             return username === `${target}#${hashtag}`
         }
@@ -71,7 +72,7 @@ const Profile = (props) => {
         const maxPage = Math.floor(historyRes.data.maxPage)
 
         console.log(isAdmin);
-        if(isEqual){
+        if(isEqual || isAdmin){
             const banInfoRes = await axios.get(`/ban/${url}`);
             setBanInfo(banInfoRes.data)
         }
