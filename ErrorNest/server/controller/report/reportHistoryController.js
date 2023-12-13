@@ -16,7 +16,6 @@ function setPaging(count, req) {
 /** reportHistory CRUD */
 const reportSelectAll = async (req, res, next) => {
     const reqData = req.body;
-    console.log(reqData);
 
     if (reqData.isLogin) {
         const member = {
@@ -28,9 +27,6 @@ const reportSelectAll = async (req, res, next) => {
 
     try {
         const userInfo = await Member.findOne({id: reqData.userid});
-        console.log("---- userInfo ----");
-        console.log(userInfo);
-        console.log(reqData.userid);
 
         let result;
         let count = 0
@@ -53,9 +49,6 @@ const reportSelectAll = async (req, res, next) => {
             paging = setPaging(count, req)
             result = await Report.find({reportId: reqData.userid}).limit(paging.limit).skip(paging.skip).sort('-createdAt');
         }
-
-        console.log(count)
-        console.log(result)
 
         res.json({success: true, result: result, writer: reqData.userid, message: "게시판 리스트 가져오기 성공", maxPage: count/paging.limit+1});
     } catch (err) {

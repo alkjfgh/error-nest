@@ -7,10 +7,8 @@ const {encryptCookie, decryptCookie} = require('../encript/encriptCookie');
 
 /** report CRUD */
 const documentSelect = async (req, res, next) => {
-    console.log("documentSelect Controller 진입 성공 !!");
     const title = req.body.title;
 
-    console.log(req.body);
     try {
         if (req.body.version) {
             let version = parseInt(req.body.version); // 페이지 번호
@@ -55,8 +53,6 @@ const reportInsert = async (req, res, next) => {
             }
             report.userInfo.userid = decryptCookie(member);
         }
-        console.log("--------------------");
-        console.log(report);
 
         const data = {
             title: report.title,
@@ -89,16 +85,9 @@ const reportSelect = async (req, res, next) => {
             };
             reqData.userid = decryptCookie(member);
             userInfo = await Member.findOne({id: reqData.userid});
-
-            console.log('------------------------');
-            console.log(userInfo);
-            // console.log(reqData.writer);
         }
 
         reportInfo = await Report.findOne({reportId: reqData.writer, reportNo: reqData.reportNo});
-        console.log('------------------------');
-        console.log(reportInfo);
-
 
         res.json({ message: "reportSelect 성공", isLogin: reqData.isLogin, userLevel: userInfo.level, username: userInfo.username, hastTag: userInfo.hastTag, reportInfo: reportInfo});
     } catch {
@@ -107,13 +96,8 @@ const reportSelect = async (req, res, next) => {
 }
 
 const reportUpdate = async (req, res, next) => {
-    console.log(req.body);
-
     const filter = {writer: req.body.writer, reportNo: req.body.reportNo};
     const update = {$set: {adminComment: req.body.adminComment, status: "완료"}};
-
-    console.log(filter);
-    console.log(update);
 
     try{
         await Report.updateOne(filter, update);
@@ -124,12 +108,6 @@ const reportUpdate = async (req, res, next) => {
 }
 
 const reportUpdateCancel = async (req, res, next) => {
-    const reqData = req.body;
-    console.log(reqData);
-    // id를 가져와 해당 신고자 아이디와 같을 시만 적용되게 !
-
-    let userInfo;
-
     try{
         if (req.body.userInfo.isLogin) {
             const member = {

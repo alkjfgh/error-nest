@@ -164,8 +164,7 @@ const Header = (props) => {
                         <span></span>
                     </div>
 
-                    {/*접속하기{" "}*/}
-                    {/*{view ? '▲' : '▼'}*/}
+
                     {view && <div id="menu">
                         <li className="navi-element">
                             <Link to={`/profile/${user}`}>프로필</Link>

@@ -16,9 +16,10 @@
     color: inherit;
 
     .logo-image {
-      width: 4rem;
+      width: 15rem;
       height: auto;
       margin-right: 1rem;
+      margin-left: 10px;
     }
   }
 
@@ -28,11 +29,11 @@
     height: 100%;
 
     .navi-element-list {
-      position: fixed;
+      position: absolute;
       top: 0;
       align-items: center;
       list-style: none;
-      right: 0;
+      right: 5px;
       width: 7rem;
       z-index: 100;
 
@@ -91,38 +92,48 @@
         }
       }
 
-      #menu:after {
+      #menu:after { // 세모
         position: absolute;
-        top: 3rem;
-        left: 5rem;
+        top: -1.25rem;
+        left: 6.2rem;
         content: "";
         display: block;
         border-left: 15px solid transparent;
         border-right: 15px solid transparent;
-        border-bottom: 20px solid rgba(239, 135, 0, 0.7);
+        border-bottom: 20px solid rgb(139, 207, 219);
       }
 
       #menu{
         margin: 1.45rem auto;
-        background: rgba(239, 135, 0, 0.7);
+        //background: rgb(239, 135, 0);
+        background: rgb(140, 208, 220);
         box-shadow: 0 1px 8px rgba(0,0,0,0.05);
-        border-radius: 4px;
+        border-radius: 8px;
         width: 10rem;
+        position: absolute;
+        right: 10px;
+
 
         li {
           position: relative;
+          width: 10rem;
+
 
           a {
             display: block;
-            width: 100%;
-            padding: 12px 20px;
+            width: 10rem;
+            padding-top: 10px;
+            padding-bottom: 10px;
             text-decoration: none;
-            color: #000;
+            color: #463221;
             font-size: 16px;
             transition: background-color 0.3s;
 
+
             &:hover {
-              background-color: #ddd; // 마우스 호버시 배경색 변경
+              background-color: #9fe7f1; // 마우스 호버시 배경색 변경
+              //color: white;
+              font-weight: bold;
             }
           }
         }
@@ -144,12 +155,13 @@
   }
 
   .navi-button-div {
-    top: 50%;
-    left: 100px;
-    right: 0;
+    //top: 50%;
+    //left: 100px;
+    //right: 0;
     width: 43%;
     height: 60px;
     padding: 5px;
+    margin-right: 7rem;
     background-color: #ffcb49;
     border-radius: 20px;
     box-shadow:0 5px 5px 1px rgba(178, 87, 0, 0.58), 0 0 0 10px #ffffffeb;
@@ -225,6 +237,7 @@
         cursor: pointer;
         //background-color: #ffcb49;
         background-color: rgb(0,0,0,0);
+        margin-right: 0.5rem;
         border: none;
 
         #s-circle {

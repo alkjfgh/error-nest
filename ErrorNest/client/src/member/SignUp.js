@@ -16,6 +16,14 @@ function SignUp(props) {
         pwCheck: ''
     });
 
+    const nav = [
+        { name: "masthead" },
+        { name: "tiles" },
+        { name: "text" },
+        { name: "two-columns" },
+        { name: "subscribe" },
+    ];
+
     const navigate = useNavigate(); // navigation 주는거임
     const [canSignup, setCanSignup] = useState();
     const[count, setCount] = useState(0);
@@ -193,7 +201,8 @@ function SignUp(props) {
                     <div className="signUp-group">
                         <input type="test" name="name" onChange={handleChange} required placeholder=""/>
                         <span className="buttonClick">
-                            <button className="continue action-button animate" onClick={()=>setNameCheck(true)}>계속</button>
+                            <button className="continue action-button animate"
+                                    onClick={() => setNameCheck(true)}>계속</button>
                         </span>
                         <span className="signUp-highlight"></span>
                         <span className="signUp-bar"></span>
@@ -202,7 +211,8 @@ function SignUp(props) {
                     {nameCheck && inputs.name !== '' && <div className="signUp-group">
                         <input type="text" name="id" onChange={handleChange} required placeholder=""/>
                         <span className="buttonClick">
-                            <button id="idCheck" className="continue action-button animate" type="button" onClick={() => checkId()}>중복확인</button>
+                            <button id="idCheck" className="continue action-button animate" type="button"
+                                    onClick={() => checkId()}>중복확인</button>
                         </span>
                         <span className="signUp-highlight"></span>
                         <span className="signUp-bar"></span>
@@ -211,7 +221,8 @@ function SignUp(props) {
                     {check && <div className="signUp-group pw-group">
                         <input type="password" name="pw" onChange={handleChange} required placeholder=""/>
                         <div>
-                            {inputs.pw.trim() && <span className={`hidden ${isCanPassword === "사용가능한 형식입니다." ? "valid" : "invalid"}`}>{isCanPassword}</span>}
+                            {inputs.pw.trim() && <span
+                                className={`hidden ${isCanPassword === "사용가능한 형식입니다." ? "valid" : "invalid"}`}>{isCanPassword}</span>}
                         </div>
                         <span className="signUp-highlight"></span>
                         <span className="signUp-bar"></span>
@@ -220,7 +231,8 @@ function SignUp(props) {
                     {isCanPassword === "사용가능한 형식입니다." && <div className="signUp-group pw-group">
                         <input type="password" name="pwCheck" onChange={handleChange} required placeholder=""/>
                         <div>
-                            {inputs.pwCheck.trim() && <span className={`hidden ${isPwEquals === "일치합니다." ? "valid" : "invalid"}`}><span>{isPwEquals}</span></span>}
+                            {inputs.pwCheck.trim() && <span
+                                className={`hidden ${isPwEquals === "일치합니다." ? "valid" : "invalid"}`}><span>{isPwEquals}</span></span>}
                         </div>
                         <span className="signUp-highlight"></span>
                         <span className="signUp-bar"></span>
@@ -229,29 +241,38 @@ function SignUp(props) {
                     {isPwEquals === "일치합니다." && <div className="signUp-group">
                         <input type="email" name="email" onBlur={handleChange} required placeholder=""/>
                         <span className="buttonClick">
-                            <button className="continue action-button animate" type="button" onClick={() => sendAuthCode()}>인증</button>
+                            <button className="continue action-button animate" type="button"
+                                    onClick={() => sendAuthCode()}>인증</button>
                         </span>
                         <div>
-                            {count >= 1 && count !== 0 && <span className="hidden"><span id="time">인증 제한시간 {Math.floor(count / 60)}:{count % 60}</span></span>}
+                            {count >= 1 && count !== 0 && <span className="hidden"><span
+                                id="time">인증 제한시간 {Math.floor(count / 60)}:{count % 60}</span></span>}
                         </div>
                         <span className="signUp-highlight"></span>
                         <span className="signUp-bar"></span>
                         <label htmlFor="email">Email</label>
                     </div>}
                     {isAuth && (
-                    <div className="signUp-group">
-                        <input type="text" name="auth" onChange={(e) => setAuthCheck(e.target.value)} required placeholder=""/>
-                        <span className="buttonClick">
-                            <button className="continue action-button animate" type="button" onClick={checkAuth}>확인</button>
+                        <div className="signUp-group">
+                            <input type="text" name="auth" onChange={(e) => setAuthCheck(e.target.value)} required
+                                   placeholder=""/>
+                            <span className="buttonClick">
+                            <button className="continue action-button animate" type="button"
+                                    onClick={checkAuth}>확인</button>
                         </span>
-                        <span className="signUp-highlight"></span>
-                        <span className="signUp-bar"></span>
-                        <label htmlFor="auth">Auth</label>
-                    </div>
+                            <span className="signUp-highlight"></span>
+                            <span className="signUp-bar"></span>
+                            <label htmlFor="auth">Auth</label>
+                        </div>
                     )}
                     {flag && <button className="signUp-button" type="submit"><span>회원가입</span></button>}
                 </li>
             </form>
+            <div className="flying-squares">
+                <div className="square"></div>
+                <div className="square"></div>
+                <div className="square"></div>
+            </div>
         </div>
     );
 }
