@@ -122,22 +122,6 @@ const ReportHistory = (props) => {
                     </tbody>
                 </table>
             )}
-            {/*<div>*/}
-            {/*    <span>*/}
-            {/*        {page - 1 > 0 ? (*/}
-            {/*            <span onClick={() => setPage(page - 1)}>{"<"}Prev</span>*/}
-            {/*        ) : (*/}
-            {/*            "<Prev"*/}
-            {/*        )}*/}
-            {/*    </span>*/}
-            {/*    <span>*/}
-            {/*        {page + 1 <= maxPage ? (*/}
-            {/*            <span onClick={() => setPage(page + 1)}>Next{">"}</span>*/}
-            {/*        ) : (*/}
-            {/*            "Next>"*/}
-            {/*        )}*/}
-            {/*    </span>*/}
-            {/*</div>*/}
         </div>
 
     );
