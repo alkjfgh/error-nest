@@ -75,10 +75,10 @@ function BanListView(props) {
                             <tr key={index}>
                                 <td className="tdStyle">{banInfo.target}</td>
                                 <td className="tdStyle">{banInfo.type}</td>
-                                <td className="tdStyle">
+                                <td>
                                     <input
                                         type="text"
-                                        className="inputStyle"
+                                        className="banCommentInput"
                                         value={banInfo.comment}
                                         onChange={(e) => {
                                             const updatedBanList = [...banList];
@@ -88,9 +88,9 @@ function BanListView(props) {
                                     />
                                 </td>
                                 <td className="tdStyle">{banInfo.status}</td>
-                                <td className="tdStyle">
+                                <td>
                                     <select
-                                        className="selectStyle"
+                                        className="adminBanSelect"
                                         value={banInfo.remainDate}
                                         onChange={(e) => {
                                             const updatedBanList = [...banList];
@@ -108,8 +108,8 @@ function BanListView(props) {
                                 </td>
                                 <td className="tdStyle">{banInfo.createdAt}</td>
                                 <td className="tdStyle">{banInfo.expireAt}</td>
-                                <td className="tdStyle">
-                                    <button onClick={() => updateBanInfo(index)}>update</button>
+                                <td>
+                                    <button className="member-delete-btn" onClick={() => updateBanInfo(index)}>update</button>
                                 </td>
                             </tr>
                         );
