@@ -26,6 +26,7 @@
     "react-simple-code-editor": "^0.13.1",
     "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.69.5",
+    "serve": "^14.2.1",
     "styled-components": "^6.1.1",
     "web-vitals": "^2.1.4"
   },

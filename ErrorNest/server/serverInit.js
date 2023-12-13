@@ -7,12 +7,15 @@ const cors = require('cors');
 const logger = require("./log/logger");
 const morganMiddleware = require('./log/morganMiddleware');
 const connect = require('./db/connect');
+const {join} = require("path");
 
 //morgan 으로 http 요청 응답 log 출력
 app.use(morganMiddleware)
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/upload', express.static('uploads'))
+app.use(express.static(join(__dirname, '../client/build')));
+// app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.listen(port, () => {
     logger.info(`express is running on ${port}`);
