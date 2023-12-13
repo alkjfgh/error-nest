@@ -198,6 +198,7 @@ function SignUp(props) {
             <form onSubmit={handleSubmit}>
                 <li className="signUp-container__item">
                     <span className="welcome-message">Welcome to ErrorNest!</span>
+                    <span className="welcome-message">Let's catch bugs together!</span>
                     <div className="signUp-group">
                         <input type="test" name="name" onChange={handleChange} required placeholder=""/>
                         <span className="buttonClick">

@@ -14,13 +14,30 @@ $text-color: #999;
     clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%)
   }
 }
+
 .welcome-message{
+  //text-align: center;
   clip-path:polygon(0 0, 0 0, 0 100%, 0 100%);
   animation: text linear 1s forwards;
   animation-delay: 1s;
-  right: 7.7rem;
+  //right: 7.7rem;
   position: relative;
-  bottom: 15px;
+  bottom: 1rem;
+
+  //padding-left: 10%;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  font-family: "puffin-arcade-yoko", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  //line-height: 0.8;
+  //margin: 6rem 0 3rem;
+  //position: relative;
+  z-index: 1;
+  color: #ffd169;
+  text-shadow: 0 0.25rem 0 #ffab40;
+
 }
 
 
@@ -300,6 +317,8 @@ $borderWidth: 3px;
     box-shadow: 0px 3px 3px;
     border-radius: 5px;
     top: 7%;
+
+    .welcome-message
 
     &:hover {
       background-position: 0% 100%;
