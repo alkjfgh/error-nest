@@ -27,7 +27,7 @@ const ReportHistory = (props) => {
         setReportList(response.data.result);
     }
 
-    /** 로그인 했을 시 id, 안했을 시 ip로 writer 설정 */s
+    /** 로그인 했을 시 id, 안했을 시 ip로 writer 설정 */
     const getUserInfo = async () => {
         if(cookies.userid !== undefined) {
             return {userid: cookies.userid, username: cookies.username, userkey: cookies.userkey, isLogin: true}; // 로그인 id
