@@ -115,8 +115,8 @@ const Profile = (props) => {
                 {banInfo &&
                     <div className="ban-div">
                         <form onSubmit={handleSubmit}>
-                            <input type="text" className="comment-input" name="comment" value={banInfo.comment || undefined} disabled={user.level !== "admin"} onChange={handleChange}/>
-                            <select onChange={handleChange} value={banInfo.remainDate} disabled={user.level !== "admin"} name="remainDate" className="select-css">
+                            <input type="text" className="comment-input" name="comment" value={inputs.comment || ''} disabled={user.level !== "admin"} onChange={handleChange}/>
+                            <select onChange={handleChange} value={inputs.remainDate} disabled={user.level !== "admin"} name="remainDate" className="select-css">
                                 <option value="0">정상</option>
                                 <option value="1">1일</option>
                                 <option value="3">3일</option>
@@ -129,7 +129,6 @@ const Profile = (props) => {
                         </form>
                     </div>
                 }
-
             </div>
             {writtenList.length > 0 &&
                 <div>
