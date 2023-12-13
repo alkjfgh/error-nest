@@ -145,7 +145,11 @@ const Header = (props) => {
             setInputText("")
             // Enter 키를 누르면 선택된 검색 결과로 이동
             if(selectedIndex === -1 || selectedIndex === hits.length) navigate(`/search?q=${encodedInputText}`)
-            else navigate(`/document/${hits[selectedIndex].title}`)
+            else {
+                const inputValue = hits[selectedIndex].title;
+                setHits([]);
+                navigate(`/document/${inputValue}`)
+            }
         }
     };
 
