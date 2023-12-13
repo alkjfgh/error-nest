@@ -94,6 +94,7 @@ const Header = (props) => {
 
     useEffect(() => {
         setHits([]);
+        setView(false);
     }, [location.pathname]);
 
     const handleIconClick = () => {
