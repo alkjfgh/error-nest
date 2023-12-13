@@ -29,14 +29,19 @@ const ReportBoard = (props) => {
         console.log(`writer >> ${writer}`);
         console.log(`reportNo >> ${reportNo}`);
 
-        const result = await axios.post('/report/select', data);
+        // const result = await axios.post('/report/select', data);
+        axios.post('/report/select', data).then(result=> {
+            console.log(result.data.reportInfo);
+            setReportInfo(result.data.reportInfo);
 
-        console.log(result.data);
+            if (result.data.userLevel === 'admin')
+                setIsAdmin(true);
 
-        await setReportInfo(result.data.reportInfo);
+            console.log(reportInfo);
+        });
 
-        if (result.data.userLevel === 'admin')
-            setIsAdmin(true);
+        // console.log(result.data);
+        // await setReportInfo(result.data.reportInfo);
     };
 
     const getUserInfo = async () => {
@@ -97,11 +102,13 @@ const ReportBoard = (props) => {
     useEffect(() => {
         axiosLoading(getData);
         console.log(isAdmin);
+        console.log("--------------------");
+        console.log(reportInfo);
     }, []);
 
     return (
         <>
-            {reportInfo ? (
+            {reportInfo === undefined ? (
                 <h3>신고한 내용이 없습니다.</h3>
             ) : (
                 <div>
