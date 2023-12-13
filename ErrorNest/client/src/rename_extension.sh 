@@ -1,0 +1,11 @@
+#!/bin/bash
+
+DIRECTORY_PATH="../src" # 변경하려는 파일들이 포함된 디렉토리 경로
+
+for FILE_PATH in "$DIRECTORY_PATH"/*.js; do
+  if [ -e "$FILE_PATH" ]; then
+    NEW_FILE_PATH="${FILE_PATH%.js}.jsx"
+    mv "$FILE_PATH" "$NEW_FILE_PATH"
+    echo "$FILE_PATH 파일의 확장자가 변경되었습니다."
+  fi
+done
