@@ -55,6 +55,36 @@ function BanListView(props) {
         <>
             <div className="banListView-container">
                 {banUpdateMessage}
+                <div className="pagination-con">
+                    <div className="pagination">
+                        <button className="prevPage" onClick={() => setPage(page - 1)}
+                                disabled={page === 1}>Prev
+                        </button>
+                        {isEditing ? (
+                            <input
+                                className={'pageId'}
+                                type="number"
+                                value={page}
+                                min={1}
+                                max={maxPage}
+                                onChange={(e) => {
+                                    if (+e.target.value <= maxPage && +e.target.value >= 1) setPage(+e.target.value)
+                                }}
+                                onBlur={() => {
+                                    setIsEditing(false)
+                                }}
+                                autoFocus
+                            />
+                        ) : (
+                            <div className="pageId" onClick={() => setIsEditing(true)}>
+                                {page}
+                            </div>
+                        )}
+                        <button className="nextPage" onClick={(() => setPage(page + 1))}
+                                disabled={page === maxPage}>Next
+                        </button>
+                    </div>
+                </div>
                 <table className="adminListView-table">
                     <thead>
                     <tr>
@@ -109,42 +139,14 @@ function BanListView(props) {
                                 <td className="tdStyle">{banInfo.createdAt}</td>
                                 <td className="tdStyle">{banInfo.expireAt}</td>
                                 <td>
-                                    <button className="member-delete-btn" onClick={() => updateBanInfo(index)}>update</button>
+                                    <button className="member-delete-btn" onClick={() => updateBanInfo(index)}>update
+                                    </button>
                                 </td>
                             </tr>
                         );
                     })}
                     </tbody>
                 </table>
-
-                <div className="pagination">
-                    <button className="prevPage" onClick={() => setPage(page - 1)}
-                            disabled={page === 1}>Prev
-                    </button>
-                    {isEditing ? (
-                        <input
-                            className={'pageId'}
-                            type="number"
-                            value={page}
-                            min={1}
-                            max={maxPage}
-                            onChange={(e) => {
-                                if (+e.target.value <= maxPage && +e.target.value >= 1) setPage(+e.target.value)
-                            }}
-                            onBlur={() => {
-                                setIsEditing(false)
-                            }}
-                            autoFocus
-                        />
-                    ) : (
-                        <div className="pageId" onClick={() => setIsEditing(true)}>
-                            {page}
-                        </div>
-                    )}
-                    <button className="nextPage" onClick={(() => setPage(page + 1))}
-                            disabled={page === maxPage}>Next
-                    </button>
-                </div>
             </div>
         </>
     );
