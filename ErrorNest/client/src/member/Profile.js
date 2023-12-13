@@ -57,6 +57,7 @@ const Profile = (props) => {
         return false
     }
 
+
     const getProfile = async () => {
         const target = await getTarget()
         const isEqual = getUser(target)
