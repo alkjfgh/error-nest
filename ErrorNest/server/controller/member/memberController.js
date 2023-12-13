@@ -11,7 +11,7 @@ const memberAdmin = async (req, res, next) => {
         const skip = (page - 1) * limit; // 건너뛸 결과 개수
 
         const members = await Member.find({}).limit(limit).skip(skip).sort('-createdAt');; // 몽고디비의 db.users.find({}) 쿼리와 같음
-        res.json({members});
+        res.json({members, maxPage: count/limit+1});
     } catch (err) {
         logger.error(err);
         next(err);

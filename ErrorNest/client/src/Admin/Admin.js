@@ -12,24 +12,17 @@ import ReportHistory from "../report/ReportHistory";
 
 // css 관련 import
 import '../css/admin.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faAtom,
-    faBan,
-    faDisease,
-    faDna, faHand,
-    faPenToSquare,
-    faScroll,
-    faSeedling,
-    faUser
-} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faBan, faHand, faPenToSquare, faScroll, faUser} from "@fortawesome/free-solid-svg-icons";
+
 // import { faDna, faChartMixed, faAtom, faSeedling, faDisease };
 
 function Admin(props) {
     const [cookies] = useCookies();
     const navigate = useNavigate();
-    const [currentView, setCurrentView] = useState("main");
 
+    const [currentView, setCurrentView] = useState("main");
+    const [title, setTitle] = useState('Admin Page')
 
     const axiosLoading = props.axiosLoading
 
@@ -51,21 +44,20 @@ function Admin(props) {
 
     const viewHandler = (e) => {
         // const currentView = e.target.innerHTML
-        const currentView = e
         // console.log(e)
-        // alert(e)
-        setCurrentView(currentView);
+        setCurrentView(e);
+        setTitle(e)
     }
 
     const mainView = () => {
         setCurrentView('main')
+        setTitle('Admin Page')
     }
 
     return (
         <>
-
             <div className="admin-container">
-            <h1 className="admin-h1">Admin Page</h1>
+            <h1 className="admin-h1">{title}</h1>
                 {currentView === 'main' &&
             <div className="admin-buttons" >
                 <button className="neumorphic" onClick={()=>viewHandler("유저 목록")}>

@@ -9,6 +9,7 @@ function BanHistoryView(props) {
     const [banHistories, setBanHistories] = useState([{}])
     const [page, setPage] = useState(1)
     const [maxPage, setMaxPage] = useState(1)
+    const [isEditing, setIsEditing] = useState(false);
 
     const axiosLoading = props.axiosLoading
 
@@ -62,22 +63,33 @@ function BanHistoryView(props) {
                     </tbody>
                 </table>
 
-                <div>
-                    {/* TODO BanHistory 여러개 넣어서 테스트 해봐야 함*/}
-                    <span>
-                        {page - 1 > 0 ? (
-                            <span onClick={() => setPage(page - 1)}>{"<"}Prev</span>
-                        ) : (
-                            "<Prev"
-                        )}
-                    </span>
-                    <span>
-                        {page + 1 <= maxPage ? (
-                            <span onClick={() => setPage(page + 1)}>Next{">"}</span>
-                        ) : (
-                            "Next>"
-                        )}
-                    </span>
+                <div className="pagination">
+                    <button className="prevPage" onClick={() => setPage(page - 1)}
+                            disabled={page === 1}>Prev
+                    </button>
+                    {isEditing ? (
+                        <input
+                            className={'pageId'}
+                            type="number"
+                            value={page}
+                            min={1}
+                            max={maxPage}
+                            onChange={(e) => {
+                                if(+e.target.value <= maxPage && +e.target.value >= 1) setPage(+e.target.value)
+                            }}
+                            onBlur={() => {
+                                setIsEditing(false)
+                            }}
+                            autoFocus
+                        />
+                    ) : (
+                        <div className="pageId" onClick={() => setIsEditing(true)}>
+                            {page}
+                        </div>
+                    )}
+                    <button className="nextPage" onClick={(() => setPage(page + 1))}
+                            disabled={page === maxPage}>Next
+                    </button>
                 </div>
             </div>
         </>

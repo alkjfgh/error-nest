@@ -5,8 +5,9 @@
     //background-color: #9A6D4A;
     h1 {
       font-weight: bold;
-      font-size: 1.9rem;
-      text-align: left;
+      font-size: 1.6rem;
+      padding: 0 1rem;
+      text-align: center;
       color: #185875;
     }
     .tabelTitle-delete{
@@ -48,6 +49,7 @@
 
     .member-delete-btn:hover{
       //background-color: #93b0ea;
+      cursor: pointer;
       border: none;
       color: #9A6D4A;
     }
@@ -95,6 +97,10 @@
       font-weight: bold;
     }
 
+  }
+
+  .tdStyle:first-of-type:hover{
+    cursor: pointer;
   }
 
   .tdStyle:hover {

@@ -37,23 +37,30 @@ const isBan = async (req, res, next) => {
 
 const banUpdate = async (req, res, next) => {
     const { username, hashtag } = req.params
-    const hashtagNumber = +hashtag
+    const hashtagNumber = +hashtag || undefined
 
     const { comment, remainDate } = req.body
     const remainDateNum = +remainDate
+
+    const {targetId} = req.body
 
     let success = false
     try {
         let target = ''
         let type = ''
 
-        if(hashtagNumber){ // 유저
-            const member = await Member.findOne({name: username, hashtag: hashtagNumber})
-            target = member.id
+        if(!targetId){
+            if(hashtagNumber){ // 유저
+                const member = await Member.findOne({name: username, hashtag: hashtagNumber})
+                target = member.id
+                type = 'user'
+            }else{ // IP
+                target = username
+                type = 'ip'
+            }
+        }else{
+            target = targetId
             type = 'user'
-        }else{ // IP
-            target = username
-            type = 'ip'
         }
 
         // Ban 스키마에서 target을 찾아서 삭제
@@ -88,7 +95,7 @@ const banList = async (req, res, next) => {
         const skip = (page - 1) * limit; // 건너뛸 결과 개수
 
         const banList = await Ban.find({}).limit(limit).skip(skip).sort('-createdAt') // 몽고디비의 db.users.find({}) 쿼리와 같음
-        res.json({banList});
+        res.json({banList, maxPage: count/limit+1});
     } catch (err) {
         logger.error(err);
         next(err);
@@ -104,7 +111,7 @@ const banHistory = async (req, res, next) => {
         const skip = (page - 1) * limit; // 건너뛸 결과 개수
 
         const banHistories = await BanHistory.find({}).limit(limit).skip(skip).sort('-createdAt') // 몽고디비의 db.users.find({}) 쿼리와 같음
-        res.json({banHistories});
+        res.json({banHistories, maxPage: count/limit+1});
     } catch (err) {
         logger.error(err);
         next(err);
