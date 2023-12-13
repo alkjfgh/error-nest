@@ -14,6 +14,11 @@ const Profile = (props) => {
         comment: '',
         remainDate: 1,
     });
+
+    const [getInputs, setGetInputs] = useState({
+        comment: '',
+        remainDate: 1,
+    });
     const [banUpdateMessage, setBanUpdateMessage] = useState('')
     const [writtenList, setWrittenList] = useState([]);
     const [page, setPage] = useState(1)
@@ -71,21 +76,28 @@ const Profile = (props) => {
         if(isEqual){
             const banInfoRes = await axios.get(`/ban/${url}`);
             setBanInfo(banInfoRes.data)
+            console.log(banInfoRes.data);
+            // comment: '신고', remainDate: 7
+            setGetInputs({
+                comment: banInfo.comment,
+                remainDate: banInfo.remainDate
+            })
         }
-
         setUrl(url)
         setPage(page)
         setWrittenList(writtenList);
         setMaxPage(maxPage);
+
+
     }
 
     useEffect(() => {
         axiosLoading(getProfile)
-    }, [location.pathname,location.search])
+    }, [location.pathname,location.search,getInputs.comment,getInputs.remainDate])
 
-    // useEffect(() =>{
-    //
-    // },[inputs.comment])
+    useEffect(() =>{
+        // getProfile()
+    },[inputs.comment,inputs.remainDate])
 
 
     const handleChange = (e) => {
@@ -121,8 +133,9 @@ const Profile = (props) => {
                 {banInfo &&
                     <div className="ban-div">
                         <form onSubmit={handleSubmit}>
-                            <input type="text" className="comment-input" name="comment" value={inputs.comment || undefined} disabled={user.level !== "admin"} onChange={handleChange}/>
+                            <input type="text" className="comment-input" name="comment" value={inputs.comment || undefined} placeholder={getInputs.comment || undefined} disabled={user.level !== "admin"} onChange={handleChange}/>
                             <select onChange={handleChange} value={inputs.remainDate} disabled={user.level !== "admin"} name="remainDate" className="select-css">
+                                <option value="0">정상</option>
                                 <option value="0">정상</option>
                                 <option value="1">1일</option>
                                 <option value="3">3일</option>
