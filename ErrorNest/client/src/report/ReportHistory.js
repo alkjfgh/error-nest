@@ -91,7 +91,7 @@ const ReportHistory = (props) => {
                     </button>
                 </div>
             </div>
-            {reportList.length === 0 ? (
+            {!(reportList.length > 0) ? (
                 <p>신고한 목록이 없습니다</p>
             ) : (
                 <table className="adminListView-table">

@@ -42,8 +42,8 @@ function MemberListView(props) {
 
 
 
-    const handleDelete = async (e) => {
-        const data = await axios.delete('/member/delete', {data:{ id: e.target.name}})
+    const handleDelete = async (id) => {
+        const data = await axios.delete('/member/delete', {data:{ id: id}})
             .then(()=>getMembers());
     }
 
@@ -110,7 +110,7 @@ function MemberListView(props) {
                                     <td className="tdStyle">{member.level}</td>
 
                                     <button type="button" className="member-delete-btn" name={member.id}
-                                            onClick={handleDelete}>
+                                            onClick={() => handleDelete(member.id)}>
                                         <FontAwesomeIcon icon={faBan} className="fa-light"/>
                                     </button>
                                     {/*<span name={member.id} onClick={handleDelete}>삭제</span>*/}

@@ -61,7 +61,7 @@ const memberInsert = async (req, res, next) => {
 
 const memberDelete = async (req, res, next) => {
     try{
-        const result = await Member.deleteOne(req.body);
+        const result = await Member.deleteOne({id:req.body.id});
         res.json({success: true});
     } catch (err) {
         logger.error(err);
