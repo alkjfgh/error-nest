@@ -42,6 +42,7 @@ const Profile = (props) => {
     }
 
     const getUser = async (target) => {
+
         const ipReg = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/
         if(ipReg.test(target)) return true
 
@@ -82,6 +83,11 @@ const Profile = (props) => {
         axiosLoading(getProfile)
     }, [location.pathname,location.search])
 
+    // useEffect(() =>{
+    //
+    // },[inputs.comment])
+
+
     const handleChange = (e) => {
         const {name, value}  = e.target;
         setInputs({
@@ -91,6 +97,7 @@ const Profile = (props) => {
     }
 
     const handleSubmit = async (e) => {
+        console.log(user.level)
         if(user.level !== "admin") return
         if(banUpdateMessage === '밴 처리중') return
         setBanUpdateMessage('밴 처리중')
@@ -114,8 +121,8 @@ const Profile = (props) => {
                 {banInfo &&
                     <div className="ban-div">
                         <form onSubmit={handleSubmit}>
-                            <input type="text" className="comment-input" name="comment" value={banInfo.comment || undefined} disabled={user.level !== "admin"} onChange={handleChange}/>
-                            <select onChange={handleChange} value={banInfo.remainDate} disabled={user.level !== "admin"} name="remainDate" className="select-css">
+                            <input type="text" className="comment-input" name="comment" value={inputs.comment || undefined} disabled={user.level !== "admin"} onChange={handleChange}/>
+                            <select onChange={handleChange} value={inputs.remainDate} disabled={user.level !== "admin"} name="remainDate" className="select-css">
                                 <option value="0">정상</option>
                                 <option value="1">1일</option>
                                 <option value="3">3일</option>
