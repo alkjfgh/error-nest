@@ -1,0 +1,94 @@
+* {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1330px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.container * {
+  text-align: left;
+}
+.container a {
+  cursor: pointer;
+}
+.container article {
+  flex: 1;
+  position: relative;
+  background-color: #61dafb;
+  margin-right: 1rem;
+  min-height: 35rem;
+  min-width: 0;
+  overflow: visible;
+  padding: 1.5rem;
+  word-break: break-all;
+}
+.container article h1 {
+  font-size: 2.2rem;
+  margin-top: 0;
+}
+.container article img {
+  width: 100%;
+}
+.container article .document-navi {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  text-align: right;
+}
+.container article .document-navi a {
+  border: 0.0625rem solid #ccc;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.3rem 0.8rem;
+  text-align: center;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.container article .index-list span {
+  width: 100%;
+  display: block;
+}
+.container article .index-list .index-space {
+  margin-left: 16px;
+}
+.container article h2 {
+  border-bottom: 1px solid #ccc;
+}
+.container article div {
+  width: 100%;
+}
+.container aside {
+  width: 300px;
+  height: 600px;
+  background-color: red;
+}
+@media screen and (max-width: 1000px) {
+  .container aside {
+    display: none;
+  }
+  .container article {
+    margin-right: 0;
+  }
+}
+
+/*# sourceMappingURL=document.css.map */

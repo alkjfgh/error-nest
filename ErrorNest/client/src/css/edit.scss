@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap");
+
+.container{
+
+  .edit-con{
+    h1{
+      width: 70%;
+    }
+  }
+
+  .editor {
+    counter-reset: line;
+    border: 1px solid #ced4da;
+  }
+
+  .editor #codeArea {
+    outline: none;
+    padding-left: 60px !important;
+  }
+
+  .editor pre {
+    padding-left: 60px !important;
+    background-color: #f3a263 !important;
+  }
+
+  .editor .editorLineNumber {
+    position: absolute;
+    left: 0;
+    color: #f31111;
+    text-align: right;
+    width: 40px;
+    font-weight: 100;
+  }
+
+  .editBtns-con{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* 원하시는 간격에 따라 변경 가능합니다 */
+    margin-bottom: 5px;
+
+    div{
+      width: auto;
+    }
+
+    .edit-btn {
+      display: inline-block;
+      width: 8rem;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      background-color: #ea9096;
+      border-radius: 10px;
+      color: white;
+    }
+
+    .edit-btn:hover{
+      background-color: #b63c46;
+      cursor: pointer;
+      transition-duration: 500ms;
+    }
+
+  }
+
+  .edit-input-con{
+    //margin-top: 20px;
+    padding-top: 20px;
+    height: 3rem;
+
+    .text-input{
+      position: absolute;
+      width: 40%;
+
+      input[type="text"]{
+        display: inline-block;
+        width: 15rem;
+        //width: 500px;
+        height: 40px;
+        box-sizing: border-box;
+        outline: none;
+        border: 1px solid lightgray;
+        border-radius: 3px;
+        padding: 10px 10px 10px 100px;
+        transition: all 0.1s ease-out;
+      }
+
+      input[type="text"] + label{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: 40px;
+        line-height: 40px;
+        color: white;
+        border-radius: 3px 0 0 3px;
+        padding: 0 20px;
+        background: #E03616;
+        transform: translateZ(0) translateX(0);
+        transition: all 0.3s ease-in;
+        transition-delay: 0.2s;
+      }
+
+      input[type="text"]:focus + label{
+        transform: translateY(-120%) translateX(0%);
+        border-radius: 3px;
+        transition: all 0.1s ease-out;
+      }
+
+      input[type="text"]:focus{
+        padding: 10px;
+        transition: all 0.3s ease-out;
+        transition-delay: 0.2s;
+      }
+    }
+
+    .text-input:nth-of-type(2){
+      right: 0;
+    }
+  }
+
+  .submit-btn-con{
+    text-align: center;
+    margin-top: 10px;
+
+    .submit-btn{
+      --button-height: 48px;
+      overflow: hidden;
+      outline: none;
+      background-color: #b05066;
+      border-radius: 10px;
+      padding: 12px 25px;
+      font-size: 1.1em;
+      border: none;
+      color: white;
+      font-family: "Nunito", sans-serif;
+      cursor: pointer;
+      position: relative;
+      transition: padding 0.3s;
+
+      .expand-icon {
+        --icon-size: 10px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: var(--button-height);
+        width: var(--button-height);
+        border-left: 1px solid #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(calc(var(--button-height) + 1px));
+        transition: transform 0.3s;
+
+        & > svg{
+          height: var(--icon-size);
+          width: var(--icon-size);
+          transform: scale(1.5);
+          transition: transform 0.3s;
+        }
+
+        & > svg.second {
+          display: none;
+          transform: scale(0) translateY(50px);
+          transition: transform 0.3s;
+        }
+      }
+    }
+
+    .submit-btn:hover,
+    .submit-btn.loading{
+      padding-right: calc(25px + var(--button-height));
+    }
+
+    .submit-btn:hover > .expand-icon,
+    .submit-btn.loading > .expand-icon {
+      transform: translateX(0);
+      transition: transform 0.3s 0.05s;
+    }
+
+    .submit-btn.expand.loading > .expand-icon > svg {
+      transform: scale(0);
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: scale(0.3) rotateZ(0deg);
+      }
+      100% {
+        transform: scale(0.3) rotateZ(360deg);
+      }
+    }
+
+    .loader {
+      --loader-size: 52px;
+      height: var(--loader-size);
+      width: var(--loader-size);
+      border: 4px solid white;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      background-color: transparent;
+      border-radius: 50%;
+      animation: rotate 1.5s linear infinite;
+      position: absolute;
+      right: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s 0.3s;
+    }
+
+    button.expand.loading > span > span.loader {
+      opacity: 1;
+    }
+
+    button.expand.loaded > span > span.loader {
+      opacity: 0 !important;
+    }
+
+    button.expand.loaded > .expand-icon > svg.first {
+      display: none;
+    }
+
+    button.expand.loaded > .expand-icon > svg.second {
+      display: block;
+    }
+
+    button.expand.finished > .expand-icon > svg.second {
+      transform: scale(1.5) translateY(0px);
+    }
+  }
+}

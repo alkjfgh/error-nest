@@ -1,0 +1,45 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\.e969de1835550b3dc1a8b7e4a433b99614f879ff-audit.json",
+    "files": [
+        {
+            "date": 1700527877713,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\2023-11-21.exception.log",
+            "hash": "eb6c35e1c1b1c4dd58e00fe7808bef3ddd40881f8f4308f21fe1cdc755e3dd28"
+        },
+        {
+            "date": 1700625658302,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\2023-11-22.exception.log",
+            "hash": "6b7eb2e6fbec38d93a7ca95404191152ac708fb2adad4471997d3ec1725cc6af"
+        },
+        {
+            "date": 1701156717731,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\2023-11-28.exception.log",
+            "hash": "a915f7d58092183b6ab5d37d4e732af5ee8729459f28542b5afada1438053d7c"
+        },
+        {
+            "date": 1701229774700,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\2023-11-29.exception.log",
+            "hash": "19df64d8e516d1d0d09c5ae671ae8f06e48247a932ef11f75ef611d359fd8c55"
+        },
+        {
+            "date": 1701302931421,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\2023-11-30.exception.log",
+            "hash": "86bdaada6c3a257f00441de89d26b4ad5483f7477ba0e0f71cf2c9e1bb48dc47"
+        },
+        {
+            "date": 1701356404106,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\2023-12-01.exception.log",
+            "hash": "001750d8d1ecf05794fdaeaadd78692dabe883dc4db4093a10e0bdcd0b0cf111"
+        },
+        {
+            "date": 1701666585040,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\2023-12-04.exception.log",
+            "hash": "750e20b87865d7874d0340bd6152f43b551a0c9d12f5a972d21e9dc993be1d07"
+        }
+    ],
+    "hashType": "sha256"
+}

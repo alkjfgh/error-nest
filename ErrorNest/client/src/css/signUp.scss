@@ -1,0 +1,390 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+$primary-color: #ae5275;
+$secondary-color: #757575;
+$highlight-color: #5264AE;
+$text-color: #999;
+
+
+@keyframes text {
+  0% {
+    clip-path:polygon(0 0, 0 0, 0 100%, 0 100%)
+  }
+  100% {
+    clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%)
+  }
+}
+
+.welcome-message{
+  //text-align: center;
+  clip-path:polygon(0 0, 0 0, 0 100%, 0 100%);
+  animation: text linear 1s forwards;
+  animation-delay: 1s;
+  //right: 7.7rem;
+  position: relative;
+  bottom: 1rem;
+
+
+  //padding-left: 10%;
+  height: 3rem;
+  line-height: 2.5rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  font-family: "puffin-arcade-yoko", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  //line-height: 0.8;
+  //margin: 6rem 0 3rem;
+  //position: relative;
+  z-index: 1;
+  color: #ffd169;
+  text-shadow: 0 0.25rem 0 #ffab40;
+
+}
+
+
+// 버튼에 사용됨
+
+
+$LoginPrimary: rgba(243, 237, 237, 0.71);
+
+
+.signUpBox {
+  font-family: 'Roboto', sans-serif;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  height: 100%;
+  //width: 600px;
+  //margin: 30px auto 0;
+  //display: block;
+  background: #FFF;
+  //padding: 10px 50px 50px;
+
+  .flying-squares {
+    position: absolute;
+    z-index: 1;
+
+    @media (min-width: 1400px) {
+      .square {
+        position: inherit;
+        width: 15vw;
+        height: 15vw;
+        rotate: 0.4turn;
+        background-color: var(--square-color);
+        top: var(--y);
+        left: var(--x);
+        opacity: 0.3;
+        rotate:  var(--rx) var(--ry) var(--rz) 0.55turn;
+        animation: flying 2s infinite alternate both;
+
+        &:nth-of-type(1) {
+          --y: -3vh;
+          --x: -46vw;
+          --rx: 0.5;
+          --ry: 2.1;
+          --rz: 1.6;
+          //--square-color: var(--red);
+          background-color: red;
+          animation-delay: 1s;
+        }
+
+        &:nth-of-type(2) {
+          --y: 25vh;
+          --x: -40vw;
+          --rx: 1.7;
+          --ry: 2.3;
+          --rz: 2.1;
+          //--square-color: var(--purple);
+          background-color: purple;
+        }
+
+        &:nth-of-type(3) {
+          --y: 7vh;
+          --x: 25vw;
+          --rx: 0.5;
+          --ry: 2.1;
+          --rz: 1.6;
+          //--square-color: var(--red);
+          background-color: green;
+          animation-delay: 1s;
+        }
+      }
+    }
+  }
+
+  @keyframes flying {
+    to {
+      translate: 0 -5vh;
+    }
+  }
+
+
+  .signUp-group {
+    position: relative;
+    margin-bottom: 2rem;
+    right: 0.7rem;
+
+    #idCheck{
+      padding: 5px 11px;
+    }
+
+    .hidden {
+      display: block;
+      text-align: left;
+      color: red;
+      font-size: 12px;
+
+      #time{
+        font-size: 14px;
+      }
+
+      &.valid {
+        color: green;
+      }
+
+      &.invalid {
+        color: red;
+      }
+    }
+
+
+    .buttonClick{
+      position: relative;
+      left: 2rem;
+    }
+
+    .continue
+    {
+      background-color: #f1c40f;
+      border-bottom: 5px solid #f39c12;
+      text-shadow: 0px -2px #f39c12;
+    }
+
+    .action-button
+    {
+      position: relative;
+      padding: 5px 30px;
+      border-radius: 3px;
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+      color: #FFF;
+      text-decoration: none;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+    }
+
+    .action-button:hover
+    {
+      transform: translate(0px,5px);
+      -webkit-transform: translate(0px,5px);
+      border-bottom: 1px solid;
+    }
+
+    .animate
+    {
+      transition: all 0.1s;
+      -webkit-transition: all 0.1s;
+    }
+
+    input {
+      text-align: start;
+      //font-size: 18px;
+      font-size: 1rem;
+      //padding: 10px 10px 10px 5px;
+      padding: 1rem 1rem 1rem 1rem;
+      //display: block;
+      //width: 300px;
+      width: 16.75rem;
+      border: none;
+      border-bottom: 0.1rem solid $secondary-color;
+      outline: none;
+      //position: relative;
+      //right: 3.5rem;
+    }
+
+    label {
+      color: $text-color;
+      //font-size: 18px;
+      font-size: 1rem;
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      //left: 5px;
+      left: 0.3rem;
+      top: 15px;
+      //top: 0.05vh;
+      transition: 0.2s ease all;
+    }
+
+    input:focus ~ label,
+    input:not(:placeholder-shown) ~ label,
+    input:valid ~ label {
+      top: -20px;
+      font-size: 14px;
+      //font-size: 1rem;
+      color: $highlight-color;
+    }
+
+    .signUp-bar {
+      position: relative;
+      display: block;
+      //width: 300px;
+      width: 18.75rem;
+
+      &:before,
+      &:after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 1px;
+        position: absolute;
+        background: $highlight-color;
+        transition: 0.2s ease all;
+      }
+
+      &:before {
+        left: 50%;
+      }
+
+      &:after {
+        right: 50%;
+      }
+    }
+
+    input:focus ~ .bar:before,
+    input:focus ~ .bar:after {
+      width: 50%;
+    }
+
+    .signUp-highlight {
+      position: absolute;
+      height: 60%;
+      //width: 100px;
+      width: 10rem;
+      top: 25%;
+      left: 0;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    input:focus ~ .signUp-highlight {
+      animation: inputHighlighter 0.3s ease;
+    }
+  }
+
+  .pw-group{
+    margin-bottom: 1rem;
+    right: 3.7rem;
+
+    div{
+      width: 100%;
+      height: 1.7rem;
+    }
+  }
+}
+
+@keyframes inputHighlighter {
+  from {
+    background: $highlight-color;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+
+// 버튼 꾸미기
+
+
+$btn-text-color: #272420;
+$accent: #97BEE6;
+$borderWidth: 3px;
+
+.signUp-container {
+  &__item {
+    color: $btn-text-color;
+    height: auto;
+    min-height: 33vh;
+    padding: 40px 110px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    background-color: $LoginPrimary;
+    box-shadow: 0px 3px 3px;
+    border-radius: 5px;
+    top: 7%;
+
+    .welcome-message
+
+    &:hover {
+      background-position: 0% 100%;
+    }
+
+  }
+  
+  @media (min-width: 500px) and (max-width: 632px){
+    &__item {
+      padding: 40px 2.5rem;
+    }
+  }
+}
+
+.signUp-button, .signUp-button:link, .signUp-button:visited {
+  //pointer-events: all;
+  background-color: inherit;
+  //cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: cornflowerblue; // 수정된 부분
+  text-decoration: none;
+  display: block;
+  position: relative;
+  text-align: center;
+  border: none;
+
+  span {
+    background-color: $accent;
+    display: inherit;
+    padding: 1em 3em;
+    border: 2px solid currentColor;
+    border-radius: 2em;
+    position: relative;
+    z-index: 1;
+    transform: translate(-.4rem, -.4rem);
+    transition: .2s ease-in-out;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 94%;
+    height: 100%;
+    border-radius: 2em;
+    position: absolute;
+    top: 0;
+    border: 2px solid currentColor;
+    background-color: inherit;
+    pointer-events: none;
+    mix-blend-mode: darken;
+    filter: contrast(1200%) brightness(100%) saturate(0.25);
+    overflow: hidden;
+    background:
+            linear-gradient(182deg, currentColor, currentColor 25%, rgba(0,0,0,0) 100%),
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 400 75' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  &:hover {
+    color: darkblue; // 수정된 부분
+    span {
+      transform: translate(0px, 0px);
+      transition: .2s ease-in-out;
+    }
+  }
+}

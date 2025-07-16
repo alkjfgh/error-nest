@@ -1,0 +1,5 @@
+2023-11-21 10:33:38 [Error-Nest] error: MongoDB connection error: logger.warning is not a function
+2023-11-21 19:30:59 [Error-Nest] error: Test validation failed: password: Path `password` is required., id: Path `id` is required.
+2023-11-21 19:32:34 [Error-Nest] error: Test validation failed: password: Path `password` is required., id: Path `id` is required.
+2023-11-21 19:37:17 [Error-Nest] error: Test validation failed: password: Path `password` is required.
+2023-11-21 19:49:25 [Error-Nest] error: Cannot read properties of undefined (reading 'toString')

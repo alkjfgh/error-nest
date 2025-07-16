@@ -1,0 +1,220 @@
+@import "nomalize.scss";
+@import  url(https://fonts.googleapis.com/css?family=Montserrat);
+@font-face {
+  font-family: 'Tenada';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+.container {
+  max-width: 1330px;
+  margin: 0 auto; // 화면 가운데 정렬
+
+  display: flex; // article과 aside를 가로로 배치
+  justify-content: space-between; // article과 aside 사이에 공간을 넣음
+
+  *{
+    text-align: left;
+  }
+
+  a{
+    cursor: pointer;
+  }
+
+  article {
+    flex: 1; // 남는 공간을 모두 사용하도록 설정
+    // 여기에 article 스타일을 추가하세요
+    //width: calc(100vw - 300px - 3rem);
+    //left: 0;
+    position: relative;
+    background-color: $document_background;
+    margin-right: 1rem;
+    min-height: 35rem;
+    min-width: 0;
+    overflow: visible;
+    padding: 1.5rem;
+    word-break: break-all;
+    border-radius: 15px;
+
+    h1{
+      font-size: 2.2rem;
+      margin-top: 2rem;
+      padding-bottom: 0.2rem;
+      border-bottom: 1px solid grey;
+      font-family: 'Tenada', serif;
+      overflow: hidden;
+    }
+
+    img{
+      width: 100%;
+    }
+
+    .scroll-link{
+      color:cornflowerblue;
+    }
+
+    .category-padding{
+      margin-left: 5px;
+    }
+
+    .document-navi {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: inline-block;
+      text-align: right;
+      width: auto;
+
+      .document-navi-btn{
+        //border: .0625rem solid #ccc;
+        //cursor: pointer;
+        //display: inline-block;
+        //font-size: .9rem;
+        //font-weight: 400;
+        //line-height: 1.5;
+        //padding: .3rem .8rem;
+        //text-align: center;
+        //width: 2rem;
+        //color: cornflowerblue;
+        //touch-action: manipulation;
+        //-webkit-user-select: none;
+        //-moz-user-select: none;
+        //-ms-user-select: none;
+        //user-select: none;
+        //vertical-align: middle;
+        //white-space: nowrap;
+      }
+      .document-navi-btn:hover {
+        //color:darkblue;
+        //background-color: rgba(243, 195, 93, 0.71);
+      }
+    }
+
+    .index-list{
+      width: fit-content;
+      border: 1px solid gray;
+      padding: 1rem;
+
+      .index-title{
+        text-align: center;
+      }
+
+      span{
+        width: 100%;
+        display: block;
+      }
+
+      .index-space{
+        margin-left: 16px;
+      }
+    }
+
+    .ano-con{
+      position: relative;
+      .hover-content {
+        display: none;
+        position: absolute;
+        background-color: #f69f43;
+        bottom: 80%;
+        min-width: 150px;
+        max-width: 300px;
+        padding: 12px 16px;
+        z-index: 1;
+        left: 0;
+        color: white;
+      }
+
+      .annotation-link:hover + .hover-content {
+        display: block;
+      }
+
+      .hover-content:hover{
+        display: block;
+      }
+    }
+
+    h2{
+      border-bottom: 1px solid #ccc;
+    }
+    div{
+      width: 100%;
+      position: relative;
+    }
+
+    .scroll-link{
+
+    }
+  }
+
+  .file-des{
+  }
+
+  .document-list{
+    width: calc(100% - 0.2rem);
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0.2rem 0 0.2rem 1rem;
+    font-weight: 700;
+    border: 1px solid white;
+    margin-bottom: 0.5rem;
+    border-radius: 30px;
+  }
+
+  .document-list:hover{
+    cursor: pointer;
+    background-color: #fab360;
+    transition-duration: 200ms;
+  }
+
+  .new-document{
+    margin-left: 1rem;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 0.5rem;
+
+    span{
+      color: cornflowerblue;
+    }
+  }
+
+  .new-document:hover {
+    cursor: pointer;
+    background-color: #fab360;
+    transition-duration: 200ms;
+  }
+
+  .search-document-con{
+    padding-top: 1rem;
+  }
+
+  .document-info{
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .annotation-list{
+    margin-top: 2rem;
+    border-top: 1px solid grey;
+    padding-top: 0.4rem;
+
+    h3{
+      margin: 0;
+      margin-bottom: 0.4rem;
+    }
+  }
+
+  @media screen and (max-width: 1000px) { // 브라우저 너비가 1000px 이하일 때
+
+    article{
+      margin-right: 0;
+
+      .document-navi{
+        width: 2rem;
+        right: 4rem;
+      }
+    }
+  }
+}

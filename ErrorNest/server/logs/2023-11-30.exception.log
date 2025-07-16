@@ -1,0 +1,104 @@
+2023-11-30 21:46:26 [Error-Nest] error: uncaughtException: Unexpected token ')'
+C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\edit.js:6
+router.get('/:title', editController.);
+                                     ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1178:20)
+    at Module._compile (node:internal/modules/cjs/loader:1220:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:5:14)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+2023-11-30 21:46:33 [Error-Nest] error: uncaughtException: Unexpected token ')'
+C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\edit.js:6
+router.get('/:title', editController.);
+                                     ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1178:20)
+    at Module._compile (node:internal/modules/cjs/loader:1220:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:5:14)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+2023-11-30 22:12:29 [Error-Nest] error: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\route.js:211:15)
+    at proto.<computed> [as post] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\index.js:521:19)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\edit.js:7:8)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:5:14)
+2023-11-30 22:12:33 [Error-Nest] error: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\route.js:211:15)
+    at proto.<computed> [as post] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\index.js:521:19)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\edit.js:8:8)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:5:14)
+2023-11-30 23:37:05 [Error-Nest] error: uncaughtException: Route.get() requires a callback function but got a [object Undefined]
+Error: Route.get() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as get] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\route.js:211:15)
+    at proto.<computed> [as get] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\index.js:521:19)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\history.js:6:8)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:6:17)
+2023-11-30 23:37:07 [Error-Nest] error: uncaughtException: Route.get() requires a callback function but got a [object Undefined]
+Error: Route.get() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as get] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\route.js:211:15)
+    at proto.<computed> [as get] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\index.js:521:19)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\history.js:6:8)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:6:17)
+2023-11-30 23:37:09 [Error-Nest] error: uncaughtException: Route.get() requires a callback function but got a [object Undefined]
+Error: Route.get() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as get] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\route.js:211:15)
+    at proto.<computed> [as get] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\index.js:521:19)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\history.js:6:8)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:6:17)
+2023-11-30 23:37:32 [Error-Nest] error: uncaughtException: Route.get() requires a callback function but got a [object Undefined]
+Error: Route.get() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as get] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\route.js:211:15)
+    at proto.<computed> [as get] (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\node_modules\express\lib\router\index.js:521:19)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\routes\history.js:6:8)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:121:18)
+    at Object.<anonymous> (C:\Users\alkjf\WebstormProjects\error-nest-v1\ErrorNest\server\server.js:6:17)

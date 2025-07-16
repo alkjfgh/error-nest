@@ -1,0 +1,60 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\.2c1dd5aa177a1ccd3390a2eb65d01ccf2b35b87f-audit.json",
+    "files": [
+        {
+            "date": 1700527877711,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\2023-11-21.error.log",
+            "hash": "48b9fb1d4307ac6e8d7f2d7817215ff813a1e79138c87bee2ef330eb0c1b9845"
+        },
+        {
+            "date": 1700625658300,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\2023-11-22.error.log",
+            "hash": "d6b0f8c2059b35d7f7a7a0af714e6578b9a06f11fe3c44c7fc56d589eddc174d"
+        },
+        {
+            "date": 1701156717726,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\2023-11-28.error.log",
+            "hash": "8b5f66e5bfdb7d04eb355f3d9702d48e701651a33cd4aa0728a6dfb36960e1d6"
+        },
+        {
+            "date": 1701229774698,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\2023-11-29.error.log",
+            "hash": "6a0ca7a056fa983ce377baf39fac514086d605b8119fa18d2e1a3224f3544161"
+        },
+        {
+            "date": 1701302326361,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\2023-11-30.error.log",
+            "hash": "28013a4ad360e415c61f27b050f9f00fe74de81cd6a57051929dc0b3848e7123"
+        },
+        {
+            "date": 1701356404103,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\2023-12-01.error.log",
+            "hash": "a207c6c6d9938b2fa5767bfc88d7327e62a73febb06f799f33e1e53c298af122"
+        },
+        {
+            "date": 1701494866014,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\2023-12-02.error.log",
+            "hash": "88edb75dccbc3d67d01ab39083f0f611f2b0df499c1ed56c3e422f11b00c6bf5"
+        },
+        {
+            "date": 1701666585037,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\2023-12-04.error.log",
+            "hash": "968195bae37e05a1bdfdeb8551d433be99b3bb6f9dc3e26536cbcc17a339b914"
+        },
+        {
+            "date": 1701863688291,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\2023-12-06.error.log",
+            "hash": "ff627f1f851152fd085dd03fc473fc911eb804e5b54eccb0af1de512448aa93d"
+        },
+        {
+            "date": 1701930494275,
+            "name": "C:\\Users\\alkjf\\WebstormProjects\\error-nest-v1\\ErrorNest\\server\\logs\\error\\2023-12-07.error.log",
+            "hash": "10f3493ff9b6fbb5eb4057dd4c73e3c3ff4594bc3819c2d8f65c2d14ae264a57"
+        }
+    ],
+    "hashType": "sha256"
+}
